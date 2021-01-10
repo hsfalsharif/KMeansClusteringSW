@@ -1,13 +1,14 @@
 import os
 import random
 
-K = 16
+K = 32
 old_means = []
 means = []
 pixel_accumulators = []
 pixel_counters = []
-threshold = 6
+threshold = 1
 stability_list = []
+filename = 'testImage.rgb'
 
 
 def get_data_source(option='read', filename='testImage.rgb', image_size=4000):
@@ -27,15 +28,17 @@ def get_data_source(option='read', filename='testImage.rgb', image_size=4000):
         return gen_file, image_size
 
 
-def k_means(K=16, threshold=6):
+def k_means(K=16, threshold=6, filename='testImage.rgb'):
     global old_means
-    initialize_means(K, 'diagonal')
-    f, image_size = get_data_source('read', 'testImage.rgb')
+    max_r, max_g, max_b, min_r, min_g, min_b = find_min_max(filename=filename)
+    initialize_means(K, 'cube', min_r, max_r, min_g, max_g, min_b, max_b, r_split=2, g_split=4, b_split=4)
+    f, image_size = get_data_source('read', filename=filename)
     red = f.read(1)
     green = f.read(1)
     blue = f.read(1)
-
+    iterations = 0
     while not all(stability_list):  # this is the loop that will compute the means
+        print(iterations)
         for i in range(image_size):
             closest_index = closest_mean_index(red, green, blue)
             pixel_accumulators[closest_index][0] += int.from_bytes(blue, 'little')
@@ -53,7 +56,7 @@ def k_means(K=16, threshold=6):
 
         for i in range(K):
             if pixel_counters[i] != 0:
-                means[i] = [int(accums / pixel_counters[i]) for accums in pixel_accumulators[i]]
+                means[i] = [accums // pixel_counters[i] for accums in pixel_accumulators[i]]
             pixel_accumulators[i] = [0, 0, 0]
             pixel_counters[i] = 0  # clearing accumulators and counters after computing each cluster mean
             stability_list[i] = (abs(means[i][0] - old_means[i][0]) < threshold) and \
@@ -65,19 +68,83 @@ def k_means(K=16, threshold=6):
         # print(stability_list)
         print()
         old_means = means.copy()  # old means is not receiving the old value of the mean
+        iterations += 1
 
 
-def initialize_means(K=16, option='diagonal'):
+def initialize_means(K=16, option='diagonal', min_r=0, max_r=255, min_g=0, max_g=255, min_b=0, max_b=255, r_split=2,
+                     g_split=2, b_split=2):
     if option == 'diagonal':
         for i in range(K):  # initializing everything based on K
-            old_means.append([i * 16, i * 16, i * 16])
-            means.append([i * 16, i * 16, i * 16])
+            old_means.append([i / K * 255, i / K * 255, i / K * 255])
+            means.append([i / K * 255, i / K * 255, i / K * 255])
             pixel_accumulators.append([0, 0, 0])
             pixel_counters.append(0)
             stability_list.append(False)
     elif option == 'cube':
-        #  TODO: Add cube configuration
-        print("Placeholder")
+        r_range = max_r - min_r  # consider adding margins to max and min values
+        g_range = max_g - min_g
+        b_range = max_b - min_b
+        r_segment = r_range // r_split  # do we assume split values to be even so
+        g_segment = g_range // g_split  # that we can avoid division? (by shifting)
+        b_segment = b_range // b_split
+        r_split_values = [min_r]
+        g_split_values = [min_g]
+        b_split_values = [min_b]
+
+        for i in range(r_split):  # finding the split values in each dimension
+            r_split_values.append(r_split_values[-1] + r_segment)
+        for i in range(g_split):
+            g_split_values.append(g_split_values[-1] + g_segment)
+        for i in range(b_split):
+            b_split_values.append(b_split_values[-1] + b_segment)
+
+        midpoints_r, midpoints_g, midpoints_b = [], [], []
+        for i in range(r_split):
+            midpoints_r.append((r_split_values[i + 1] + r_split_values[i]) // 2)
+        for i in range(g_split):
+            midpoints_g.append((g_split_values[i + 1] + g_split_values[i]) // 2)
+        for i in range(b_split):
+            midpoints_b.append((b_split_values[i + 1] + b_split_values[i]) // 2)
+        for i in range(r_split):
+            for j in range(g_split):
+                for k in range(b_split):
+                    means.append([midpoints_b[k],
+                                  midpoints_g[j],
+                                  midpoints_r[i]])
+                    old_means.append([midpoints_b[k], midpoints_g[j], midpoints_r[i]])
+                    pixel_accumulators.append([0, 0, 0])
+                    pixel_counters.append(0)
+                    stability_list.append(False)
+        print(means)
+        # allow number of segments to be inputs from the user
+        # so far we are restricting ourselves to 3D data
+
+
+def find_min_max(filename='testImage.rgb'):
+    f = open(filename, "rb")
+    red = f.read(1)
+    green = f.read(1)
+    blue = f.read(1)
+    max_r, max_g, max_b = (0).to_bytes(1, 'little'), (0).to_bytes(1, 'little'), (0).to_bytes(1, 'little')
+    min_r, min_g, min_b = (255).to_bytes(1, 'little'), (255).to_bytes(1, 'little'), (255).to_bytes(1, 'little')
+    while red:
+        if red > max_r:
+            max_r = red
+        if green > max_g:
+            max_g = green
+        if blue > max_b:
+            max_b = blue
+        if red < min_r:
+            min_r = red
+        if green < min_g:
+            min_g = green
+        if blue < min_b:
+            min_b = blue
+        red = f.read(1)
+        green = f.read(1)
+        blue = f.read(1)
+    return int.from_bytes(max_r, 'little'), int.from_bytes(max_g, 'little'), int.from_bytes(max_b, 'little'), \
+           int.from_bytes(min_r, 'little'), int.from_bytes(min_g, 'little'), int.from_bytes(min_b, 'little')
 
 
 def distance(x, r, g, b, option='manhattan'):
@@ -130,5 +197,5 @@ def closest_mean(r, g, b):
     return closest
 
 
-k_means(16, 6)
+k_means(K, threshold, filename)
 write_segmented_image('testImage.rgb', 'testImageOut.rgb')
