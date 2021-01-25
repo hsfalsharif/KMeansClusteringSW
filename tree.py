@@ -6,6 +6,7 @@ class Tree:
     class cube:
         center = [] # blue,green,red position
         relative_center = [] # blue,green,red index
+        mean = []
         acc = None
         counter = None
         data = []
