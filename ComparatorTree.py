@@ -3,47 +3,56 @@ class ComparatorTree:
         left = None
         right = None
         D = 0
-        indices = []
 
-        def __init__(self, D, indices):
+        def __init__(self, D=None):
             self.left = None
             self.right = None
             self.D = D
-            self.indices = indices
 
         def to_string(self):
-            return "D: {0}, Indices: {1}".format(self.D, self.indices)
+            return "D: {0}".format(self.D)
 
     root = None
 
-    def __init__(self, D_points, indices):
-        root = self.build(D_points, indices)
+    def __init__(self, means=None):
+        if means is None:
+            means = [0]
+        self.root = self.build(means)
 
-    def build(self, D_points, indices):
-        size = len(D_points)
+    def build(self, a):
+        size = len(a)
+        if size == 2:
+            x = self.Node((a[0] + a[1]) // 2)
+            x.left = self.Node(a[0])
+            x.right = self.Node(a[1])
+            return x
         if size == 1:
-            return self.Node(D_points[0], indices[0])
-        left = self.build(D_points[0:size / 2], indices[0:size / 2])
-        right = self.build(D_points[size / 2 + 1:size], indices[size / 2 + 1:size])
-        center = self.Node(D_points[size / 2], indices)
-        center.left = left
-        center.right = right
+            return self.Node(a[0])
+        middle = a[len(a) // 2 - 1:len(a) // 2 + 1]
+        avg = (middle[0] + middle[1]) // 2
+        center = self.Node(avg)
+        center.left = self.build(a[0:size // 2])
+        center.right = self.build(a[size // 2:])
+
         return center
 
     def traverse(self, current, point):
         if current.left is None and current.right is None:
-            return current
-        if point < current.D:
+            return current.D
+        if point <= current.D:
             return self.traverse(current.left, point)
         else:
             return self.traverse(current.right, point)
 
-    def to_string(self):
-        return self.concatenate(self.root)
+    # def to_string(self):  # this has an error so don't use it
+    #     return self.concatenate(self.root)
 
-    def concatenate(self, node):
-        if node is None:
-            return ""
-        left_string = self.concatenate(node.left)
-        right_string = self.concatenate(node.right)
-        return "\t{1}\t\n{0}\t\t{2}".format(left_string, node.to_string(), right_string)
+    # def concatenate(self, node, level=0):
+    #     if node is None:
+    #         return ""
+    #     left = self.concatenate(node.left, level + 1)
+    #     right = self.concatenate(node.right, level + 1)
+    #     s = left
+    #     s += "{0} -> {1} {2}".format(' ' * 4 * (len(self.root.means) - level), node.D, node.means)
+    #     s += right
+    #     return s
