@@ -1,6 +1,7 @@
 import os
 import random
 from ComparatorTree import ComparatorTree
+import math
 
 K = 32
 old_means = []
@@ -21,6 +22,7 @@ filename = 'pictures/perfect.rgb'
 red_tree = ComparatorTree()
 green_tree = ComparatorTree()
 blue_tree = ComparatorTree()
+im_size = 1
 
 
 def get_data_source(option='read', filename='testImage.rgb', image_size=4000):
@@ -41,14 +43,14 @@ def get_data_source(option='read', filename='testImage.rgb', image_size=4000):
 
 
 def k_means(K=16, threshold=6, filename='testImage.rgb', option='manhattan'):
-    global old_means, r_split, g_split, b_split, old_means_r, old_means_g, old_means_b
+    global old_means, r_split, g_split, b_split, old_means_r, old_means_g, old_means_b, im_size
     max_r, max_g, max_b, min_r, min_g, min_b = find_min_max(filename=filename)
-    r_split = 3
-    g_split = 3
-    b_split = 3
+    r_split = 4
+    g_split = 4
+    b_split = 4
     initialize_means(K, 'cube', min_r, max_r, min_g, max_g, min_b, max_b,  # might need to account for this
-                                                             r_split, g_split, b_split)
-    f, image_size = get_data_source('read', filename=filename)
+                     r_split, g_split, b_split)
+    f, im_size = get_data_source('read', filename=filename)
     red = f.read(1)
     green = f.read(1)
     blue = f.read(1)
@@ -56,14 +58,15 @@ def k_means(K=16, threshold=6, filename='testImage.rgb', option='manhattan'):
     if option == 'manhattan':
         while not all(stability_list):  # this is the loop that will compute the means
             print(iterations)
-            for i in range(image_size):
+            for i in range(im_size):
                 closest_index = closest_mean_index(red, green, blue, 'root_sum_squares')
                 closest_index2 = closest_mean_index(red, green, blue, 'tree')
                 if closest_index != closest_index2:
-                    print("Means RSS: {0}, Means Tree: {1}, RGB: {2}".format(means[closest_index], means[closest_index2],
-                                                                                   [int.from_bytes(red, 'little'),
-                                                                                    int.from_bytes(green, 'little'),
-                                                                                    int.from_bytes(blue, 'little')]))
+                    print(
+                        "Means RSS: {0}, Means Tree: {1}, RGB: {2}".format(means[closest_index], means[closest_index2],
+                                                                           [int.from_bytes(red, 'little'),
+                                                                            int.from_bytes(green, 'little'),
+                                                                            int.from_bytes(blue, 'little')]))
                 pixel_accumulators[closest_index][0] += int.from_bytes(blue, 'little')
                 pixel_accumulators[closest_index][1] += int.from_bytes(green, 'little')
                 pixel_accumulators[closest_index][2] += int.from_bytes(red, 'little')
@@ -95,9 +98,10 @@ def k_means(K=16, threshold=6, filename='testImage.rgb', option='manhattan'):
             update_tree()
             iterations += 1
     elif option == 'tree':
-        while not all(stability_list_r) and not all(stability_list_g) and not all(stability_list_b):  # this is the loop that will compute the means
+        while not all(stability_list_r) and not all(stability_list_g) and not all(
+                stability_list_b):  # this is the loop that will compute the means
             print(iterations)
-            for i in range(image_size):
+            for i in range(im_size):
                 closest_index_r, closest_index_g, closest_index_b = closest_mean_index(red, green, blue, option)
                 pixel_accumulators_r[closest_index_r] += int.from_bytes(red, 'little')
                 pixel_accumulators_g[closest_index_g] += int.from_bytes(green, 'little')
@@ -145,18 +149,14 @@ def k_means(K=16, threshold=6, filename='testImage.rgb', option='manhattan'):
             print(means_g)
             print(means_b)
 
+
 def grow_tree(dim_means):
     tree = ComparatorTree(dim_means)
-    # print(tree.to_string())
     return tree
 
 
 def update_tree():
     global means, red_tree, green_tree, blue_tree, means_r, means_g, means_b
-    # for i in means:
-    #     means_r.append(i[2])
-    #     means_g.append(i[1])
-    #     means_b.append(i[0])
     means_r = list(set(means_r))  # make sure that these are sorted through the debugger
     means_g = list(set(means_g))
     means_b = list(set(means_b))
@@ -177,24 +177,9 @@ def initialize_means(K=16, option='diagonal', min_r=0, max_r=255, min_g=0, max_g
             pixel_counters.append(0)
             stability_list.append(False)
     elif option == 'cube':
-        for i in range(r_split):
-            old_means_r.append(int(i / r_split * 255))
-            means_r.append(int(i / r_split * 255))
-            pixel_accumulators_r.append(0)
-            pixel_counters_r.append(0)
-            stability_list_r.append(False)
-        for i in range(g_split):
-            old_means_g.append(int(i / g_split * 255))
-            means_g.append(int(i / g_split * 255))
-            pixel_accumulators_g.append(0)
-            pixel_counters_g.append(0)
-            stability_list_g.append(False)
-        for i in range(b_split):
-            old_means_b.append(int(i / b_split * 255))
-            means_b.append(int(i / b_split * 255))
-            pixel_accumulators_b.append(0)
-            pixel_counters_b.append(0)
-            stability_list_b.append(False)
+        init_dim_parameters(r_split, old_means_r, means_r, pixel_accumulators_r, pixel_counters_r, stability_list_r)
+        init_dim_parameters(g_split, old_means_g, means_g, pixel_accumulators_g, pixel_counters_g, stability_list_g)
+        init_dim_parameters(b_split, old_means_b, means_b, pixel_accumulators_b, pixel_counters_b, stability_list_b)
         r_range = max_r - min_r  # consider adding margins to max and min values
         g_range = max_g - min_g
         b_range = max_b - min_b
@@ -219,17 +204,6 @@ def initialize_means(K=16, option='diagonal', min_r=0, max_r=255, min_g=0, max_g
             midpoints_g.append((g_split_values[i + 1] + g_split_values[i]) // 2)
         for i in range(b_split):
             midpoints_b.append((b_split_values[i + 1] + b_split_values[i]) // 2)
-        # for i in range(r_split):
-        #     for j in range(g_split):
-        #         for k in range(b_split):
-        #             means.append([midpoints_b[k],
-        #                           midpoints_g[j],
-        #                           midpoints_r[i]])
-        #             old_means.append([midpoints_b[k], midpoints_g[j], midpoints_r[i]])
-        #             pixel_accumulators.append([0, 0, 0])
-        #             pixel_counters.append(0)
-        #             stability_list.append(False)
-
         red_tree = grow_tree(midpoints_r)
         green_tree = grow_tree(midpoints_g)
         blue_tree = grow_tree(midpoints_b)
@@ -294,10 +268,10 @@ def distance(x, r, g, b, option='manhattan'):
 
 def closest_mean_index(r, g, b, option='manhattan'):
     global means
-    if option == 'tree':  # Problem found here: Resultant mean might not be in the list after first iteration
-        closest_idx_r = means_r.index(distance(None, r, g, b, option)[2])  # we do not use means array for tree option
-        closest_idx_g = means_g.index(distance(None, r, g, b, option)[1])  # we do not use means array for tree option
-        closest_idx_b = means_b.index(distance(None, r, g, b, option)[0])  # we do not use means array for tree option
+    if option == 'tree':
+        closest_idx_r = means_r.index(distance(None, r, g, b, option)[2])
+        closest_idx_g = means_g.index(distance(None, r, g, b, option)[1])
+        closest_idx_b = means_b.index(distance(None, r, g, b, option)[0])
         return closest_idx_r, closest_idx_g, closest_idx_b
     else:
         mmin = 1000
@@ -309,6 +283,22 @@ def closest_mean_index(r, g, b, option='manhattan'):
         return closest_idx
 
 
+def next_closest_mean_index(r, g, b, closest_idx_r, closest_idx_g, closest_idx_b):
+    next_means_r = means_r.copy()
+    next_means_g = means_g.copy()
+    next_means_b = means_b.copy()
+    del next_means_r[closest_idx_r]
+    del next_means_g[closest_idx_g]
+    del next_means_b[closest_idx_b]
+    next_means_r_tree = grow_tree(next_means_r)
+    next_means_g_tree = grow_tree(next_means_g)
+    next_means_b_tree = grow_tree(next_means_b)
+    red_mean = next_means_r_tree.traverse(next_means_r_tree.root, r)
+    green_mean = next_means_g_tree.traverse(next_means_g_tree.root, g)
+    blue_mean = next_means_b_tree.traverse(next_means_b_tree.root, b)
+    return red_mean, green_mean, blue_mean
+
+
 def write_segmented_image(in_file='testImage.rgb', outfile='testImageOut.rgb'):
     for i in means_r:
         for j in means_g:
@@ -318,17 +308,47 @@ def write_segmented_image(in_file='testImage.rgb', outfile='testImageOut.rgb'):
     print(means)
     f = open(in_file, "rb")
     o = open(outfile, "wb")
-    red = f.read(1)
+    red = f.read(1)  # bytes
     green = f.read(1)
     blue = f.read(1)
+    r = int.from_bytes(red, 'little')  # ints
+    g = int.from_bytes(green, 'little')
+    b = int.from_bytes(blue, 'little')
+    accum_sil_coefficient = 0
     while red:
-        mean_out = closest_mean(red, green, blue, 'root_sum_squares')
-        o.write(mean_out[2].to_bytes(1, 'little'))
-        o.write(mean_out[1].to_bytes(1, 'little'))
-        o.write(mean_out[0].to_bytes(1, 'little'))
+        mean_out_idx_r, mean_out_idx_g, mean_out_idx_b = closest_mean_index(red, green, blue, 'tree')
+        mean_out_r_next, mean_out_g_next, mean_out_b_next = next_closest_mean_index(r, g, b, mean_out_idx_r,
+                                                                                    mean_out_idx_g, mean_out_idx_b)
+        # silhouette coefficient here
+        a_i = math.sqrt((means_r[mean_out_idx_r] - r) ** 2 + (means_g[mean_out_idx_g] - g) ** 2 +
+                        (means_b[mean_out_idx_b] - b) ** 2)
+        b_i = math.sqrt((mean_out_r_next - r) ** 2 + (mean_out_g_next - g) ** 2 +
+                        (mean_out_b_next - b) ** 2)
+        #print("R: %d, G: %d, B: %d, Closest => R: %d, G: %d, B: %d, Next Closest => R: %d, G: %d, B: %d" % (r, g, b,
+        #                                                                                                    mean_out_r_next,
+        #                                                                                                    mean_out_g_next,
+        #                                                                                                    mean_out_b_next,
+        #                                                                                                    means_r[
+        #                                                                                                        mean_out_idx_r],
+        #                                                                                                    means_g[
+        #                                                                                                        mean_out_idx_g],
+        #                                                                                                    means_b[
+        #                                                                                                        mean_out_idx_b]))
+        sil_coefficient = (b_i - a_i) / max(a_i, b_i)
+        if sil_coefficient <= 0:
+            print(sil_coefficient)
+        accum_sil_coefficient += sil_coefficient
+        o.write(means_r[mean_out_idx_r].to_bytes(1, 'little'))
+        o.write(means_g[mean_out_idx_g].to_bytes(1, 'little'))
+        o.write(means_b[mean_out_idx_b].to_bytes(1, 'little'))
         red = f.read(1)
         green = f.read(1)
         blue = f.read(1)
+        r = int.from_bytes(red, 'little')  # ints
+        g = int.from_bytes(green, 'little')
+        b = int.from_bytes(blue, 'little')
+    avg_sil_coefficient = accum_sil_coefficient / im_size
+    print("Average Silhouette Coefficient = ", avg_sil_coefficient)
 
 
 def closest_mean(r, g, b, option='manhattan'):
@@ -340,6 +360,16 @@ def closest_mean(r, g, b, option='manhattan'):
             mmin = distance(means[x], r, g, b, option)
             closest = means[x]
     return closest
+
+
+def init_dim_parameters(dim_split, old_means_dim, means_dim, pixel_accumulators_dim, pixel_counters_dim,
+                        stability_list_dim):
+    for i in range(dim_split):
+        old_means_dim.append(int(i / r_split * 255))
+        means_dim.append(int(i / r_split * 255))
+        pixel_accumulators_dim.append(0)
+        pixel_counters_dim.append(0)
+        stability_list_dim.append(False)
 
 
 k_means(K, threshold, filename, 'tree')
