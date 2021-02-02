@@ -1,4 +1,14 @@
 #%%
+# -*- coding: utf-8 -*-
+# <nbformat>3.0</nbformat>
+
+# <markdowncell>
+
+# The simplest notebook. Markdown cells are embedded in comments, 
+# so the file is a valid `python` script. 
+# Be sure to **leave a space** after the comment character!
+
+# <codecell>
 from sklearn.datasets import make_blobs
 #from matplotlib import pyplot
 #import matplotlib.pyplot as plt
@@ -308,4 +318,10 @@ x.generate_data()
 x.divide_space_equally(2,3,4)
 x.plot_data()
 ###########################################################################################
+
+
+# <rawcell>
+
+# Raw cell contents are not formatted as markdown
+
 # %%
