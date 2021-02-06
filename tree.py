@@ -5,7 +5,7 @@ from sklearn.datasets import make_blobs
 import mock
 import plotly.graph_objects as go
 
-
+import random
 
 
 
@@ -19,6 +19,8 @@ class Tree:
         D = None
         left = None
         right = None
+        def __init__(self,D):
+            self.D = D
         def print(self):
             if self.right != None :
                 self.right.printTree(True, "")
@@ -26,7 +28,7 @@ class Tree:
             print(self.D)
             if self.left != None: 
                 self.left.printTree(False, "")
-        
+
         def printTree(self, isRight, indent):
             if self.right != None:
                 if isRight:
@@ -48,17 +50,30 @@ class Tree:
                     self.left.printTree(False, indent + " |      " )
                 else :
                     self.left.printTree(False, indent + "        ")
+                    
+        def traverse(self,point):
+            if self.left is None and self.right is None:
+                return self.D
+            if point <= self.D:
+                return self.left.traverse(point)
+            else:
+                return self.right.traverse(point)
+
+    
     class cube:
-        center = [] # blue,green,red position
-        relative_center = [] # blue,green,red index
-        acc = None
-        counter = None
-        data = []
+        def __init__(self):
+            self.center = [] # blue,green,red position
+            self.relative_center = [] # blue,green,red index
+            self.acc = [0,0,0]
+            self.counter = 0
+            self.data = []
+            self.color = "#{:06x}".format(random.randint(0, 0xFFFFFF))
 
     root = None
     data = []
     means = []
     cubes = []
+    trees = []
     # number of dimention splits
     red_segments   = 4
     blue_segments  = 4
@@ -158,12 +173,36 @@ class Tree:
                             opacity=0.09
                         )  for i in self.blue_cut_points]
         
-        data=[
-                go.Scatter3d(x=r_data,y=g_data,z=b_data,mode='markers',marker=dict(size=3,)),
-                go.Scatter3d(x=r_mean_exact,y=g_mean_exact,z=b_mean_exact,mode='markers',marker=dict(size=3,color='red')),                
-                go.Scatter3d(x=r_cubic_means,y=g_cubic_means,z=b_cubic_means,mode='markers',marker=dict(size=3,color='gold')),
+        #data=[
+        #    
+        #        go.Scatter3d(x=r_data,y=g_data,z=b_data,mode='markers',marker=dict(size=3,)),
+        #        go.Scatter3d(x=r_mean_exact,y=g_mean_exact,z=b_mean_exact,mode='markers',marker=dict(size=3,color='red')),                
+        #        go.Scatter3d(x=r_cubic_means,y=g_cubic_means,z=b_cubic_means,mode='markers',marker=dict(size=3,color='gold')),
+        #
+        #    ]
 
-            ]
+        data = []
+        cube_centers_x = []
+        cube_centers_y = []
+        cube_centers_z = []
+
+
+        for cube in self.cubes:
+            cube_centers_x.append(cube.center[0])
+            cube_centers_y.append(cube.center[1])
+            cube_centers_z.append(cube.center[2])
+            data_x = [r for r,g,b in cube.data]
+            data_y = [g for r,g,b in cube.data]
+            data_z = [b for r,g,b in cube.data]
+            data.append(
+                go.Scatter3d(x=data_x,y=data_y,z=data_z,mode='markers',marker=dict(size=3,color=cube.color))
+            )
+
+        data.append(
+            go.Scatter3d(x=cube_centers_x,y=cube_centers_y,z=cube_centers_z,mode='markers',marker=dict(size=3,color='gold'))
+        )
+
+
         data = data + red_dividers + green_dividers + blue_dividers
         pl = go.Figure(data)
 
@@ -178,8 +217,22 @@ class Tree:
         self.data = []
     def build_tree_breadthfirst(self,arr):
         pass
-    def build_tree_average(self):
-        pass
+    def build_tree_average(self,a):
+        size = len(a)
+        if size == 2:
+            x = self.node((a[0] + a[1]) // 2)
+            x.left = self.node(a[0])
+            x.right = self.node(a[1])
+            return x
+        if size == 1:
+            return self.node(a[0])
+        middle = a[len(a) // 2 - 1:len(a) // 2 + 1]
+        avg = (middle[0] + middle[1]) // 2
+        center = self.node(avg)
+        center.left = self.build_tree_average(a[0:size // 2])
+        center.right = self.build_tree_average(a[size // 2:])
+
+        return center
     # give it a mean and it will return the cube that contains the mean 
     def mean_to_cube(self,mean):
         pass
@@ -189,6 +242,19 @@ class Tree:
     # give it a data point it will accumlate it's containing cube 
     def accumolate(self,point):
         pass
+
+
+
+    def center_to_cube(self,center):
+        for c in self.cubes:
+            if c.center == center:
+                return c
+
+        
+        print("Cant find cube with center : ", center , " in cubes :", [cube.center for cube in self.cubes])
+        exit(1)
+
+
     def initilze_cubes(self):
         r_cuts = [self.red_limits[0]] + self.red_cut_points + [self.red_limits[1]]
         g_cuts = [self.green_limits[0]] + self.green_cut_points + [self.green_limits[1]]
@@ -201,11 +267,46 @@ class Tree:
         for i in r:
             for j in g:
                 for k in b:
-                    self.cubic_means.append([i,j,k])
+                    c = self.cube()
+                    c.center = [i,j,k]
+                    self.cubes.append(c)
+                    self.cubic_means.append([i,j,k]) # remove me .
+        
+        self.trees.append(self.build_tree_average(r))
+        self.trees.append(self.build_tree_average(g))
+        self.trees.append(self.build_tree_average(b))
+
+        self.trees[0].print()
+        self.trees[1].print()
+        self.trees[2].print()
+
+
+
+
         
     # main algorithem
     def cluster_data(self):
-        pass
+        red_tree = self.trees[0]
+        green_tree = self.trees[1]
+        blue_tree = self.trees[2]
+        
+        # binning
+        for x in self.data:
+            r_center = red_tree.traverse(x[0])
+            g_center = green_tree.traverse(x[1])
+            b_center = blue_tree.traverse(x[2])
+            cube = self.center_to_cube([r_center,g_center,b_center])
+            cube.data.append(x)
+            cube.acc[0] += x[0]
+            cube.acc[1] += x[1]
+            cube.acc[2] += x[2]
+            cube.counter += 1
+
+        # Check if zero cluster
+        # update the space dividers
+        # 
+
+
     # loop over the cubes array and update the means
     def update_means(self):
         pass
@@ -303,9 +404,10 @@ class Tree:
     
 ###########################################################################################
 x = Tree()
-x.set_data_options(n_samples=10000,centers=64,dim=3,min_max=(0,1000),data_center_divations=10)
+x.set_data_options(n_samples=10000,centers=64,dim=3,min_max=(0,1000),data_center_divations=100)
 x.generate_data()
 x.divide_space_equally(2,3,4)
+x.cluster_data()
 x.plot_data()
 ###########################################################################################
 # %%
