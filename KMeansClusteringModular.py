@@ -2,6 +2,7 @@ import os
 import random
 from ComparatorTree import ComparatorTree
 import math
+import matplotlib.pyplot as plt
 
 K = 32
 old_means = []
@@ -18,7 +19,7 @@ b_split = 0
 threshold = 1
 stability_list = []  # might need to make stability lists for r, g, b
 stability_list_r, stability_list_g, stability_list_b = [], [], []
-filename = 'pictures/perfect.rgb'
+filename = 'pictures/tree-736885__340.rgb'
 red_tree = ComparatorTree()
 green_tree = ComparatorTree()
 blue_tree = ComparatorTree()
@@ -45,9 +46,9 @@ def get_data_source(option='read', filename='testImage.rgb', image_size=4000):
 def k_means(K=16, threshold=6, filename='testImage.rgb', option='manhattan'):
     global old_means, r_split, g_split, b_split, old_means_r, old_means_g, old_means_b, im_size
     max_r, max_g, max_b, min_r, min_g, min_b = find_min_max(filename=filename)
-    r_split = 4
-    g_split = 4
-    b_split = 4
+    r_split = 2
+    g_split = 2
+    b_split = 5
     initialize_means(K, 'cube', min_r, max_r, min_g, max_g, min_b, max_b,  # might need to account for this
                      r_split, g_split, b_split)
     f, im_size = get_data_source('read', filename=filename)
@@ -315,6 +316,7 @@ def write_segmented_image(in_file='testImage.rgb', outfile='testImageOut.rgb'):
     g = int.from_bytes(green, 'little')
     b = int.from_bytes(blue, 'little')
     accum_sil_coefficient = 0
+    sil_cofs = []
     while red:
         mean_out_idx_r, mean_out_idx_g, mean_out_idx_b = closest_mean_index(red, green, blue, 'tree')
         mean_out_r_next, mean_out_g_next, mean_out_b_next = next_closest_mean_index(r, g, b, mean_out_idx_r,
@@ -324,18 +326,9 @@ def write_segmented_image(in_file='testImage.rgb', outfile='testImageOut.rgb'):
                         (means_b[mean_out_idx_b] - b) ** 2)
         b_i = math.sqrt((mean_out_r_next - r) ** 2 + (mean_out_g_next - g) ** 2 +
                         (mean_out_b_next - b) ** 2)
-        #print("R: %d, G: %d, B: %d, Closest => R: %d, G: %d, B: %d, Next Closest => R: %d, G: %d, B: %d" % (r, g, b,
-        #                                                                                                    mean_out_r_next,
-        #                                                                                                    mean_out_g_next,
-        #                                                                                                    mean_out_b_next,
-        #                                                                                                    means_r[
-        #                                                                                                        mean_out_idx_r],
-        #                                                                                                    means_g[
-        #                                                                                                        mean_out_idx_g],
-        #                                                                                                    means_b[
-        #                                                                                                        mean_out_idx_b]))
         sil_coefficient = (b_i - a_i) / max(a_i, b_i)
-        if sil_coefficient <= 0:
+        sil_cofs.append(sil_coefficient)
+        if sil_coefficient < 0:
             print(sil_coefficient)
         accum_sil_coefficient += sil_coefficient
         o.write(means_r[mean_out_idx_r].to_bytes(1, 'little'))
@@ -348,6 +341,11 @@ def write_segmented_image(in_file='testImage.rgb', outfile='testImageOut.rgb'):
         g = int.from_bytes(green, 'little')
         b = int.from_bytes(blue, 'little')
     avg_sil_coefficient = accum_sil_coefficient / im_size
+    plt.hist(sil_cofs, bins=60)
+    plt.title('Histogram of Silhouette Coefficients for an image')
+    plt.xlabel("Silhouette Coefficients")
+    plt.ylabel("Frequency")
+    plt.show()
     print("Average Silhouette Coefficient = ", avg_sil_coefficient)
 
 
