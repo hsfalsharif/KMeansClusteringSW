@@ -357,8 +357,13 @@ class Tree:
             itr += 1
         # after the algorithm done , translate the rows into cubes to plot them  
         self.rows_to_cubes()
+        true_cubes = []
+        for i in range(len(self.cubes)):
+            if len(self.cubes[i].data) != 0:
+                true_cubes.append(self.cubes[i])
 
-        #
+        self.cubes = true_cubes
+       #
         # cube = self.center_to_cube([r_center,g_center,b_center])
         # cube.data.append(x)
         # cube.acc[0] += x[0]
