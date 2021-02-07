@@ -69,10 +69,32 @@ class Tree:
             self.data = []
             self.color = "#{:06x}".format(random.randint(0, 0xFFFFFF))
 
+    class row:
+        def __init__(self):
+            self.center = 0
+            self.relative_center = [] # blue,green,red index
+            self.acc = 0
+            self.counter = 0
+            self.data = []
+            self.color = "#{:06x}".format(random.randint(0, 0xFFFFFF))
+            self.stable = False
+            self.threshold = 2
+        def update(self):
+            new_center =  self.acc // self.counter
+            if abs(new_center - self.center) < self.threshold:
+                self.stable = True
+            self.center = new_center
+            self.acc = 0
+            self.counter = 0
+            self.data = []
+
     root = None
     data = []
     means = []
     cubes = []
+    r_rows = []
+    g_rows = []
+    b_rows = []
     trees = []
     # number of dimention splits
     red_segments   = 4
@@ -264,14 +286,24 @@ class Tree:
         g = [(g_cuts[i + 1] + g_cuts[i]) // 2 for i in range(self.green_segments)]
         b = [(b_cuts[i + 1] + b_cuts[i]) // 2 for i in range(self.blue_segments)]
         print(r,g,b)
+
         for i in r:
-            for j in g:
-                for k in b:
-                    c = self.cube()
-                    c.center = [i,j,k]
-                    self.cubes.append(c)
-                    self.cubic_means.append([i,j,k]) # remove me .
+            r_row = self.row()
+            r_row.center = i
+            self.r_rows.append(r_row)
+
+        for j in g:
+            g_row = self.row()
+            g_row.center = j
+            self.g_rows.append(g_row)
         
+        for k in b:
+            b_row = self.row()
+            b_row.center = k
+            self.b_rows.append(b_row)
+
+        
+
         self.trees.append(self.build_tree_average(r))
         self.trees.append(self.build_tree_average(g))
         self.trees.append(self.build_tree_average(b))
@@ -286,27 +318,111 @@ class Tree:
         
     # main algorithem
     def cluster_data(self):
-        red_tree = self.trees[0]
-        green_tree = self.trees[1]
-        blue_tree = self.trees[2]
         
         # binning
-        for x in self.data:
-            r_center = red_tree.traverse(x[0])
-            g_center = green_tree.traverse(x[1])
-            b_center = blue_tree.traverse(x[2])
-            cube = self.center_to_cube([r_center,g_center,b_center])
-            cube.data.append(x)
-            cube.acc[0] += x[0]
-            cube.acc[1] += x[1]
-            cube.acc[2] += x[2]
-            cube.counter += 1
+        itr = 1
+        stable = False
+        while not stable:
+            stable = True
+            red_tree   = self.trees[0]
+            green_tree = self.trees[1]
+            blue_tree  = self.trees[2]
+        
+            for x in self.data:
+                r_center = red_tree.traverse(x[0])
+                g_center = green_tree.traverse(x[1])
+                b_center = blue_tree.traverse(x[2])
+                r_row,g_row,b_row = self.center_to_row([r_center,g_center,b_center])
+
+                r_row.data.append(x)
+                r_row.acc += x[0]
+                r_row.counter += 1
+
+                g_row.data.append(x)
+                g_row.acc += x[1]
+                g_row.counter += 1
+                
+                b_row.data.append(x)
+                b_row.acc += x[2]
+                b_row.counter += 1
+
+            r = []
+            g = []
+            b = []
+            # UPDATE THE TREES
+            for i in self.r_rows: 
+                i.update()
+                r.append(i.center)
+                if i.stable == False:
+                    stable = False
+
+            for i in self.g_rows: 
+                i.update()
+                g.append(i.center)
+                if i.stable == False:
+                    stable = False
+
+            for i in self.b_rows: 
+                i.update()
+                b.append(i.center)
+                if i.stable == False:
+                    stable = False
+
+            self.trees[0] = self.build_tree_average(r)     
+            self.trees[1] = self.build_tree_average(g)
+            self.trees[2] = self.build_tree_average(b)
+
+
+
+            print("#####################################")
+            print("Iteration: {0}".format(itr))
+            self.trees[0].print()
+            self.trees[1].print()
+            self.trees[2].print()
+            print("#####################################")
+        
+            itr += 1
+            
+
+
+
+
+
+
+            #
+            #cube = self.center_to_cube([r_center,g_center,b_center])
+            #cube.data.append(x)
+            #cube.acc[0] += x[0]
+            #cube.acc[1] += x[1]
+            #cube.acc[2] += x[2]
+            #cube.counter += 1
 
         # Check if zero cluster
         # update the space dividers
         # 
 
+    def center_to_row(self,centers):
+        r_row = None
+        g_row = None
+        b_row = None
+        for r in self.r_rows:
+            if r.center == centers[0] : 
+                r_row = r
+        
+        for g in self.g_rows:
+            if g.center == centers[1] : 
+                g_row = g
 
+        for b in self.b_rows:
+            if b.center == centers[2] : 
+                b_row = b
+        
+        if r_row is None or g_row is None or b_row is None:
+            print("error : self.center_to_row  centers:", centers, "r_row :" , r_row,"g_row :", g_row,"b_row :", b_row)
+            exit(1)
+        
+        return r_row,g_row,b_row
+         
     # loop over the cubes array and update the means
     def update_means(self):
         pass
