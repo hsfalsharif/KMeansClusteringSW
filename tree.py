@@ -148,6 +148,7 @@ class Tree:
 
     def plot_data(self):
         m = 1
+        r_cuts,g_cuts,b_cuts = self.cuts_on_axis()
         red_dividers = [go.Mesh3d(
             # 8 vertices of a cube
             x=[i - m, i - m, i + m, i + m, i - m, i + m, i - m, i - m],
@@ -164,7 +165,7 @@ class Tree:
             name='red divider',
             showscale=False,
             opacity=0.09
-        ) for i in self.red_cut_points]
+        ) for i in r_cuts]
 
         green_dividers = [go.Mesh3d(
             # 8 vertices of a cube
@@ -182,7 +183,7 @@ class Tree:
             name='green divider',
             showscale=False,
             opacity=0.09
-        ) for i in self.green_cut_points]
+        ) for i in g_cuts]
 
         blue_dividers = [go.Mesh3d(
             # 8 vertices of a cube
@@ -200,7 +201,7 @@ class Tree:
             name='blue divider',
             showscale=False,
             opacity=0.09
-        ) for i in self.blue_cut_points]
+        ) for i in b_cuts]
 
         data = []
         cube_centers_x = []
@@ -497,6 +498,17 @@ class Tree:
               self.blue_cut_points)
 
         self.initialize_cubes()
+    def cuts_on_axis(self):
+        r_mid = sorted(set([cube.center[0] for cube in self.cubes]))
+        g_mid = sorted(set([cube.center[1] for cube in self.cubes]))
+        b_mid = sorted(set([cube.center[2] for cube in self.cubes]))
+        print(r_mid,g_mid,b_mid)
+        
+        r_cuts = [(i+j)//2 for i,j in zip(r_mid,r_mid[1:])]
+        g_cuts = [(i+j)//2 for i,j in zip(g_mid,g_mid[1:])]
+        b_cuts = [(i+j)//2 for i,j in zip(b_mid,b_mid[1:])]
+        print(r_cuts,g_cuts,b_cuts)
+        return r_cuts,g_cuts,b_cuts
 
     def printTree(self):
         self.root.print()
