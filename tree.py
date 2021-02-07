@@ -1,8 +1,10 @@
 # %%
+import math
+
 from sklearn.datasets import make_blobs
 import mock
 import plotly.graph_objects as go
-
+import matplotlib.pyplot as plt
 import random
 
 
@@ -500,6 +502,44 @@ class Tree:
 
         self.initialize_cubes()
 
+    def next_closest_mean_index(self, r, g, b, centre_r, centre_g, centre_b):
+        next_means_r = [r.center for r in self.r_rows]
+        next_means_g = [g.center for g in self.g_rows]
+        next_means_b = [b.center for b in self.b_rows]
+        del next_means_r[next_means_r.index(centre_r)]
+        del next_means_g[next_means_g.index(centre_g)]
+        del next_means_b[next_means_b.index(centre_b)]
+        next_means_r_tree = self.build_tree_average(next_means_r)
+        next_means_g_tree = self.build_tree_average(next_means_g)
+        next_means_b_tree = self.build_tree_average(next_means_b)
+        red_mean = next_means_r_tree.traverse(r)
+        green_mean = next_means_g_tree.traverse(g)
+        blue_mean = next_means_b_tree.traverse(b)
+        return red_mean, green_mean, blue_mean
+
+    def silhouette_coefficient(self):
+        sil_accum = 0
+        sil_cofs = []
+        for cube in self.cubes:
+            for point in cube.data:
+                next_r, next_g, next_b = self.next_closest_mean_index(point[0], point[1], point[2], cube.center[0],
+                                                                      cube.center[1], cube.center[2])
+                a_i = math.sqrt((cube.center[0] - point[0]) ** 2 + (cube.center[1] - point[1]) ** 2 +
+                                (cube.center[2] - point[2]) ** 2)
+                b_i = math.sqrt((next_r - point[0]) ** 2 + (next_g - point[1]) ** 2 +
+                                (next_b - point[2]) ** 2)
+                sil_coefficient = (b_i - a_i) / max(a_i, b_i)
+                sil_cofs.append(sil_coefficient)
+                if sil_coefficient < 0:
+                    print(sil_coefficient)
+                sil_accum += sil_coefficient
+        plt.hist(sil_cofs, bins=60)
+        plt.title('Histogram of Silhouette Coefficients for an image')
+        plt.xlabel("Silhouette Coefficients")
+        plt.ylabel("Frequency")
+        plt.show()
+        print("Average Silhouette Coefficient = ", sil_accum / len(sil_cofs))
+
     def cuts_on_axis(self):
         r_mid = sorted(set([cube.center[0] for cube in self.cubes]))
         g_mid = sorted(set([cube.center[1] for cube in self.cubes]))
@@ -518,11 +558,12 @@ class Tree:
 
 ###########################################################################################
 x = Tree()
-x.set_data_options(n_samples=10000, centers=64, dim=3, min_max=(0, 255), data_center_deviations=10)
-# x.generate_data()
-x.get_data_from_image(filename='testImage.rgb')
+x.set_data_options(n_samples=10000, centers=64, dim=3, min_max=(0, 255), data_center_deviations=100)
+x.generate_data()
+# x.get_data_from_image(filename='testImage.rgb')
 x.divide_space_equally(2, 3, 2)
 x.cluster_data()
 x.plot_data()
+x.silhouette_coefficient()
 ###########################################################################################
 # %%
