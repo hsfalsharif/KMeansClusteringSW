@@ -95,9 +95,9 @@ class Tree:
     b_rows = []
     trees = []
     # number of dimension splits
-    red_segments = 4
-    blue_segments = 4
-    green_segments = 4
+    red_segments = 2
+    blue_segments = 2
+    green_segments = 2
 
     red_cut_points = []
     green_cut_points = []
@@ -114,12 +114,12 @@ class Tree:
     data_accumolator = 0
     data_options = mock.Mock()
 
-    def set_data_options(self, n_samples=100, centers=10, dim=3, min_max=(0, 255), data_center_divations=10):
+    def set_data_options(self, n_samples=100, centers=10, dim=3, min_max=(0, 255), data_center_deviations=10):
         self.data_options.n_samples = n_samples
         self.data_options.centers = centers
         self.data_options.n_features = dim
         self.data_options.center_box = min_max
-        self.data_options.cluster_std = data_center_divations
+        self.data_options.cluster_std = data_center_deviations
 
     def generate_data(self):
         self.clear_dataset()
@@ -148,7 +148,7 @@ class Tree:
 
     def plot_data(self):
         m = 1
-        r_cuts,g_cuts,b_cuts = self.cuts_on_axis()
+        r_cuts, g_cuts, b_cuts = self.cuts_on_axis()
         red_dividers = [go.Mesh3d(
             # 8 vertices of a cube
             x=[i - m, i - m, i + m, i + m, i - m, i + m, i - m, i - m],
@@ -364,17 +364,18 @@ class Tree:
                 true_cubes.append(self.cubes[i])
 
         self.cubes = true_cubes
-       #
-        # cube = self.center_to_cube([r_center,g_center,b_center])
-        # cube.data.append(x)
-        # cube.acc[0] += x[0]
-        # cube.acc[1] += x[1]
-        # cube.acc[2] += x[2]
-        # cube.counter += 1
 
-        # Check if zero cluster
-        # update the space dividers
-        # 
+    #
+    # cube = self.center_to_cube([r_center,g_center,b_center])
+    # cube.data.append(x)
+    # cube.acc[0] += x[0]
+    # cube.acc[1] += x[1]
+    # cube.acc[2] += x[2]
+    # cube.counter += 1
+
+    # Check if zero cluster
+    # update the space dividers
+    #
 
     def rows_to_cubes(self):
         for r in self.r_rows:
@@ -498,17 +499,18 @@ class Tree:
               self.blue_cut_points)
 
         self.initialize_cubes()
+
     def cuts_on_axis(self):
         r_mid = sorted(set([cube.center[0] for cube in self.cubes]))
         g_mid = sorted(set([cube.center[1] for cube in self.cubes]))
         b_mid = sorted(set([cube.center[2] for cube in self.cubes]))
-        print(r_mid,g_mid,b_mid)
-        
-        r_cuts = [(i+j)//2 for i,j in zip(r_mid,r_mid[1:])]
-        g_cuts = [(i+j)//2 for i,j in zip(g_mid,g_mid[1:])]
-        b_cuts = [(i+j)//2 for i,j in zip(b_mid,b_mid[1:])]
-        print(r_cuts,g_cuts,b_cuts)
-        return r_cuts,g_cuts,b_cuts
+        print(r_mid, g_mid, b_mid)
+
+        r_cuts = [(i + j) // 2 for i, j in zip(r_mid, r_mid[1:])]
+        g_cuts = [(i + j) // 2 for i, j in zip(g_mid, g_mid[1:])]
+        b_cuts = [(i + j) // 2 for i, j in zip(b_mid, b_mid[1:])]
+        print(r_cuts, g_cuts, b_cuts)
+        return r_cuts, g_cuts, b_cuts
 
     def printTree(self):
         self.root.print()
@@ -516,10 +518,10 @@ class Tree:
 
 ###########################################################################################
 x = Tree()
-x.set_data_options(n_samples=10000, centers=64, dim=3, min_max=(0, 255), data_center_divations=10)
-#x.generate_data()
-x.get_data_from_image()
-x.divide_space_equally(2, 3, 4)
+x.set_data_options(n_samples=10000, centers=64, dim=3, min_max=(0, 255), data_center_deviations=10)
+# x.generate_data()
+x.get_data_from_image(filename='testImage.rgb')
+x.divide_space_equally(2, 3, 2)
 x.cluster_data()
 x.plot_data()
 ###########################################################################################
