@@ -132,7 +132,18 @@ class Tree:
         for r, g, b in X:
             self.append_point([int(round(r, 0)), int(round(g, 0)), int(round(b, 0))])
 
-    def plot_data(self, data=None):
+    def get_data_from_image(self, filename='testImage.rgb'):
+        f = open(filename, "rb")
+        red = f.read(1)
+        green = f.read(1)
+        blue = f.read(1)
+        while red:
+            self.data.append([red, green, blue])
+            red = f.read(1)
+            green = f.read(1)
+            blue = f.read(1)
+
+    def plot_data(self):
         m = 1
         red_dividers = [go.Mesh3d(
             # 8 vertices of a cube
