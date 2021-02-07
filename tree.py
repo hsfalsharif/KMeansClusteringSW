@@ -138,7 +138,10 @@ class Tree:
         green = f.read(1)
         blue = f.read(1)
         while red:
-            self.data.append([red, green, blue])
+            r_int = int.from_bytes(red, 'little')
+            g_int = int.from_bytes(green, 'little')
+            b_int = int.from_bytes(blue, 'little')
+            self.append_point([r_int, g_int, b_int])
             red = f.read(1)
             green = f.read(1)
             blue = f.read(1)
@@ -496,8 +499,9 @@ class Tree:
 
 ###########################################################################################
 x = Tree()
-x.set_data_options(n_samples=10000, centers=64, dim=3, min_max=(0, 1000), data_center_divations=10)
-x.generate_data()
+x.set_data_options(n_samples=10000, centers=64, dim=3, min_max=(0, 255), data_center_divations=10)
+#x.generate_data()
+x.get_data_from_image()
 x.divide_space_equally(2, 3, 4)
 x.cluster_data()
 x.plot_data()
