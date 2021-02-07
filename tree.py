@@ -313,8 +313,6 @@ class Tree:
         self.trees[2].print()
 
 
-
-
         
     # main algorithem
     def cluster_data(self):
@@ -382,12 +380,8 @@ class Tree:
             print("#####################################")
         
             itr += 1
-            
-
-
-
-
-
+        # after the algorithm done , translate the rows into cubes to plot them  
+        self.rows_to_cubes()
 
             #
             #cube = self.center_to_cube([r_center,g_center,b_center])
@@ -400,6 +394,24 @@ class Tree:
         # Check if zero cluster
         # update the space dividers
         # 
+    def rows_to_cubes(self):
+        for r in self.r_rows:
+            for g in self.g_rows:
+                for b in self.b_rows:
+                    c = self.cube()
+                    c.center = [r.center,g.center,b.center]
+                    self.cubes.append(c)
+        
+        for x in self.data:
+            r_center = self.trees[0].traverse(x[0])
+            g_center = self.trees[1].traverse(x[1])
+            b_center = self.trees[2].traverse(x[2])
+            cube = self.center_to_cube([r_center,g_center,b_center])
+            cube.data.append(x)
+            cube.acc[0] += x[0]
+            cube.acc[1] += x[1]
+            cube.acc[2] += x[2]
+            cube.counter += 1
 
     def center_to_row(self,centers):
         r_row = None
@@ -520,7 +532,7 @@ class Tree:
     
 ###########################################################################################
 x = Tree()
-x.set_data_options(n_samples=10000,centers=64,dim=3,min_max=(0,1000),data_center_divations=100)
+x.set_data_options(n_samples=10000,centers=64,dim=3,min_max=(0,1000),data_center_divations=10)
 x.generate_data()
 x.divide_space_equally(2,3,4)
 x.cluster_data()
