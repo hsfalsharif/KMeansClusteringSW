@@ -117,6 +117,7 @@ class Tree:
     cubic_means = []
     data_accumulator = 0
     data_options = mock.Mock()
+    iterations = 1
 
     def set_data_options(self, n_samples=100, centers=10, dim=3, min_max=(0, 255), data_center_deviations=10):
         self.data_options.n_samples = n_samples
@@ -340,7 +341,6 @@ class Tree:
     def cluster_data(self):
 
         # binning
-        itr = 1
         stable = False
         while not stable:
             stable = True
@@ -400,13 +400,13 @@ class Tree:
                 i.clear()
 
             print("#####################################")
-            print("Iteration: {0}".format(itr))
+            print("Iteration: {0}".format(self.iterations))
             self.trees[0].print()
             self.trees[1].print()
             self.trees[2].print()
             print("#####################################")
 
-            itr += 1
+            self.iterations += 1
         # after the algorithm done , translate the rows into cubes to plot them  
         self.rows_to_cubes()
         true_cubes = []
@@ -566,6 +566,17 @@ class Tree:
         blue_mean = next_means_b_tree.traverse(b)
         return red_mean, green_mean, blue_mean
 
+    def write_segmented_image(self, outfile='testImageOut.rgb'):
+        o = open(outfile, "wb")
+        for x in self.data:
+            r_center = self.trees[0].traverse(x[0])
+            g_center = self.trees[1].traverse(x[1])
+            b_center = self.trees[2].traverse(x[2])
+            o.write(r_center.to_bytes(1, 'little'))
+            o.write(g_center.to_bytes(1, 'little'))
+            o.write(b_center.to_bytes(1, 'little'))
+        o.close()
+
     def silhouette_coefficient(self):
         sil_accum = 0
         sil_cofs = []
@@ -614,9 +625,11 @@ x = Tree()
 x.set_data_options(n_samples=10000, centers=64, dim=3, min_max=(0, 255), data_center_deviations=100)
 # x.generate_data()
 x.get_data_from_image(filename='pictures/tree-736885__340.rgb')
-x.divide_space_equally(3, 3, 3)
+x.divide_space_equally(5, 5, 5)
 x.cluster_data()
+x.write_segmented_image()
 x.plot_data()
 x.silhouette_coefficient()
+print("Number of iterations: ", x.iterations)
 ###########################################################################################
 # %%
