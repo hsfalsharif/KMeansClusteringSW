@@ -236,7 +236,7 @@ class Tree:
     def clear_dataset(self):
         self.data = []
 
-    def build_tree_average(self, a):
+    def build_tree_midpoint(self, a):
         size = len(a)
         if size == 2:
             x = self.node((a[0] + a[1]) // 2)
@@ -248,10 +248,30 @@ class Tree:
         middle = a[len(a) // 2 - 1:len(a) // 2 + 1]
         avg = (middle[0] + middle[1]) // 2
         center = self.node(avg)
-        center.left = self.build_tree_average(a[0:size // 2])
-        center.right = self.build_tree_average(a[size // 2:])
+        center.left = self.build_tree_midpoint(a[0:size // 2])
+        center.right = self.build_tree_midpoint(a[size // 2:])
 
         return center
+
+    def build_tree_average(self, centers):
+        rows = [self.center_to_row(center) for center in centers]
+        return self.build_tree_average_main(rows)
+
+    def build_tree_average_main(self, rows):
+        size = len(rows)
+        if size == 2:
+            x = self.node((rows[0].acc + rows[1].acc) // (rows[0].counter + rows[1].counter))
+            x.left = self.node(rows[0].center)
+            x.right = self.node(rows[1].center)
+            return x
+
+        if size == 1:
+            return self.node(rows[0].center)
+        middle = rows[len(rows) // 2 - 1:len(rows) // 2 + 1]
+        avg = (middle[0].acc + middle[1].acc) // (middle[0].counter + middle[1].counter)
+        center = self.node(avg)
+        center.left = self.build_tree_average(rows[0:size // 2])
+        center.right = self.build_tree_average(rows[size // 2:])
 
     def center_to_cube(self, center):
         for c in self.cubes:
@@ -459,7 +479,7 @@ class Tree:
 
         self.data.append(point)
 
-    def calculate_data_average(self, data=None):
+    def calculate_data_midpoint(self, data=None):
         if data is None:
             data = self.data
         r_acc = 0
