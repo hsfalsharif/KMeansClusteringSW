@@ -84,6 +84,7 @@ class Tree:
             if abs(new_center - self.center) < self.threshold:
                 self.stable = True
             self.center = new_center
+        def clear(self):
             self.acc = 0
             self.counter = 0
             self.data = []
@@ -253,8 +254,24 @@ class Tree:
 
         return center
 
+    def find_rows_by_centers(self,centers):
+        r = set([i.center for i in self.r_rows])
+        g = set([i.center for i in self.g_rows])
+        b = set([i.center for i in self.b_rows])
+        c = set(centers)
+
+        if len(r) == len(r.intersection(c)): return self.r_rows
+        if len(g) == len(g.intersection(c)): return self.g_rows
+        if len(r) == len(b.intersection(c)): return self.b_rows
+
+        print("ERROR: find_rows_by_centers  cant find the corrsponding row !!!")
+        print(f"DEBUG: centers : {centers} r : {r} g : {g} b : {b}")
+        exit(1)
+        
+
+
     def build_tree_average(self, centers):
-        rows = [self.center_to_row(center) for center in centers]
+        rows = self.find_rows_by_centers(centers)
         return self.build_tree_average_main(rows)
 
     def build_tree_average_main(self, rows):
@@ -270,8 +287,9 @@ class Tree:
         middle = rows[len(rows) // 2 - 1:len(rows) // 2 + 1]
         avg = (middle[0].acc + middle[1].acc) // (middle[0].counter + middle[1].counter)
         center = self.node(avg)
-        center.left = self.build_tree_average(rows[0:size // 2])
-        center.right = self.build_tree_average(rows[size // 2:])
+        center.left = self.build_tree_average_main(rows[0:size // 2])
+        center.right = self.build_tree_average_main(rows[size // 2:])
+        return center
 
     def center_to_cube(self, center):
         for c in self.cubes:
@@ -305,11 +323,16 @@ class Tree:
             b_row = self.row()
             b_row.center = k
             self.b_rows.append(b_row)
-
-        self.trees.append(self.build_tree_average(r))
-        self.trees.append(self.build_tree_average(g))
-        self.trees.append(self.build_tree_average(b))
-
+        ## we cant use the row average becuase all rows are empty!!!
+        # fall back to mid average in the initialization 
+        #self.trees.append(self.build_tree_average(r))
+        #self.trees.append(self.build_tree_average(g))
+        #self.trees.append(self.build_tree_average(b))
+        self.trees.append(self.build_tree_midpoint(r))
+        self.trees.append(self.build_tree_midpoint(g))
+        self.trees.append(self.build_tree_midpoint(b))
+        
+        
         self.trees[0].print()
         self.trees[1].print()
         self.trees[2].print()
@@ -369,6 +392,14 @@ class Tree:
             self.trees[0] = self.build_tree_average(r)
             self.trees[1] = self.build_tree_average(g)
             self.trees[2] = self.build_tree_average(b)
+
+            for i in self.r_rows:
+                i.clear()
+            for i in self.g_rows:
+                i.clear()
+            for i in self.b_rows:
+                i.clear()
+
 
             print("#####################################")
             print("Iteration: {0}".format(itr))
@@ -529,9 +560,9 @@ class Tree:
         del next_means_r[next_means_r.index(centre_r)]
         del next_means_g[next_means_g.index(centre_g)]
         del next_means_b[next_means_b.index(centre_b)]
-        next_means_r_tree = self.build_tree_average(next_means_r)
-        next_means_g_tree = self.build_tree_average(next_means_g)
-        next_means_b_tree = self.build_tree_average(next_means_b)
+        next_means_r_tree = self.build_tree_midpoint(next_means_r)
+        next_means_g_tree = self.build_tree_midpoint(next_means_g)
+        next_means_b_tree = self.build_tree_midpoint(next_means_b)
         red_mean = next_means_r_tree.traverse(r)
         green_mean = next_means_g_tree.traverse(g)
         blue_mean = next_means_b_tree.traverse(b)
