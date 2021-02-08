@@ -84,6 +84,7 @@ class Tree:
             if abs(new_center - self.center) < self.threshold:
                 self.stable = True
             self.center = new_center
+
         def clear(self):
             self.acc = 0
             self.counter = 0
@@ -114,7 +115,7 @@ class Tree:
     real_means_int = []
 
     cubic_means = []
-    data_accumolator = 0
+    data_accumulator = 0
     data_options = mock.Mock()
 
     def set_data_options(self, n_samples=100, centers=10, dim=3, min_max=(0, 255), data_center_deviations=10):
@@ -254,7 +255,7 @@ class Tree:
 
         return center
 
-    def find_rows_by_centers(self,centers):
+    def find_rows_by_centers(self, centers):
         r = set([i.center for i in self.r_rows])
         g = set([i.center for i in self.g_rows])
         b = set([i.center for i in self.b_rows])
@@ -267,8 +268,6 @@ class Tree:
         print("ERROR: find_rows_by_centers  cant find the corrsponding row !!!")
         print(f"DEBUG: centers : {centers} r : {r} g : {g} b : {b}")
         exit(1)
-        
-
 
     def build_tree_average(self, centers):
         rows = self.find_rows_by_centers(centers)
@@ -323,16 +322,16 @@ class Tree:
             b_row = self.row()
             b_row.center = k
             self.b_rows.append(b_row)
-        ## we cant use the row average becuase all rows are empty!!!
+
+        # we cant use the row average becuase all rows are empty!!!
         # fall back to mid average in the initialization 
-        #self.trees.append(self.build_tree_average(r))
-        #self.trees.append(self.build_tree_average(g))
-        #self.trees.append(self.build_tree_average(b))
+        # self.trees.append(self.build_tree_average(r))
+        # self.trees.append(self.build_tree_average(g))
+        # self.trees.append(self.build_tree_average(b))
         self.trees.append(self.build_tree_midpoint(r))
         self.trees.append(self.build_tree_midpoint(g))
         self.trees.append(self.build_tree_midpoint(b))
-        
-        
+
         self.trees[0].print()
         self.trees[1].print()
         self.trees[2].print()
@@ -399,7 +398,6 @@ class Tree:
                 i.clear()
             for i in self.b_rows:
                 i.clear()
-
 
             print("#####################################")
             print("Iteration: {0}".format(itr))
@@ -571,6 +569,7 @@ class Tree:
     def silhouette_coefficient(self):
         sil_accum = 0
         sil_cofs = []
+        misclassified = []
         for cube in self.cubes:
             for point in cube.data:
                 next_r, next_g, next_b = self.next_closest_mean_index(point[0], point[1], point[2], cube.center[0],
@@ -583,6 +582,7 @@ class Tree:
                 sil_cofs.append(sil_coefficient)
                 if sil_coefficient < 0:
                     print(sil_coefficient)
+                    misclassified.append(sil_coefficient)
                 sil_accum += sil_coefficient
         plt.hist(sil_cofs, bins=60)
         plt.title('Histogram of Silhouette Coefficients for an image')
@@ -590,6 +590,8 @@ class Tree:
         plt.ylabel("Frequency")
         plt.show()
         print("Average Silhouette Coefficient = ", sil_accum / len(sil_cofs))
+        print("Percentage of misclassified points = ", len(misclassified) / len(sil_cofs) * 100)
+        print("K = ", len(self.cubes))
 
     def cuts_on_axis(self):
         r_mid = sorted(set([cube.center[0] for cube in self.cubes]))
@@ -610,9 +612,9 @@ class Tree:
 ###########################################################################################
 x = Tree()
 x.set_data_options(n_samples=10000, centers=64, dim=3, min_max=(0, 255), data_center_deviations=100)
-x.generate_data()
-# x.get_data_from_image(filename='testImage.rgb')
-x.divide_space_equally(2, 3, 2)
+# x.generate_data()
+x.get_data_from_image(filename='pictures/tree-736885__340.rgb')
+x.divide_space_equally(3, 3, 3)
 x.cluster_data()
 x.plot_data()
 x.silhouette_coefficient()
