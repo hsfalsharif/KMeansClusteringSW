@@ -18,15 +18,19 @@ class Tree:
         D = None
         left = None
         right = None
+        S = None
+        N = None
 
-        def __init__(self, D):
+        def __init__(self, S=None, N=None, D=None):
             self.D = D
+            self.S = S
+            self.N = N
 
         def print(self):
             if self.right is not None:
                 self.right.printTree(True, "")
 
-            print(self.D)
+            print([self.D, self.S, self.N])
             if self.left is not None:
                 self.left.printTree(False, "")
 
@@ -44,20 +48,33 @@ class Tree:
                 print(" \\", end="")
 
             print("----- ", end="")
-            print(self.D)
+            print([self.D, self.S, self.N])
             if self.left is not None:
                 if isRight:
                     self.left.printTree(False, indent + " |      ")
                 else:
                     self.left.printTree(False, indent + "        ")
 
-        def traverse(self, point):
+        def traverse_D(self, point):
             if self.left is None and self.right is None:
                 return self.D
             if point <= self.D:
-                return self.left.traverse(point)
+                return self.left.traverse_D(point)
             else:
-                return self.right.traverse(point)
+                return self.right.traverse_D(point)
+
+        def traverse_no_div(self, point):
+            if self.left is None and self.right is None:
+                return self.D
+            if point*self.N <= self.S:
+                return self.left.traverse_no_div(point)
+            else:
+                return self.right.traverse_no_div(point)
+
+        def traverse(self, point, iteration):
+            if iteration == 1:
+                return self.traverse_D(point)
+            return self.traverse_no_div(point)
 
     class cube:
         def __init__(self):
@@ -242,53 +259,82 @@ class Tree:
     def build_tree_midpoint(self, a):
         size = len(a)
         if size == 2:
-            x = self.node((a[0] + a[1]) // 2)
-            x.left = self.node(a[0])
-            x.right = self.node(a[1])
+            x = self.node(D=(a[0] + a[1]) // 2)
+            x.left = self.node(D=a[0])
+            x.right = self.node(D=a[1])
             return x
         if size == 1:
-            return self.node(a[0])
+            return self.node(D=a[0])
         middle = a[len(a) // 2 - 1:len(a) // 2 + 1]
         avg = (middle[0] + middle[1]) // 2
-        center = self.node(avg)
+        center = self.node(D=avg)
         center.left = self.build_tree_midpoint(a[0:size // 2])
         center.right = self.build_tree_midpoint(a[size // 2:])
 
         return center
 
-    def find_rows_by_centers(self, centers):
-        r = set([i.center for i in self.r_rows])
-        g = set([i.center for i in self.g_rows])
-        b = set([i.center for i in self.b_rows])
+    def find_rows_by_centers(self, centers, exclude=None):
+        r = [i.center for i in self.r_rows]
+        g = [i.center for i in self.g_rows]
+        b = [i.center for i in self.b_rows]
         c = set(centers)
 
-        if len(r) == len(r.intersection(c)): return self.r_rows
-        if len(g) == len(g.intersection(c)): return self.g_rows
-        if len(r) == len(b.intersection(c)): return self.b_rows
+        if exclude is not None:
+            del r[r.index(exclude[0])]
+            del g[g.index(exclude[1])]
+            del b[b.index(exclude[2])]
+        r = set(r)
+        g = set(g)
+        b = set(b)
 
-        print("ERROR: find_rows_by_centers  cant find the corrsponding row !!!")
+        if len(r) == len(r.intersection(c)):
+            return self.r_rows
+        if len(g) == len(g.intersection(c)):
+            return self.g_rows
+        if len(b) == len(b.intersection(c)):
+            return self.b_rows
+
+        print("ERROR: find_rows_by_centers  cant find the corresponding row !!!")
         print(f"DEBUG: centers : {centers} r : {r} g : {g} b : {b}")
         exit(1)
 
-    def build_tree_average(self, centers):
-        rows = self.find_rows_by_centers(centers)
-        return self.build_tree_average_main(rows)
+    def build_tree_average(self, centers, exclude=None):
+        rows = self.find_rows_by_centers(centers, exclude=exclude)
+        return self.build_tree_average_no_div(rows)
 
     def build_tree_average_main(self, rows):
         size = len(rows)
         if size == 2:
-            x = self.node((rows[0].acc + rows[1].acc) // (rows[0].counter + rows[1].counter))
-            x.left = self.node(rows[0].center)
-            x.right = self.node(rows[1].center)
+            x = self.node(D=(rows[0].acc + rows[1].acc) // (rows[0].counter + rows[1].counter))
+            x.left = self.node(D=rows[0].center)
+            x.right = self.node(D=rows[1].center)
             return x
 
         if size == 1:
-            return self.node(rows[0].center)
+            return self.node(D=rows[0].center)
         middle = rows[len(rows) // 2 - 1:len(rows) // 2 + 1]
         avg = (middle[0].acc + middle[1].acc) // (middle[0].counter + middle[1].counter)
-        center = self.node(avg)
+        center = self.node(D=avg)
         center.left = self.build_tree_average_main(rows[0:size // 2])
         center.right = self.build_tree_average_main(rows[size // 2:])
+        return center
+
+    def build_tree_average_no_div(self, rows):
+        size = len(rows)
+        if size == 2:
+            x = self.node(S=(rows[0].acc + rows[1].acc), N=(rows[0].counter + rows[1].counter))
+            x.left = self.node(D=rows[0].center)
+            x.right = self.node(D=rows[1].center)
+            return x
+
+        if size == 1:
+            return self.node(D=rows[0].center)
+        middle = rows[len(rows) // 2 - 1:len(rows) // 2 + 1]
+        S = (middle[0].acc + middle[1].acc)
+        N = (middle[0].counter + middle[1].counter)
+        center = self.node(S=S, N=N)
+        center.left = self.build_tree_average_no_div(rows[0:size // 2])
+        center.right = self.build_tree_average_no_div(rows[size // 2:])
         return center
 
     def center_to_cube(self, center):
@@ -349,9 +395,9 @@ class Tree:
             blue_tree = self.trees[2]
 
             for x in self.data:
-                r_center = red_tree.traverse(x[0])
-                g_center = green_tree.traverse(x[1])
-                b_center = blue_tree.traverse(x[2])
+                r_center = red_tree.traverse(x[0], self.iterations)
+                g_center = green_tree.traverse(x[1], self.iterations)
+                b_center = blue_tree.traverse(x[2], self.iterations)
                 r_row, g_row, b_row = self.center_to_row([r_center, g_center, b_center])
 
                 r_row.data.append(x)
@@ -437,9 +483,9 @@ class Tree:
                     self.cubes.append(c)
 
         for x in self.data:
-            r_center = self.trees[0].traverse(x[0])
-            g_center = self.trees[1].traverse(x[1])
-            b_center = self.trees[2].traverse(x[2])
+            r_center = self.trees[0].traverse(x[0], 10)
+            g_center = self.trees[1].traverse(x[1], 10)
+            b_center = self.trees[2].traverse(x[2], 10)
             cube = self.center_to_cube([r_center, g_center, b_center])
             cube.data.append(x)
             cube.acc[0] += x[0]
@@ -551,27 +597,33 @@ class Tree:
 
         self.initialize_cubes()
 
-    def next_closest_mean_index(self, r, g, b, centre_r, centre_g, centre_b):
-        next_means_r = [r.center for r in self.r_rows]
-        next_means_g = [g.center for g in self.g_rows]
-        next_means_b = [b.center for b in self.b_rows]
-        del next_means_r[next_means_r.index(centre_r)]
-        del next_means_g[next_means_g.index(centre_g)]
-        del next_means_b[next_means_b.index(centre_b)]
-        next_means_r_tree = self.build_tree_midpoint(next_means_r)
-        next_means_g_tree = self.build_tree_midpoint(next_means_g)
-        next_means_b_tree = self.build_tree_midpoint(next_means_b)
-        red_mean = next_means_r_tree.traverse(r)
-        green_mean = next_means_g_tree.traverse(g)
-        blue_mean = next_means_b_tree.traverse(b)
-        return red_mean, green_mean, blue_mean
+    def euclidean(self, cube, point):
+        return math.sqrt((cube.center[0] - point[0])**2 + (cube.center[1] - point[1])**2 +
+                         (cube.center[2] - point[2])**2)
+
+    def real_second_closest(self, point, exclude):
+        mn = 1000000
+
+        nearest = None
+        for c in self.cubes:
+            if c.center == exclude.center:
+                continue
+
+            d = self.euclidean(c, point)
+            # print(f"D is {d}")
+            if mn > d:
+                nearest = c
+                mn = d
+                # print(f"nearest is {nearest.center}")
+
+        return nearest
 
     def write_segmented_image(self, outfile='testImageOut.rgb'):
         o = open(outfile, "wb")
         for x in self.data:
-            r_center = self.trees[0].traverse(x[0])
-            g_center = self.trees[1].traverse(x[1])
-            b_center = self.trees[2].traverse(x[2])
+            r_center = self.trees[0].traverse(x[0], 10)
+            g_center = self.trees[1].traverse(x[1], 10)
+            b_center = self.trees[2].traverse(x[2], 10)
             o.write(r_center.to_bytes(1, 'little'))
             o.write(g_center.to_bytes(1, 'little'))
             o.write(b_center.to_bytes(1, 'little'))
@@ -583,8 +635,10 @@ class Tree:
         misclassified = []
         for cube in self.cubes:
             for point in cube.data:
-                next_r, next_g, next_b = self.next_closest_mean_index(point[0], point[1], point[2], cube.center[0],
-                                                                      cube.center[1], cube.center[2])
+                second_nearest = self.real_second_closest(point, cube)
+                next_r = second_nearest.center[0]
+                next_g = second_nearest.center[1]
+                next_b = second_nearest.center[2]
                 a_i = math.sqrt((cube.center[0] - point[0]) ** 2 + (cube.center[1] - point[1]) ** 2 +
                                 (cube.center[2] - point[2]) ** 2)
                 b_i = math.sqrt((next_r - point[0]) ** 2 + (next_g - point[1]) ** 2 +
@@ -593,6 +647,9 @@ class Tree:
                 sil_cofs.append(sil_coefficient)
                 if sil_coefficient < 0:
                     print(sil_coefficient)
+                    print(
+                        f"the initial distance is {self.euclidean(cube, point)},{cube.center} the second nearest "
+                        f"distance {self.euclidean(second_nearest, point)}{second_nearest.center}")
                     misclassified.append(sil_coefficient)
                 sil_accum += sil_coefficient
         plt.hist(sil_cofs, bins=60)
@@ -622,13 +679,13 @@ class Tree:
 
 ###########################################################################################
 x = Tree()
-x.set_data_options(n_samples=10000, centers=64, dim=3, min_max=(0, 255), data_center_deviations=100)
-# x.generate_data()
-x.get_data_from_image(filename='pictures/tree-736885__340.rgb')
-x.divide_space_equally(5, 5, 5)
+x.set_data_options(n_samples=1000000, centers=100, dim=3, min_max=(0, 255), data_center_deviations=5)
+x.generate_data()
+# x.get_data_from_image(filename='testImage.rgb')
+x.divide_space_equally(random.randint(2, 10), random.randint(2, 10), random.randint(2, 10))
 x.cluster_data()
-x.write_segmented_image()
-x.plot_data()
+# x.write_segmented_image()
+# x.plot_data()
 x.silhouette_coefficient()
 print("Number of iterations: ", x.iterations)
 ###########################################################################################
