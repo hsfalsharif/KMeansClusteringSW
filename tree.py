@@ -66,7 +66,7 @@ class Tree:
         def traverse_no_div(self, point):
             if self.left is None and self.right is None:
                 return self.D
-            if point*self.N <= self.S:
+            if point * self.N <= self.S:
                 return self.left.traverse_no_div(point)
             else:
                 return self.right.traverse_no_div(point)
@@ -84,6 +84,23 @@ class Tree:
             self.counter = 0
             self.data = []
             self.color = "#{:06x}".format(random.randint(0, 0xFFFFFF))
+            self.threshold = 2
+            self.stable = False
+
+        def update(self):
+            if self.counter != 0:
+                new_center = [self.acc[0] // self.counter, self.acc[1] // self.counter, self.acc[2] // self.counter]
+            else:
+                new_center = self.center
+            if abs(new_center[0] - self.center[0]) < self.threshold and abs(new_center[1] - self.center[1]) < \
+                    self.threshold and abs(new_center[2] - self.center[2]) < self.threshold:
+                self.stable = True
+            self.center = new_center
+
+        def clear(self):
+            self.acc = [0, 0, 0]
+            self.counter = 0
+            self.data = []
 
     class row:
         def __init__(self):
@@ -115,6 +132,7 @@ class Tree:
     g_rows = []
     b_rows = []
     trees = []
+    kd_tree = []
     # number of dimension splits
     red_segments = 2
     blue_segments = 2
@@ -169,61 +187,61 @@ class Tree:
             blue = f.read(1)
 
     def plot_data(self):
-        m = 1
-        r_cuts, g_cuts, b_cuts = self.cuts_on_axis()
-        red_dividers = [go.Mesh3d(
-            # 8 vertices of a cube
-            x=[i - m, i - m, i + m, i + m, i - m, i + m, i - m, i - m],
-            y=[self.data_options.center_box[0], self.data_options.center_box[1], self.data_options.center_box[1],
-               self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
-               self.data_options.center_box[1], self.data_options.center_box[0]],
-            z=[self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
-               self.data_options.center_box[1], self.data_options.center_box[0], self.data_options.center_box[0],
-               self.data_options.center_box[1], self.data_options.center_box[1]],
-            colorbar_title='z',
-            colorscale=[[0, 'red'], [1, 'red']],
-            intensity=[1],
-            intensitymode='cell',
-            name='red divider',
-            showscale=False,
-            opacity=0.09
-        ) for i in r_cuts]
-
-        green_dividers = [go.Mesh3d(
-            # 8 vertices of a cube
-            y=[i - m, i - m, i + m, i + m, i - m, i + m, i - m, i - m],
-            x=[self.data_options.center_box[0], self.data_options.center_box[1], self.data_options.center_box[1],
-               self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
-               self.data_options.center_box[1], self.data_options.center_box[0]],
-            z=[self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
-               self.data_options.center_box[1], self.data_options.center_box[0], self.data_options.center_box[0],
-               self.data_options.center_box[1], self.data_options.center_box[1]],
-            colorbar_title='z',
-            colorscale=[[0, 'green'], [1, 'green']],
-            intensity=[1],
-            intensitymode='cell',
-            name='green divider',
-            showscale=False,
-            opacity=0.09
-        ) for i in g_cuts]
-
-        blue_dividers = [go.Mesh3d(
-            # 8 vertices of a cube
-            z=[i - m, i - m, i + m, i + m, i - m, i + m, i - m, i - m],
-            y=[self.data_options.center_box[0], self.data_options.center_box[1], self.data_options.center_box[1],
-               self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
-               self.data_options.center_box[1], self.data_options.center_box[0]],
-            x=[self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
-               self.data_options.center_box[1], self.data_options.center_box[0], self.data_options.center_box[0],
-               self.data_options.center_box[1], self.data_options.center_box[1]],
-            colorbar_title='z',
-            colorscale=[[0, 'blue'], [1, 'blue']],
-            intensity=[1],
-            intensitymode='cell',
-            name='blue divider',
-            showscale=False,
-            opacity=0.09
-        ) for i in b_cuts]
+        # m = 1
+        # r_cuts, g_cuts, b_cuts = self.cuts_on_axis()
+        # red_dividers = [go.Mesh3d(
+        #     # 8 vertices of a cube
+        #     x=[i - m, i - m, i + m, i + m, i - m, i + m, i - m, i - m],
+        #     y=[self.data_options.center_box[0], self.data_options.center_box[1], self.data_options.center_box[1],
+        #        self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
+        #        self.data_options.center_box[1], self.data_options.center_box[0]],
+        #     z=[self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
+        #        self.data_options.center_box[1], self.data_options.center_box[0], self.data_options.center_box[0],
+        #        self.data_options.center_box[1], self.data_options.center_box[1]],
+        #     colorbar_title='z',
+        #     colorscale=[[0, 'red'], [1, 'red']],
+        #     intensity=[1],
+        #     intensitymode='cell',
+        #     name='red divider',
+        #     showscale=False,
+        #     opacity=0.09
+        # ) for i in r_cuts]
+#
+        # green_dividers = [go.Mesh3d(
+        #     # 8 vertices of a cube
+        #     y=[i - m, i - m, i + m, i + m, i - m, i + m, i - m, i - m],
+        #     x=[self.data_options.center_box[0], self.data_options.center_box[1], self.data_options.center_box[1],
+        #        self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
+        #        self.data_options.center_box[1], self.data_options.center_box[0]],
+        #     z=[self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
+        #        self.data_options.center_box[1], self.data_options.center_box[0], self.data_options.center_box[0],
+        #        self.data_options.center_box[1], self.data_options.center_box[1]],
+        #     colorbar_title='z',
+        #     colorscale=[[0, 'green'], [1, 'green']],
+        #     intensity=[1],
+        #     intensitymode='cell',
+        #     name='green divider',
+        #     showscale=False,
+        #     opacity=0.09
+        # ) for i in g_cuts]
+#
+        # blue_dividers = [go.Mesh3d(
+        #     # 8 vertices of a cube
+        #     z=[i - m, i - m, i + m, i + m, i - m, i + m, i - m, i - m],
+        #     y=[self.data_options.center_box[0], self.data_options.center_box[1], self.data_options.center_box[1],
+        #        self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
+        #        self.data_options.center_box[1], self.data_options.center_box[0]],
+        #     x=[self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
+        #        self.data_options.center_box[1], self.data_options.center_box[0], self.data_options.center_box[0],
+        #        self.data_options.center_box[1], self.data_options.center_box[1]],
+        #     colorbar_title='z',
+        #     colorscale=[[0, 'blue'], [1, 'blue']],
+        #     intensity=[1],
+        #     intensitymode='cell',
+        #     name='blue divider',
+        #     showscale=False,
+        #     opacity=0.09
+        # ) for i in b_cuts]
 
         data = []
         cube_centers_x = []
@@ -241,12 +259,12 @@ class Tree:
                 go.Scatter3d(x=data_x, y=data_y, z=data_z, mode='markers', marker=dict(size=3, color=cube.color))
             )
 
-        data.append(
-            go.Scatter3d(x=cube_centers_x, y=cube_centers_y, z=cube_centers_z, mode='markers',
-                         marker=dict(size=3, color='gold'))
-        )
+            data.append(
+                go.Scatter3d(x=[cube.center[0]], y=[cube.center[1]], z=[cube.center[2]], mode='markers',
+                             marker=dict(size=3, color='gold'))
+            )
 
-        data = data + red_dividers + green_dividers + blue_dividers
+        # data = data + red_dividers + green_dividers + blue_dividers
         pl = go.Figure(data)
 
         pl.update_layout(margin=dict(l=0, r=0, b=0, t=0))
@@ -298,6 +316,32 @@ class Tree:
         print(f"DEBUG: centers : {centers} r : {r} g : {g} b : {b}")
         exit(1)
 
+    def build_kd_tree(self, means, dim=3, depth=0):
+        if len(means) > 1:
+            means.sort(key=lambda x: x[depth])
+            depth = (depth + 1) % dim
+            half = len(means) >> 1
+            return [
+                self.build_kd_tree(means[:half], dim, depth),
+                self.build_kd_tree(means[half + 1:], dim, depth),
+                means[half]
+            ]
+        elif len(means) == 1:
+            return [None, None, means[0]]
+
+    def traverse(self, kd_node, point, dim, dist_func, return_distances=False, depth=0, best=None):
+        if kd_node is not None:
+            dist = dist_func(point, kd_node[2])
+            dx = kd_node[2][depth] - point[depth]
+            if not best:
+                best = [dist, kd_node[2]]
+            elif dist < best[0]:
+                best[0], best[1] = dist, kd_node[2]
+            depth = (depth + 1) % dim
+            for b in [dx < 0] + [dx >= 0] * (dx < best[0]):
+                self.traverse(kd_node[b], point, dim, dist_func, return_distances, depth, best)
+        return best if return_distances else best[1]
+
     def build_tree_average(self, centers, exclude=None):
         rows = self.find_rows_by_centers(centers, exclude=exclude)
         return self.build_tree_average_no_div(rows)
@@ -345,6 +389,23 @@ class Tree:
         print("Cant find cube with center : ", center, " in cubes :", [cube.center for cube in self.cubes])
         exit(1)
 
+    def initialize_kd_cubes(self):
+        r_cuts = [self.red_limits[0]] + self.red_cut_points + [self.red_limits[1]]
+        g_cuts = [self.green_limits[0]] + self.green_cut_points + [self.green_limits[1]]
+        b_cuts = [self.blue_limits[0]] + self.blue_cut_points + [self.blue_limits[1]]
+
+        r = [(r_cuts[i + 1] + r_cuts[i]) // 2 for i in range(self.red_segments)]
+        g = [(g_cuts[i + 1] + g_cuts[i]) // 2 for i in range(self.green_segments)]
+        b = [(b_cuts[i + 1] + b_cuts[i]) // 2 for i in range(self.blue_segments)]
+
+        for i in r:
+            for j in g:
+                for k in b:
+                    cube = self.cube()
+                    cube.center = [i, j, k]
+                    self.cubes.append(cube)
+        self.kd_tree = self.build_kd_tree(self.centers_from_cubes())
+
     def initialize_cubes(self):
         r_cuts = [self.red_limits[0]] + self.red_cut_points + [self.red_limits[1]]
         g_cuts = [self.green_limits[0]] + self.green_cut_points + [self.green_limits[1]]
@@ -370,7 +431,7 @@ class Tree:
             b_row.center = k
             self.b_rows.append(b_row)
 
-        # we cant use the row average becuase all rows are empty!!!
+        # we cant use the row average because all rows are empty!!!
         # fall back to mid average in the initialization 
         # self.trees.append(self.build_tree_average(r))
         # self.trees.append(self.build_tree_average(g))
@@ -461,6 +522,46 @@ class Tree:
                 true_cubes.append(self.cubes[i])
 
         self.cubes = true_cubes
+
+    def centers_from_cubes(self):
+        centers = []
+        for cube in self.cubes:
+            centers.append(cube.center)
+        return centers
+
+    def kd_cluster_data(self):
+        # binning
+        stable = False
+        while not stable:
+            for cube in self.cubes:
+                cube.clear()
+            stable = True
+            self.kd_tree = self.kd_tree = self.build_kd_tree(self.centers_from_cubes())
+
+            for x in self.data:
+                center = self.traverse(self.kd_tree, x, 3, self.manhattan)
+                cube = self.center_to_cube(center)
+                cube.acc[0] += x[0]
+                cube.acc[1] += x[1]
+                cube.acc[2] += x[2]
+                cube.counter += 1
+                cube.data.append(x)
+
+            # UPDATE THE TREES
+            for i in self.cubes:
+                i.update()
+                if not i.stable:
+                    stable = False
+
+            self.kd_tree = self.kd_tree = self.build_kd_tree(self.centers_from_cubes())
+
+            print("#####################################")
+            print("Iteration: {0}".format(self.iterations))
+            # TODO: insert a print here later
+            print("#####################################")
+
+            self.iterations += 1
+        # after the algorithm done , translate the rows into cubes to plot them
 
     #
     # cube = self.center_to_cube([r_center,g_center,b_center])
@@ -595,11 +696,15 @@ class Tree:
         print("red cut :", self.red_cut_points, "green cut :", self.green_cut_points, "blue cut :",
               self.blue_cut_points)
 
-        self.initialize_cubes()
+        # self.initialize_cubes()
+        self.initialize_kd_cubes()
+
+    def manhattan(self, p1, p2):
+        return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1]) + abs(p1[2] - p2[2])
 
     def euclidean(self, cube, point):
-        return math.sqrt((cube.center[0] - point[0])**2 + (cube.center[1] - point[1])**2 +
-                         (cube.center[2] - point[2])**2)
+        return math.sqrt((cube.center[0] - point[0]) ** 2 + (cube.center[1] - point[1]) ** 2 +
+                         (cube.center[2] - point[2]) ** 2)
 
     def real_second_closest(self, point, exclude):
         mn = 1000000
@@ -621,9 +726,10 @@ class Tree:
     def write_segmented_image(self, outfile='testImageOut.rgb'):
         o = open(outfile, "wb")
         for x in self.data:
-            r_center = self.trees[0].traverse(x[0], 10)
-            g_center = self.trees[1].traverse(x[1], 10)
-            b_center = self.trees[2].traverse(x[2], 10)
+            center = self.traverse(self.kd_tree, x, 3, self.manhattan)
+            r_center = center[0]
+            g_center = center[1]
+            b_center = center[2]
             o.write(r_center.to_bytes(1, 'little'))
             o.write(g_center.to_bytes(1, 'little'))
             o.write(b_center.to_bytes(1, 'little'))
@@ -678,15 +784,18 @@ class Tree:
 
 
 ###########################################################################################
+r, g, b = 3, 3, 3
 x = Tree()
-x.set_data_options(n_samples=1000000, centers=100, dim=3, min_max=(0, 255), data_center_deviations=5)
-x.generate_data()
-# x.get_data_from_image(filename='testImage.rgb')
-x.divide_space_equally(random.randint(2, 10), random.randint(2, 10), random.randint(2, 10))
-x.cluster_data()
-# x.write_segmented_image()
-# x.plot_data()
+x.set_data_options(n_samples=10000, centers=100, dim=3, min_max=(0, 1024), data_center_deviations=50)
+# x.generate_data()
+x.get_data_from_image(filename="pictures/tree-736885__340.rgb")
+x.divide_space_equally(r, g, b)
+# x.cluster_data()
+x.kd_cluster_data()
+x.write_segmented_image()
+x.plot_data()
 x.silhouette_coefficient()
 print("Number of iterations: ", x.iterations)
+print(r, g, b)
 ###########################################################################################
 # %%
