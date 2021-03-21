@@ -81,25 +81,31 @@ class Tree:
             self.center = []  # blue,green,red position
             self.relative_center = []  # blue,green,red index
             self.acc = [0, 0, 0]
+            self.acc_new = [0, 0, 0]
             self.counter = 0
+            self.counter_new = 0
             self.data = []
             self.color = "#{:06x}".format(random.randint(0, 0xFFFFFF))
             self.threshold = 2
             self.stable = False
 
         def update(self):
-            if self.counter != 0:
-                new_center = [self.acc[0] // self.counter, self.acc[1] // self.counter, self.acc[2] // self.counter]
+            if self.counter_new != 0:
+                new_center = [self.acc_new[0] // self.counter_new, self.acc_new[1] // self.counter_new, self.acc_new[2]
+                              // self.counter_new]
             else:
                 new_center = self.center
             if abs(new_center[0] - self.center[0]) < self.threshold and abs(new_center[1] - self.center[1]) < \
                     self.threshold and abs(new_center[2] - self.center[2]) < self.threshold:
                 self.stable = True
+            print(self.center, new_center)
             self.center = new_center
 
         def clear(self):
-            self.acc = [0, 0, 0]
-            self.counter = 0
+            self.acc = self.acc_new
+            self.counter = self.counter_new
+            self.acc_new = [0, 0, 0]
+            self.counter_new = 0
             self.data = []
 
     class row:
@@ -206,7 +212,7 @@ class Tree:
         #     showscale=False,
         #     opacity=0.09
         # ) for i in r_cuts]
-#
+        #
         # green_dividers = [go.Mesh3d(
         #     # 8 vertices of a cube
         #     y=[i - m, i - m, i + m, i + m, i - m, i + m, i - m, i - m],
@@ -224,7 +230,7 @@ class Tree:
         #     showscale=False,
         #     opacity=0.09
         # ) for i in g_cuts]
-#
+        #
         # blue_dividers = [go.Mesh3d(
         #     # 8 vertices of a cube
         #     z=[i - m, i - m, i + m, i + m, i - m, i + m, i - m, i - m],
@@ -316,29 +322,37 @@ class Tree:
         print(f"DEBUG: centers : {centers} r : {r} g : {g} b : {b}")
         exit(1)
 
-    def build_kd_tree(self, means, dim=3, depth=0):
-        if len(means) > 1:
-            means.sort(key=lambda x: x[depth])
+    def build_kd_tree(self, cubes, dim=3, depth=0):
+        if len(cubes) > 1:
+            cubes.sort(
+                key=lambda x: x.center[depth])  # how to sort cubes based on sums and counts instead of centroid values?
             depth = (depth + 1) % dim
-            half = len(means) >> 1
+            half = len(cubes) >> 1
             return [
-                self.build_kd_tree(means[:half], dim, depth),
-                self.build_kd_tree(means[half + 1:], dim, depth),
-                means[half]
+                self.build_kd_tree(cubes[:half], dim, depth),
+                self.build_kd_tree(cubes[half + 1:], dim, depth),
+                cubes[half]
             ]
-        elif len(means) == 1:
-            return [None, None, means[0]]
+        elif len(cubes) == 1:
+            return [None, None, cubes[0]]
 
     def traverse(self, kd_node, point, dim, dist_func, return_distances=False, depth=0, best=None):
         if kd_node is not None:
             dist = dist_func(point, kd_node[2])
-            dx = kd_node[2][depth] - point[depth]
+            dx = kd_node[2].acc[depth] - point[depth] * kd_node[2].counter
             if not best:
                 best = [dist, kd_node[2]]
-            elif dist < best[0]:
+            elif dist * best[1].counter < best[0] * kd_node[2].counter:
                 best[0], best[1] = dist, kd_node[2]
+            else:
+                dx = best[1].acc[depth] - point[depth] * best[1].counter
             depth = (depth + 1) % dim
-            for b in [dx < 0] + [dx >= 0] * (dx < best[0]):
+
+            for b in [dx < 0] + [dx >= 0] * (dx < best[0]):  # move to other branch if distance from one dimension is greater than that from three dimensions
+            #     if dx >= best[0]:
+            #         print()
+            #         print(b)
+            #         print(dx, best[0])
                 self.traverse(kd_node[b], point, dim, dist_func, return_distances, depth, best)
         return best if return_distances else best[1]
 
@@ -403,8 +417,17 @@ class Tree:
                 for k in b:
                     cube = self.cube()
                     cube.center = [i, j, k]
+                    cube.acc[0] = i
+                    cube.acc[1] = j
+                    cube.acc[2] = k
+                    cube.counter = 1
+                    cube.acc_new[0] = i
+                    cube.acc_new[1] = j
+                    cube.acc_new[2] = k
+                    cube.counter_new = 1
                     self.cubes.append(cube)
-        self.kd_tree = self.build_kd_tree(self.centers_from_cubes())
+
+        self.kd_tree = self.build_kd_tree(self.cubes)
 
     def initialize_cubes(self):
         r_cuts = [self.red_limits[0]] + self.red_cut_points + [self.red_limits[1]]
@@ -533,33 +556,33 @@ class Tree:
         # binning
         stable = False
         while not stable:
-            for cube in self.cubes:
-                cube.clear()
+            self.kd_tree = self.build_kd_tree(self.cubes)
             stable = True
-            self.kd_tree = self.kd_tree = self.build_kd_tree(self.centers_from_cubes())
-
+            for cube in self.cubes:
+                if cube.counter_new != 0:
+                    cube.clear()
             for x in self.data:
-                center = self.traverse(self.kd_tree, x, 3, self.manhattan)
-                cube = self.center_to_cube(center)
-                cube.acc[0] += x[0]
-                cube.acc[1] += x[1]
-                cube.acc[2] += x[2]
-                cube.counter += 1
+                cube = self.traverse(self.kd_tree, x, 3, self.manhattan_no_div)
+                # cube = self.center_to_cube(center)
+                cube.acc_new[0] += x[0]
+                cube.acc_new[1] += x[1]
+                cube.acc_new[2] += x[2]
+                cube.counter_new += 1
                 cube.data.append(x)
 
             # UPDATE THE TREES
             for i in self.cubes:
+                print(i.acc_new, i.counter_new, i.center)
                 i.update()
                 if not i.stable:
                     stable = False
 
-            self.kd_tree = self.kd_tree = self.build_kd_tree(self.centers_from_cubes())
+            self.kd_tree = self.build_kd_tree(self.cubes)
 
             print("#####################################")
             print("Iteration: {0}".format(self.iterations))
             # TODO: insert a print here later
             print("#####################################")
-
             self.iterations += 1
         # after the algorithm done , translate the rows into cubes to plot them
 
@@ -702,6 +725,10 @@ class Tree:
     def manhattan(self, p1, p2):
         return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1]) + abs(p1[2] - p2[2])
 
+    def manhattan_no_div(self, point, cube):
+        return abs(cube.counter * point[0] - cube.acc[0]) + abs(cube.counter * point[1] - cube.acc[1]) + abs(
+            cube.counter * point[2] - cube.acc[2])
+
     def euclidean(self, cube, point):
         return math.sqrt((cube.center[0] - point[0]) ** 2 + (cube.center[1] - point[1]) ** 2 +
                          (cube.center[2] - point[2]) ** 2)
@@ -726,10 +753,10 @@ class Tree:
     def write_segmented_image(self, outfile='testImageOut.rgb'):
         o = open(outfile, "wb")
         for x in self.data:
-            center = self.traverse(self.kd_tree, x, 3, self.manhattan)
-            r_center = center[0]
-            g_center = center[1]
-            b_center = center[2]
+            cube = self.traverse(self.kd_tree, x, 3, self.manhattan_no_div)
+            r_center = cube.center[0]
+            g_center = cube.center[1]
+            b_center = cube.center[2]
             o.write(r_center.to_bytes(1, 'little'))
             o.write(g_center.to_bytes(1, 'little'))
             o.write(b_center.to_bytes(1, 'little'))
@@ -745,17 +772,15 @@ class Tree:
                 next_r = second_nearest.center[0]
                 next_g = second_nearest.center[1]
                 next_b = second_nearest.center[2]
-                a_i = math.sqrt((cube.center[0] - point[0]) ** 2 + (cube.center[1] - point[1]) ** 2 +
-                                (cube.center[2] - point[2]) ** 2)
-                b_i = math.sqrt((next_r - point[0]) ** 2 + (next_g - point[1]) ** 2 +
-                                (next_b - point[2]) ** 2)
+                a_i = self.manhattan(cube.center, point)
+                b_i = self.manhattan([next_r, next_g, next_b], point)
                 sil_coefficient = (b_i - a_i) / max(a_i, b_i)
                 sil_cofs.append(sil_coefficient)
                 if sil_coefficient < 0:
-                    print(sil_coefficient)
-                    print(
-                        f"the initial distance is {self.euclidean(cube, point)},{cube.center} the second nearest "
-                        f"distance {self.euclidean(second_nearest, point)}{second_nearest.center}")
+                    #    print(sil_coefficient)
+                    #    print(
+                    #        f"the initial distance is {self.euclidean(cube, point)},{cube.center} the second nearest "
+                    #        f"distance {self.euclidean(second_nearest, point)}{second_nearest.center}")
                     misclassified.append(sil_coefficient)
                 sil_accum += sil_coefficient
         plt.hist(sil_cofs, bins=60)
@@ -787,15 +812,16 @@ class Tree:
 r, g, b = 3, 3, 3
 x = Tree()
 x.set_data_options(n_samples=10000, centers=100, dim=3, min_max=(0, 1024), data_center_deviations=50)
-# x.generate_data()
-x.get_data_from_image(filename="pictures/tree-736885__340.rgb")
+x.generate_data()
+# x.get_data_from_image(filename="testImage.rgb")
 x.divide_space_equally(r, g, b)
 # x.cluster_data()
 x.kd_cluster_data()
-x.write_segmented_image()
+# x.write_segmented_image()
 x.plot_data()
 x.silhouette_coefficient()
 print("Number of iterations: ", x.iterations)
+print(x.centers_from_cubes())
 print(r, g, b)
 ###########################################################################################
 # %%
