@@ -348,11 +348,7 @@ class Tree:
                 dx = best[1].acc[depth] - point[depth] * best[1].counter
             depth = (depth + 1) % dim
 
-            for b in [dx < 0] + [dx >= 0] * (dx < best[0]):  # move to other branch if distance from one dimension is greater than that from three dimensions
-            #     if dx >= best[0]:
-            #         print()
-            #         print(b)
-            #         print(dx, best[0])
+            for b in [dx < 0] + [dx >= 0] * (dx < best[0]):
                 self.traverse(kd_node[b], point, dim, dist_func, return_distances, depth, best)
         return best if return_distances else best[1]
 
