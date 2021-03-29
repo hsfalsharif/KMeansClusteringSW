@@ -1,0 +1,107 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/simulation/modelsim
+vdivder
+Z1 !s110 1617028125
+!i10b 1
+!s100 gBSIW0US^YJa]8Ozg5anH2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IzbE>JlBYJXe:PNz>4T0Tz0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1616921295
+8C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/divder.v
+FC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/divder.v
+!i122 1
+L0 40 34
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1617028125.000000
+!s107 C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/divder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial|C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/divder.v|
+!i113 1
+Z6 o-vlog01compat -work work
+Z7 !s92 -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial
+Z8 tCvgOpt 0
+vkmean
+R1
+!i10b 1
+!s100 NmU[]GH^P`SDJZ_mX=WgS0
+R2
+I:?h<WFlSXeMOZ24z3VRKL2
+R3
+R0
+w1617027518
+8C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/kmean.v
+FC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/kmean.v
+!i122 0
+L0 1 294
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/kmean.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial|C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/kmean.v|
+!i113 1
+R6
+R7
+R8
+vmain_tb
+Z9 !s110 1617028126
+!i10b 1
+!s100 IR?b3jDo7:@S<N?UJN]0Y2
+R2
+IkJT_`mabR4Q^IZB:fDo2W0
+R3
+R0
+w1617027465
+8C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/main_tb.v
+FC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/main_tb.v
+!i122 4
+L0 3 60
+R4
+r1
+!s85 0
+31
+Z10 !s108 1617028126.000000
+!s107 C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/main_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial|C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/main_tb.v|
+!i113 1
+R6
+R7
+R8
+vmb
+R9
+!i10b 1
+!s100 oNoHe[YMUR8GI?RV?8CFG0
+R2
+I9UMMm;IBik0HZP4N=z[NI3
+R3
+R0
+w1617025190
+8C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/output_files/mb.v
+FC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/output_files/mb.v
+!i122 2
+L0 1 9
+R4
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/output_files/mb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/output_files|C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/output_files/mb.v|
+!i113 1
+R6
+!s92 -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/output_files
+R8
