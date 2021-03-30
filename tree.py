@@ -30,7 +30,7 @@ class Tree:
             if self.right is not None:
                 self.right.printTree(True, "")
 
-            print([self.D, self.S, self.N])
+            print(self.D.center)
             if self.left is not None:
                 self.left.printTree(False, "")
 
@@ -48,7 +48,7 @@ class Tree:
                 print(" \\", end="")
 
             print("----- ", end="")
-            print([self.D, self.S, self.N])
+            print(self.D.center)
             if self.left is not None:
                 if isRight:
                     self.left.printTree(False, indent + " |      ")
@@ -98,7 +98,6 @@ class Tree:
             if abs(new_center[0] - self.center[0]) < self.threshold and abs(new_center[1] - self.center[1]) < \
                     self.threshold and abs(new_center[2] - self.center[2]) < self.threshold:
                 self.stable = True
-            print(self.center, new_center)
             self.center = new_center
 
         def clear(self):
@@ -159,6 +158,9 @@ class Tree:
     data_accumulator = 0
     data_options = mock.Mock()
     iterations = 1
+    fnc_calls = 0
+    fnc_accumulated = 0
+    fnc_counter = 0
 
     def set_data_options(self, n_samples=100, centers=10, dim=3, min_max=(0, 255), data_center_deviations=10):
         self.data_options.n_samples = n_samples
@@ -171,7 +173,7 @@ class Tree:
         self.clear_dataset()
         X, y, m = make_blobs(n_samples=self.data_options.n_samples, centers=self.data_options.centers,
                              n_features=self.data_options.n_features, center_box=self.data_options.center_box,
-                             cluster_std=self.data_options.cluster_std, return_centers=True)
+                             cluster_std=self.data_options.cluster_std, return_centers=True, random_state=42)
         self.real_means = [[r, g, b] for r, g, b in m]
         self.real_means_int = [[int(round(r, 0)), int(round(g, 0)), int(round(b, 0))] for r, g, b in m]
 
@@ -193,62 +195,6 @@ class Tree:
             blue = f.read(1)
 
     def plot_data(self):
-        # m = 1
-        # r_cuts, g_cuts, b_cuts = self.cuts_on_axis()
-        # red_dividers = [go.Mesh3d(
-        #     # 8 vertices of a cube
-        #     x=[i - m, i - m, i + m, i + m, i - m, i + m, i - m, i - m],
-        #     y=[self.data_options.center_box[0], self.data_options.center_box[1], self.data_options.center_box[1],
-        #        self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
-        #        self.data_options.center_box[1], self.data_options.center_box[0]],
-        #     z=[self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
-        #        self.data_options.center_box[1], self.data_options.center_box[0], self.data_options.center_box[0],
-        #        self.data_options.center_box[1], self.data_options.center_box[1]],
-        #     colorbar_title='z',
-        #     colorscale=[[0, 'red'], [1, 'red']],
-        #     intensity=[1],
-        #     intensitymode='cell',
-        #     name='red divider',
-        #     showscale=False,
-        #     opacity=0.09
-        # ) for i in r_cuts]
-        #
-        # green_dividers = [go.Mesh3d(
-        #     # 8 vertices of a cube
-        #     y=[i - m, i - m, i + m, i + m, i - m, i + m, i - m, i - m],
-        #     x=[self.data_options.center_box[0], self.data_options.center_box[1], self.data_options.center_box[1],
-        #        self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
-        #        self.data_options.center_box[1], self.data_options.center_box[0]],
-        #     z=[self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
-        #        self.data_options.center_box[1], self.data_options.center_box[0], self.data_options.center_box[0],
-        #        self.data_options.center_box[1], self.data_options.center_box[1]],
-        #     colorbar_title='z',
-        #     colorscale=[[0, 'green'], [1, 'green']],
-        #     intensity=[1],
-        #     intensitymode='cell',
-        #     name='green divider',
-        #     showscale=False,
-        #     opacity=0.09
-        # ) for i in g_cuts]
-        #
-        # blue_dividers = [go.Mesh3d(
-        #     # 8 vertices of a cube
-        #     z=[i - m, i - m, i + m, i + m, i - m, i + m, i - m, i - m],
-        #     y=[self.data_options.center_box[0], self.data_options.center_box[1], self.data_options.center_box[1],
-        #        self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
-        #        self.data_options.center_box[1], self.data_options.center_box[0]],
-        #     x=[self.data_options.center_box[0], self.data_options.center_box[0], self.data_options.center_box[1],
-        #        self.data_options.center_box[1], self.data_options.center_box[0], self.data_options.center_box[0],
-        #        self.data_options.center_box[1], self.data_options.center_box[1]],
-        #     colorbar_title='z',
-        #     colorscale=[[0, 'blue'], [1, 'blue']],
-        #     intensity=[1],
-        #     intensitymode='cell',
-        #     name='blue divider',
-        #     showscale=False,
-        #     opacity=0.09
-        # ) for i in b_cuts]
-
         data = []
         cube_centers_x = []
         cube_centers_y = []
@@ -269,8 +215,6 @@ class Tree:
                 go.Scatter3d(x=[cube.center[0]], y=[cube.center[1]], z=[cube.center[2]], mode='markers',
                              marker=dict(size=3, color='gold'))
             )
-
-        # data = data + red_dividers + green_dividers + blue_dividers
         pl = go.Figure(data)
 
         pl.update_layout(margin=dict(l=0, r=0, b=0, t=0))
@@ -325,31 +269,36 @@ class Tree:
     def build_kd_tree(self, cubes, dim=3, depth=0):
         if len(cubes) > 1:
             cubes.sort(
-                key=lambda x: x.center[depth])  # how to sort cubes based on sums and counts instead of centroid values?
+                key=lambda x: x.center[depth])
             depth = (depth + 1) % dim
             half = len(cubes) >> 1
-            return [
-                self.build_kd_tree(cubes[:half], dim, depth),
-                self.build_kd_tree(cubes[half + 1:], dim, depth),
-                cubes[half]
-            ]
+            x = self.node()
+            x.left = self.build_kd_tree(cubes[:half], dim, depth)
+            x.right = self.build_kd_tree(cubes[half + 1:], dim, depth)
+            x.D = cubes[half]
+            return x
         elif len(cubes) == 1:
-            return [None, None, cubes[0]]
+            x = self.node()
+            x.left = None
+            x.right = None
+            x.D = cubes[0]
+            return x
 
     def traverse(self, kd_node, point, dim, dist_func, return_distances=False, depth=0, best=None):
         if kd_node is not None:
-            dist = dist_func(point, kd_node[2])
-            dx = kd_node[2].acc[depth] - point[depth] * kd_node[2].counter
+            self.fnc_calls += 1
+            dist = dist_func(point, kd_node.D)
+            dx = kd_node.D.acc[depth] - point[depth] * kd_node.D.counter
             if not best:
-                best = [dist, kd_node[2]]
-            elif dist * best[1].counter < best[0] * kd_node[2].counter:
-                best[0], best[1] = dist, kd_node[2]
-            else:
-                dx = best[1].acc[depth] - point[depth] * best[1].counter
+                best = [dist, kd_node.D]
+            elif dist * best[1].counter < best[0] * kd_node.D.counter:
+                best[0], best[1] = dist, kd_node.D
             depth = (depth + 1) % dim
-
             for b in [dx < 0] + [dx >= 0] * (dx < best[0]):
-                self.traverse(kd_node[b], point, dim, dist_func, return_distances, depth, best)
+                if b:
+                    self.traverse(kd_node.right, point, dim, dist_func, return_distances, depth, best)
+                else:
+                    self.traverse(kd_node.left, point, dim, dist_func, return_distances, depth, best)
         return best if return_distances else best[1]
 
     def build_tree_average(self, centers, exclude=None):
@@ -450,11 +399,6 @@ class Tree:
             b_row.center = k
             self.b_rows.append(b_row)
 
-        # we cant use the row average because all rows are empty!!!
-        # fall back to mid average in the initialization 
-        # self.trees.append(self.build_tree_average(r))
-        # self.trees.append(self.build_tree_average(g))
-        # self.trees.append(self.build_tree_average(b))
         self.trees.append(self.build_tree_midpoint(r))
         self.trees.append(self.build_tree_midpoint(g))
         self.trees.append(self.build_tree_midpoint(b))
@@ -533,7 +477,7 @@ class Tree:
             print("#####################################")
 
             self.iterations += 1
-        # after the algorithm done , translate the rows into cubes to plot them  
+        # after the algorithm done , translate the rows into cubes to plot them
         self.rows_to_cubes()
         true_cubes = []
         for i in range(len(self.cubes)):
@@ -558,7 +502,13 @@ class Tree:
                 if cube.counter_new != 0:
                     cube.clear()
             for x in self.data:
+                self.fnc_calls = 0
                 cube = self.traverse(self.kd_tree, x, 3, self.manhattan_no_div)
+                self.kd_tree.print()
+                # print(self.fnc_calls)
+                self.fnc_accumulated += self.fnc_calls
+                self.fnc_counter += 1
+                self.fnc_calls = 0
                 # cube = self.center_to_cube(center)
                 cube.acc_new[0] += x[0]
                 cube.acc_new[1] += x[1]
@@ -568,31 +518,17 @@ class Tree:
 
             # UPDATE THE TREES
             for i in self.cubes:
-                print(i.acc_new, i.counter_new, i.center)
                 i.update()
                 if not i.stable:
                     stable = False
 
             self.kd_tree = self.build_kd_tree(self.cubes)
-
             print("#####################################")
             print("Iteration: {0}".format(self.iterations))
-            # TODO: insert a print here later
+            # self.kd_tree.print()
             print("#####################################")
             self.iterations += 1
         # after the algorithm done , translate the rows into cubes to plot them
-
-    #
-    # cube = self.center_to_cube([r_center,g_center,b_center])
-    # cube.data.append(x)
-    # cube.acc[0] += x[0]
-    # cube.acc[1] += x[1]
-    # cube.acc[2] += x[2]
-    # cube.counter += 1
-
-    # Check if zero cluster
-    # update the space dividers
-    #
 
     def rows_to_cubes(self):
         for r in self.r_rows:
@@ -645,7 +581,7 @@ class Tree:
         g = point[1]
         b = point[2]
 
-        # force the point to be in the first quadrant, 
+        # force the point to be in the first quadrant,
         # we cant control the position of the generated data from sklearn library
         if r < 0:
             r = 0
@@ -773,10 +709,6 @@ class Tree:
                 sil_coefficient = (b_i - a_i) / max(a_i, b_i)
                 sil_cofs.append(sil_coefficient)
                 if sil_coefficient < 0:
-                    #    print(sil_coefficient)
-                    #    print(
-                    #        f"the initial distance is {self.euclidean(cube, point)},{cube.center} the second nearest "
-                    #        f"distance {self.euclidean(second_nearest, point)}{second_nearest.center}")
                     misclassified.append(sil_coefficient)
                 sil_accum += sil_coefficient
         plt.hist(sil_cofs, bins=60)
@@ -807,17 +739,19 @@ class Tree:
 ###########################################################################################
 r, g, b = 3, 3, 3
 x = Tree()
-x.set_data_options(n_samples=10000, centers=100, dim=3, min_max=(0, 1024), data_center_deviations=50)
-x.generate_data()
-# x.get_data_from_image(filename="testImage.rgb")
+x.set_data_options(n_samples=10000, centers=100, dim=3, min_max=(0, 10000), data_center_deviations=1000)
+# x.generate_data()
+x.get_data_from_image(filename="testImage.rgb")
 x.divide_space_equally(r, g, b)
 # x.cluster_data()
 x.kd_cluster_data()
 # x.write_segmented_image()
-x.plot_data()
+# x.plot_data()
 x.silhouette_coefficient()
 print("Number of iterations: ", x.iterations)
 print(x.centers_from_cubes())
 print(r, g, b)
+fnc_call_average = x.fnc_accumulated / x.fnc_counter
+print(fnc_call_average)
 ###########################################################################################
 # %%
