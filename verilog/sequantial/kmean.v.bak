@@ -1,0 +1,170 @@
+module kmean(input clk, reset,input [0:3*unit_size - 1]sin);
+localparam unit_size = 8;
+localparam len_count = 10;
+localparam max_data_size = 1000;
+localparam len_acc   = unit_size;
+localparam kmax = 16;
+localparam mean_size = 3*len_acc;
+localparam  fetch        = 4b'0000,
+				distance     = 4b'0001,
+				accoumolate  = 4b'0010,
+				divide       = 4b'0011,
+				check        = 4b'0100,
+				update 		 = 4b'0101,
+				store_points = 4b'0110,
+				done         = 4b'0111,
+				configure    = 4b'1000;
+				
+
+reg [0:3*unit_size - 1] mem [0:$clog2(max_data_size)];
+reg [0:$clog2(max_data_size)-1] mem_address;
+reg [0:$clog2(max_data_size)-1] config_size;
+reg [0:$clog2(kmax)-1] config_k;
+reg [0:3*unit_size - 1] point;
+reg [0:$clog2(kmax)-1] means [0:len_acc-1];
+reg [0:$clog2(kmax)-1] new_means [0:len_acc-1];
+
+reg [0:$clog2(kmax)-1] mean_address;
+reg [0:$clog2(kmax)-1] accs [0:mean_size];
+
+/*
+
+1) defin the missing variable 
+2) add division
+3) test bench
+
+*/
+
+always @ (posedge main_clock) begin
+
+	if(main_reset) begin
+	end
+	else begin
+		case (state) 
+			configure: begin
+				config_size <= sin[0:5];
+				config_k    <= sin[6:12];
+				state <= store_points;
+			end
+		/*Read Serial in and store it in memory*/
+			store_points: begin
+				if(mem_address <= config_size) begin
+					mem[mem_address] <= sin;
+					$display("cycle: %d (%s) Putting %x in address %d", cycle_count,"store_points",sin,mem_address); 
+					mem_address <= mem_address + 1;
+				end
+				
+				else begin
+					state <= fetch;
+					mem_address <= 0;
+				end
+			end
+			
+			
+		  /*Read point from memory and store it in point*/
+			fetch:
+				if(mem_address <= config_size) begin
+					point <= mem[mem_address];
+					$display("cycle: %d (%s) fetch [%d,%d,%d] in as data no %d", cycle_count,"fetch",point[0+:unit_size-1],point[unit_size+:unit_size-1],point[2*unit_size+:unit_size-1],mem_address); 
+					mem_address <= mem_address + 1;
+					
+					state <= distance;
+					min_dis <= -1;
+					mean_address <= 0;
+				end
+		
+		
+			/* Calculate the square distance and find the mean with minmum distance*/
+			distance: begin
+				   d <=     (point[0+:unit_size-1] - mean[mean_address][0+:unit_size-1])
+							*(point[0+:unit_size-1] - mean[mean_address][0+:unit_size-1])
+			
+						+ (point[unit_size+:unit_size-1] - mean[mean_address][unit_size+:unit_size-1])
+							*(point[unit_size+:unit_size-1] - mean[mean_address][unit_size+:unit_size-1]) 
+			
+						+ (point[2*unit_size+:unit_size-1] - mean[mean_address][2*unit_size+:unit_size-1])
+							*(point[2*unit_size+:unit_size-1] - mean[mean_address][2*unit_size+:unit_size-1]);
+			 
+					if(d < min_dis)
+							min_dis <= d;
+							min_mean <= mean_address;
+					
+					$display("cycle: %d (%s) comparing mean:[%d,%d,%d] with point [%d,%d,%d] distance %d current min_dis %d min_mean %d mean_address %d",cycle_count,"distance",mean[mean_address][0+:unit_size-1],mean[mean_address][unit_size+:unit_size-1],mean[mean_address][2*unit_size+:unit_size-1],point[0+:unit_size-1],point[unit_size+:unit_size-1],point[2*unit_size+:unit_size-1],d,min_dis,min_mean,mean_address); 
+					
+					if(mean_address >= config_k)
+					  state <= accoumolate;
+					else 
+						mean_address <= mean_address+1
+			end 
+
+			
+			accoumolate: begin
+				accs[min_mean][0+:unit_size-1]           <= accs[min_mean][0+:unit_size-1]                     + point[0+:unit_size-1] 
+				accs[min_mean][unit_size+:unit_size-1]   <= accs[min_mean][unit_size+:unit_size-1]     + point[unit_size+:unit_size-1] 
+				accs[min_mean][2*unit_size+:unit_size-1] <= accs[min_mean][2*unit_size+:unit_size-1] + point[2*unit_size+:unit_size-1]
+				counters[min_mean] <=  counters[min_mean] + 1
+				$display("cycle: %d (%s) adding [%d,%d,%d] to mean_address %d", cycle_count,"accumolate",point[0+:unit_size-1],point[unit_size+:unit_size-1],point[2*unit_size+:unit_size-1],mean_address); 
+				state <= divide;
+			end
+			
+			divide: begin
+				$display("cycle: %d (%s) should divide", cycle_count,"divide");
+				state <= check;
+			end
+			
+			
+			
+			check: begin
+				d_x <= new_mean[mean_address][0+:unit_size-1] - mean[mean_address][0+:unit_size-1];
+				d_y <= new_mean[mean_address][unit_size+:unit_size-1] - mean[mean_address][unit_size+:unit_size-1];
+				d_z <= new_mean[mean_address][2*unit_size+:unit_size-1] - mean[mean_address][2*unit_size+:unit_size-1]
+				$display("cycle: %d (%s) comparing mean:[%d,%d,%d] with new_mean [%d,%d,%d] diff [%d,%d,%d] mean_address %d",cycle_count,"distance",mean[mean_address][0+:unit_size-1],mean[mean_address][unit_size+:unit_size-1],mean[mean_address][2*unit_size+:unit_size-1],new_mean[0+:unit_size-1],new_mean[unit_size+:unit_size-1],new_maen[2*unit_size+:unit_size-1],dx,dy,dz,mean_address); 
+				/*Check for negative values*/
+				if(d_x > threashold || d_z > threashold || d_y > threashold) begin
+					state <= update;
+					mean_address <= 0;
+				
+				end	
+				
+				else if(mean_address >= config_k)
+					  state <= done;
+				else  
+						mean_address <= mean_address+1;
+			end
+			update:
+				mean[mean_address] <= new_mean[mean_address];
+				if(mean_address >= config_k) begin
+					state <= fetch;
+					mem_address <= 0;
+				end
+					  
+				
+			done:
+				$display("cycle: %d (%s) ############## END ##################### ",cycle_count,"done");
+				done_signal <= 1;
+				
+			
+				
+	   endcase 
+		 cycle_count <= cycle_count + 1;
+		end
+
+end
+
+
+endmodule 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

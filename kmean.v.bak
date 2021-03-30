@@ -1,0 +1,64 @@
+module kmean();
+localparam len_count = 10;
+localparam len_acc   = 12;
+
+localparam  fetch       = 3'b000,
+				distance    = 3'b001,
+				accoumolate = 3b'010,
+				divide      = 3b'011,
+				check       = 3b'100,
+				update 		= 3b'101,
+				store_points= 3b'110;
+
+				
+wire fetch_clock;
+wire distance_clock;
+wire accumolate_clock;
+wire divide_clock;
+wire check_clock;
+wire update_clock;
+wire store_clock;
+wire main_clock;
+
+
+always @ (posedge main_clock) begin
+
+	if(main_reset) begin
+		
+	end
+	else 
+		case (state) 
+			fetch       
+			distance    
+			accoumolate 
+			divide      
+			check       
+			update 		
+			store_points
+	   endcase 
+			
+
+end
+
+
+always @ (posedge store_clock) begin
+
+end
+
+
+endmodule 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

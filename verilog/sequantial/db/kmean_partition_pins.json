@@ -1,0 +1,117 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "strb",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "sin[23]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[22]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[21]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[20]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[19]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[18]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[17]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[16]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[15]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[14]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[13]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[12]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[11]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[10]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[9]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[8]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[7]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sin[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
