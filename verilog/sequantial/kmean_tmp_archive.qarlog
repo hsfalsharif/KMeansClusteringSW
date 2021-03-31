@@ -1,0 +1,32 @@
+Quartus Prime Archive log --	C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/kmean_tmp_archive.qarlog
+
+Archive:	C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/kmean_tmp_archive.qar
+Date:		Wed Mar 31 21:18:23 2021
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/divder.bsf
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/divder.cmp
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/divder.inc
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/divder.qip
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/divder.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/divder_bb.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/divder_inst.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/divder_syn.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/kmean.qpf
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/kmean.qsf
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/kmean.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/main_tb.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/output_files/mb.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex
+e:/intel20.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 15 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Wed Mar 31 21:18:24 2021
+Source archive file:	C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/kmean_tmp_archive.qar
+Archive was extracted into	C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/
+		 - successfully.
