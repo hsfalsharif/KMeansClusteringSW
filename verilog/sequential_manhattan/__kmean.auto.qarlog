@@ -1,0 +1,37 @@
+Quartus Prime Archive log --	C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/__kmean.auto.qarlog
+
+Archive:	C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/__kmean.auto.qar
+Date:		Wed Mar 31 21:31:57 2021
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/db/alt_u_div_o2f.tdf
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/db/kmean.cbx.xml
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/db/kmean.qpf
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/db/kmean.ram0_main_tb_e198f168.hdl.mif
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/db/lpm_divide_ehs.tdf
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/db/sign_div_unsign_9nh.tdf
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/divder.cmp
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/divder.qip
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/divder.v
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/kmean.v
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/main_tb.v
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/output_files/kmean.done
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/output_files/kmean.flow.rpt
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/output_files/kmean.map.rpt
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/output_files/kmean.map.summary
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/output_files/mb.v
+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequential_manhattan/test.hex
+assignment_defaults.qdf
+divder.bsf
+divder.inc
+divder_bb.v
+divder_inst.v
+divder_syn.v
+kmean.qsf
+kmean.restore.rpt
+kmean_nativelink_simulation.rpt
+	======= Total: 26 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
