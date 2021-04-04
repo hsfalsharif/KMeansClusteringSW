@@ -1,0 +1,34 @@
+module cluster_CE#(parameter dim = 3, data_range = 255, depth = 3)(input clk, rst, en, next_level, input [dim*$clog2(data_range) - 1:0] parent, left, right,
+output stable, output [dim*$clog2(data_range) - 1:0] new_parent, new_left, new_right);
+
+assign A = left > parent;
+assign B = parent > right;
+assign C = left > right;
+
+assign stable = ~A & ~B & ~C;
+
+reg [$clog2(depth) - 1:0] time_to_live;
+
+always@* begin
+	if (time_to_live && en)
+		case({A, B, C})
+			3'b000: begin new_left = left; new_parent = parent; new_right = right; end
+			3'b001: begin new_left = right; new_parent = parent; new_right = left; end
+			3'b010: begin new_left = left; new_parent = right; new_right = parent; end
+			3'b011: begin new_left = right; new_parent = left; new_right = parent; end
+			3'b100: begin new_left = parent; new_parent = left; new_right = right; end
+			3'b101: begin new_left = parent; new_parent = right; new_right = left; end
+			3'b110: begin new_left = left; new_parent = parent; new_right = right; end
+			3'b111: begin new_left = right; new_parent = parent; new_right = left; end
+		endcase
+end
+
+always@(posedge clk) begin
+if (en)
+	if (reset)
+		time_to_live <= depth;
+	else if (next_level)
+		time_to_live <= time_to_live - 1;
+end
+
+endmodule

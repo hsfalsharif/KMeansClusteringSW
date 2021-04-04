@@ -1,0 +1,6 @@
+module cluster_node #(parameter dim = 3, data_range = 255, max_n = 1000)(input clk, rst,  point, left_in, parent_in, right_in,
+output left_out, parent_out, right_out);
+	cluster_PE;
+	cluster_CE;
+	
+endmodule

@@ -1,0 +1,5 @@
+module manhattan #(parameter dim = 3, data_range = 255)(input clk, rst, input [dim*$clog2(data_range) - 1:0] a, b, 
+output [$clog2(data_range*dim) - 1:0] dist_out,
+output [$clog2(data_range) - 1:0] single_dist_out);
+
+endmodule
