@@ -1,5 +1,5 @@
 Flow report for kmean
-Wed Mar 31 21:22:45 2021
+Thu Apr 01 00:11:08 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -38,24 +38,28 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+---------------------------------------------------------------------------+
-; Flow Summary                                                              ;
-+-----------------------------+---------------------------------------------+
-; Flow Status                 ; Successful - Wed Mar 31 21:22:45 2021       ;
-; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
-; Revision Name               ; kmean                                       ;
-; Top-level Entity Name       ; kmean                                       ;
-; Family                      ; Cyclone V                                   ;
-; Device                      ; 5CGTFD9E5F35I7                              ;
-; Timing Models               ; Final                                       ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++------------------------------------+---------------------------------------------+
+; Flow Status                        ; Successful - Thu Apr 01 00:11:03 2021       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; kmean                                       ;
+; Top-level Entity Name              ; kmean                                       ;
+; Family                             ; MAX 10                                      ;
+; Device                             ; 10M50SCE144I7G                              ;
+; Timing Models                      ; Final                                       ;
+; Total logic elements               ; 2,799 / 49,760 ( 6 % )                      ;
+;     Total combinational functions  ; 2,187 / 49,760 ( 4 % )                      ;
+;     Dedicated logic registers      ; 1,795 / 49,760 ( 4 % )                      ;
+; Total registers                    ; 1795                                        ;
+; Total pins                         ; 27 / 101 ( 27 % )                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 2,400 / 1,677,312 ( < 1 % )                 ;
+; Embedded Multiplier 9-bit elements ; 7 / 288 ( 2 % )                             ;
+; Total PLLs                         ; 0 / 1 ( 0 % )                               ;
+; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
 
 
 +-----------------------------------------+
@@ -63,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/31/2021 21:22:39 ;
+; Start date & time ; 04/01/2021 00:10:22 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; kmean               ;
 +-------------------+---------------------+
@@ -74,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 233497588847923.161721495910572        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 233497588847923.161722502204620        ; --            ; --          ; --                                ;
 ; EDA_DESIGN_ENTRY_SYNTHESIS_TOOL      ; Synplify Pro                           ; <None>        ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                     ; --            ; --          ; main_tb                           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
@@ -110,29 +114,35 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                          ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:06     ; 1.0                     ; 4815 MB             ; 00:00:15                           ;
-; Total                  ; 00:00:06     ; --                      ; --                  ; 00:00:15                           ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:12     ; 1.0                     ; 4869 MB             ; 00:00:20                           ;
+; Fitter               ; 00:00:28     ; 1.6                     ; 6666 MB             ; 00:01:06                           ;
+; Timing Analyzer      ; 00:00:03     ; 2.7                     ; 4999 MB             ; 00:00:08                           ;
+; Total                ; 00:00:43     ; --                      ; --                  ; 00:01:34                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+--------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                      ;
-+------------------------+------------------+------------+------------+----------------+
-; Module Name            ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+------------------------+------------------+------------+------------+----------------+
-; Analysis & Elaboration ; DESKTOP-RTDQQM7  ; Windows 10 ; 10.0       ; x86_64         ;
-+------------------------+------------------+------------+------------+----------------+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; DESKTOP-RTDQQM7  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; DESKTOP-RTDQQM7  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; DESKTOP-RTDQQM7  ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
-quartus_map --read_settings_files=on --write_settings_files=off kmean -c kmean --analysis_and_elaboration
+quartus_map --read_settings_files=on --write_settings_files=off kmean -c kmean
+quartus_fit --read_settings_files=off --write_settings_files=off kmean -c kmean
+quartus_sta kmean -c kmean
 
 
 

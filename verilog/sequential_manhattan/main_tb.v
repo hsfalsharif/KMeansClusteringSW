@@ -27,7 +27,7 @@ initial begin	//the reset sequence and clock
 	#5 reset = 1 ;clk=1; #5 reset = 0; clk=0;
 	repeat(429496720) #5 clk = ~clk ;
 	  end
-
+ 
 always @ (negedge clk)	begin 	// Read input pixels from in_im
 	if(reset) 
 		tb_state <= idle;

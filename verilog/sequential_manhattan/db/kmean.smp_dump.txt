@@ -1,0 +1,14 @@
+
+State Machine - |kmean|state
+Name state.sqaure_dist state.diff state.fetch state.done state.store_points state.update state.check state.pipeline state.accumulate state.distance state.configure 
+state.configure 0 0 0 0 0 0 0 0 0 0 0 
+state.distance 0 0 0 0 0 0 0 0 0 1 1 
+state.accumulate 0 0 0 0 0 0 0 0 1 0 1 
+state.pipeline 0 0 0 0 0 0 0 1 0 0 1 
+state.check 0 0 0 0 0 0 1 0 0 0 1 
+state.update 0 0 0 0 0 1 0 0 0 0 1 
+state.store_points 0 0 0 0 1 0 0 0 0 0 1 
+state.done 0 0 0 1 0 0 0 0 0 0 1 
+state.fetch 0 0 1 0 0 0 0 0 0 0 1 
+state.diff 0 1 0 0 0 0 0 0 0 0 1 
+state.sqaure_dist 1 0 0 0 0 0 0 0 0 0 1 

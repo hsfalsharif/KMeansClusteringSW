@@ -5,12 +5,11 @@ localparam max_data_size = data_size;
 localparam len_acc   = unit_size;
 localparam kmax = 16;
 localparam max_unit_value = 255;
-localparam distance_size = 18;
 localparam threshold = 2;
 localparam  fetch        = 4'b0000,
 				distance     = 4'b0001,
-				accumulate  = 4'b0010,
-				divide       = 4'b0011,
+				accumulate   = 4'b0010,
+				pipeline     = 4'b0011,
 				check        = 4'b0100,
 				update 		 = 4'b0101,
 				store_points = 4'b0110,
@@ -33,6 +32,7 @@ localparam mean_add_size = $clog2(kmax) + 1;
 localparam counter_size = $clog2(max_data_size);
 localparam cycle_counter_size = $clog2(100000000);
 localparam d_size = unit_size;
+localparam distance_size = $clog2(counter_size) + $clog2(point_size) + acc_size; // check this size !!!!!!!!!!!
 
 
 
@@ -51,8 +51,9 @@ reg [0:3*acc_size -1] accs_shadow [0:kmax-1];
 reg [0:counter_size-1] counters [0:kmax-1];
 reg [0:counter_size-1] counters_shadow [0:kmax-1];
 
-reg [0:mean_size-1] d_x,d_y,d_z;
-reg [0:distance_size-1] dx,dy,dz,min_dist;
+reg [0:acc_size-1] d_x,d_y,d_z;
+reg [0:distance_size-1] dx,dy,dz,dv,min_dist;
+reg [0:$clog2(counter_size)+$clog2(distance_size)] right;
 wire [0:distance_size-1] d,abs_delta_x,abs_delta_y,abs_delta_z;
 
 reg [0:3] state;
@@ -75,7 +76,6 @@ assign strb = state == done;
 assign last_mean = mean_address == config_k;
 assign last_mem  = mem_address  == config_size;
 assign we = state == store_points;
-divder dv(den,num,q,r);
 mb #(.wel(mem_elSize), .size( max_data_size)) mem( clk,we,sin,mem_address,mem_out);
 
 
@@ -88,14 +88,13 @@ always @ (posedge clk) begin
 		point <= {point_size{1'b0}};
 		
 		for (j=0; j < kmax; j=j+1) begin
-            means[j][0+:unit_size] <= j*(255/kmax); //reset array
-				means[j][unit_size+:unit_size] <= j*(255/kmax);
-				means[j][2*unit_size+:unit_size] <= j*(255/kmax);
-				new_means[j][0+:unit_size] <= j*(255/kmax); //reset array
-				new_means[j][unit_size+:unit_size] <= j*(255/kmax);
-				new_means[j][2*unit_size+:unit_size] <= j*(255/kmax);
-				accs[j]  <= {acc_size{1'b0}};
-				counters[j] <= {counter_size{1'b0}};
+				accs[j][0+:acc_size] <= j*(255/kmax); //reset array
+				accs[j][acc_size+:acc_size] <= j*(255/kmax);
+				accs[j][2*acc_size+:acc_size] <= j*(255/kmax);
+				counters[j] <= 1;
+				accs_shadow[j]  <= {acc_size{1'b0}};
+				counters_shadow[j] <= {counter_size{1'b0}};
+
 		 end
 		 
 		min_mean <= {mean_add_size{1'b0}};
@@ -150,26 +149,30 @@ always @ (posedge clk) begin
 						state <= accumulate;
 					else begin
 					
-						dx <= (mem_out[0+:unit_size] - means[mean_address][0+:unit_size]);
-					   dy <= (mem_out[unit_size+:unit_size] - means[mean_address][unit_size+:unit_size]);
-						dz <= (mem_out[2*unit_size+:unit_size] - means[mean_address][2*unit_size+:unit_size]);
-					   $display("cycle: %d (%s) means :[%d,%d,%d] with  mem_out [%d,%d,%d] distance [%d %d %d] %x %x %x  mean_address %d mem_address %d",cycle_count,"square_dist",means[mean_address][0+:unit_size],means[mean_address][unit_size+:unit_size],means[mean_address][2*unit_size+:unit_size],mem_out[0+:unit_size],mem_out[unit_size+:unit_size],mem_out[2*unit_size+:unit_size],dx,dy,dz,dx,dy,dz,mean_address,mem_address); 					
+						dx <= (mem_out[0+:unit_size]*counters[mean_address]            - accs[mean_address][0+:acc_size]);
+					   dy <= (mem_out[unit_size+:unit_size]*counters[mean_address]    - accs[mean_address][acc_size+:acc_size]);
+						dz <= (mem_out[2*unit_size+:unit_size]*counters[mean_address]  - accs[mean_address][2*acc_size+:acc_size]);
 
-						state <= distance;
+						state <= pipeline;
 					end
 			end
 		
-		
+			pipeline: begin
+				dv <= d;
+				right <= min_dist*counters[mean_address];
+				state <= distance;
+				
+			end
 			/* Calculate the square distance and find the mean with minmum distance*/
 			distance: begin
 			
 			
-			 		if(d < min_dist) begin
+			 		if(dv*counters[min_mean]  < right) begin
 							min_dist <= d;
 							min_mean <= mean_address;
 					end
 						
-					$display("cycle: %d (%s) comparing mean:[%d,%d,%d] with point [%d,%d,%d] distance %d [%d %d %d] %x %x %x %d %d %d   current min_dis %d min_mean %d mean_address %d config_k %d mem_address %d",cycle_count,"distance",means[mean_address][0+:unit_size],means[mean_address][unit_size+:unit_size],means[mean_address][2*unit_size+:unit_size],mem_out[0+:unit_size],mem_out[unit_size+:unit_size],mem_out[2*unit_size+:unit_size],d,dx,dy,dz,dx,dy,dz,dx[0],dy[0],dz[0],min_dist,min_mean,mean_address,config_k,mem_address); 					
+					$display("cycle: %d (%s) comparing accs:[%d,%d,%d] counter %d with point [%d,%d,%d] distance %d [%d %d %d] %x %x %x %d %d %d   current min_dis %d min_mean %d mean_address %d config_k %d mem_address %d",cycle_count,"distance",accs[mean_address][0+:acc_size],accs[mean_address][acc_size+:acc_size],accs[mean_address][2*acc_size+:acc_size],counters[mean_address],mem_out[0+:unit_size],mem_out[unit_size+:unit_size],mem_out[2*unit_size+:unit_size],d,dx,dy,dz,dx,dy,dz,dx[0],dy[0],dz[0],min_dist,min_mean,mean_address,config_k,mem_address); 					
 					mean_address <= mean_address+1'b1;
 					state <= fetch;
 					
@@ -178,15 +181,15 @@ always @ (posedge clk) begin
 			
 			accumulate: begin
 				if(last_mem) begin	
-					state <= divide;
+					state <= diff;
 					mean_address <= 0;
 				end
 				else begin
-					accs[min_mean][0+:acc_size]           <= accs[min_mean][0+:acc_size]                     + mem_out[0+:unit_size];
-					accs[min_mean][acc_size+:acc_size]   <= accs[min_mean][acc_size+:acc_size]     + mem_out[unit_size+:unit_size]; 
-					accs[min_mean][2*acc_size+:acc_size] <= accs[min_mean][2*acc_size+:acc_size] + mem_out[2*unit_size+:unit_size];
-					counters[min_mean] <=  counters[min_mean] + 1'b1;
-					$display("cycle: %d (%s) adding [%d,%d,%d] to mean_address %d counter %d acc [%d %d %d]", cycle_count,"accumolate",mem_out[0+:unit_size],mem_out[unit_size+:unit_size],mem_out[2*unit_size+:unit_size],min_mean,counters[min_mean],accs[min_mean][0+:acc_size],accs[min_mean][acc_size+:acc_size],accs[min_mean][2*acc_size+:acc_size]); 
+					accs_shadow[min_mean][0+:acc_size]           <= accs_shadow[min_mean][0+:acc_size]            + mem_out[0+:unit_size];
+					accs_shadow[min_mean][acc_size+:acc_size]    <= accs_shadow[min_mean][acc_size+:acc_size]     + mem_out[unit_size+:unit_size]; 
+					accs_shadow[min_mean][2*acc_size+:acc_size]  <= accs_shadow[min_mean][2*acc_size+:acc_size]   + mem_out[2*unit_size+:unit_size];
+					counters_shadow[min_mean] <=  counters_shadow[min_mean] + 1'b1;
+					$display("cycle: %d (%s) adding [%d,%d,%d] to mean_address %d counter %d acc [%d %d %d]", cycle_count,"accumolate",mem_out[0+:unit_size],mem_out[unit_size+:unit_size],mem_out[2*unit_size+:unit_size],min_mean,counters_shadow[min_mean],accs_shadow[min_mean][0+:acc_size],accs_shadow[min_mean][acc_size+:acc_size],accs_shadow[min_mean][2*acc_size+:acc_size]); 
 				
 					mem_address <= mem_address + 1'b1;
 					mean_address <= 0;
@@ -195,51 +198,13 @@ always @ (posedge clk) begin
 				end
 			end
 			
-			divide: begin
-				$display("cycle: %d (%s) should divide mean_address %d", cycle_count,"divide",mean_address);
-				if(last_mean) begin
-					state <= diff;
-					mean_address <= 0;
-				end
-				else if (counters[mean_address] == 0)
-					mean_address <= mean_address + 1'b1;
-				else begin
-					num <= accs[mean_address][0+:acc_size];
-					den <= counters[mean_address];
-					state <= div_x;
-				end
-			end
-			
-			div_x: begin
-				$display("cycle: %d (%s) num %d den %d quisoint %d remainder %d new_mean [%d %d %d] mean_address %d", cycle_count,"div_x",num,den,q,r,new_means[mean_address][0+:unit_size],new_means[mean_address][unit_size+:unit_size],new_means[mean_address][2*unit_size+:unit_size],mean_address);
-				num <= accs[mean_address][acc_size+:acc_size];
-				new_means[mean_address][0+:unit_size] <= q;
-				state <= div_y;
-			end
-			div_y: begin
-				$display("cycle: %d (%s) num %d den %d quisoint %d remainder %d new_mean [%d %d %d] mean_address %d", cycle_count,"div_x",num,den,q,r,new_means[mean_address][0+:unit_size],new_means[mean_address][unit_size+:unit_size],new_means[mean_address][2*unit_size+:unit_size],mean_address);
-				num <= accs[mean_address][2*acc_size+:acc_size];
-				new_means[mean_address][unit_size+:unit_size] <= q;
-				state <= div_z;
-			end
-			
-			
-			div_z: begin
-				$display("cycle: %d (%s) num %d den %d quisoint %d remainder %d new_mean [%d %d %d] mean_address %d", cycle_count,"div_x",num,den,q,r,new_means[mean_address][0+:unit_size],new_means[mean_address][unit_size+:unit_size],new_means[mean_address][2*unit_size+:unit_size],mean_address);
-				mean_address <= mean_address + 1'b1;
-				new_means[mean_address][2*unit_size+:unit_size] <= q;
-				state <= divide;
-		
-		
-			end
-			
-			
+			 
 			
 			
 			diff: begin
-				d_x <= new_means[mean_address][0+:unit_size] - means[mean_address][0+:unit_size];
-				d_y <= new_means[mean_address][unit_size+:unit_size] - means[mean_address][unit_size+:unit_size];
-				d_z <= new_means[mean_address][2*unit_size+:unit_size] - means[mean_address][2*unit_size+:unit_size];
+				d_x <= accs[mean_address][0+:acc_size] 					   - accs_shadow[mean_address][0+:acc_size];
+				d_y <= accs[mean_address][acc_size+:acc_size]   - accs_shadow[mean_address][acc_size+:acc_size];
+				d_z <= accs[mean_address][2*acc_size+:acc_size] - accs_shadow[mean_address][2*acc_size+:acc_size];
 				state <= check;
 			
 			end
@@ -249,7 +214,7 @@ always @ (posedge clk) begin
 				
 				
 				/*Check for negative values*/
-				if(d_x > threshold || d_z > threshold || d_y > threshold) begin
+				if(counters_shadow[mean_address] != 0 && (d_x > threshold || d_z > threshold || d_y > threshold)) begin
 					state <= update;
 					mean_address <= 0;
 				
@@ -260,7 +225,7 @@ always @ (posedge clk) begin
 					  mean_address <= 0;
 				end
 				else  begin
-						$display("cycle: %d (%s) comparing mean:[%d,%d,%d] with new_mean [%d,%d,%d] diff [%d,%d,%d] mean_address %d",cycle_count,"check",means[mean_address][0+:unit_size],means[mean_address][unit_size+:unit_size],means[mean_address][2*unit_size+:unit_size],new_means[mean_address][0+:unit_size],new_means[mean_address][unit_size+:unit_size],new_means[mean_address][2*unit_size+:unit_size],d_x,d_y,d_z,mean_address); 
+						$display("cycle: %d (%s) comparing accs :[%d,%d,%d] with accs [%d,%d,%d] diff [%d,%d,%d] mean_address %d",cycle_count,"check",accs[mean_address][0+:acc_size],accs[mean_address][acc_size+:acc_size],accs[mean_address][2*acc_size+:acc_size],accs_shadow[mean_address][0+:acc_size],accs_shadow[mean_address][acc_size+:acc_size],accs_shadow[mean_address][2*acc_size+:acc_size],d_x,d_y,d_z,mean_address); 
 						mean_address <= mean_address+1'b1;
 						state <= diff;
 				end
@@ -274,14 +239,17 @@ always @ (posedge clk) begin
 					mem_address <= 0;
 					mean_address <= 0;
 					for(j = 0; j < kmax ; j = j+1) begin
-						accs[j]  <= {acc_size{1'b0}};
-						counters[j] <= {counter_size{1'b0}};
+						accs_shadow[j]  <= {acc_size{1'b0}};
+						counters_shadow[j] <= {counter_size{1'b0}};
 					end 
 				end
-				else begin
-					$display("cycle: %d (%s) mean[%d %d %d] <== new_mean [%d %d %d] mean_address %d config_k %d counter %d accs [%d %d %d]" ,cycle_count,"update",means[mean_address][0+:unit_size],means[mean_address][unit_size+:unit_size],means[mean_address][2*unit_size+:unit_size],new_means[mean_address][0+:unit_size],new_means[mean_address][unit_size+:unit_size],new_means[mean_address][2*unit_size+:unit_size],mean_address,config_k,counters[mean_address], accs[mean_address][0+:acc_size] ,accs[mean_address][acc_size+:acc_size],accs[mean_address][2*acc_size+:acc_size]);
+				else begin 
+					$display("cycle: %d (%s) mean[%d %d %d] <== new_mean [%d %d %d] mean_address %d config_k %d counter %d counter %d" ,cycle_count,"update",accs[mean_address][0+:acc_size],accs[mean_address][acc_size+:acc_size],accs[mean_address][2*acc_size+:acc_size],accs_shadow[mean_address][0+:acc_size],accs_shadow[mean_address][acc_size+:acc_size],accs_shadow[mean_address][2*acc_size+:acc_size],mean_address,config_k,counters[mean_address],counters_shadow[mean_address] );
 					mean_address <= mean_address + 1'b1;
-					means[mean_address] <= new_means[mean_address];
+					if( counters_shadow[mean_address] != 0) begin
+						accs[mean_address] <= accs_shadow[mean_address];
+						counters[mean_address] <= counters_shadow[mean_address];
+					end
 				end
 			end
 				

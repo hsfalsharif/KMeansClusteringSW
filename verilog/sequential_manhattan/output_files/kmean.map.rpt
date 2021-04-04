@@ -1,5 +1,5 @@
-Analysis & Elaboration report for kmean
-Wed Mar 31 21:22:45 2021
+Analysis & Synthesis report for kmean
+Thu Apr 01 00:10:34 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -7,15 +7,33 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Analysis & Elaboration IP Cores Summary
-  5. Parameter Settings for User Entity Instance: Top-level Entity: |kmean
-  6. Parameter Settings for User Entity Instance: divder:dv|lpm_divide:LPM_DIVIDE_component
-  7. Parameter Settings for User Entity Instance: mb:mem
-  8. Analysis & Elaboration Settings
-  9. Port Connectivity Checks: "divder:dv"
- 10. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. State Machine - |kmean|state
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Registers Packed Into Inferred Megafunctions
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for mb:mem|altsyncram:mem_rtl_0|altsyncram_5o71:auto_generated
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |kmean
+ 17. Parameter Settings for User Entity Instance: mb:mem
+ 18. Parameter Settings for Inferred Entity Instance: mb:mem|altsyncram:mem_rtl_0
+ 19. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult4
+ 20. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult3
+ 21. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult2
+ 22. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 23. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1
+ 24. altsyncram Parameter Settings by Entity Instance
+ 25. lpm_mult Parameter Settings by Entity Instance
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
 
 
 
@@ -39,22 +57,116 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+-----------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                              ;
-+-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Wed Mar 31 21:22:45 2021       ;
-; Quartus Prime Version         ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
-; Revision Name                 ; kmean                                       ;
-; Top-level Entity Name         ; kmean                                       ;
-; Family                        ; Cyclone V                                   ;
-; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
-; Total registers               ; N/A until Partition Merge                   ;
-; Total pins                    ; N/A until Partition Merge                   ;
-; Total virtual pins            ; N/A until Partition Merge                   ;
-; Total block memory bits       ; N/A until Partition Merge                   ;
-; Total PLLs                    ; N/A until Partition Merge                   ;
-; Total DLLs                    ; N/A until Partition Merge                   ;
-+-------------------------------+---------------------------------------------+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Apr 01 00:10:34 2021       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; kmean                                       ;
+; Top-level Entity Name              ; kmean                                       ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 3,731                                       ;
+;     Total combinational functions  ; 2,186                                       ;
+;     Dedicated logic registers      ; 1,823                                       ;
+; Total registers                    ; 1823                                        ;
+; Total pins                         ; 27                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 2,400                                       ;
+; Embedded Multiplier 9-bit elements ; 7                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50SCE144I7G     ;                    ;
+; Top-level entity name                                            ; kmean              ; kmean              ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Iteration limit for constant Verilog loops                       ; 4294967295         ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 4294967295         ; 250                ;
+; Type of Retiming Performed During Resynthesis                    ; Full               ;                    ;
+; Resynthesis Optimization Effort                                  ; Normal             ;                    ;
+; Physical Synthesis Level for Resynthesis                         ; Normal             ;                    ;
+; Use Generated Physical Constraints File                          ; On                 ;                    ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
 
 
 +------------------------------------------+
@@ -65,21 +177,255 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 24          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
+;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration IP Cores Summary                                                            ;
-+--------+--------------+---------+--------------+--------------+------------------+-----------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance  ; IP Include File ;
-+--------+--------------+---------+--------------+--------------+------------------+-----------------+
-; Altera ; LPM_DIVIDE   ; 20.1    ; N/A          ; N/A          ; |kmean|divder:dv ; divder.v        ;
-+--------+--------------+---------+--------------+--------------+------------------+-----------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                            ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------+---------+
+; kmean.v                          ; yes             ; User Verilog HDL File        ; C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v                ;         ;
+; output_files/mb.v                ; yes             ; User Verilog HDL File        ; C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/output_files/mb.v      ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/altsyncram.tdf                                             ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                      ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/lpm_mux.inc                                                ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/lpm_decode.inc                                             ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/aglobal201.inc                                             ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/a_rdenreg.inc                                              ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/altrom.inc                                                 ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/altram.inc                                                 ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/altdpram.inc                                               ;         ;
+; db/altsyncram_5o71.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/db/altsyncram_5o71.tdf ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/lpm_mult.tdf                                               ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/lpm_add_sub.inc                                            ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/multcore.inc                                               ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/bypassff.inc                                               ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; e:/intel20.1/quartus/libraries/megafunctions/altshift.inc                                               ;         ;
+; db/mult_8ms.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/db/mult_8ms.tdf        ;         ;
+; db/mult_0ls.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/db/mult_0ls.tdf        ;         ;
+; db/mult_uks.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/db/mult_uks.tdf        ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 3,731     ;
+;                                             ;           ;
+; Total combinational functions               ; 2186      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 1700      ;
+;     -- 3 input functions                    ; 279       ;
+;     -- <=2 input functions                  ; 207       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 1945      ;
+;     -- arithmetic mode                      ; 241       ;
+;                                             ;           ;
+; Total registers                             ; 1823      ;
+;     -- Dedicated logic registers            ; 1823      ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 27        ;
+; Total memory bits                           ; 2400      ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 7         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 1847      ;
+; Total fan-out                               ; 13965     ;
+; Average fan-out                             ; 3.41      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                 ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                               ; Entity Name     ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------+-----------------+--------------+
+; |kmean                                    ; 2186 (2181)         ; 1823 (1823)               ; 2400        ; 0          ; 7            ; 5       ; 1         ; 27   ; 0            ; 0          ; |kmean                                                            ; kmean           ; work         ;
+;    |lpm_mult:Mult0|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |kmean|lpm_mult:Mult0                                             ; lpm_mult        ; work         ;
+;       |mult_uks:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |kmean|lpm_mult:Mult0|mult_uks:auto_generated                     ; mult_uks        ; work         ;
+;    |lpm_mult:Mult1|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |kmean|lpm_mult:Mult1                                             ; lpm_mult        ; work         ;
+;       |mult_uks:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |kmean|lpm_mult:Mult1|mult_uks:auto_generated                     ; mult_uks        ; work         ;
+;    |lpm_mult:Mult2|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |kmean|lpm_mult:Mult2                                             ; lpm_mult        ; work         ;
+;       |mult_uks:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |kmean|lpm_mult:Mult2|mult_uks:auto_generated                     ; mult_uks        ; work         ;
+;    |lpm_mult:Mult3|                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |kmean|lpm_mult:Mult3                                             ; lpm_mult        ; work         ;
+;       |mult_0ls:auto_generated|           ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 1            ; 1       ; 0         ; 0    ; 0            ; 0          ; |kmean|lpm_mult:Mult3|mult_0ls:auto_generated                     ; mult_0ls        ; work         ;
+;    |lpm_mult:Mult4|                       ; 5 (0)               ; 0 (0)                     ; 0           ; 0          ; 3            ; 1       ; 1         ; 0    ; 0            ; 0          ; |kmean|lpm_mult:Mult4                                             ; lpm_mult        ; work         ;
+;       |mult_8ms:auto_generated|           ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 3            ; 1       ; 1         ; 0    ; 0            ; 0          ; |kmean|lpm_mult:Mult4|mult_8ms:auto_generated                     ; mult_8ms        ; work         ;
+;    |mb:mem|                               ; 0 (0)               ; 0 (0)                     ; 2400        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |kmean|mb:mem                                                     ; mb              ; work         ;
+;       |altsyncram:mem_rtl_0|              ; 0 (0)               ; 0 (0)                     ; 2400        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |kmean|mb:mem|altsyncram:mem_rtl_0                                ; altsyncram      ; work         ;
+;          |altsyncram_5o71:auto_generated| ; 0 (0)               ; 0 (0)                     ; 2400        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |kmean|mb:mem|altsyncram:mem_rtl_0|altsyncram_5o71:auto_generated ; altsyncram_5o71 ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                     ;
++-----------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                  ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++-----------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
+; mb:mem|altsyncram:mem_rtl_0|altsyncram_5o71:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 100          ; 24           ; --           ; --           ; 2400 ; None ;
++-----------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 5           ;
+; Simple Multipliers (18-bit)           ; 1           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 7           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 6           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |kmean|state                                                                                                                                                                            ;
++--------------------+-------------------+------------+-------------+------------+--------------------+--------------+-------------+----------------+------------------+----------------+-----------------+
+; Name               ; state.sqaure_dist ; state.diff ; state.fetch ; state.done ; state.store_points ; state.update ; state.check ; state.pipeline ; state.accumulate ; state.distance ; state.configure ;
++--------------------+-------------------+------------+-------------+------------+--------------------+--------------+-------------+----------------+------------------+----------------+-----------------+
+; state.configure    ; 0                 ; 0          ; 0           ; 0          ; 0                  ; 0            ; 0           ; 0              ; 0                ; 0              ; 0               ;
+; state.distance     ; 0                 ; 0          ; 0           ; 0          ; 0                  ; 0            ; 0           ; 0              ; 0                ; 1              ; 1               ;
+; state.accumulate   ; 0                 ; 0          ; 0           ; 0          ; 0                  ; 0            ; 0           ; 0              ; 1                ; 0              ; 1               ;
+; state.pipeline     ; 0                 ; 0          ; 0           ; 0          ; 0                  ; 0            ; 0           ; 1              ; 0                ; 0              ; 1               ;
+; state.check        ; 0                 ; 0          ; 0           ; 0          ; 0                  ; 0            ; 1           ; 0              ; 0                ; 0              ; 1               ;
+; state.update       ; 0                 ; 0          ; 0           ; 0          ; 0                  ; 1            ; 0           ; 0              ; 0                ; 0              ; 1               ;
+; state.store_points ; 0                 ; 0          ; 0           ; 0          ; 1                  ; 0            ; 0           ; 0              ; 0                ; 0              ; 1               ;
+; state.done         ; 0                 ; 0          ; 0           ; 1          ; 0                  ; 0            ; 0           ; 0              ; 0                ; 0              ; 1               ;
+; state.fetch        ; 0                 ; 0          ; 1           ; 0          ; 0                  ; 0            ; 0           ; 0              ; 0                ; 0              ; 1               ;
+; state.diff         ; 0                 ; 1          ; 0           ; 0          ; 0                  ; 0            ; 0           ; 0              ; 0                ; 0              ; 1               ;
+; state.sqaure_dist  ; 1                 ; 0          ; 0           ; 0          ; 0                  ; 0            ; 0           ; 0              ; 0                ; 0              ; 1               ;
++--------------------+-------------------+------------+-------------+------------+--------------------+--------------+-------------+----------------+------------------+----------------+-----------------+
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; config_size[0,1,4]                     ; Merged with config_k[0]                ;
+; config_k[2..4]                         ; Merged with config_k[1]                ;
+; config_size[2,3,5,6]                   ; Merged with config_k[1]                ;
+; dy[1..7]                               ; Merged with dy[0]                      ;
+; dx[1..7]                               ; Merged with dx[0]                      ;
+; dz[1..7]                               ; Merged with dz[0]                      ;
+; config_k[1]                            ; Stuck at GND due to stuck port data_in ;
+; min_dist[0..13]                        ; Lost fanout                            ;
+; state~11                               ; Lost fanout                            ;
+; state~12                               ; Lost fanout                            ;
+; state~13                               ; Lost fanout                            ;
+; state~14                               ; Lost fanout                            ;
+; dv[1..4]                               ; Merged with dv[0]                      ;
+; Total Number of Removed Registers = 54 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 1823  ;
+; Number of registers using Synchronous Clear  ; 111   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1811  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------+
+; Registers Packed Into Inferred Megafunctions ;
++--------------------+------------------+------+
+; Register Name      ; Megafunction     ; Type ;
++--------------------+------------------+------+
+; mb:mem|dout[0..23] ; mb:mem|mem_rtl_0 ; RAM  ;
++--------------------+------------------+------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 45 bits   ; 90 LEs        ; 45 LEs               ; 45 LEs                 ; Yes        ; |kmean|d_z[8]              ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[0][30]         ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[1][17]         ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[2][26]         ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[3][38]         ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[4][6]          ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[5][33]         ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[6][17]         ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[7][33]         ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[8][39]         ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[9][19]         ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[10][35]        ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|counters[11][0]     ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[12][13]        ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[13][11]        ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[14][23]        ;
+; 3:1                ; 52 bits   ; 104 LEs       ; 52 LEs               ; 52 LEs                 ; Yes        ; |kmean|accs[15][10]        ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |kmean|min_mean[3]         ;
+; 3:1                ; 48 bits   ; 96 LEs        ; 48 LEs               ; 48 LEs                 ; Yes        ; |kmean|dy[17]              ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[15][35] ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[14][22] ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[13][10] ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[12][10] ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[11][33] ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[10][8]  ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[9][1]   ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[8][6]   ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[7][38]  ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[6][15]  ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[5][5]   ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[4][0]   ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[3][35]  ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[2][24]  ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[1][39]  ;
+; 6:1                ; 52 bits   ; 208 LEs       ; 52 LEs               ; 156 LEs                ; Yes        ; |kmean|accs_shadow[0][31]  ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 7 LEs                ; 28 LEs                 ; Yes        ; |kmean|mem_address[0]      ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 5 LEs                ; 20 LEs                 ; Yes        ; |kmean|mean_address[2]     ;
+; 8:1                ; 9 bits    ; 45 LEs        ; 18 LEs               ; 27 LEs                 ; Yes        ; |kmean|min_dist[14]        ;
+; 16:1               ; 104 bits  ; 1040 LEs      ; 1040 LEs             ; 0 LEs                  ; No         ; |kmean|Mux19               ;
+; 16:1               ; 59 bits   ; 590 LEs       ; 590 LEs              ; 0 LEs                  ; No         ; |kmean|Mux85               ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |kmean|state               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Source assignments for mb:mem|altsyncram:mem_rtl_0|altsyncram_5o71:auto_generated ;
++---------------------------------+--------------------+------+---------------------+
+; Assignment                      ; Value              ; From ; To                  ;
++---------------------------------+--------------------+------+---------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                   ;
++---------------------------------+--------------------+------+---------------------+
 
 
 +-----------------------------------------------------------------------+
@@ -89,29 +435,6 @@ https://fpgasoftware.intel.com/eula.
 +----------------+-------+----------------------------------------------+
 ; data_size      ; 100   ; Signed Integer                               ;
 +----------------+-------+----------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: divder:dv|lpm_divide:LPM_DIVIDE_component ;
-+------------------------+----------------+----------------------------------------------+
-; Parameter Name         ; Value          ; Type                                         ;
-+------------------------+----------------+----------------------------------------------+
-; LPM_WIDTHN             ; 32             ; Signed Integer                               ;
-; LPM_WIDTHD             ; 32             ; Signed Integer                               ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                      ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                      ;
-; LPM_PIPELINE           ; 0              ; Untyped                                      ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                      ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                                      ;
-; CBXI_PARAMETER         ; lpm_divide_ehs ; Untyped                                      ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                                      ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                      ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                   ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                 ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                 ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                               ;
-+------------------------+----------------+----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -126,115 +449,373 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                                           ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
-; Option                                                                          ; Setting            ; Default Value      ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                          ; 5CGTFD9E5F35I7     ;                    ;
-; Top-level entity name                                                           ; kmean              ; kmean              ;
-; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
-; Iteration limit for constant Verilog loops                                      ; 4294967295         ; 5000               ;
-; Iteration limit for non-constant Verilog loops                                  ; 4294967295         ; 250                ;
-; Type of Retiming Performed During Resynthesis                                   ; Full               ;                    ;
-; Resynthesis Optimization Effort                                                 ; Normal             ;                    ;
-; Physical Synthesis Level for Resynthesis                                        ; Normal             ;                    ;
-; Use Generated Physical Constraints File                                         ; On                 ;                    ;
-; Use smart compilation                                                           ; Off                ; Off                ;
-; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
-; Enable compact report table                                                     ; Off                ; Off                ;
-; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
-; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
-; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
-; Preserve fewer node names                                                       ; On                 ; On                 ;
-; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
-; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
-; State Machine Processing                                                        ; Auto               ; Auto               ;
-; Safe State Machine                                                              ; Off                ; Off                ;
-; Extract Verilog State Machines                                                  ; On                 ; On                 ;
-; Extract VHDL State Machines                                                     ; On                 ; On                 ;
-; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
-; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
-; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
-; Parallel Synthesis                                                              ; On                 ; On                 ;
-; DSP Block Balancing                                                             ; Auto               ; Auto               ;
-; NOT Gate Push-Back                                                              ; On                 ; On                 ;
-; Power-Up Don't Care                                                             ; On                 ; On                 ;
-; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
-; Remove Duplicate Registers                                                      ; On                 ; On                 ;
-; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
-; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
-; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
-; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
-; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
-; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
-; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
-; Optimization Technique                                                          ; Balanced           ; Balanced           ;
-; Carry Chain Length                                                              ; 70                 ; 70                 ;
-; Auto Carry Chains                                                               ; On                 ; On                 ;
-; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
-; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
-; Auto ROM Replacement                                                            ; On                 ; On                 ;
-; Auto RAM Replacement                                                            ; On                 ; On                 ;
-; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
-; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
-; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
-; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
-; Strict RAM Replacement                                                          ; Off                ; Off                ;
-; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
-; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
-; Auto Resource Sharing                                                           ; Off                ; Off                ;
-; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
-; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
-; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
-; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
-; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
-; Report Parameter Settings                                                       ; On                 ; On                 ;
-; Report Source Assignments                                                       ; On                 ; On                 ;
-; Report Connectivity Checks                                                      ; On                 ; On                 ;
-; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
-; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
-; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
-; HDL message level                                                               ; Level2             ; Level2             ;
-; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
-; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
-; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
-; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
-; Clock MUX Protection                                                            ; On                 ; On                 ;
-; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
-; Block Design Naming                                                             ; Auto               ; Auto               ;
-; SDC constraint protection                                                       ; Off                ; Off                ;
-; Synthesis Effort                                                                ; Auto               ; Auto               ;
-; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
-; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
-; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
-; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
-; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
-; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
-; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
-+---------------------------------------------------------------------------------+--------------------+--------------------+
++------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: mb:mem|altsyncram:mem_rtl_0 ;
++------------------------------------+----------------------+------------------+
+; Parameter Name                     ; Value                ; Type             ;
++------------------------------------+----------------------+------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped          ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY       ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY     ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE     ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE   ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped          ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped          ;
+; WIDTH_A                            ; 24                   ; Untyped          ;
+; WIDTHAD_A                          ; 7                    ; Untyped          ;
+; NUMWORDS_A                         ; 100                  ; Untyped          ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped          ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped          ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped          ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped          ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped          ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped          ;
+; WIDTH_B                            ; 1                    ; Untyped          ;
+; WIDTHAD_B                          ; 1                    ; Untyped          ;
+; NUMWORDS_B                         ; 1                    ; Untyped          ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped          ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped          ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped          ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped          ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped          ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped          ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped          ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped          ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped          ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped          ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped          ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped          ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped          ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped          ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped          ;
+; BYTE_SIZE                          ; 8                    ; Untyped          ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped          ;
+; READ_DURING_WRITE_MODE_PORT_A      ; OLD_DATA             ; Untyped          ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped          ;
+; INIT_FILE                          ; UNUSED               ; Untyped          ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped          ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped          ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped          ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped          ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped          ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped          ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped          ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped          ;
+; ENABLE_ECC                         ; FALSE                ; Untyped          ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped          ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped          ;
+; DEVICE_FAMILY                      ; MAX 10               ; Untyped          ;
+; CBXI_PARAMETER                     ; altsyncram_5o71      ; Untyped          ;
++------------------------------------+----------------------+------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "divder:dv"                                                                                     ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port            ; Type   ; Severity ; Details                                                                             ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; quotient[31..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; remain          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult4                 ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 23       ; Untyped             ;
+; LPM_WIDTHB                                     ; 7        ; Untyped             ;
+; LPM_WIDTHP                                     ; 30       ; Untyped             ;
+; LPM_WIDTHR                                     ; 30       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_8ms ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult3                 ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 9        ; Untyped             ;
+; LPM_WIDTHB                                     ; 7        ; Untyped             ;
+; LPM_WIDTHP                                     ; 16       ; Untyped             ;
+; LPM_WIDTHR                                     ; 16       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_0ls ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult2                 ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 8        ; Untyped             ;
+; LPM_WIDTHB                                     ; 7        ; Untyped             ;
+; LPM_WIDTHP                                     ; 15       ; Untyped             ;
+; LPM_WIDTHR                                     ; 15       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_uks ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                 ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 8        ; Untyped             ;
+; LPM_WIDTHB                                     ; 7        ; Untyped             ;
+; LPM_WIDTHP                                     ; 15       ; Untyped             ;
+; LPM_WIDTHR                                     ; 15       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_uks ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult1                 ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 8        ; Untyped             ;
+; LPM_WIDTHB                                     ; 7        ; Untyped             ;
+; LPM_WIDTHP                                     ; 15       ; Untyped             ;
+; LPM_WIDTHR                                     ; 15       ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_uks ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                        ;
++-------------------------------------------+-----------------------------+
+; Name                                      ; Value                       ;
++-------------------------------------------+-----------------------------+
+; Number of entity instances                ; 1                           ;
+; Entity Instance                           ; mb:mem|altsyncram:mem_rtl_0 ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                 ;
+;     -- WIDTH_A                            ; 24                          ;
+;     -- NUMWORDS_A                         ; 100                         ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                ;
+;     -- WIDTH_B                            ; 1                           ;
+;     -- NUMWORDS_B                         ; 1                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                      ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                        ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                   ;
++-------------------------------------------+-----------------------------+
+
+
++--------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance         ;
++---------------------------------------+----------------+
+; Name                                  ; Value          ;
++---------------------------------------+----------------+
+; Number of entity instances            ; 5              ;
+; Entity Instance                       ; lpm_mult:Mult4 ;
+;     -- LPM_WIDTHA                     ; 23             ;
+;     -- LPM_WIDTHB                     ; 7              ;
+;     -- LPM_WIDTHP                     ; 30             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult3 ;
+;     -- LPM_WIDTHA                     ; 9              ;
+;     -- LPM_WIDTHB                     ; 7              ;
+;     -- LPM_WIDTHP                     ; 16             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult2 ;
+;     -- LPM_WIDTHA                     ; 8              ;
+;     -- LPM_WIDTHB                     ; 7              ;
+;     -- LPM_WIDTHP                     ; 15             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 8              ;
+;     -- LPM_WIDTHB                     ; 7              ;
+;     -- LPM_WIDTHP                     ; 15             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
+; Entity Instance                       ; lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 8              ;
+;     -- LPM_WIDTHB                     ; 7              ;
+;     -- LPM_WIDTHP                     ; 15             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
++---------------------------------------+----------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 27                          ;
+; cycloneiii_ff         ; 1823                        ;
+;     ENA               ; 1706                        ;
+;     ENA SCLR          ; 105                         ;
+;     SCLR              ; 6                           ;
+;     plain             ; 6                           ;
+; cycloneiii_lcell_comb ; 2186                        ;
+;     arith             ; 241                         ;
+;         2 data inputs ; 82                          ;
+;         3 data inputs ; 159                         ;
+;     normal            ; 1945                        ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 112                         ;
+;         3 data inputs ; 120                         ;
+;         4 data inputs ; 1700                        ;
+; cycloneiii_mac_mult   ; 6                           ;
+; cycloneiii_mac_out    ; 6                           ;
+; cycloneiii_ram_block  ; 24                          ;
+;                       ;                             ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 5.17                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
+Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed Mar 31 21:22:39 2021
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off kmean -c kmean --analysis_and_elaboration
+    Info: Processing started: Thu Apr 01 00:10:21 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off kmean -c kmean
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file kmean.v
@@ -245,50 +826,111 @@ Info (12021): Found 1 design units, including 1 entities, in source file divder.
     Info (12023): Found entity 1: divder File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/divder.v Line: 40
 Info (12021): Found 1 design units, including 1 entities, in source file output_files/mb.v
     Info (12023): Found entity 1: mb File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/output_files/mb.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at kmean.v(75): created implicit net for "last_mean" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 75
-Warning (10236): Verilog HDL Implicit Net warning at kmean.v(76): created implicit net for "last_mem" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 76
-Warning (10236): Verilog HDL Implicit Net warning at kmean.v(77): created implicit net for "we" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 77
+Warning (10236): Verilog HDL Implicit Net warning at kmean.v(76): created implicit net for "last_mean" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 76
+Warning (10236): Verilog HDL Implicit Net warning at kmean.v(77): created implicit net for "last_mem" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 77
+Warning (10236): Verilog HDL Implicit Net warning at kmean.v(78): created implicit net for "we" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 78
 Warning (10236): Verilog HDL Implicit Net warning at main_tb.v(13): created implicit net for "strb" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/main_tb.v Line: 13
 Info (12127): Elaborating entity "kmean" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at kmean.v(44): object "point" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 44
-Warning (10230): Verilog HDL assignment warning at kmean.v(91): truncated value with size 32 to match size of target (8) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 91
-Warning (10230): Verilog HDL assignment warning at kmean.v(92): truncated value with size 32 to match size of target (8) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 92
-Warning (10230): Verilog HDL assignment warning at kmean.v(93): truncated value with size 32 to match size of target (8) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 93
-Warning (10230): Verilog HDL assignment warning at kmean.v(94): truncated value with size 32 to match size of target (8) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 94
-Warning (10230): Verilog HDL assignment warning at kmean.v(95): truncated value with size 32 to match size of target (8) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 95
-Warning (10230): Verilog HDL assignment warning at kmean.v(96): truncated value with size 32 to match size of target (8) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 96
-Warning (10230): Verilog HDL assignment warning at kmean.v(121): truncated value with size 32 to match size of target (7) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 121
-Warning (10230): Verilog HDL assignment warning at kmean.v(122): truncated value with size 32 to match size of target (5) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 122
-Warning (10230): Verilog HDL assignment warning at kmean.v(134): truncated value with size 32 to match size of target (18) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 134
-Warning (10230): Verilog HDL assignment warning at kmean.v(140): truncated value with size 32 to match size of target (7) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 140
-Warning (10230): Verilog HDL assignment warning at kmean.v(193): truncated value with size 32 to match size of target (18) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 193
-Warning (10230): Verilog HDL assignment warning at kmean.v(216): truncated value with size 32 to match size of target (8) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 216
-Warning (10230): Verilog HDL assignment warning at kmean.v(222): truncated value with size 32 to match size of target (8) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 222
-Warning (10230): Verilog HDL assignment warning at kmean.v(230): truncated value with size 32 to match size of target (8) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 230
-Info (12128): Elaborating entity "divder" for hierarchy "divder:dv" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 78
-Info (12128): Elaborating entity "lpm_divide" for hierarchy "divder:dv|lpm_divide:LPM_DIVIDE_component" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/divder.v Line: 63
-Info (12130): Elaborated megafunction instantiation "divder:dv|lpm_divide:LPM_DIVIDE_component" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/divder.v Line: 63
-Info (12133): Instantiated megafunction "divder:dv|lpm_divide:LPM_DIVIDE_component" with the following parameter: File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/divder.v Line: 63
-    Info (12134): Parameter "lpm_drepresentation" = "UNSIGNED"
-    Info (12134): Parameter "lpm_hint" = "LPM_REMAINDERPOSITIVE=TRUE"
-    Info (12134): Parameter "lpm_nrepresentation" = "UNSIGNED"
-    Info (12134): Parameter "lpm_type" = "LPM_DIVIDE"
-    Info (12134): Parameter "lpm_widthd" = "32"
-    Info (12134): Parameter "lpm_widthn" = "32"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ehs.tdf
-    Info (12023): Found entity 1: lpm_divide_ehs File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/db/lpm_divide_ehs.tdf Line: 25
-Info (12128): Elaborating entity "lpm_divide_ehs" for hierarchy "divder:dv|lpm_divide:LPM_DIVIDE_component|lpm_divide_ehs:auto_generated" File: e:/intel20.1/quartus/libraries/megafunctions/lpm_divide.tdf Line: 148
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/db/sign_div_unsign_9nh.tdf Line: 25
-Info (12128): Elaborating entity "sign_div_unsign_9nh" for hierarchy "divder:dv|lpm_divide:LPM_DIVIDE_component|lpm_divide_ehs:auto_generated|sign_div_unsign_9nh:divider" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/db/lpm_divide_ehs.tdf Line: 36
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_o2f.tdf
-    Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/db/alt_u_div_o2f.tdf Line: 23
-Info (12128): Elaborating entity "alt_u_div_o2f" for hierarchy "divder:dv|lpm_divide:LPM_DIVIDE_component|lpm_divide_ehs:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/db/sign_div_unsign_9nh.tdf Line: 33
+Warning (10036): Verilog HDL or VHDL warning at kmean.v(62): object "num" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 62
+Warning (10036): Verilog HDL or VHDL warning at kmean.v(64): object "den" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 64
+Warning (10230): Verilog HDL assignment warning at kmean.v(91): truncated value with size 32 to match size of target (15) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 91
+Warning (10230): Verilog HDL assignment warning at kmean.v(92): truncated value with size 32 to match size of target (15) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 92
+Warning (10230): Verilog HDL assignment warning at kmean.v(93): truncated value with size 32 to match size of target (15) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 93
+Warning (10230): Verilog HDL assignment warning at kmean.v(120): truncated value with size 32 to match size of target (7) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 120
+Warning (10230): Verilog HDL assignment warning at kmean.v(121): truncated value with size 32 to match size of target (5) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 121
+Warning (10230): Verilog HDL assignment warning at kmean.v(133): truncated value with size 32 to match size of target (23) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 133
+Warning (10230): Verilog HDL assignment warning at kmean.v(139): truncated value with size 32 to match size of target (7) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 139
+Warning (10230): Verilog HDL assignment warning at kmean.v(162): truncated value with size 23 to match size of target (9) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 162
+Warning (10230): Verilog HDL assignment warning at kmean.v(196): truncated value with size 32 to match size of target (23) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 196
 Info (12128): Elaborating entity "mb" for hierarchy "mb:mem" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 79
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 4815 megabytes
-    Info: Processing ended: Wed Mar 31 21:22:45 2021
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:15
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "mb:mem|mem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to SINGLE_PORT
+        Info (286033): Parameter WIDTH_A set to 24
+        Info (286033): Parameter WIDTHAD_A set to 7
+        Info (286033): Parameter NUMWORDS_A set to 100
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_PORT_A set to OLD_DATA
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+Info (278001): Inferred 5 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult4" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 170
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult3" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 162
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult2" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 154
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 152
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult1" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 153
+Info (12130): Elaborated megafunction instantiation "mb:mem|altsyncram:mem_rtl_0"
+Info (12133): Instantiated megafunction "mb:mem|altsyncram:mem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "SINGLE_PORT"
+    Info (12134): Parameter "WIDTH_A" = "24"
+    Info (12134): Parameter "WIDTHAD_A" = "7"
+    Info (12134): Parameter "NUMWORDS_A" = "100"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_PORT_A" = "OLD_DATA"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_5o71.tdf
+    Info (12023): Found entity 1: altsyncram_5o71 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/db/altsyncram_5o71.tdf Line: 28
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult4" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 170
+Info (12133): Instantiated megafunction "lpm_mult:Mult4" with the following parameter: File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 170
+    Info (12134): Parameter "LPM_WIDTHA" = "23"
+    Info (12134): Parameter "LPM_WIDTHB" = "7"
+    Info (12134): Parameter "LPM_WIDTHP" = "30"
+    Info (12134): Parameter "LPM_WIDTHR" = "30"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_8ms.tdf
+    Info (12023): Found entity 1: mult_8ms File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/db/mult_8ms.tdf Line: 31
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult3" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 162
+Info (12133): Instantiated megafunction "lpm_mult:Mult3" with the following parameter: File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 162
+    Info (12134): Parameter "LPM_WIDTHA" = "9"
+    Info (12134): Parameter "LPM_WIDTHB" = "7"
+    Info (12134): Parameter "LPM_WIDTHP" = "16"
+    Info (12134): Parameter "LPM_WIDTHR" = "16"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_0ls.tdf
+    Info (12023): Found entity 1: mult_0ls File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/db/mult_0ls.tdf Line: 29
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult2" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 154
+Info (12133): Instantiated megafunction "lpm_mult:Mult2" with the following parameter: File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/kmean.v Line: 154
+    Info (12134): Parameter "LPM_WIDTHA" = "8"
+    Info (12134): Parameter "LPM_WIDTHB" = "7"
+    Info (12134): Parameter "LPM_WIDTHP" = "15"
+    Info (12134): Parameter "LPM_WIDTHR" = "15"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_uks.tdf
+    Info (12023): Found entity 1: mult_uks File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequential_manhattan/db/mult_uks.tdf Line: 29
+Info (13014): Ignored 15 buffer(s)
+    Info (13019): Ignored 15 SOFT buffer(s)
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 18 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 3927 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 26 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21061): Implemented 3869 logic cells
+    Info (21064): Implemented 24 RAM segments
+    Info (21062): Implemented 7 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 17 warnings
+    Info: Peak virtual memory: 4869 megabytes
+    Info: Processing ended: Thu Apr 01 00:10:34 2021
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:21
 
 
