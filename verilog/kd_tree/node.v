@@ -8,7 +8,7 @@ output command_to_top,command_to_right,command_to_left;
 
 /// Commands
 localparam start_sort = 
-			  configure_sort = 
+			  nop = 
 			  wait_sort_ack = 
 			  send_sort_ack = 
 			  switch_with_top = 
@@ -16,6 +16,8 @@ localparam start_sort =
 /// States
 localparam wait_down_command = 
 			  wait_top_command  = 
+			  configure_sort = 
+			  configuration_done = 
 			  sorting = 
 			  sort_done = 
 			  
@@ -26,8 +28,10 @@ reg left_data, right_data, top_data;
 reg sorting_axis;
 reg time_to_live;
 
-reg wait_down_for;
-reg self_state_after_ack;
+reg wait_down_for, wait_up_for;
+reg self_state_after_down_wait, self_state_after_up_wait;
+reg left_command_after_down_wait,right_command_after_down_wait, top_command_after_down_wait;
+reg left_command_after_up_wait,right_command_after_up_wait, top_command_after_up_wait;
 cluster_PE c_pe (
 					.clk(clk), 
 					.rst(rst), 
@@ -94,42 +98,68 @@ else
 	*/
 	
 	/////////////////////////////////////////////////////////////////////////////
-		sorting:
+		configure_sort:
 				case({alert_top,alert_left.alert_right})
 					3'b100,3'b101,3'b110,3'b111: begin 
 					case(top_command)
-						configure_sort:
+						depth_time_to_live:
 							time_to_live <= data_from_top;
-							sorting_axis <= data_from_top;
-							self_state <= sorting
-							left_command <= start_sort;
-							righ_command <= start_sort;
-							data_to_left <= time_to_live + 1 , axit same just forward.
+							sorting_axis <= data_from_top;							
 							if(self_lower_exists)
+								// setup child nodes for sorting
+								left_command <= depth_time_to_live;
+								righ_command <= depth_time_to_live;
+								data_to_left <= time_to_live + 1 , axit same just forward.
+								data_to_right <= time_to_live + 1 , axit same just forward.
+								// wait for child ack to propagate configure status
 								self_state <= wait_down_command;
+								wait_down_for <= send_sort_ack;
+								self_state_after_down_wait    <= wait_top_command;
+								
+								left_command_after_down_wait  <=  nop;
+								right_command_after_down_wait <=  nop;
+								top_command_after_down_wait   <=  send_sort_ack;
+								/// change this belwo
+								
+								wait_up_for <= start_sorting;
+								self_state_after_up_wait <=  sorting;
+								left_command_after_down_wait  <=  nop;
+								right_command_after_down_wait <=  nop;
+								top_command_after_down_wait   <=  send_sort_ack;
+								
+								
 							else 
-							wait_down_for <= sort_configure_ack
-							self_state_after_wait <= sorting;
-					endcase
-
-					
+								top_command <= send_sort_ack;
+								self_state <= unconditional_wait;
+								
+							
+							
+					endcase	
+	
 	///////////////////////// waiting //////////////////////////////////////////
 	
-		wait_child_ack:
-			case({alert_top,alert_left.alert_right})
-				3'b100,3'b101,3'b110,3'b111: begin 
-					case(top_command)
-					endcase
-				3'b010,3'b011,3'b001: begin
-					if(left_command == wait_down_for && right_command == wait_down_for)
-						state <= self_state_after_wait
+		wait_down_command:
+					if(command_from_left == wait_down_for && command_from_right == wait_down_for) begin
+						state <= self_state_after_down_wait;
+						left_command <= left_command_after_down_wait;
+						right_command <= right_command_after_down_wait;
+						top_command <=  top_command_after_down_wait;
 				
 				end
 
-			endcase
+			
 	
 	
 	
+	wait_top_command:
+			if(command_from_top == wait_up_for) begin
+						state <= self_state_after_up_wait;
+						left_command <= left_command_after_up_wait;
+						right_command <= right_command_after_up_wait;
+						top_command <=  top_command_after_up_wait;
+				
+
+			end
 	
 	///////////////////////// Point ////////////////////////////////////////////				
 					
