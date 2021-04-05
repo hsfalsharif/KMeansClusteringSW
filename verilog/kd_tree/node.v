@@ -3,7 +3,7 @@ module node(clk, rst , data_from_top,data_from_right,data_from_left,command_from
 input clk, rst,alert_top,alert_left,alert_right;
 input data_from_top,data_from_right,data_from_left;
 input command_from_top,command_from_right,command_from_left,data_from_top;
-output data_to_top,data_to_right,data_to_left;
+output reg data_to_top,data_to_right,data_to_left;
 output command_to_top,command_to_right,command_to_left;
 
 /// Commands
@@ -57,7 +57,7 @@ cluster_PE c_pe (
 // TODO: Find out how we will generate control signals inc, receive_point, next_level, stable, and go_left
 // Also implement the point propogation after verifying that the sort works 
 
-
+wire sort_stable ;
 assign ce_sorting = self_state == sorting;
 
 cluster_CE c_ce (.clk(clk), 
@@ -69,7 +69,7 @@ cluster_CE c_ce (.clk(clk),
 					  .right(data_from_right),
 					  .axis(sorting_axis), 
 					  /////
-					  .stable(sefl_stable), 
+					  .stable(sort_stable), 
 					  .left_switch(left_switch_out), 
 					  .parent_switch(self_child_switch), 
 					  .right_switch(right_switch_out),
@@ -80,7 +80,17 @@ cluster_CE c_ce (.clk(clk),
 					  )
 					  
 					  
-					  
+
+always * begin
+	case({})
+	
+	
+	
+	
+	
+
+end
+		  
 					  
 always @(posedge clk) begin
 if(rst) begin
@@ -101,7 +111,31 @@ else
 	
 	*/
 	
+	
+	//////////////// configurte///////////////////////////////////////////////////////////
+	
+	feeding:
+		if(top_alert) 
+			case(top_command) 
+				set_center:
+					data_to_left <= data_from_top;
+					left
+			
+			
+			endcase
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//////////////////////////////// Sorting /////////////////////////////////////////////
+	
+	
+
 		configure_sort:
 				if(top_alert)
 					case(command_from_top)
@@ -142,11 +176,14 @@ else
 			if(top_alert)
 				case(command_from_top)
 					switch_top:
+					/// first copy the top's center
+					/// and send switch_done signal
+					/// 
 						center <= data_from_top;
 						top_command <= switch_done;
 						right_command <= busy;
 						left_command <= busy;
-						
+			
 						
 						wait_up_for <= switch_ack;
 						self_state_after_up_wait    <=  sorting;
@@ -159,9 +196,51 @@ else
 			else if(self_alert)
 				case(command_from_self)
 					switch_with_left:
-					switch_with_right:
-					swtich_left_right:
+						if(command_from_left != busy) 
+							center <= data_from_left;
+							left_command <= switch_done;
+							right_command <= busy;
+							top_command <= busy;
+						
+						
+							wait_up_for <= switch_ack;
+							self_state_after_up_wait    <=  sorting;
+							left_command_after_up_wait  <=  nop;
+							right_command_after_up_wait <=  nop;
+							top_command_after_up_wait   <=  nop;
 					
+					switch_with_right:
+						if(command_from_right != busy)
+							center <= data_from_right;
+							right_command <= switch_done;
+							top_command <= busy;
+							left_command <= busy;
+						
+						
+							wait_up_for <= switch_ack;
+							self_state_after_up_wait    <=  sorting;
+							left_command_after_up_wait  <=  nop;
+							right_command_after_up_wait <=  nop;
+							top_command_after_up_wait   <=  nop;
+					
+					swtich_left_right:
+						if(command_from_right != busy && command_from_left != busy)
+							data_to_left <= data_from_right;
+							data_to_right <= data_from_left;
+							top_command <= busy;
+							right_command <= switch_top;
+							left_command <= switch_top;
+						
+							wait_down_for <= switch_ack;
+							self_state_after_up_wait    <=  sorting;
+							left_command_after_up_wait  <=  nop;
+							right_command_after_up_wait <=  nop;
+							top_command_after_up_wait   <=  nop;
+							
+					rotate_right:
+						
+					
+					rotate_left:
 				endcase
 			
 	
@@ -189,6 +268,7 @@ else
 				
 
 			end
+
 	
 	///////////////////////// Point ////////////////////////////////////////////				
 					
