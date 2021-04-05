@@ -25,8 +25,12 @@ always @(posedge clk) begin
 if(rst) begin
 /// rest every thing
 end
-else case({alert_top,alert_left.alert_right})
-			3'b100,3'b101,3'b110,3'b111: begin 
+else 
+	case(self_state) 
+	///////////////////////// SORTING ////////////////////////////////////////////
+		sorting:
+				case({alert_top,alert_left.alert_right})
+					3'b100,3'b101,3'b110,3'b111: begin 
 					case(top_command)
 						configure_sort:
 						time_to_live <= data_from_top;
@@ -35,46 +39,21 @@ else case({alert_top,alert_left.alert_right})
 							self_state <= sorting
 							left_command <= start_sort;
 							righ_command <= start_sort;
-							
-						
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
 					endcase
+
+					
+					
+	///////////////////////// Point ////////////////////////////////////////////				
+					
+					
+					
+	endcase
+
+
+
 			end
 			
-
-
-
-
-
-
-
-
-
-
-
-
 endcase
-
-
-			  
-
-
-
-
-
-
-
-
-
-
-
 endmodule 
+
+
