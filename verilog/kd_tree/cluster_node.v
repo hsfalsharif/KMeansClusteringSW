@@ -16,6 +16,15 @@ output [center_size - 1:0] point_out, left_out, parent_out, right_out;
 output [axis_size - 1:0] axis_out;
 output [depth_size - 1:0] depth_out;
 
+
+
+
+/* TODO: 
+	1- move time_to_live here.
+	2- add left_en , right_en inside CE.
+	4- add left_sort_stable and right_sort_stable as input.
+	3- start sorting 
+*/
 // dim is number of dimensions, data_range is maximum allowable range for the data, max_n is the max number of data points,
 // dim_size is the number of bits required to represent the data range, center_size is the number of bits to represent
 // the centre combining by concatenating all of the dimensions, counter_size is the number of bits required to represent the
@@ -27,17 +36,49 @@ output [depth_size - 1:0] depth_out;
 
 wire [center_size - 1:0] center_self_P2C, center_self_C2P;
 wire self_child_switch;
-
-cluster_PE c_pe (.clk(clk), .rst(rst), .en(en), inc, .parent_switch(parent_switch_in), .child_switch(self_child_switch), receive_point, .sorting(sorting), 
-next_level, .point_in(point_in), .parent_in(parent_in), .child_in(center_self_C2P),
-.depth(depth_in), stable, go_left, .parent_out(parent_out), .child_out(center_self_P2C), point_out, .child_depth(depth_out));
+reg left_en,right_en;
+assign sort_stable_out = self_sort_stable & left_sort_stable & right_sort_stable;
+cluster_PE c_pe (
+					.clk(clk), 
+					.rst(rst), 
+					.en(en), 
+					inc(1'b0), 
+					.parent_switch(parent_switch_in), 
+					.child_switch(self_child_switch), 
+					.receive_point(1'b0),
+					.sorting(1'b1), 
+					.next_level(1'b0), 
+					.point_in(point_in), 
+					.parent_in(parent_in), 
+					.child_in(center_self_C2P),
+					.depth(depth_in), 
+					.stable(x1), .
+					.go_left(x2), 
+					.parent_out(parent_out), 
+					.child_out(center_self_P2C), 
+					.point_out(x3), 
+					.child_depth(depth_out)
+					);
 
 // TODO: Find out how we will generate control signals inc, receive_point, next_level, stable, and go_left
 // Also implement the point propogation after verifying that the sort works 
 
-cluster_CE c_ce (.clk(clk), .rst(rst), .en(en), .sorting(sorting),
-.left(left_in), .parent(center_self_P2C), .right(right_in),
-.axis(axis_in), .stable(stable), .left_switch(left_switch_out), .parent_switch(self_child_switch), .right_switch(right_switch_out),
-.new_left(left_out), .new_parent(center_self_C2P), .new_right(right_out), .child_axis(axis_out));
+cluster_CE c_ce (.clk(clk), 
+					  .rst(rst),
+					  .en(en),
+					  .sorting(1'b1),
+					  .left(left_in), 
+					  .parent(center_self_P2C), 
+					  .right(right_in),
+					  .axis(axis_in), 
+					  .stable(sefl_stable), 
+					  .left_switch(left_switch_out), 
+					  .parent_switch(self_child_switch), 
+					  .right_switch(right_switch_out),
+					  .new_left(left_out), 
+					  .new_parent(center_self_C2P), 
+					  .new_right(right_out), 
+					  .child_axis(axis_out)
+					  );
 
 endmodule
