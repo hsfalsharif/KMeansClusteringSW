@@ -133,9 +133,10 @@ else if(command_from_top != nop)
 		
 		
 		recieve_center: begin
+						
 						center <= data_from_top;
 						data_to_top <= center;
-						command_to_top <= send_center;
+						command_to_top <= recieve_center;
 
 						right_command <= nop;
 						left_command <= nop;
@@ -147,6 +148,20 @@ else if(command_from_top != nop)
 		endcase
 	else if(self_command != nop) begin 
 		case(self_command)
+			switch_with_left:
+				if(command_from_left == receive_center && comman_to_left == receive_center) begin
+					center <= data_from_left;
+					command_to_left <= nop;
+					
+				
+				end
+				else if(command_from_left != busy) begin
+					
+				
+				
+				end
+			
+		  
 		endcase
 	end
 	else if(left_command != nop) begin
