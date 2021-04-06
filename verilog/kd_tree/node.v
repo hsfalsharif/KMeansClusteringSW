@@ -81,206 +81,84 @@ cluster_CE c_ce (.clk(clk),
 					  
 					  
 
-always * begin
-	case({})
-	
-	
-	
-	
-	
-
-end
-		  
-					  
+  
 always @(posedge clk) begin
 if(rst) begin
 /// rest every thing
 end
-else 
-	case(self_state) 
-	///////////////////////// SORTING ////////////////////////////////////////////
-	/* commands 
-		1) configuer time_to_live and axis
-		2) start_sorting : turn on CE and consider it's output
-	
-	
-	
-	
-	
-	
-	
-	*/
-	
-	
-	//////////////// configurte///////////////////////////////////////////////////////////
-	
-	feeding:
-		if(top_alert) 
-			case(top_command) 
-				set_center:
+else if(command_from_top != nop)
+		case(command_from_top)
+			center_fill: begin
+				if(command_from_left != center_fill_done) begin
 					data_to_left <= data_from_top;
-					left
-			
-			
-			endcase
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//////////////////////////////// Sorting /////////////////////////////////////////////
-	
-	
-
-		configure_sort:
-				if(top_alert)
-					case(command_from_top)
-						depth_time_to_live:
-							time_to_live <= data_from_top;
-							sorting_axis <= data_from_top;							
-							if(self_lower_exists)
-								// setup child nodes for sorting
-								left_command <= depth_time_to_live;
-								righ_command <= depth_time_to_live;
-								data_to_left <= time_to_live + 1 , axit same just forward.
-								data_to_right <= time_to_live + 1 , axit same just forward.
-								// wait for child ack to propagate configure status
-								self_state <= wait_down_command;
-								wait_down_for <= send_sort_ack;
-								self_state_after_down_wait    <= wait_top_command;
-								
-								left_command_after_down_wait  <=  nop;
-								right_command_after_down_wait <=  nop;
-								top_command_after_down_wait   <=  send_sort_ack;
-								/// change this belwo 
-								
-								wait_up_for <= start_sorting;
-								self_state_after_up_wait    <=  sorting;
-								left_command_after_up_wait  <=  nop;
-								right_command_after_up_wait <=  nop;
-								top_command_after_up_wait   <=  nop;
-								
-								
-							else 
-								top_command <= send_sort_ack;
-								self_state <= unconditional_wait;
-								
-					endcase
-				
-					
-		sorting:
-			if(top_alert)
-				case(command_from_top)
-					switch_top:
-					/// first copy the top's center
-					/// and send switch_done signal
-					/// 
-						center <= data_from_top;
-						top_command <= switch_done;
-						right_command <= busy;
-						left_command <= busy;
-			
-						
-						wait_up_for <= switch_ack;
-						self_state_after_up_wait    <=  sorting;
-						left_command_after_up_wait  <=  nop;
-						right_command_after_up_wait <=  nop;
-						top_command_after_up_wait   <=  nop;
-				endcase
-				
-				
-			else if(self_alert)
-				case(command_from_self)
-					switch_with_left:
-						if(command_from_left != busy) 
-							center <= data_from_left;
-							left_command <= switch_done;
-							right_command <= busy;
-							top_command <= busy;
-						
-						
-							wait_up_for <= switch_ack;
-							self_state_after_up_wait    <=  sorting;
-							left_command_after_up_wait  <=  nop;
-							right_command_after_up_wait <=  nop;
-							top_command_after_up_wait   <=  nop;
-					
-					switch_with_right:
-						if(command_from_right != busy)
-							center <= data_from_right;
-							right_command <= switch_done;
-							top_command <= busy;
-							left_command <= busy;
-						
-						
-							wait_up_for <= switch_ack;
-							self_state_after_up_wait    <=  sorting;
-							left_command_after_up_wait  <=  nop;
-							right_command_after_up_wait <=  nop;
-							top_command_after_up_wait   <=  nop;
-					
-					swtich_left_right:
-						if(command_from_right != busy && command_from_left != busy)
-							data_to_left <= data_from_right;
-							data_to_right <= data_from_left;
-							top_command <= busy;
-							right_command <= switch_top;
-							left_command <= switch_top;
-						
-							wait_down_for <= switch_ack;
-							self_state_after_up_wait    <=  sorting;
-							left_command_after_up_wait  <=  nop;
-							right_command_after_up_wait <=  nop;
-							top_command_after_up_wait   <=  nop;
-							
-					rotate_right:
-						
-					
-					rotate_left:
-				endcase
-			
-	
-	///////////////////////// waiting //////////////////////////////////////////
-	
-		wait_down_command:
-					if(command_from_left == wait_down_for && command_from_right == wait_down_for) begin
-						self_state <= self_state_after_down_wait;
-						left_command <= left_command_after_down_wait;
-						right_command <= right_command_after_down_wait;
-						top_command <=  top_command_after_down_wait;
-				
+					command_to_left <= cetner_fill;
+					command_to_top <= nop;
+					command_to_right <= nop;
 				end
-
-			
-	
-	
-	
-	wait_top_command:
-			if(command_from_top == wait_up_for) begin
-						self_state <= self_state_after_up_wait;
-						left_command <= left_command_after_up_wait;
-						right_command <= right_command_after_up_wait;
-						top_command <=  top_command_after_up_wait;
+				else if (command_from_right != center_fill_done) begin
+						data_to_right <= data_from_top;
+						command_to_right <= cetner_fill;	
+						command_to_top <= nop;
+						command_to_left <= nop;		
+				end
 				
-
-			end
-
-	
-	///////////////////////// Point ////////////////////////////////////////////				
-					
-					
-					
-	endcase
-
-
-
-			end
+				else begin
+					center <= data_from_top;
+					command_to_top <= center_fill_done;
+					command_to_right <= nop;
+					command_to_left <= nop;
+				end
 			
-endcase
+			end
+		///////////////////// END center fill //////////////////////////////
+		configure_sort_axis: begin
+			if(command_from_left == configure_sort_axis_done && command_from_right == configure_sort_axis_done) begin
+				command_to_top <= configure_sort_axis_done;
+				command_to_right <= nop;
+				command_to_left <= nop;
+			
+			end
+			else begin
+				sorting_axis <= data_from_top;
+				data_to_left <= data_from_top;
+				data_to_right <= data_from_top;
+				command_to_left <= configure_sort;
+				command_to_right <= configure_sort;
+				command_to_top <= nop;
+			end
+		
+		
+		end
+		//////////////////////////////////////////// END CONFIGUREATION AXIS /////////////////////////////
+		
+		
+		recieve_center: begin
+						center <= data_from_top;
+						data_to_top <= center;
+						command_to_top <= send_center;
+
+						right_command <= nop;
+						left_command <= nop;
+		
+		end
+		
+		
+		
+		endcase
+	else if(self_command != nop) begin 
+		case(self_command)
+		endcase
+	end
+	else if(left_command != nop) begin
+		case(left_command)
+		endcase
+		
+	end
+	else begin 
+		case(right_command)
+		endcase
+	end
+
 endmodule 
 
 
