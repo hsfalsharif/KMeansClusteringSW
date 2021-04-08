@@ -12,56 +12,56 @@
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:21:19 on Apr 06,2021
+# Start time: 14:59:27 on Apr 08,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v 
 # -- Compiling module manhattan
 # 
 # Top level modules:
 # 	manhattan
-# End time: 21:21:20 on Apr 06,2021, Elapsed time: 0:00:01
+# End time: 14:59:27 on Apr 08,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:21:20 on Apr 06,2021
+# Start time: 14:59:27 on Apr 08,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v 
 # -- Compiling module cluster_CE
 # 
 # Top level modules:
 # 	cluster_CE
-# End time: 21:21:20 on Apr 06,2021, Elapsed time: 0:00:00
+# End time: 14:59:27 on Apr 08,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:21:20 on Apr 06,2021
+# Start time: 14:59:27 on Apr 08,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v 
 # -- Compiling module cluster_ce_tb
 # 
 # Top level modules:
 # 	cluster_ce_tb
-# End time: 21:21:20 on Apr 06,2021, Elapsed time: 0:00:00
+# End time: 14:59:27 on Apr 08,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 21:21:20 on Apr 06,2021
+# Start time: 14:59:27 on Apr 08,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v 
 # -- Compiling module cluster_ce_tb
 # 
 # Top level modules:
 # 	cluster_ce_tb
-# End time: 21:21:20 on Apr 06,2021, Elapsed time: 0:00:00
+# End time: 14:59:27 on Apr 08,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  cluster_ce_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" cluster_ce_tb 
-# Start time: 21:21:20 on Apr 06,2021
+# Start time: 14:59:27 on Apr 08,2021
 # Loading work.cluster_ce_tb
 # Loading work.cluster_CE
 # Loading work.manhattan
 # ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /cluster_ce_tb/ce_test/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 30
+#    Time: 0 ps  Iteration: 0  Instance: /cluster_ce_tb/ce_test/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 28
 # ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /cluster_ce_tb/ce_test/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 30
+#    Time: 0 ps  Iteration: 0  Instance: /cluster_ce_tb/ce_test/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 28
 # 
 # add wave *
 # view structure
@@ -72,22 +72,47 @@
 # ABC: 000, Left:        x, Parent:        x, Right:        x, New Left:        x, New Parent:        x, New Right:        x
 # ABC: xxx, Left:        x, Parent:        x, Right:        x, New Left:        x, New Parent:        x, New Right:        x
 # ABC: 000, Left:      101, Parent:      102, Right:      103, New Left:        x, New Parent:        x, New Right:        x
-# ABC: 000, Left:      101, Parent:      102, Right:      103, New Left:      101, New Parent:      102, New Right:      103
 # ABC: 100, Left:      150, Parent:       99, Right:      233, New Left:      101, New Parent:      102, New Right:      103
-# ABC: 100, Left:      150, Parent:       99, Right:      233, New Left:       99, New Parent:       99, New Right:      233
-# ABC: 101, Left:        5, Parent:        1, Right:        3, New Left:       99, New Parent:       99, New Right:      233
-# ABC: 101, Left:        5, Parent:        1, Right:        3, New Left:        1, New Parent:        1, New Right:        3
-# ABC: 011, Left:       32, Parent:      167, Right:       17, New Left:        1, New Parent:        1, New Right:        3
-# ABC: 011, Left:       32, Parent:      167, Right:       17, New Left:       17, New Parent:      167, New Right:       17
-# ABC: 111, Left:      255, Parent:      254, Right:      253, New Left:       17, New Parent:      167, New Right:       17
-# ABC: 111, Left:      255, Parent:      254, Right:      253, New Left:      253, New Parent:      254, New Right:      253
-# ABC: 011, Left:      199, Parent:      201, Right:       42, New Left:      253, New Parent:      254, New Right:      253
-# ABC: 011, Left:      199, Parent:      201, Right:       42, New Left:       42, New Parent:      201, New Right:       42
-# ABC: 010, Left:       50, Parent:      150, Right:       60, New Left:       42, New Parent:      201, New Right:       42
-# ABC: 010, Left:       50, Parent:      150, Right:       60, New Left:       50, New Parent:      150, New Right:       60
-# ** Note: $finish    : C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v(32)
-#    Time: 160 ns  Iteration: 0  Instance: /cluster_ce_tb
+# ABC: 101, Left:        5, Parent:        1, Right:        3, New Left:       99, New Parent:      150, New Right:      233
+# ABC: 011, Left:       32, Parent:      167, Right:       17, New Left:        1, New Parent:        3, New Right:        5
+# ABC: 111, Left:      255, Parent:      254, Right:      253, New Left:       17, New Parent:       32, New Right:      167
+# ABC: 011, Left:      199, Parent:      201, Right:       42, New Left:      253, New Parent:      254, New Right:      255
+# ABC: 010, Left:       50, Parent:      150, Right:       60, New Left:       42, New Parent:      199, New Right:      201
+# ABC: 000, Left:        0, Parent:        0, Right:        0, New Left:       50, New Parent:       60, New Right:      150
+# ABC: 000, Left:      101, Parent:      102, Right:      103, New Left:        0, New Parent:        0, New Right:        0
+# ABC: 000, Left:      150, Parent:       99, Right:      233, New Left:      101, New Parent:      102, New Right:      103
+# ABC: 000, Left:        5, Parent:        1, Right:        3, New Left:      150, New Parent:       99, New Right:      233
+# ABC: 000, Left:       32, Parent:      167, Right:       17, New Left:        5, New Parent:        1, New Right:        3
+# ABC: 000, Left:      255, Parent:      254, Right:      253, New Left:       32, New Parent:      167, New Right:       17
+# ABC: 000, Left:      199, Parent:      201, Right:       42, New Left:      255, New Parent:      254, New Right:      253
+# ABC: 000, Left:       50, Parent:      150, Right:       60, New Left:      199, New Parent:      201, New Right:       42
+# ABC: 000, Left:        0, Parent:        0, Right:        0, New Left:       50, New Parent:      150, New Right:       60
+# ABC: 000, Left:      101, Parent:      102, Right:      103, New Left:        0, New Parent:        0, New Right:        0
+# ABC: 000, Left:      150, Parent:       99, Right:      233, New Left:      101, New Parent:      102, New Right:      103
+# ABC: 000, Left:        5, Parent:        1, Right:        3, New Left:      150, New Parent:       99, New Right:      233
+# ABC: 010, Left:       32, Parent:      167, Right:       17, New Left:        5, New Parent:        1, New Right:        3
+# ABC: 010, Left:      255, Parent:      254, Right:      253, New Left:       32, New Parent:       17, New Right:      167
+# ABC: 010, Left:      199, Parent:      201, Right:       42, New Left:      255, New Parent:      253, New Right:      254
+# ABC: 010, Left:       50, Parent:      150, Right:       60, New Left:      199, New Parent:       42, New Right:      201
+# ABC: 000, Left:        0, Parent:        0, Right:        0, New Left:       50, New Parent:       60, New Right:      150
+# ABC: 000, Left:      101, Parent:      102, Right:      103, New Left:        0, New Parent:        0, New Right:        0
+# ABC: 100, Left:      150, Parent:       99, Right:      233, New Left:      101, New Parent:      102, New Right:      103
+# ABC: 100, Left:        5, Parent:        1, Right:        3, New Left:       99, New Parent:      150, New Right:      233
+# ABC: 000, Left:       32, Parent:      167, Right:       17, New Left:        1, New Parent:        5, New Right:        3
+# ABC: 100, Left:      255, Parent:      254, Right:      253, New Left:       32, New Parent:      167, New Right:       17
+# ABC: 000, Left:      199, Parent:      201, Right:       42, New Left:      254, New Parent:      255, New Right:      253
+# ABC: 000, Left:       50, Parent:      150, Right:       60, New Left:      199, New Parent:      201, New Right:       42
+# ABC: 000, Left:        0, Parent:        0, Right:        0, New Left:       50, New Parent:      150, New Right:       60
+# ABC: 000, Left:      101, Parent:      102, Right:      103, New Left:        0, New Parent:        0, New Right:        0
+# ABC: 000, Left:      150, Parent:       99, Right:      233, New Left:      101, New Parent:      102, New Right:      103
+# ABC: 000, Left:        5, Parent:        1, Right:        3, New Left:      150, New Parent:       99, New Right:      233
+# ABC: 000, Left:       32, Parent:      167, Right:       17, New Left:        5, New Parent:        1, New Right:        3
+# ABC: 000, Left:      255, Parent:      254, Right:      253, New Left:       32, New Parent:      167, New Right:       17
+# ABC: 000, Left:      199, Parent:      201, Right:       42, New Left:      255, New Parent:      254, New Right:      253
+# ABC: 000, Left:       50, Parent:      150, Right:       60, New Left:      199, New Parent:      201, New Right:       42
+# ** Note: $finish    : C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v(68)
+#    Time: 800 ns  Iteration: 0  Instance: /cluster_ce_tb
 # 1
-# Break in Module cluster_ce_tb at C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v line 32
-# End time: 21:25:11 on Apr 06,2021, Elapsed time: 0:03:51
+# Break in Module cluster_ce_tb at C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v line 68
+# End time: 15:03:48 on Apr 08,2021, Elapsed time: 0:04:21
 # Errors: 0, Warnings: 2

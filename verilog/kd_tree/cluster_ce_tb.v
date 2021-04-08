@@ -22,11 +22,47 @@ initial begin
 end
 
 initial begin
-	#20 left = 8'd101; parent = 8'd102; right = 8'd103; // l < p < r, normal case
-	#20 left = 8'd150; parent = 8'd99; right = 8'd233;  // p < l < r
-	#20 left = 8'd5; parent = 8'd1; right = 8'd3;       // p < r < l
-	#20 left = 8'd32; parent = 8'd167; right = 8'd17;   // r < l < p
-	#20 left = 8'd255; parent = 8'd254; right = 8'd253; // r < p < l
+	#20 left = 8'd101; parent = 8'd102; right = 8'd103; axis = 2'd0; // l < p < r, normal case
+	#20 left = 8'd150; parent = 8'd99; right = 8'd233; axis = 2'd1;  // p < l < r
+	#20 left = 8'd5; parent = 8'd1; right = 8'd3; axis = 2'd2;       // p < r < l
+	#20 left = 8'd32; parent = 8'd167; right = 8'd17; axis = 2'd0;   // r < l < p
+	#20 left = 8'd255; parent = 8'd254; right = 8'd253; axis = 2'd0; // r < p < l
+	#20 left = 8'd199; parent = 8'd201; right = 8'd42; 
+	#20 left = 8'd50; parent = 8'd150; right = 8'd60;
+	// testing when sorting is 0
+	#20 left = 8'd0; parent = 8'd0; right = 8'd0; sorting= 1'd0;
+	#20 left = 8'd101; parent = 8'd102; right = 8'd103; axis = 2'd0; // l < p < r, normal case
+	#20 left = 8'd150; parent = 8'd99; right = 8'd233; axis = 2'd1;  // p < l < r
+	#20 left = 8'd5; parent = 8'd1; right = 8'd3; axis = 2'd2;       // p < r < l
+	#20 left = 8'd32; parent = 8'd167; right = 8'd17; axis = 2'd0;   // r < l < p
+	#20 left = 8'd255; parent = 8'd254; right = 8'd253; axis = 2'd0; // r < p < l
+	#20 left = 8'd199; parent = 8'd201; right = 8'd42; 
+	#20 left = 8'd50; parent = 8'd150; right = 8'd60;
+	// testing when left_en is 0
+	#20 left = 8'd0; parent = 8'd0; right = 8'd0; sorting= 1'b1; left_en = 1'b0;
+	#20 left = 8'd101; parent = 8'd102; right = 8'd103; axis = 2'd0; // l < p < r, normal case
+	#20 left = 8'd150; parent = 8'd99; right = 8'd233; axis = 2'd1;  // p < l < r
+	#20 left = 8'd5; parent = 8'd1; right = 8'd3; axis = 2'd2;       // p < r < l
+	#20 left = 8'd32; parent = 8'd167; right = 8'd17; axis = 2'd0;   // r < l < p
+	#20 left = 8'd255; parent = 8'd254; right = 8'd253; axis = 2'd0; // r < p < l
+	#20 left = 8'd199; parent = 8'd201; right = 8'd42; 
+	#20 left = 8'd50; parent = 8'd150; right = 8'd60;
+	// testing when right_en is 0
+	#20 left = 8'd0; parent = 8'd0; right = 8'd0; sorting= 1'b1; left_en = 1'b1; right_en = 1'b0;
+	#20 left = 8'd101; parent = 8'd102; right = 8'd103; axis = 2'd0; // l < p < r, normal case
+	#20 left = 8'd150; parent = 8'd99; right = 8'd233; axis = 2'd1;  // p < l < r
+	#20 left = 8'd5; parent = 8'd1; right = 8'd3; axis = 2'd2;       // p < r < l
+	#20 left = 8'd32; parent = 8'd167; right = 8'd17; axis = 2'd0;   // r < l < p
+	#20 left = 8'd255; parent = 8'd254; right = 8'd253; axis = 2'd0; // r < p < l
+	#20 left = 8'd199; parent = 8'd201; right = 8'd42; 
+	#20 left = 8'd50; parent = 8'd150; right = 8'd60;
+	// testing when left_en is 0 and right_en is 0
+	#20 left = 8'd0; parent = 8'd0; right = 8'd0; sorting= 1'b1; left_en = 1'b0; right_en = 1'b0;
+	#20 left = 8'd101; parent = 8'd102; right = 8'd103; axis = 2'd0; // l < p < r, normal case
+	#20 left = 8'd150; parent = 8'd99; right = 8'd233; axis = 2'd1;  // p < l < r
+	#20 left = 8'd5; parent = 8'd1; right = 8'd3; axis = 2'd2;       // p < r < l
+	#20 left = 8'd32; parent = 8'd167; right = 8'd17; axis = 2'd0;   // r < l < p
+	#20 left = 8'd255; parent = 8'd254; right = 8'd253; axis = 2'd0; // r < p < l
 	#20 left = 8'd199; parent = 8'd201; right = 8'd42; 
 	#20 left = 8'd50; parent = 8'd150; right = 8'd60;
 	#20 $finish;

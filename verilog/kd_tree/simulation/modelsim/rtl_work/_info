@@ -10,23 +10,23 @@ z2
 cModel Technology
 Z0 dC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/simulation/modelsim
 vcluster_CE
-Z1 !s110 1617733280
+Z1 !s110 1617883167
 !i10b 1
-!s100 `EoT5bgc]mIci^jGE`dg21
+!s100 DT6J3dkK2n[PQJAE=Pcoz1
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-ISF`M6:^55UXHaQ=m0ebDK1
+IEka^4kX?f6ZfLcRG[:<Wa1
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1617733153
+w1617883160
 8C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v
 FC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v
 !i122 1
-L0 1 49
+L0 1 47
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1617733280.000000
+Z5 !s108 1617883167.000000
 !s107 C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree|C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v|
 !i113 1
@@ -37,16 +37,16 @@ ncluster_@c@e
 vcluster_ce_tb
 R1
 !i10b 1
-!s100 z_2iO2;^ja;fTBm>VSKlH2
+!s100 bCN:Y290^M=TWQHR6F8I_2
 R2
-I31Rz?<SBESTJ40YjWPXg:3
+I1A:MF82cGzM^mCXA7IQ>l3
 R3
 R0
-w1617727603
+w1617880937
 8C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v
 FC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v
 !i122 3
-L0 3 33
+L0 3 69
 R4
 r1
 !s85 0
@@ -59,7 +59,7 @@ R6
 R7
 R8
 vmanhattan
-!s110 1617733279
+R1
 !i10b 1
 !s100 6NaODj7FB>O:A`>L3[[DV3
 R2
@@ -75,7 +75,7 @@ R4
 r1
 !s85 0
 31
-!s108 1617733279.000000
+R5
 !s107 C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree|C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v|
 !i113 1
