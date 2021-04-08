@@ -2,7 +2,11 @@
 
 module cluster_ce_tb();
 
-localparam dim = 3, data_range = 255, dim_size = $clog2(data_range), center_size = dim*dim_size, axis_size = $clog2(dim);
+localparam dim 		  = 3,
+			  data_range  = 255,
+			  dim_size    = $clog2(data_range),
+			  center_size = dim*dim_size,
+			  axis_size   = $clog2(dim);
 
 reg clk, rst, en, sorting, left_en, right_en;
 reg [center_size - 1:0] left, parent, right, point_in;

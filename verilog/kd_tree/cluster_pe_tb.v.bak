@@ -1,0 +1,10 @@
+`timescale 1ns/1ns
+
+module cluster_pe_tb();
+
+localparam dim = 3, data_range = 255, dim_size = $clog2(data_range), center_size = dim*dim_size, axis_size = $clog2(dim);
+
+cluster_PE pe_test (clk, rst, en, inc, parent_switch, child_switch, receive_point, sorting, next_level, point_in, parent_in, child_in,
+depth, stable, go_left, parent_out, child_out, point_out, child_depth);
+
+endmodule

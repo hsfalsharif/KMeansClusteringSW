@@ -10,12 +10,11 @@ localparam  dim_size     = $clog2(data_range),
 				depth_size   = $clog2(max_depth);
 
 input clk, rst, en, inc, parent_switch, child_switch, receive_point, sorting, next_level;
-input [center_size - 1:0] point_in;
-input [center_size - 1:0] parent_in, child_in;
+input [center_size - 1:0] point_in, parent_in, child_in;
 input [depth_size - 1:0] depth;
 output stable, go_left;
 output [center_size - 1:0] point_out;
-output reg [center_size - 1:0] parent_out, child_out; 
+output reg [center_size - 1:0] parent_out, child_out;
 output [depth_size - 1:0] child_depth;
 
 
@@ -62,12 +61,12 @@ always@(posedge clk) begin
 			time_to_live <= time_to_live - 1;
 			$display("Next Level => Time To Live: %d", time_to_live);
 		end
-		if (parent_switch && switch_enable) begin
+		if (sorting && switch_enable && parent_switch) begin
 			parent_out <= old_center;
 			old_center <= parent_in;
 			$display("Parent Switch => Old Center: [%d, %d, %d], Parent Center: [%d, %d, %d], Child Center: [%d, %d, %d]", old_center[0+:dim_size], old_center[dim_size+: dim_size], old_center[2*dim_size+: dim_size], parent_in[0+:dim_size], parent_in[dim_size+: dim_size], parent_in[2*dim_size+: dim_size], parent_out[0+:dim_size], parent_out[dim_size+: dim_size], parent_out[2*dim_size+: dim_size], child_in[0+:dim_size], child_in[dim_size+: dim_size], child_in[2*dim_size+: dim_size], child_out[0+:dim_size], child_out[dim_size+: dim_size], child_out[2*dim_size+: dim_size]);
 			end
-		else if (child_switch && switch_enable) begin
+		else if (sorting && switch_enable && child_switch) begin
 			child_out <= old_center; 
 			old_center <= child_in; // will this cause child_out to take the value of child_in? or can we guarantee that child_out has sent out the value of old_center before it has changed the value of old_center?
 			$display("Parent Switch => Old Center: [%d, %d, %d], Parent Center: [%d, %d, %d], Child Center: [%d, %d, %d]", old_center[0+:dim_size], old_center[dim_size+: dim_size], old_center[2*dim_size+: dim_size], parent_in[0+:dim_size], parent_in[dim_size+: dim_size], parent_in[2*dim_size+: dim_size], parent_out[0+:dim_size], parent_out[dim_size+: dim_size], parent_out[2*dim_size+: dim_size], child_in[0+:dim_size], child_in[dim_size+: dim_size], child_in[2*dim_size+: dim_size], child_out[0+:dim_size], child_out[dim_size+: dim_size], child_out[2*dim_size+: dim_size]);

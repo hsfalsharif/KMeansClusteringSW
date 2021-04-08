@@ -54,10 +54,6 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
-set_global_assignment -name VERILOG_FILE cluster_PE.v
-set_global_assignment -name VERILOG_FILE manhattan.v
-set_global_assignment -name VERILOG_FILE cluster_CE.v
-set_global_assignment -name VERILOG_FILE cluster_ce_tb.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -72,3 +68,8 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id cluster_ce_t
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME cluster_ce_tb -section_id cluster_ce_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE cluster_ce_tb.v -section_id cluster_ce_tb
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VERILOG_FILE cluster_PE.v
+set_global_assignment -name VERILOG_FILE manhattan.v
+set_global_assignment -name VERILOG_FILE cluster_CE.v
+set_global_assignment -name VERILOG_FILE cluster_ce_tb.v
+set_global_assignment -name VERILOG_FILE cluster_pe_tb.v

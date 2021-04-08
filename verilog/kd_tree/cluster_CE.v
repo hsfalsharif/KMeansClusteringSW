@@ -2,7 +2,11 @@ module cluster_CE(clk, rst, en, sorting, left_en, right_en, left, parent, right,
 point_in, axis, stable, left_switch, parent_switch, right_switch, new_left, new_parent, new_right, child_axis);
 
 parameter dim = 3, data_range = 255;
-localparam dist_size = $clog2(data_range*dim), dim_size = $clog2(data_range), center_size = dim*dim_size, axis_size = $clog2(dim);
+
+localparam dist_size   = $clog2(data_range*dim), 
+			  dim_size    = $clog2(data_range),
+			  center_size = dim*dim_size,
+			  axis_size   = $clog2(dim);
 
 input clk, rst, en, sorting, left_en, right_en;
 input [center_size - 1:0] left, parent, right, point_in;
