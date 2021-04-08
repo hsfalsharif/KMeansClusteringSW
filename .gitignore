@@ -13,3 +13,4 @@ verilog/sequential_manhattan/simulation/modelsim/msim_transcript
 verilog/sequential_manhattan/simulation/modelsim/modelsim.ini
 verilog/sequential_manhattan/simulation/modelsim/kmean_run_msim_rtl_verilog.do.bak1
 verilog/sequential_manhattan/db/kmean.quiproj.6888.rdr.flock
+*.flock

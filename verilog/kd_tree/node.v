@@ -1,37 +1,40 @@
-module node(clk, rst , data_from_top,data_from_right,data_from_left,command_from_top,command_from_right,command_from_left,data_to_top,data_to_right,data_to_left,command_to_top,command_to_right,command_to_left);
+module node(clk, data_from_top,data_from_right,data_from_left,command_from_top,command_from_right,command_from_left,data_to_top,data_to_right,data_to_left,command_to_top,command_to_right,command_to_left);
 
-input clk, rst,alert_top,alert_left,alert_right;
-input data_from_top,data_from_right,data_from_left;
-input command_from_top,command_from_right,command_from_left,data_from_top;
-output reg data_to_top,data_to_right,data_to_left;
-output command_to_top,command_to_right,command_to_left;
+localparam command_size = 5,
+			  data_size    = 24,
+			  ttl_size     = 4,
+			  axis_size    = 2,
+			  center_size  = 24;
+			  
+parameter name="unknown";
+
+input clk;
+input      [data_size - 1 : 0]    data_from_top,data_from_right,data_from_left;
+input      [command_size - 1 : 0] command_from_top,command_from_right,command_from_left;
+output reg [data_size - 1 : 0]    data_to_top,data_to_right,data_to_left;
+output reg [command_size - 1 : 0] command_to_top,command_to_right,command_to_left;
 
 /// Commands
-localparam start_sort = 
-			  nop = 
-			  wait_sort_ack = 
-			  send_sort_ack = 
-			  switch_with_top = 
-			  switch_with_down = 
-/// States
-localparam wait_down_command = 
-			  wait_top_command  = 
-			  configure_sort = 
-			  configuration_done = 
-			  sorting = 
-			  sort_done = 
-			  
-reg self_state;
-reg left_command,right_command,top_command;
-reg left_data, right_data, top_data;
+localparam nop =  5'b00000,
+			  rst = 5'b11111,
+			  rst_done = 5'b11110,
+			  center_fill =  5'b00001,
+			  configure_sort_axis = 5'b00010,
+			  recieve_center =  5'b00011,
+			  switch_with_left =  5'b00100,
+			  center_fill_done =  5'b00101,
+			  cetner_fill      =  5'b00110,
+			  configure_sort_axis_done = 5'b00111,
+			  busy             = 5'b01000,
+			  dne              = 5'b10000;
 
-reg sorting_axis;
-reg time_to_live;
 
-reg wait_down_for, wait_up_for;
-reg self_state_after_down_wait, self_state_after_up_wait;
-reg left_command_after_down_wait,right_command_after_down_wait, top_command_after_down_wait;
-reg left_command_after_up_wait,right_command_after_up_wait, top_command_after_up_wait;
+reg [axis_size - 1 : 0] sorting_axis;
+reg [ttl_size - 1 : 0] time_to_live;
+reg [center_size-1:0] center;
+
+wire [command_size - 1 : 0] self_command;
+/*
 cluster_PE c_pe (
 					.clk(clk), 
 					.rst(rst), 
@@ -53,13 +56,10 @@ cluster_PE c_pe (
 					.point_out(x3), 
 					.child_depth(depth_out)
 					);
-
+*/
 // TODO: Find out how we will generate control signals inc, receive_point, next_level, stable, and go_left
 // Also implement the point propogation after verifying that the sort works 
-
-wire sort_stable ;
-assign ce_sorting = self_state == sorting;
-
+/*
 cluster_CE c_ce (.clk(clk), 
 					  .rst(rst),
 					  .en(en),
@@ -81,38 +81,73 @@ cluster_CE c_ce (.clk(clk),
 					  
 					  
 
-  
+ */
+
+ assign left_dne = command_from_left == dne;
+ assign right_dne = command_from_right == dne; 
+ assign both_dne = left_dne && right_dne;
 always @(posedge clk) begin
-if(rst) begin
-/// rest every thing
-end
-else if(command_from_top != nop)
+$display("node: %s command_from [%x %x %x] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x]",name,command_from_left,command_from_top,command_from_right,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne);
+
+if(command_from_top != nop)
 		case(command_from_top)
+		   rst: begin
+				if( (command_from_left == rst_done || left_dne) && (command_from_right == rst_done || left_dne) ) begin
+					command_to_top <= rst_done;
+					command_to_left <= nop;
+					command_to_right <= nop;
+					
+					data_to_left  <= {data_size{1'b0}};
+					data_to_right <= {data_size{1'b0}};
+					data_to_top   <= {data_size{1'b0}};
+	 
+					center        <= {center_size{1'b0}};
+					sorting_axis  <= {center_size{1'b0}};
+					time_to_live  <= {center_size{1'b0}};
+				
+				end
+				else begin
+					command_to_left <= rst;
+					command_to_right <= rst;
+	
+					data_to_left  <= {data_size{1'b0}};
+					data_to_right <= {data_size{1'b0}};
+					data_to_top   <= {data_size{1'b0}};
+	 
+					center        <= {center_size{1'b0}};
+					sorting_axis  <= {center_size{1'b0}};
+					time_to_live  <= {center_size{1'b0}};
+				end
+			
+			
+			end
+			    
 			center_fill: begin
-				if(command_from_left != center_fill_done) begin
-					data_to_left <= data_from_top;
-					command_to_left <= cetner_fill;
+				 center <= data_from_top;
+				if(command_from_left != center_fill_done && !left_dne) begin
+					data_to_left <= center;
+					command_to_left <= center_fill;
 					command_to_top <= nop;
 					command_to_right <= nop;
 				end
-				else if (command_from_right != center_fill_done) begin
-						data_to_right <= data_from_top;
-						command_to_right <= cetner_fill;	
+				else if (command_from_right != center_fill_done && ! right_dne) begin
+						data_to_right <= center;
+						command_to_right <= center_fill;	
 						command_to_top <= nop;
-						command_to_left <= nop;		
+						command_to_left <= center_fill;		
 				end
-				
-				else begin
-					center <= data_from_top;
+			
+				else begin 
 					command_to_top <= center_fill_done;
 					command_to_right <= nop;
 					command_to_left <= nop;
+				
 				end
 			
-			end
+			end           
 		///////////////////// END center fill //////////////////////////////
 		configure_sort_axis: begin
-			if(command_from_left == configure_sort_axis_done && command_from_right == configure_sort_axis_done) begin
+			if((command_from_left == configure_sort_axis_done || left_dne) && ( command_from_right == configure_sort_axis_done || right_dne) )  begin
 				command_to_top <= configure_sort_axis_done;
 				command_to_right <= nop;
 				command_to_left <= nop;
@@ -122,8 +157,8 @@ else if(command_from_top != nop)
 				sorting_axis <= data_from_top;
 				data_to_left <= data_from_top;
 				data_to_right <= data_from_top;
-				command_to_left <= configure_sort;
-				command_to_right <= configure_sort;
+				command_to_left <= configure_sort_axis;
+				command_to_right <= configure_sort_axis;
 				command_to_top <= nop;
 			end
 		
@@ -133,14 +168,17 @@ else if(command_from_top != nop)
 		
 		
 		recieve_center: begin
+						if(command_to_top == recieve_center && command_from_top == recieve_center) begin
+							command_to_top <= nop;
+						end
+						else if(command_from_top == recieve_center && command_to_top != recieve_center) begin
+							command_to_top <= recieve_center;
+							command_to_left <= busy;
+							command_to_right <= busy;
+							center <= data_from_top;
+							data_to_top <= center;
+						end
 						
-						center <= data_from_top;
-						data_to_top <= center;
-						command_to_top <= recieve_center;
-
-						right_command <= nop;
-						left_command <= nop;
-		
 		end
 		
 		
@@ -149,22 +187,28 @@ else if(command_from_top != nop)
 	else if(self_command != nop) begin 
 		case(self_command)
 			switch_with_left:
-				if(command_from_left == receive_center && comman_to_left == receive_center) begin
-					center <= data_from_left;
-					command_to_left <= nop;
-					
-				
-				end
-				else if(command_from_left != busy) begin
-					
-				
-				
-				end
-			
+				if(command_to_left == recieve_center && command_from_left == recieve_center) begin
+							command_to_left <= nop;
+							center <= data_from_left;
+							command_to_left <= nop;
+						end
+						else begin
+							command_to_left <= recieve_center;
+							data_to_left <= center;
+
+							command_to_top <= busy;
+							command_to_right <= busy;
+						end			
 		  
 		endcase
 	end
-	else if(left_command != nop) begin
+	else begin
+		command_to_top   <= nop;
+		command_to_left  <= nop;
+		command_to_right <= nop;
+		
+	end
+	/*else if(left_command != nop) begin
 		case(left_command)
 		endcase
 		
@@ -173,7 +217,10 @@ else if(command_from_top != nop)
 		case(right_command)
 		endcase
 	end
+*/
 
+
+end
 endmodule 
 
 
