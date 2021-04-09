@@ -7,112 +7,125 @@
 # vmap work rtl_work
 # Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
 # vmap work rtl_work 
-# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Copying E:/modelSim/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:59:27 on Apr 08,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v 
-# -- Compiling module manhattan
+# Start time: 17:46:30 on Apr 08,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v 
+# -- Compiling module node
 # 
 # Top level modules:
-# 	manhattan
-# End time: 14:59:27 on Apr 08,2021, Elapsed time: 0:00:00
+# 	node
+# End time: 17:46:30 on Apr 08,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:59:27 on Apr 08,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v 
-# -- Compiling module cluster_CE
+# Start time: 17:46:30 on Apr 08,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v 
+# -- Compiling module kd_tree
 # 
 # Top level modules:
-# 	cluster_CE
-# End time: 14:59:27 on Apr 08,2021, Elapsed time: 0:00:00
+# 	kd_tree
+# End time: 17:46:30 on Apr 08,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v}
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:59:27 on Apr 08,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v 
-# -- Compiling module cluster_ce_tb
+# Start time: 17:46:30 on Apr 08,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v 
+# -- Compiling module kd_tree
 # 
 # Top level modules:
-# 	cluster_ce_tb
-# End time: 14:59:27 on Apr 08,2021, Elapsed time: 0:00:00
+# 	kd_tree
+# End time: 17:46:30 on Apr 08,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v}
-# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 14:59:27 on Apr 08,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v 
-# -- Compiling module cluster_ce_tb
-# 
-# Top level modules:
-# 	cluster_ce_tb
-# End time: 14:59:27 on Apr 08,2021, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  cluster_ce_tb
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" cluster_ce_tb 
-# Start time: 14:59:27 on Apr 08,2021
-# Loading work.cluster_ce_tb
-# Loading work.cluster_CE
-# Loading work.manhattan
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /cluster_ce_tb/ce_test/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 28
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /cluster_ce_tb/ce_test/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 28
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  kd_tree
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" kd_tree 
+# Start time: 17:46:30 on Apr 08,2021
+# Loading work.kd_tree
+# Loading work.node
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
 # 
 # add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: oxygen  Hostname: DESKTOP-RTDQQM7  ProcessID: 17208
+#           Attempting to use alternate WLF file "./wlft0mrytx".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft0mrytx
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# ABC: 000, Left:        x, Parent:        x, Right:        x, New Left:        x, New Parent:        x, New Right:        x
-# ABC: xxx, Left:        x, Parent:        x, Right:        x, New Left:        x, New Parent:        x, New Right:        x
-# ABC: 000, Left:      101, Parent:      102, Right:      103, New Left:        x, New Parent:        x, New Right:        x
-# ABC: 100, Left:      150, Parent:       99, Right:      233, New Left:      101, New Parent:      102, New Right:      103
-# ABC: 101, Left:        5, Parent:        1, Right:        3, New Left:       99, New Parent:      150, New Right:      233
-# ABC: 011, Left:       32, Parent:      167, Right:       17, New Left:        1, New Parent:        3, New Right:        5
-# ABC: 111, Left:      255, Parent:      254, Right:      253, New Left:       17, New Parent:       32, New Right:      167
-# ABC: 011, Left:      199, Parent:      201, Right:       42, New Left:      253, New Parent:      254, New Right:      255
-# ABC: 010, Left:       50, Parent:      150, Right:       60, New Left:       42, New Parent:      199, New Right:      201
-# ABC: 000, Left:        0, Parent:        0, Right:        0, New Left:       50, New Parent:       60, New Right:      150
-# ABC: 000, Left:      101, Parent:      102, Right:      103, New Left:        0, New Parent:        0, New Right:        0
-# ABC: 000, Left:      150, Parent:       99, Right:      233, New Left:      101, New Parent:      102, New Right:      103
-# ABC: 000, Left:        5, Parent:        1, Right:        3, New Left:      150, New Parent:       99, New Right:      233
-# ABC: 000, Left:       32, Parent:      167, Right:       17, New Left:        5, New Parent:        1, New Right:        3
-# ABC: 000, Left:      255, Parent:      254, Right:      253, New Left:       32, New Parent:      167, New Right:       17
-# ABC: 000, Left:      199, Parent:      201, Right:       42, New Left:      255, New Parent:      254, New Right:      253
-# ABC: 000, Left:       50, Parent:      150, Right:       60, New Left:      199, New Parent:      201, New Right:       42
-# ABC: 000, Left:        0, Parent:        0, Right:        0, New Left:       50, New Parent:      150, New Right:       60
-# ABC: 000, Left:      101, Parent:      102, Right:      103, New Left:        0, New Parent:        0, New Right:        0
-# ABC: 000, Left:      150, Parent:       99, Right:      233, New Left:      101, New Parent:      102, New Right:      103
-# ABC: 000, Left:        5, Parent:        1, Right:        3, New Left:      150, New Parent:       99, New Right:      233
-# ABC: 010, Left:       32, Parent:      167, Right:       17, New Left:        5, New Parent:        1, New Right:        3
-# ABC: 010, Left:      255, Parent:      254, Right:      253, New Left:       32, New Parent:       17, New Right:      167
-# ABC: 010, Left:      199, Parent:      201, Right:       42, New Left:      255, New Parent:      253, New Right:      254
-# ABC: 010, Left:       50, Parent:      150, Right:       60, New Left:      199, New Parent:       42, New Right:      201
-# ABC: 000, Left:        0, Parent:        0, Right:        0, New Left:       50, New Parent:       60, New Right:      150
-# ABC: 000, Left:      101, Parent:      102, Right:      103, New Left:        0, New Parent:        0, New Right:        0
-# ABC: 100, Left:      150, Parent:       99, Right:      233, New Left:      101, New Parent:      102, New Right:      103
-# ABC: 100, Left:        5, Parent:        1, Right:        3, New Left:       99, New Parent:      150, New Right:      233
-# ABC: 000, Left:       32, Parent:      167, Right:       17, New Left:        1, New Parent:        5, New Right:        3
-# ABC: 100, Left:      255, Parent:      254, Right:      253, New Left:       32, New Parent:      167, New Right:       17
-# ABC: 000, Left:      199, Parent:      201, Right:       42, New Left:      254, New Parent:      255, New Right:      253
-# ABC: 000, Left:       50, Parent:      150, Right:       60, New Left:      199, New Parent:      201, New Right:       42
-# ABC: 000, Left:        0, Parent:        0, Right:        0, New Left:       50, New Parent:      150, New Right:       60
-# ABC: 000, Left:      101, Parent:      102, Right:      103, New Left:        0, New Parent:        0, New Right:        0
-# ABC: 000, Left:      150, Parent:       99, Right:      233, New Left:      101, New Parent:      102, New Right:      103
-# ABC: 000, Left:        5, Parent:        1, Right:        3, New Left:      150, New Parent:       99, New Right:      233
-# ABC: 000, Left:       32, Parent:      167, Right:       17, New Left:        5, New Parent:        1, New Right:        3
-# ABC: 000, Left:      255, Parent:      254, Right:      253, New Left:       32, New Parent:      167, New Right:       17
-# ABC: 000, Left:      199, Parent:      201, Right:       42, New Left:      255, New Parent:      254, New Right:      253
-# ABC: 000, Left:       50, Parent:      150, Right:       60, New Left:      199, New Parent:      201, New Right:       42
-# ** Note: $finish    : C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v(68)
-#    Time: 800 ns  Iteration: 0  Instance: /cluster_ce_tb
+# Loading image.
+# 
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 1 of file "C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex". (Current address [10], address range [0:9])    : C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(108)
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree
+# [        x] idle
+# node: right center xxxxxx command_from [10 xx 10] data_from [000000 xxxxxx 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
+# node: left  center xxxxxx command_from [10 xx 10] data_from [000000 xxxxxx 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
+# node: root  center xxxxxx command_from [xx 1f xx] data_from [xxxxxx xxxxxx xxxxxx] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [x x]
+# [        x] idle
+# node: right center xxxxxx command_from [10 1f 10] data_from [000000 000000 000000] command_to [00 00 00] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
+# node: left  center xxxxxx command_from [10 1f 10] data_from [000000 000000 000000] command_to [00 00 00] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
+# node: root  center 000000 command_from [00 1f 00] data_from [xxxxxx xxxxxx xxxxxx] command_to [1f xx 1f] data_to [000000 000000 000000]  Child_status [0 0]
+# [        x] idle
+# node: right center 000000 command_from [10 1f 10] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: left  center 000000 command_from [10 1f 10] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: root  center 000000 command_from [1e 1f 1e] data_from [000000 xxxxxx 000000] command_to [1f xx 1f] data_to [000000 000000 000000]  Child_status [0 0]
+# [        x] rst DONE
+# node: right center 000000 command_from [10 00 10] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: left  center 000000 command_from [10 00 10] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: root  center 000000 command_from [1e 1f 1e] data_from [000000 xxxxxx 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
+# [        x] fill_center_tb tb_data: xxxxxx tb_command: 11111 serial_Count:         0 root_command_up: 11110
+# node: right center 000000 command_from [10 00 10] data_from [000000 000000 000000] command_to [00 00 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: left  center 000000 command_from [10 00 10] data_from [000000 000000 000000] command_to [00 00 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: root  center 000000 command_from [00 01 00] data_from [000000 a2cb95 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
+# [        x] fill_center_tb tb_data: a2cb95 tb_command: 00001 serial_Count:         1 root_command_up: 00000
+# node: right center 000000 command_from [10 00 10] data_from [000000 000000 000000] command_to [00 00 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: left  center 000000 command_from [10 01 10] data_from [000000 a2cb95 000000] command_to [00 00 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: root  center 000000 command_from [00 01 00] data_from [000000 a4c8a4 000000] command_to [01 00 00] data_to [a2cb95 000000 000000]  Child_status [0 0]
+# [        x] fill_center_tb tb_data: a4c8a4 tb_command: 00001 serial_Count:         2 root_command_up: 00000
+# node: right center 000000 command_from [10 00 10] data_from [000000 000000 000000] command_to [00 00 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: left  center a2cb95 command_from [10 01 10] data_from [000000 a4c8a4 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: root  center 000000 command_from [05 01 00] data_from [000000 43a81e 000000] command_to [01 00 00] data_to [a4c8a4 000000 000000]  Child_status [0 0]
+# [        x] fill_center_tb tb_data: 43a81e tb_command: 00001 serial_Count:         3 root_command_up: 00000
+# node: right center 000000 command_from [10 01 10] data_from [000000 a4c8a4 000000] command_to [00 00 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: left  center a2cb95 command_from [10 01 10] data_from [000000 a4c8a4 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: root  center 000000 command_from [05 01 00] data_from [000000 7ed1cd 000000] command_to [01 00 01] data_to [a4c8a4 000000 a4c8a4]  Child_status [0 0]
+# [        x] fill_center_tb tb_data: 7ed1cd tb_command: 00001 serial_Count:         4 root_command_up: 00000
+# node: right center a4c8a4 command_from [10 01 10] data_from [000000 43a81e 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: left  center a2cb95 command_from [10 01 10] data_from [000000 a4c8a4 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
+# node: root  center 000000 command_from [05 01 05] data_from [000000 c0a6b2 000000] command_to [01 00 01] data_to [a4c8a4 000000 43a81e]  Child_status [0 0]
+# [        x] fill_center_tb DONE
+# ** Note: $finish    : C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(137)
+#    Time: 90 ns  Iteration: 1  Instance: /kd_tree
 # 1
-# Break in Module cluster_ce_tb at C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_ce_tb.v line 68
-# End time: 15:03:48 on Apr 08,2021, Elapsed time: 0:04:21
-# Errors: 0, Warnings: 2
+# Break in Module kd_tree at C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v line 137
+add wave -position insertpoint sim:/kd_tree/root/*

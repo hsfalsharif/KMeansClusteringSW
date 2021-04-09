@@ -34,6 +34,8 @@ reg [ttl_size - 1 : 0] time_to_live;
 reg [center_size-1:0] center;
 
 wire [command_size - 1 : 0] self_command;
+reg [command_size - 1 : 0] command_pipe;
+reg [data_size - 1 : 0]     data_pipe;
 /*
 cluster_PE c_pe (
 					.clk(clk), 
@@ -86,8 +88,9 @@ cluster_CE c_ce (.clk(clk),
  assign left_dne = command_from_left == dne;
  assign right_dne = command_from_right == dne; 
  assign both_dne = left_dne && right_dne;
+ 
 always @(posedge clk) begin
-$display("node: %s command_from [%x %x %x] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x]",name,command_from_left,command_from_top,command_from_right,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne);
+$display("node: %s center %x command_from [%x %x %x] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x]",name,center,command_from_left,command_from_top,command_from_right,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne);
 
 if(command_from_top != nop)
 		case(command_from_top)
@@ -96,16 +99,16 @@ if(command_from_top != nop)
 					command_to_top <= rst_done;
 					command_to_left <= nop;
 					command_to_right <= nop;
-					
+					command_pipe    <= nop;
 					data_to_left  <= {data_size{1'b0}};
-					data_to_right <= {data_size{1'b0}};
+					data_to_right <= {data_size{1'b0}}; 
 					data_to_top   <= {data_size{1'b0}};
-	 
+					data_pipe     <= {data_size{1'b0}};
 					center        <= {center_size{1'b0}};
 					sorting_axis  <= {center_size{1'b0}};
 					time_to_live  <= {center_size{1'b0}};
 				
-				end
+				end 
 				else begin
 					command_to_left <= rst;
 					command_to_right <= rst;
@@ -120,24 +123,32 @@ if(command_from_top != nop)
 				end
 			
 			
-			end
+	 		end
 			    
 			center_fill: begin
-				 center <= data_from_top;
 				if(command_from_left != center_fill_done && !left_dne) begin
-					data_to_left <= center;
+					data_to_left <= data_from_top;
+					data_pipe <= data_from_top;
+ 
 					command_to_left <= center_fill;
 					command_to_top <= nop;
 					command_to_right <= nop;
 				end
 				else if (command_from_right != center_fill_done && ! right_dne) begin
-						data_to_right <= center;
+						data_to_right <= data_pipe;
+						data_pipe <= data_from_top;
 						command_to_right <= center_fill;	
 						command_to_top <= nop;
 						command_to_left <= center_fill;		
 				end
 			
-				else begin 
+				else if(command_to_top != center_fill_done )
+				begin
+					if(both_dne) 
+						center <= data_from_top;
+					else 
+						center <= data_to_right;
+					
 					command_to_top <= center_fill_done;
 					command_to_right <= nop;
 					command_to_left <= nop;
