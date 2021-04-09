@@ -1,5 +1,7 @@
-module cluster_PE (clk, rst, en, inc, parent_switch, child_switch, receive_point, sorting, next_level, point_in, parent_in, child_in,
-depth, stable, go_left, parent_out, child_out, point_out, child_depth);
+module cluster_PE (clk, rst, en, init, start_iter, receive_point, inc, update, sorting, parent_switch, child_switch, next_level, point_in, parent_in, child_in,
+depth_in, stable, go_left, switch_en, parent_out, child_out, point_out, child_depth);
+
+// also think about converting this to a state machine by combining the control signals into a state register
 
 parameter dim = 3, data_range = 255, max_n = 1000, max_depth = 16, initial_center = 0;
 
@@ -9,10 +11,10 @@ localparam  dim_size     = $clog2(data_range),
 				acc_size     = $clog2(dim_size*max_n),
 				depth_size   = $clog2(max_depth);
 
-input clk, rst, en, inc, parent_switch, child_switch, receive_point, sorting, next_level;
+input clk, rst, en, init, start_iter, receive_point, inc, update, sorting, parent_switch, child_switch, next_level;
 input [center_size - 1:0] point_in, parent_in, child_in;
-input [depth_size - 1:0] depth;
-output stable, go_left;
+input [depth_size - 1:0] depth_in;
+output stable, go_left, switch_en; // switch_en enables node's cluster_ce, if switch_en = 0 the node's comparator is disabled so no switching can occur here
 output [center_size - 1:0] point_out;
 output reg [center_size - 1:0] parent_out, child_out;
 output [depth_size - 1:0] child_depth;
@@ -28,10 +30,10 @@ output [depth_size - 1:0] child_depth;
 reg [acc_size - 1:0] accX, accY, accZ;
 reg [counter_size - 1:0] counter;
 reg [center_size - 1:0] old_center, new_center, point;
-reg [depth_size - 1:0] time_to_live;
+reg [depth_size - 1:0] depth, time_to_live;
 
 // assign center_out = old_center; // UPDATE: changed center_out to parent_out and child_out to control the dataflow direction
-assign switch_enable = time_to_live != 0;
+assign switch_en = time_to_live != 0;
 assign child_depth = depth + 1;
 
 always@(posedge clk) begin
@@ -46,6 +48,14 @@ always@(posedge clk) begin
 		time_to_live <= {depth_size{1'b0}};
 	end
 	else if (en) begin
+		if (init) begin
+			old_center <= parent_in;
+			depth <= depth_in;
+		end
+		if(start_iter) begin // the things that need to be done at the beginning of each iteration
+			time_to_live <= depth;
+			new_center <= 0;
+		end
 		if (receive_point) begin
 			point <= point_in;
 			$display("Receive Point => Point: [%d, %d, %d], Point_In: [%d, %d, %d]", point[0+:dim_size], point[dim_size+: dim_size], point[2*dim_size+: dim_size], point_in[0+:dim_size], point_in[dim_size+: dim_size], point_in[2*dim_size+: dim_size]);
@@ -57,21 +67,27 @@ always@(posedge clk) begin
 			counter <= counter + 1'b1;
 			$display("Inc => Point: [%d, %d, %d], Acc: [%d, %d, %d], Counter: %d", point[0+:dim_size], point[dim_size+: dim_size], point[2*dim_size+: dim_size], accX, accY, accZ, counter);
 		end
+		if (update) begin
+		// enable the divider
+		// perform division to get new_center
+		// check for local stability
+		// check for global stability
+		// assign old_center to new_center
+		end
 		if (next_level) begin
 			time_to_live <= time_to_live - 1;
 			$display("Next Level => Time To Live: %d", time_to_live);
 		end
-		if (sorting && switch_enable && parent_switch) begin
+		if (sorting && parent_switch) begin
 			parent_out <= old_center;
 			old_center <= parent_in;
 			$display("Parent Switch => Old Center: [%d, %d, %d], Parent Center: [%d, %d, %d], Child Center: [%d, %d, %d]", old_center[0+:dim_size], old_center[dim_size+: dim_size], old_center[2*dim_size+: dim_size], parent_in[0+:dim_size], parent_in[dim_size+: dim_size], parent_in[2*dim_size+: dim_size], parent_out[0+:dim_size], parent_out[dim_size+: dim_size], parent_out[2*dim_size+: dim_size], child_in[0+:dim_size], child_in[dim_size+: dim_size], child_in[2*dim_size+: dim_size], child_out[0+:dim_size], child_out[dim_size+: dim_size], child_out[2*dim_size+: dim_size]);
 			end
-		else if (sorting && switch_enable && child_switch) begin
+		else if (sorting && child_switch) begin
 			child_out <= old_center; 
 			old_center <= child_in; // will this cause child_out to take the value of child_in? or can we guarantee that child_out has sent out the value of old_center before it has changed the value of old_center?
 			$display("Parent Switch => Old Center: [%d, %d, %d], Parent Center: [%d, %d, %d], Child Center: [%d, %d, %d]", old_center[0+:dim_size], old_center[dim_size+: dim_size], old_center[2*dim_size+: dim_size], parent_in[0+:dim_size], parent_in[dim_size+: dim_size], parent_in[2*dim_size+: dim_size], parent_out[0+:dim_size], parent_out[dim_size+: dim_size], parent_out[2*dim_size+: dim_size], child_in[0+:dim_size], child_in[dim_size+: dim_size], child_in[2*dim_size+: dim_size], child_out[0+:dim_size], child_out[dim_size+: dim_size], child_out[2*dim_size+: dim_size]);
 			end
-		time_to_live <= depth;
 	end
 end
 

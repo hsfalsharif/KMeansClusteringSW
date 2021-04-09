@@ -25,6 +25,7 @@ initial begin
 	repeat(200) #5 clk = ~clk;
 end
 
+// left, parent, right, and point_in are actually 24 bits but here we are testing 8 bit values
 initial begin
 	#20 left = 8'd101; parent = 8'd102; right = 8'd103; axis = 2'd0; // l < p < r, normal case
 	#20 left = 8'd150; parent = 8'd99; right = 8'd233; axis = 2'd1;  // p < l < r
