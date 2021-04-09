@@ -1,5 +1,6 @@
-module cluster_PE (clk, rst, en, init, start_iter, receive_point, inc, update, sorting, parent_switch, child_switch, next_level, point_in, parent_in, child_in,
-depth_in, stable, go_left, switch_en, parent_out, child_out, point_out, child_depth);
+module cluster_PE (clk, rst, en, init, start_iter, receive_point, inc, update, sorting,
+parent_switch, child_switch, next_level, point_in, parent_in, child_in, depth_in,
+stable, ce_en, parent_out, child_out, point_out, child_depth);
 
 // also think about converting this to a state machine by combining the control signals into a state register
 
@@ -14,10 +15,10 @@ localparam  dim_size     = $clog2(data_range),
 input clk, rst, en, init, start_iter, receive_point, inc, update, sorting, parent_switch, child_switch, next_level;
 input [center_size - 1:0] point_in, parent_in, child_in;
 input [depth_size - 1:0] depth_in;
-output stable, go_left, switch_en; // switch_en enables node's cluster_ce, if switch_en = 0 the node's comparator is disabled so no switching can occur here
-output [center_size - 1:0] point_out;
-output reg [center_size - 1:0] parent_out, child_out;
-output [depth_size - 1:0] child_depth;
+output stable, ce_en; 								// ce_en enables node's cluster_ce, if time_to_live = 0 the node's
+output [center_size - 1:0] point_out;						// comparator is disabled during sorting so no switching can occur here
+output reg [center_size - 1:0] parent_out, child_out; // + if !distance_calc the node's comparator is disabled during point_propogation
+output [depth_size - 1:0] child_depth;						// so it will stop calculating distances
 
 
 // dim is number of dimensions, data_range is maximum allowable range for the data, max_n is the max number of data points,
@@ -31,9 +32,10 @@ reg [acc_size - 1:0] accX, accY, accZ;
 reg [counter_size - 1:0] counter;
 reg [center_size - 1:0] old_center, new_center, point;
 reg [depth_size - 1:0] depth, time_to_live;
+assign distance_calc = 1'b1; // distance_calc enables the ce to perform distance calculations during the point propogation stage
 
 // assign center_out = old_center; // UPDATE: changed center_out to parent_out and child_out to control the dataflow direction
-assign switch_en = time_to_live != 0;
+assign ce_en = (time_to_live != 0) || (distance_calc); // distance_calc 
 assign child_depth = depth + 1;
 
 always@(posedge clk) begin
@@ -50,7 +52,7 @@ always@(posedge clk) begin
 	else if (en) begin
 		if (init) begin
 			old_center <= parent_in;
-			depth <= depth_in;
+			// depth <= depth_in; we need to add depth_in using a signal other than init
 		end
 		if(start_iter) begin // the things that need to be done at the beginning of each iteration
 			time_to_live <= depth;

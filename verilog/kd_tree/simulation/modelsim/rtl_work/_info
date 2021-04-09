@@ -9,52 +9,125 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/simulation/modelsim
-vcluster_PE
-!s110 1617916413
+vcluster_CE
+Z1 !s110 1617996633
 !i10b 1
-!s100 m4kbf[>YA08[hT<lF6o7K3
-Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-Ii2ZJEEGkkYWbnA;oYi;XK1
-Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s100 iO2k3l_>]6[17I2XP>WzY0
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IY2S`IX8fB46ma_U=YJh0X2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1617916272
-8C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v
-FC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v
-!i122 0
-L0 1 94
-Z3 OV;L;2020.1;71
+w1617993260
+8C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v
+FC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v
+!i122 3
+L0 1 51
+Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1617916413.000000
+Z5 !s108 1617996633.000000
+!s107 C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree|C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v|
+!i113 1
+Z6 o-vlog01compat -work work
+Z7 !s92 -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree
+Z8 tCvgOpt 0
+ncluster_@c@e
+vcluster_PE
+R1
+!i10b 1
+!s100 6?6B:US3EA<f;<a@U`^dD3
+R2
+I2UHiNQ4l7HA_g`_n43GXT3
+R3
+R0
+w1617994912
+8C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v
+FC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v
+!i122 1
+L0 1 96
+R4
+r1
+!s85 0
+31
+R5
 !s107 C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree|C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v|
 !i113 1
-Z4 o-vlog01compat -work work
-Z5 !s92 -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree
-Z6 tCvgOpt 0
+R6
+R7
+R8
 ncluster_@p@e
-vcluster_pe_tb
-!s110 1617916414
+vkd_tree
+!s110 1617996634
 !i10b 1
-!s100 Eo2nic6kUh?Wm?lm429Gz1
-R1
-I7^5D=ACN:PV35lP1>PCF73
+!s100 >255RDUhml_H]n?lUCS4U0
 R2
-R0
-w1617915263
-8C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_pe_tb.v
-FC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_pe_tb.v
-!i122 2
-L0 3 51
+IOTGnGT]7DdbeBRl6Sn:gE1
 R3
+R0
+w1617996092
+8C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v
+FC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v
+!i122 5
+L0 3 151
+R4
 r1
 !s85 0
 31
-!s108 1617916414.000000
-!s107 C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_pe_tb.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree|C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_pe_tb.v|
-!i113 1
-R4
 R5
+!s107 C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree|C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v|
+!i113 1
 R6
+R7
+R8
+vmanhattan
+R1
+!i10b 1
+!s100 6NaODj7FB>O:A`>L3[[DV3
+R2
+Iie44IJ9c^`lzYaE;]F`gF1
+R3
+R0
+w1617396314
+8C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v
+FC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v
+!i122 2
+L0 1 30
+R4
+r1
+!s85 0
+31
+R5
+!s107 C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree|C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v|
+!i113 1
+R6
+R7
+R8
+vnode
+!s110 1617996632
+!i10b 1
+!s100 zlaYI?lP4`D?cLi5d?b`@1
+R2
+Ic8znPcRD]gc3?HF<MH@aj3
+R3
+R0
+w1617996502
+8C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v
+FC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v
+!i122 0
+L0 1 361
+R4
+r1
+!s85 0
+31
+!s108 1617996632.000000
+!s107 C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree|C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v|
+!i113 1
+R6
+R7
+R8

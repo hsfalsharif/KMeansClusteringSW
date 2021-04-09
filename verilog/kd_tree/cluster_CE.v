@@ -1,5 +1,5 @@
 module cluster_CE(clk, rst, en, sorting, left_en, right_en, left, parent, right,
-point_in, axis, stable, left_switch, parent_switch, right_switch, new_left, new_parent, new_right, child_axis);
+point_in, axis, stable, left_switch, parent_switch, right_switch, go_left, new_left, new_parent, new_right);
 
 parameter dim = 3, data_range = 255;
 
@@ -11,10 +11,10 @@ localparam dist_size   = $clog2(data_range*dim),
 input clk, rst, en, sorting, left_en, right_en;
 input [center_size - 1:0] left, parent, right, point_in;
 input [axis_size - 1:0] axis;
-output stable, left_switch, parent_switch, right_switch;
+output stable, left_switch, parent_switch, right_switch, go_left;
 output reg [center_size - 1:0] new_left, new_parent, new_right;
-output [axis_size - 1:0] child_axis;
 
+// we will probably need a reg for point, we will also need to make cluster_CE sequential
 
 assign A = sorting && left_en && (left > parent);
 assign B = sorting && right_en && (parent > right);

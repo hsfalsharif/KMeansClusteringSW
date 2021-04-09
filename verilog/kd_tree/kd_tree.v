@@ -105,7 +105,7 @@ node  #("right") right(
 
 initial begin
         $display("Loading image.\n");
-        $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
+        $readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
 		  //f = $fopen("output.rgb", "wb");
     end
  

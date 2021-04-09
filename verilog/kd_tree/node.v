@@ -31,11 +31,31 @@ localparam nop =  5'b00000,
 
 reg [axis_size - 1 : 0] sorting_axis;
 reg [ttl_size - 1 : 0] time_to_live;
-reg [center_size-1:0] center;
-
-wire [command_size - 1 : 0] self_command;
+reg [center_size-1:0] parent_in, center;
 reg [command_size - 1 : 0] command_pipe;
 reg [data_size - 1 : 0]     data_pipe;
+
+wire [command_size - 1 : 0] self_command;
+wire [center_size - 1:0] center_self_C2P, center_self_P2C, ce_left_out, ce_right_out;
+reg rst_t, init, start_iter, receive_point, inc, update, sorting, parent_switch_in, self_child_switch, next_level;
+// how many commands need to come from top at a single instance during processing?
+
+// two major outer global stages: init, sorting, and point propogation
+
+// inner stage-based signals which are:-
+// During init ---> maybe we can have multiple stages to propogate centers then depths, or we can propogate these two at the same time
+// During sorting ---> next_level
+// During point propogation ---> start_iter, update
+
+// stage-based/global-state-based signals = signals that signify a stage in the algorithm or a global state that is happening
+// at all nodes at an instance during processing
+
+// local signals are signals that are relevant locally and within the context of the current node and they are:
+// During init ---> can add this later as necessary
+// During sorting ---> parent_switch_in, self_child_switch
+// During point propogation --->  receive_point, inc
+
+
 /*
 cluster_PE c_pe (
 					.clk(clk), 
@@ -85,10 +105,116 @@ cluster_CE c_ce (.clk(clk),
 
  */
 
- assign left_dne = command_from_left == dne;
- assign right_dne = command_from_right == dne; 
- assign both_dne = left_dne && right_dne;
- 
+assign left_dne = command_from_left == dne;
+assign right_dne = command_from_right == dne; 
+assign both_dne = left_dne && right_dne;
+assign left_en = !left_dne;
+assign right_en = !right_dne;
+assign ce_en = 1;
+assign pe_en = 1;
+
+cluster_PE c_pe (
+						.clk(clk),
+						.rst(rst_t),
+						.en(pe_en),
+						.init(init),
+						.start_iter(start_iter),
+						.receive_point(receive_point),
+						.inc(inc),
+						.update(update),
+						.sorting(sorting),
+						.parent_switch(parent_switch_in),
+						.child_switch(self_switch),
+						.next_level(next_level), 
+						.point_in(data_from_top),
+						.parent_in(parent_in),
+						.child_in(center_self_C2P),
+						.depth_in(),
+						.stable(center_stable), // out
+						.ce_en(ce_en),
+						.parent_out(parent_out),
+						.child_out(center_self_P2C),
+						.point_out(),
+						.child_depth()
+						);
+
+cluster_CE c_ce (
+						.clk(clk),
+						.rst(rst_t),
+						.en(ce_en), // pe enables ce
+						.sorting(sorting),
+						.left_en(left_en),
+						.right_en(right_en),
+						.left(data_from_left),
+						.parent(center_self_P2C),
+						.right(data_from_right),
+						.point_in(data_from_top), // do we need to pass point through pe before passing it to ce or can we pass it directly from data_from_top?
+						.axis(sorting_axis),
+						.stable(sort_stable),
+						.left_switch(left_switch),
+						.parent_switch(self_switch),
+						.right_switch(right_switch),
+						.go_left(), // will be added later with point propogation stage
+						.new_left(ce_left_out),
+						.new_parent(center_self_C2P),
+						.new_right(ce_right_out)
+						);
+
+wire [2:0] ce_command;
+assign ce_command = {left_switch, self_switch, right_switch};
+
+/*always @* begin
+    case (ce_command)
+        switch_left:
+            self_command <= switch_with_left;
+        swith_right:
+            self_command <= switch_with_right;
+        rotate_right:
+            self_command <= rotate_r;
+        rotate_left:
+            self_command <= rotate_l;
+        point_left:
+            self_command <= pl;
+        point_right:
+            self_command <= pr;
+        point_consume:
+            self_command <= pc;
+        best_changed:
+            self_command <= best_changed;
+
+        endcase
+*/
+
+
+always @* begin
+	case(command_from_top)
+		rst:
+			rst_t = 1;
+		center_fill:
+			if(!(command_from_left != center_fill_done && !left_dne) && !(command_from_right != center_fill_done && ! right_dne) && !(command_to_top != center_fill_done ))
+				if(both_dne) begin
+					parent_in <= data_from_top;
+					init <= 1;
+				end
+				else begin
+					parent_in <= data_to_right;
+					init <= 1;
+				end
+			else begin
+				parent_in <= 0;
+				init <= 0;
+			end
+		default: begin
+			rst_t <= 0;
+			init <= 0;
+			start_iter <= 0;
+			receive_point <= 0;
+			inc <= 0;
+			update <= 0;
+		end
+		endcase
+end
+
 always @(posedge clk) begin
 $display("node: %s center %x command_from [%x %x %x] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x]",name,center,command_from_left,command_from_top,command_from_right,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne);
 
@@ -104,9 +230,9 @@ if(command_from_top != nop)
 					data_to_right <= {data_size{1'b0}}; 
 					data_to_top   <= {data_size{1'b0}};
 					data_pipe     <= {data_size{1'b0}};
-					center        <= {center_size{1'b0}};
+//					center        <= {center_size{1'b0}};
 					sorting_axis  <= {center_size{1'b0}};
-					time_to_live  <= {center_size{1'b0}};
+//					time_to_live  <= {center_size{1'b0}};
 				
 				end 
 				else begin

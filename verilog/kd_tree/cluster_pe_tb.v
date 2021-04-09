@@ -20,7 +20,7 @@ wire [depth_size - 1:0] child_depth;
 
 
 cluster_PE pe_test (clk, rst, en, init, start_iter, receive_point, inc, update, sorting, parent_switch, child_switch, next_level,
-point_in, parent_in, child_in, depth_in, stable, go_left, switch_en, parent_out, child_out, point_out, child_depth);
+point_in, parent_in, child_in, depth_in, stable, switch_en, parent_out, child_out, point_out, child_depth);
 
 
 initial begin
