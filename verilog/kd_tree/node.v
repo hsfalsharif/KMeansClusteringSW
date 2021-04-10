@@ -21,21 +21,20 @@ output reg [data_size - 1 : 0]    data_to_top,data_to_right,data_to_left;
 output reg [command_size - 1 : 0] command_to_top,command_to_right,command_to_left;
 
 /// Commands
-localparam nop =  5'h00,
-			  rst = 5'h1f,
-			  rst_done = 5'h1e,
-			  center_fill =  5'h01,
-			  configure_sort_axis = 5'h02,
-			  recieve_center =  5'h03,
-			  switch_with_left =  5'h04,
-			  center_fill_done =  5'h05,
-			  cetner_fill      =  5'h06,
+localparam nop 					 		= 5'h00,
+			  rst 					 		= 5'h1f,
+			  rst_done 				 		= 5'h1e,
+			  center_fill 			 		= 5'h01,
+			  configure_sort_axis 		= 5'h02,
+			  receive_center 		 		= 5'h03,
+			  switch_with_left 	 		= 5'h04,
+			  center_fill_done 	 		= 5'h05,
 			  configure_sort_axis_done = 5'h07,
-			  busy             = 5'h08,
-			  dne              = 5'h10,
-			  start_sorting    = 5'h09,
-			  ready_to_sort    = 5'h0a,
-			  switch_with_right = 5'h0b;
+			  busy             	 		= 5'h08,
+			  dne              	 		= 5'h10,
+			  start_sorting    	 		= 5'h09,
+			  ready_to_sort    	 		= 5'h0a,
+			  switch           	 		= 5'h0b;
 
 
 reg [axis_size - 1 : 0] sorting_axis;
@@ -55,7 +54,7 @@ assign distance_calc = 1'b1; // distance_calc enables the ce to perform distance
 
 
 reg [command_size - 1 : 0] self_command;
-wire [center_size - 1:0] center_self_C2P, center_self_P2C, ce_left_out, ce_right_out;
+wire [center_size - 1:0] center_self_C2P, center_self_P2C, ce_left_out, ce_self_out, ce_right_out;
 reg rst_t, init, start_iter, receive_point, inc, update, sorting, parent_switch_in, self_child_switch, next_level;
 // how many commands need to come from top at a single instance during processing?
 
@@ -175,7 +174,7 @@ cluster_CE c_ce (
 						.right_switch(right_switch),
 						.go_left(), // will be added later with point propogation stage
 						.new_left(ce_left_out),
-						.new_parent(center_self_C2P),
+						.new_parent(ce_self_out),
 						.new_right(ce_right_out)
 						);
 
@@ -183,35 +182,17 @@ wire [2:0] ce_command;
 assign ce_command = {left_switch, self_switch, right_switch};
 
 always @* begin
-    case (ce_command)
-        3'b110:
-            self_command = switch_with_left;
-		  3'b011: 
-				self_command = switch_with_right;
-		  default: self_command = nop;
-/*				
-        swith_right:
-            self_command <= switch_with_right;
-        rotate_right:
-            self_command <= rotate_r;
-        rotate_left:
-            self_command <= rotate_l;
-        point_left:
-            self_command <= pl;
-        point_right:
-            self_command <= pr;
-        point_consume:
-            self_command <= pc;
-        best_changed:
-            self_command <= best_changed;
-*/
-        endcase
+	case (ce_command)
+        3'b000:
+            self_command = nop;
+		  default: self_command = switch;
+	endcase
 end
 
 
 
 always @(posedge clk) begin
-$display("node: %s center %x %x command_from [%x %x %x , self:%x , ce:%x] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x]",name,old_center,sorting,command_from_left,command_from_top,command_from_right,self_command,ce_command,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne);	
+$display("node: %s center %x %x axis: %x command_from [%x %x %x , self:%x , ce:%x] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x]",name,old_center,sorting, sorting_axis, command_from_left,command_from_top,command_from_right,self_command,ce_command,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne);	
 if(command_from_top != nop)
 		case(command_from_top)
 		   rst: begin 
@@ -306,16 +287,16 @@ if(command_from_top != nop)
 		
 		
 		end
-		//////////////////////////////////////////// END CONFIGUREATION AXIS /////////////////////////////
+		//////////////////////////////////////////// END CONFIGURATION AXIS /////////////////////////////
 		
 		
-		recieve_center: begin
-						if(command_to_top == recieve_center && command_from_top == recieve_center) begin
+		receive_center: begin
+						if(command_to_top == receive_center && command_from_top == receive_center) begin
 							command_to_top <= ready_to_sort;
 							data_to_top <= old_center;
 						end
-						else if(command_from_top == recieve_center && command_to_top != recieve_center) begin
-							command_to_top <= recieve_center;
+						else if(command_from_top == receive_center && command_to_top != receive_center) begin
+							command_to_top <= receive_center;
 							command_to_left <= busy;
 							command_to_right <= busy;
 							old_center <= data_from_top;
@@ -325,7 +306,7 @@ if(command_from_top != nop)
 		end
 		
 		
-		//////////////////////////////END recive_point //////////////////////
+		//////////////////////////////END receive_point //////////////////////
 		start_sorting: begin
 			if(!left_dne) begin
 				command_to_left <= start_sorting;
@@ -334,7 +315,7 @@ if(command_from_top != nop)
 			if(!right_dne) begin
 				command_to_right <= start_sorting;
 			end
-			sorting_axis <= data_from_top; // expermintal 
+			sorting_axis <= data_from_top; // experimental 
 			data_to_top <= old_center;
 			command_to_top <= ready_to_sort;
 			sorting <= 1;
@@ -343,71 +324,22 @@ if(command_from_top != nop)
 		endcase
 	else if(self_command != nop) begin 
 		case(self_command)
-			switch_with_left:
-				if(command_to_left == recieve_center && command_from_left == recieve_center) begin
-							old_center <= data_from_left;
-							command_to_top <= ready_to_sort;
-							command_to_right <= nop;
-							command_to_left <= nop;
-
-							
-						end
-						else if(command_from_left == ready_to_sort)
-						begin
-							command_to_left <= recieve_center;
-							data_to_left <= old_center;
-							command_to_top <= busy;
-							command_to_right <= busy;
-						end
-						  
-		//////////////////// switch_with_left END //////////////////////
-		switch_with_right:
-				if(command_to_right == recieve_center && command_from_right == recieve_center) begin
-							old_center <= data_from_right;
-							command_to_top <= ready_to_sort;
-							command_to_right <= nop;
-							command_to_left <= nop;
-  
-							
-						end
-						else if(command_from_right  == ready_to_sort)
-						begin
-							command_to_right <= recieve_center;
-							data_to_right <= old_center;
-							command_to_top <= busy;
-							command_to_left <= busy;
-						end	
-		rotate_left: 
-			if(command_to_left == recieve_center && command_from_left == recieve_center) begin
-							old_center <= data_from_right;
-							command_to_top <= ready_to_sort;
-							command_to_right <= nop;
-							command_to_left <= nop;
-						end
-						else if(command_from_left == ready_to_sort && command_from_right == ready_to_sort)
-						begin
-							command_to_left <= recieve_center;
-							data_to_left <= old_center;
-							command_to_right <= recieve_center;
-							data_to_right    <= data_from_left;
-							command_to_top <= busy;
-						end
-						  
-		  rotate_right: 
-			if(command_to_left == recieve_center && command_from_left == recieve_center) begin
-							old_center <= data_from_left;
-							command_to_top <= ready_to_sort;
-							command_to_right <= nop;
-							command_to_left <= nop;
-						end
-						else if(command_from_left == ready_to_sort && command_from_right == ready_to_sort)
-						begin
-							command_to_left <= recieve_center;
-							data_to_left <= data_from_right;
-							command_to_right <= recieve_center;
-							data_to_right    <= old_center;
-							command_to_top <= busy;
-						end
+			switch:
+				begin
+					if (command_to_left == receive_center && command_from_left == receive_center) begin
+						command_to_right <= nop;
+						command_to_left <= nop;
+						command_to_top <= ready_to_sort;
+					end
+					else if (command_from_left == ready_to_sort && command_from_right == ready_to_sort) begin
+						data_to_left <= ce_left_out;
+						data_to_right <= ce_right_out;
+						old_center <= ce_self_out;
+						command_to_left <= receive_center;
+						command_to_right <= receive_center;
+						command_to_top <= busy;
+					end
+				end
 		endcase
 	end
 	else begin

@@ -112,7 +112,8 @@ node  #("right") right(
 
 initial begin
         $display("Loading image.\n");
-        $readmemh("C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
+        //$readmemh("C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
+		  $readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
 		  //f = $fopen("output.rgb", "wb");
     end
  
@@ -159,17 +160,18 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 			tb_state <= stall;
 			stall_counter <= 10;
 		   tb_command <= start_sorting;
-			 
+			tb_data <= 0;
 
 		end
 		stall : begin
 					 tb_command <= nop;  
-					if(stall_counter == 0)   tb_state <= done;
+					if(stall_counter == 0)
+						tb_state <= done;
 				   else  stall_counter <= stall_counter - 1;
 				 end 
 		
-		done: $finish;
-		
+		done:
+			$finish;
 		endcase
 end
 

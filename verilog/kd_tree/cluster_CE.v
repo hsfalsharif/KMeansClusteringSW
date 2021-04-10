@@ -15,10 +15,14 @@ output stable, left_switch, parent_switch, right_switch, go_left;
 output reg [center_size - 1:0] new_left, new_parent, new_right;
 
 // we will probably need a reg for point, we will also need to make cluster_CE sequential
+wire [dim_size - 1:0] left_1D, parent_1D, right_1D;
+assign left_1D = (axis == 0) ? left[0+:dim_size] : ((axis == 1) ? left[dim_size+:dim_size] : left[2*dim_size+:dim_size]);
+assign parent_1D = (axis == 0) ? parent[0+:dim_size] : ((axis == 1) ? parent[dim_size+:dim_size] : parent[2*dim_size+:dim_size]);
+assign right_1D = (axis == 0) ? right[0+:dim_size] : ((axis == 1) ? right[dim_size+:dim_size] : right[2*dim_size+:dim_size]);
 
-assign A = sorting && left_en && (left > parent);
-assign B = sorting && right_en && (parent > right);
-assign C = sorting && left_en && right_en && (left > right);
+assign A = sorting && left_en && (left_1D > parent_1D);
+assign B = sorting && right_en && (parent_1D > right_1D);
+assign C = sorting && left_en && right_en && (left_1D > right_1D);
 
 assign stable = (left_en && right_en) ? (!A && !B && !C) : ((left_en && !right_en) ? !A : (!left_en && right_en) ? !B : 1);
 
@@ -32,7 +36,7 @@ wire [dim_size - 1:0] axis_dst;
 manhattan #(.dim(dim), .data_range(data_range)) m(clk, rst, axis, point, old_center, dst, axis_dst, dst_done);
 
 always@* begin
-$display("ABC: %d%d%d, Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x", A, B, C, left, parent, right, new_left, new_parent, new_right);
+$display("ABC: %d%d%d, Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x", A, B, C, left_1D, parent_1D, right_1D, new_left, new_parent, new_right);
 if (en && sorting)
 		case({A, B, C})
 			3'b000: begin new_left = left; new_parent = parent; new_right = right; end
