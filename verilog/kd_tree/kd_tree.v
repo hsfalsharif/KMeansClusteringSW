@@ -41,6 +41,18 @@ localparam command_size = 5,
 wire [command_size - 1 : 0] left_command_up,left_command_right,left_command_left;
 wire [command_size - 1 : 0] right_command_up,right_command_right,right_command_left;
 wire [command_size - 1 : 0] root_command_up,root_command_right,root_command_left;
+
+wire[command_size - 1: 0 ] n1_command_up,n1_command_right,n1_command_left;
+wire[command_size - 1: 0 ] n2_command_up,n2_command_right,n2_command_left;
+wire[command_size - 1: 0 ] n3_command_up,n3_command_right,n3_command_left;
+wire[command_size - 1: 0 ] n4_command_up,n4_command_right,n4_command_left;
+
+
+wire [data_size - 1 : 0]   n1_data_up,n1_data_right,n1_data_left;
+wire [data_size - 1 : 0]   n2_data_up,n2_data_right,n2_data_left;
+wire [data_size - 1 : 0]   n3_data_up,n3_data_right,n3_data_left;
+wire [data_size - 1 : 0]   n4_data_up,n4_data_right,n4_data_left;
+
 reg [command_size - 1 : 0] tb_command;
 
 
@@ -71,44 +83,116 @@ node #("root ") root(  ///////// input //////////////
 			 .command_to_right(root_command_right),
 			 .command_to_left(root_command_left)
 			 ); 
-node #("left ") left(
+node #("root-left ") left(
 		///////// input //////////////
  		.clk(clk),
  		.data_from_top(root_data_left),
- 		.data_from_right(0),
- 		.data_from_left (0),
+ 		.data_from_right(n2_data_up),
+ 		.data_from_left (n1_data_up),
  		.command_from_top(root_command_left),
- 		.command_from_right(dne),
- 		.command_from_left(dne),
+ 		.command_from_right(n1_command_up),
+ 		.command_from_left(n2_command_up),
 
  		///////// output //////////////
  		.data_to_top(left_data_up),
- 		.data_to_right(junk0),
- 		.data_to_left(junk1),
+ 		.data_to_right(left_data_right),
+ 		.data_to_left(left_data_left),
  		.command_to_top(left_command_up),
- 		.command_to_right(junk2),
- 		.command_to_left(junk3)
+ 		.command_to_right(left_command_right),
+ 		.command_to_left(left_command_left)
 );
-node  #("right") right(
+node  #("root-right") right(
 		///////// input //////////////
 		.clk(clk),
 		.data_from_top(root_data_right),
+		.data_from_right(n3_data_up),
+		.data_from_left (n4_data_up),
+		.command_from_top(root_command_right),
+		.command_from_right(n3_command_up),
+		.command_from_left(n4_command_up),
+		///////// output //////////////
+		.data_to_top(right_data_up),
+		.data_to_right(right_data_right),
+		.data_to_left(right_data_left),
+		.command_to_top(right_command_up),
+		.command_to_right(right_command_right),
+		.command_to_left(right_command_left)
+);
+
+node  #("n1(ll)") right(
+		///////// input //////////////
+		.clk(clk),
+		.data_from_top(left_data_left),
 		.data_from_right(0),
 		.data_from_left (0),
-		.command_from_top(root_command_right),
+		.command_from_top(left_command_left),
 		.command_from_right(dne),
 		.command_from_left(dne),
 		///////// output //////////////
-		.data_to_top(right_data_up),
-		.data_to_right(junk4),
-		.data_to_left(junk5),
-		.command_to_top(right_command_up),
-		.command_to_right(junk6),
-		.command_to_left(junk7)
+		.data_to_top(n1_data_up),
+		.data_to_right(n1_data_right),
+		.data_to_left(n1_data_left),
+		.command_to_top(n1_command_up),
+		.command_to_right(n1_command_right),
+		.command_to_left(n1_command_left)
+);
+
+node  #("n2(lr)") right(
+		///////// input //////////////
+		.clk(clk),
+		.data_from_top(left_data_right),
+		.data_from_right(0),
+		.data_from_left (0),
+		.command_from_top(left_command_right),
+		.command_from_right(dne),
+		.command_from_left(dne),
+		///////// output //////////////
+		.data_to_top(n2_data_up),
+		.data_to_right(n2_data_right),
+		.data_to_left(n2_data_left),
+		.command_to_top(n2_command_up),
+		.command_to_right(n2_command_right),
+		.command_to_left(n2_command_left)
 );
 
 
 
+
+node  #("n3(rl)") right(
+		///////// input //////////////
+		.clk(clk),
+		.data_from_top(right_data_left),
+		.data_from_right(0),
+		.data_from_left (0),
+		.command_from_top(right_command_left),
+		.command_from_right(dne),
+		.command_from_left(dne),
+		///////// output //////////////
+		.data_to_top(n3_data_up),
+		.data_to_right(n3_data_right),
+		.data_to_left(n3_data_left),
+		.command_to_top(n3_command_up),
+		.command_to_right(n3_command_right),
+		.command_to_left(n3_command_left)
+);
+
+node  #("n4(rr)") right(
+		///////// input //////////////
+		.clk(clk),
+		.data_from_top(right_data_right),
+		.data_from_right(0),
+		.data_from_left (0),
+		.command_from_top(right_command_right),
+		.command_from_right(dne),
+		.command_from_left(dne),
+		///////// output //////////////
+		.data_to_top(n4_data_up),
+		.data_to_right(n4_data_right),
+		.data_to_left(n4_data_left),
+		.command_to_top(n4_command_up),
+		.command_to_right(n4_command_right),
+		.command_to_left(n4_command_left)
+);
 
 initial begin
         $display("Loading image.\n");
