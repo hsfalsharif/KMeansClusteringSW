@@ -10,79 +10,54 @@ z2
 cModel Technology
 Z0 dC:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/simulation/modelsim
 vcluster_CE
-Z1 !s110 1618041502
+Z1 !s110 1618078933
 !i10b 1
-!s100 iO2k3l_>]6[17I2XP>WzY0
+!s100 WfRJbZn@2i;[hi4W?`2Na0
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IA=;eXSozI;?8Dc=:kn5db0
+Im023jO@M]_2]Z?@SFmHc?0
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
-Z4 w1618039871
+w1618077393
 8C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v
 FC:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v
-!i122 3
+!i122 2
 L0 1 51
-Z5 OV;L;2020.1;71
+Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1618041502.000000
+Z5 !s108 1618078933.000000
 !s107 C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree|C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v|
 !i113 1
-Z7 o-vlog01compat -work work
-Z8 !s92 -vlog01compat -work work +incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree
-Z9 tCvgOpt 0
+Z6 o-vlog01compat -work work
+Z7 !s92 -vlog01compat -work work +incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree
+Z8 tCvgOpt 0
 ncluster_@c@e
-vcluster_PE
-Z10 !s110 1618041501
-!i10b 1
-!s100 6?6B:US3EA<f;<a@U`^dD3
-R2
-IfnBb5k700nG^UDVd:0h033
-R3
-R0
-R4
-8C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v
-FC:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v
-!i122 1
-L0 1 96
-R5
-r1
-!s85 0
-31
-Z11 !s108 1618041501.000000
-!s107 C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree|C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v|
-!i113 1
-R7
-R8
-R9
-ncluster_@p@e
 vkd_tree
 R1
 !i10b 1
-!s100 N92c8@50bzm5=o3<c@F8R0
+!s100 dX?eeJk=C8jPIl=n@3jLM3
 R2
-I7d^WF9NjkTnVT05kghJ2V0
+IgH8fmYdhQC[nL3XoT>NO^2
 R3
 R0
-w1618040189
+w1618076258
 8C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v
 FC:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v
-!i122 5
-L0 3 151
-R5
+!i122 4
+L0 3 176
+R4
 r1
 !s85 0
 31
-R6
+R5
 !s107 C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree|C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v|
 !i113 1
+R6
 R7
 R8
-R9
 vmanhattan
 R1
 !i10b 1
@@ -91,43 +66,43 @@ R2
 IzeGD0^QB0O8IW@YoKKbNz1
 R3
 R0
-R4
+w1618039871
 8C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v
 FC:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v
-!i122 2
+!i122 1
 L0 1 30
-R5
+R4
 r1
 !s85 0
 31
-R6
+R5
 !s107 C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree|C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v|
 !i113 1
+R6
 R7
 R8
-R9
 vnode
-R10
+R1
 !i10b 1
-!s100 HOLZGCeMO9BL6]7WGoA@S2
+!s100 T]H@?0ko;o;c>Xn9J94=h0
 R2
-IPXNAY`;hHzOaAjf9[5d3K3
+IhXLGSV?ImJ91K3o=;6YQB3
 R3
 R0
-w1618041472
+w1618078907
 8C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v
 FC:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v
 !i122 0
-L0 1 346
-R5
+L0 1 402
+R4
 r1
 !s85 0
 31
-R11
+!s108 1618078932.000000
 !s107 C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree|C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v|
 !i113 1
+R6
 R7
 R8
-R9

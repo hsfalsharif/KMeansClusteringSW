@@ -3,22 +3,29 @@
 module kd_tree;
 	
 	
-localparam nop =  5'b00000,
-			  rst = 5'b11111,
-			  rst_done = 5'b11110,
-			  center_fill =  5'b00001,
-			  configure_sort_axis = 5'b00010,
-			  recieve_center =  5'b00011,
-			  switch_with_left =  5'b00100,
-			  center_fill_done =  5'b00101,
-			  configure_sort_axis_done = 5'b00111,
-			  busy             = 5'b01000,
-			  dne              = 5'b10000;
+localparam nop =  5'h00,
+			  rst = 5'h1f,
+			  rst_done = 5'h1e,
+			  center_fill =  5'h01,
+			  configure_sort_axis = 5'h02,
+			  recieve_center =  5'h03, 
+			  switch_with_left =  5'h04,
+			  center_fill_done =  5'h05,
+			  cetner_fill      =  5'h06,
+			  configure_sort_axis_done = 5'h07,
+			  busy             = 5'h08,
+			  dne              = 5'h10,
+			  start_sorting    = 5'h09,
+			  ready_to_sort    = 5'h0a;
+
 localparam cycle_counter_size = $clog2(100000000);
 
 
 localparam fill_center_tb = 5'b00001,
-			  idel =        5'b00010;
+			  idel =        5'b00010,
+			  start_sorting_tb = 5'b00011,
+			  stall            = 5'b00101,
+			  done				= 5'b000100;
 reg [5:0]tb_state;
 
 
@@ -43,7 +50,7 @@ wire [data_size - 1 : 0] root_data_up,root_data_right,root_data_left;
 reg [data_size - 1 : 0] tb_data;
 reg [23:0] in_im [data_num-1:0] ;
 
-
+reg [3:0] stall_counter;
 reg [cycle_counter_size-1 : 0] cycle_count, serial_count;
 reg clk , reset;
 
@@ -116,8 +123,12 @@ initial begin	//the reset sequence and clock
 	  end
 
 always @ (negedge clk)	begin 	// Read input pixels from in_im
-	if(reset) 
+	$display("#################### new cycle ##########################"); 
+	if(reset) begin
 		tb_state <= idel;
+		stall_counter <= 0;
+		
+	end
 	else
 	case (tb_state)
 	   idel: begin
@@ -134,7 +145,7 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 		fill_center_tb: begin
 				if(root_command_up == center_fill_done) begin
 					$display("[%d] %s DONE",cycle_count,"fill_center_tb");
-					$finish;
+					tb_state <= start_sorting_tb;
 				end
 				else begin
 					tb_data <= in_im [serial_count];
@@ -144,6 +155,20 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 
 				end
 		end
+		start_sorting_tb: begin
+			tb_state <= stall;
+			stall_counter <= 10;
+		   tb_command <= start_sorting;
+			 
+
+		end
+		stall : begin
+					 tb_command <= nop;  
+					if(stall_counter == 0)   tb_state <= done;
+				   else  stall_counter <= stall_counter - 1;
+				 end 
+		
+		done: $finish;
 		
 		endcase
 end

@@ -3,9 +3,15 @@ module node(clk, data_from_top,data_from_right,data_from_left,command_from_top,c
 localparam command_size = 5,
 			  data_size    = 24,
 			  ttl_size     = 4,
-			  axis_size    = 2,
-			  center_size  = 24;
-			  
+			  axis_size    = 2;
+			  //center_size  = 24;
+localparam  dim_size     = $clog2(255),
+				dim          = 3,
+				max_n        = 1000,
+				center_size  = dim*dim_size,
+				counter_size = $clog2(max_n),
+				acc_size     = $clog2(dim_size*max_n),
+				depth_size   = $clog2(10);
 parameter name="unknown";
 
 input clk;
@@ -15,18 +21,21 @@ output reg [data_size - 1 : 0]    data_to_top,data_to_right,data_to_left;
 output reg [command_size - 1 : 0] command_to_top,command_to_right,command_to_left;
 
 /// Commands
-localparam nop =  5'b00000,
-			  rst = 5'b11111,
-			  rst_done = 5'b11110,
-			  center_fill =  5'b00001,
-			  configure_sort_axis = 5'b00010,
-			  recieve_center =  5'b00011,
-			  switch_with_left =  5'b00100,
-			  center_fill_done =  5'b00101,
-			  cetner_fill      =  5'b00110,
-			  configure_sort_axis_done = 5'b00111,
-			  busy             = 5'b01000,
-			  dne              = 5'b10000;
+localparam nop =  5'h00,
+			  rst = 5'h1f,
+			  rst_done = 5'h1e,
+			  center_fill =  5'h01,
+			  configure_sort_axis = 5'h02,
+			  recieve_center =  5'h03,
+			  switch_with_left =  5'h04,
+			  center_fill_done =  5'h05,
+			  cetner_fill      =  5'h06,
+			  configure_sort_axis_done = 5'h07,
+			  busy             = 5'h08,
+			  dne              = 5'h10,
+			  start_sorting    = 5'h09,
+			  ready_to_sort    = 5'h0a,
+			  switch_with_right = 5'h0b;
 
 
 reg [axis_size - 1 : 0] sorting_axis;
@@ -35,7 +44,17 @@ reg [center_size-1:0] parent_in, center;
 reg [command_size - 1 : 0] command_pipe;
 reg [data_size - 1 : 0]     data_pipe;
 
-wire [command_size - 1 : 0] self_command;
+
+
+
+reg [acc_size - 1:0] accX, accY, accZ;
+reg [counter_size - 1:0] counter;
+reg [center_size - 1:0] old_center, new_center, point;
+reg [depth_size - 1:0] depth;
+assign distance_calc = 1'b1; // distance_calc enables the ce to perform distance calculations during the point propogation stage
+
+
+reg [command_size - 1 : 0] self_command;
 wire [center_size - 1:0] center_self_C2P, center_self_P2C, ce_left_out, ce_right_out;
 reg rst_t, init, start_iter, receive_point, inc, update, sorting, parent_switch_in, self_child_switch, next_level;
 // how many commands need to come from top at a single instance during processing?
@@ -49,7 +68,7 @@ reg rst_t, init, start_iter, receive_point, inc, update, sorting, parent_switch_
 
 // stage-based/global-state-based signals = signals that signify a stage in the algorithm or a global state that is happening
 // at all nodes at an instance during processing
-
+ 
 // local signals are signals that are relevant locally and within the context of the current node and they are:
 // During init ---> can add this later as necessary
 // During sorting ---> parent_switch_in, self_child_switch
@@ -112,7 +131,7 @@ assign left_en = !left_dne;
 assign right_en = !right_dne;
 assign ce_en = 1;
 assign pe_en = 1;
-
+/*
 cluster_PE c_pe (
 						.clk(clk),
 						.rst(rst_t),
@@ -137,7 +156,7 @@ cluster_PE c_pe (
 						.point_out(),
 						.child_depth()
 						);
-
+*/
 cluster_CE c_ce (
 						.clk(clk),
 						.rst(rst_t),
@@ -146,7 +165,7 @@ cluster_CE c_ce (
 						.left_en(left_en),
 						.right_en(right_en),
 						.left(data_from_left),
-						.parent(center_self_P2C),
+						.parent(old_center),
 						.right(data_from_right),
 						.point_in(data_from_top), // do we need to pass point through pe before passing it to ce or can we pass it directly from data_from_top?
 						.axis(sorting_axis),
@@ -163,10 +182,14 @@ cluster_CE c_ce (
 wire [2:0] ce_command;
 assign ce_command = {left_switch, self_switch, right_switch};
 
-/*always @* begin
+always @* begin
     case (ce_command)
-        switch_left:
-            self_command <= switch_with_left;
+        3'b110:
+            self_command = switch_with_left;
+		  3'b011: 
+				self_command = switch_with_right;
+		  default: self_command = nop;
+/*				
         swith_right:
             self_command <= switch_with_right;
         rotate_right:
@@ -181,24 +204,17 @@ assign ce_command = {left_switch, self_switch, right_switch};
             self_command <= pc;
         best_changed:
             self_command <= best_changed;
-
-        endcase
 */
+        endcase
+end
+
 
 
 always @(posedge clk) begin
-$display("node: %s center %x command_from [%x %x %x] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x]",name,center,command_from_left,command_from_top,command_from_right,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne);
-			rst_t = 0;
-			init = 0;
-			start_iter = 0;
-			receive_point = 0;
-			inc = 0;
-			update = 0;
-			parent_in = 0;
-			init = 0;
+$display("node: %s center %x %x command_from [%x %x %x , self:%x , ce:%x] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x]",name,old_center,sorting,command_from_left,command_from_top,command_from_right,self_command,ce_command,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne);	
 if(command_from_top != nop)
 		case(command_from_top)
-		   rst: begin
+		   rst: begin 
 				if( (command_from_left == rst_done || left_dne) && (command_from_right == rst_done || left_dne) ) begin
 					command_to_top <= rst_done;
 					command_to_left <= nop;
@@ -212,6 +228,15 @@ if(command_from_top != nop)
 					sorting_axis  <= {center_size{1'b0}};
 //					time_to_live  <= {center_size{1'b0}};
 					rst_t = 1;
+					accX <= {acc_size{1'b0}};
+					accY <= {acc_size{1'b0}};
+					accZ <= {acc_size{1'b0}};
+					counter <= {counter_size{1'b0}};
+					old_center <= {center_size{1'b0}};
+					new_center <= {center_size{1'b0}};
+					point <= {center_size{1'b0}};
+					time_to_live <= {depth_size{1'b0}};
+					sorting <= 0;
 				
 				end 
 				else begin
@@ -250,15 +275,10 @@ if(command_from_top != nop)
 				else if(command_to_top != center_fill_done )
 				begin
 					if(both_dne) begin
-						parent_in = data_from_top;
-						init = 1;
-
-						center <= data_from_top;
+						old_center <= data_from_top;
 					end
 					else begin
-						center <= data_to_right;
-						parent_in = data_to_right;
-						init = 1;
+						old_center <= data_to_right;
 					end
 					command_to_top <= center_fill_done;
 					command_to_right <= nop;
@@ -291,37 +311,103 @@ if(command_from_top != nop)
 		
 		recieve_center: begin
 						if(command_to_top == recieve_center && command_from_top == recieve_center) begin
-							command_to_top <= nop;
+							command_to_top <= ready_to_sort;
+							data_to_top <= old_center;
 						end
 						else if(command_from_top == recieve_center && command_to_top != recieve_center) begin
 							command_to_top <= recieve_center;
 							command_to_left <= busy;
 							command_to_right <= busy;
-							center <= data_from_top;
-							data_to_top <= center;
+							old_center <= data_from_top;
+				 			data_to_top <= old_center;
 						end
 						
 		end
 		
 		
+		//////////////////////////////END recive_point //////////////////////
+		start_sorting: begin
+			if(!left_dne) begin
+				command_to_left <= start_sorting;
+			end
+			
+			if(!right_dne) begin
+				command_to_right <= start_sorting;
+			end
+			sorting_axis <= data_from_top; // expermintal 
+			data_to_top <= old_center;
+			command_to_top <= ready_to_sort;
+			sorting <= 1;
+		end
 		
 		endcase
 	else if(self_command != nop) begin 
 		case(self_command)
 			switch_with_left:
 				if(command_to_left == recieve_center && command_from_left == recieve_center) begin
+							old_center <= data_from_left;
+							command_to_top <= ready_to_sort;
+							command_to_right <= nop;
 							command_to_left <= nop;
-							center <= data_from_left;
-							command_to_left <= nop;
-						end
-						else begin
-							command_to_left <= recieve_center;
-							data_to_left <= center;
 
+							
+						end
+						else if(command_from_left == ready_to_sort)
+						begin
+							command_to_left <= recieve_center;
+							data_to_left <= old_center;
 							command_to_top <= busy;
 							command_to_right <= busy;
-						end			
-		  
+						end
+						  
+		//////////////////// switch_with_left END //////////////////////
+		switch_with_right:
+				if(command_to_right == recieve_center && command_from_right == recieve_center) begin
+							old_center <= data_from_right;
+							command_to_top <= ready_to_sort;
+							command_to_right <= nop;
+							command_to_left <= nop;
+  
+							
+						end
+						else if(command_from_right  == ready_to_sort)
+						begin
+							command_to_right <= recieve_center;
+							data_to_right <= old_center;
+							command_to_top <= busy;
+							command_to_left <= busy;
+						end	
+		rotate_left: 
+			if(command_to_left == recieve_center && command_from_left == recieve_center) begin
+							old_center <= data_from_right;
+							command_to_top <= ready_to_sort;
+							command_to_right <= nop;
+							command_to_left <= nop;
+						end
+						else if(command_from_left == ready_to_sort && command_from_right == ready_to_sort)
+						begin
+							command_to_left <= recieve_center;
+							data_to_left <= old_center;
+							command_to_right <= recieve_center;
+							data_to_right    <= data_from_left;
+							command_to_top <= busy;
+						end
+						  
+		  rotate_right: 
+			if(command_to_left == recieve_center && command_from_left == recieve_center) begin
+							old_center <= data_from_left;
+							command_to_top <= ready_to_sort;
+							command_to_right <= nop;
+							command_to_left <= nop;
+						end
+						else if(command_from_left == ready_to_sort && command_from_right == ready_to_sort)
+						begin
+							command_to_left <= recieve_center;
+							data_to_left <= data_from_right;
+							command_to_right <= recieve_center;
+							data_to_right    <= old_center;
+							command_to_top <= busy;
+						end
 		endcase
 	end
 	else begin

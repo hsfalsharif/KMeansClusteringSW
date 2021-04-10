@@ -6,7 +6,6 @@ vlib rtl_work
 vmap work rtl_work
 
 vlog -vlog01compat -work work +incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v}
-vlog -vlog01compat -work work +incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v}
 vlog -vlog01compat -work work +incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v}
 vlog -vlog01compat -work work +incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v}
 vlog -vlog01compat -work work +incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v}

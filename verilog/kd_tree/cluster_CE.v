@@ -32,7 +32,7 @@ wire [dim_size - 1:0] axis_dst;
 manhattan #(.dim(dim), .data_range(data_range)) m(clk, rst, axis, point, old_center, dst, axis_dst, dst_done);
 
 always@* begin
-$display("ABC: %d%d%d, Left: %d, Parent: %d, Right: %d, New Left: %d, New Parent: %d, New Right: %d", A, B, C, left, parent, right, new_left, new_parent, new_right);
+$display("ABC: %d%d%d, Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x", A, B, C, left, parent, right, new_left, new_parent, new_right);
 if (en && sorting)
 		case({A, B, C})
 			3'b000: begin new_left = left; new_parent = parent; new_right = right; end
