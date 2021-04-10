@@ -1,0 +1,612 @@
+Analysis & Elaboration report for kd_tree
+Sat Apr 10 10:58:11 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Parameter Settings for User Entity Instance: node:root
+  5. Parameter Settings for User Entity Instance: node:root|cluster_PE:c_pe
+  6. Parameter Settings for User Entity Instance: node:root|cluster_CE:c_ce
+  7. Parameter Settings for User Entity Instance: node:root|cluster_CE:c_ce|manhattan:m
+  8. Parameter Settings for User Entity Instance: node:left
+  9. Parameter Settings for User Entity Instance: node:left|cluster_PE:c_pe
+ 10. Parameter Settings for User Entity Instance: node:left|cluster_CE:c_ce
+ 11. Parameter Settings for User Entity Instance: node:left|cluster_CE:c_ce|manhattan:m
+ 12. Parameter Settings for User Entity Instance: node:right
+ 13. Parameter Settings for User Entity Instance: node:right|cluster_PE:c_pe
+ 14. Parameter Settings for User Entity Instance: node:right|cluster_CE:c_ce
+ 15. Parameter Settings for User Entity Instance: node:right|cluster_CE:c_ce|manhattan:m
+ 16. Analysis & Elaboration Settings
+ 17. Port Connectivity Checks: "node:right|cluster_CE:c_ce"
+ 18. Port Connectivity Checks: "node:right|cluster_PE:c_pe"
+ 19. Port Connectivity Checks: "node:right"
+ 20. Port Connectivity Checks: "node:left|cluster_CE:c_ce"
+ 21. Port Connectivity Checks: "node:left|cluster_PE:c_pe"
+ 22. Port Connectivity Checks: "node:left"
+ 23. Port Connectivity Checks: "node:root|cluster_CE:c_ce|manhattan:m"
+ 24. Port Connectivity Checks: "node:root|cluster_CE:c_ce"
+ 25. Port Connectivity Checks: "node:root|cluster_PE:c_pe"
+ 26. Port Connectivity Checks: "node:root"
+ 27. Analysis & Elaboration Messages
+ 28. Analysis & Elaboration Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                              ;
++-------------------------------+---------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Sat Apr 10 10:58:11 2021       ;
+; Quartus Prime Version         ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                 ; kd_tree                                     ;
+; Top-level Entity Name         ; kd_tree                                     ;
+; Family                        ; Cyclone V                                   ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
+; Total registers               ; N/A until Partition Merge                   ;
+; Total pins                    ; N/A until Partition Merge                   ;
+; Total virtual pins            ; N/A until Partition Merge                   ;
+; Total block memory bits       ; N/A until Partition Merge                   ;
+; Total PLLs                    ; N/A until Partition Merge                   ;
+; Total DLLs                    ; N/A until Partition Merge                   ;
++-------------------------------+---------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: node:root ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; name           ; root  ; String                        ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: node:root|cluster_PE:c_pe ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; dim            ; 3     ; Signed Integer                                ;
+; data_range     ; 255   ; Signed Integer                                ;
+; max_n          ; 1000  ; Signed Integer                                ;
+; max_depth      ; 16    ; Signed Integer                                ;
+; initial_center ; 0     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: node:root|cluster_CE:c_ce ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; dim            ; 3     ; Signed Integer                                ;
+; data_range     ; 255   ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: node:root|cluster_CE:c_ce|manhattan:m ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; dim            ; 3     ; Signed Integer                                            ;
+; data_range     ; 255   ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: node:left ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; name           ; left  ; String                        ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: node:left|cluster_PE:c_pe ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; dim            ; 3     ; Signed Integer                                ;
+; data_range     ; 255   ; Signed Integer                                ;
+; max_n          ; 1000  ; Signed Integer                                ;
+; max_depth      ; 16    ; Signed Integer                                ;
+; initial_center ; 0     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: node:left|cluster_CE:c_ce ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; dim            ; 3     ; Signed Integer                                ;
+; data_range     ; 255   ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: node:left|cluster_CE:c_ce|manhattan:m ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; dim            ; 3     ; Signed Integer                                            ;
+; data_range     ; 255   ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: node:right ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; name           ; right ; String                         ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: node:right|cluster_PE:c_pe ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; dim            ; 3     ; Signed Integer                                 ;
+; data_range     ; 255   ; Signed Integer                                 ;
+; max_n          ; 1000  ; Signed Integer                                 ;
+; max_depth      ; 16    ; Signed Integer                                 ;
+; initial_center ; 0     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: node:right|cluster_CE:c_ce ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; dim            ; 3     ; Signed Integer                                 ;
+; data_range     ; 255   ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: node:right|cluster_CE:c_ce|manhattan:m ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; dim            ; 3     ; Signed Integer                                             ;
+; data_range     ; 255   ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Elaboration Settings                                                                                           ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Top-level entity name                                                           ; kd_tree            ; kd_tree            ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Iteration limit for constant Verilog loops                                      ; 4294967295         ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 4294967295         ; 250                ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "node:right|cluster_CE:c_ce"                                                                 ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; stable       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; left_switch  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; right_switch ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; go_left      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; new_left     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; new_right    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "node:right|cluster_PE:c_pe"                                                                                                            ;
++-------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                         ;
++-------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; en          ; Input  ; Info     ; Stuck at VCC                                                                                                                    ;
+; depth_in    ; Input  ; Info     ; Explicitly unconnected                                                                                                          ;
+; stable      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                             ;
+; parent_out  ; Output ; Warning  ; Output or bidir port (24 bits) is wider than the port expression (1 bits) it drives; bit(s) "parent_out[23..1]" have no fanouts ;
+; parent_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                             ;
+; point_out   ; Output ; Info     ; Explicitly unconnected                                                                                                          ;
+; child_depth ; Output ; Info     ; Explicitly unconnected                                                                                                          ;
++-------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "node:right"                                                                                                                                                                                            ;
++--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port                     ; Type   ; Severity ; Details                                                                                                                                                                            ;
++--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; data_from_right          ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (24 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; data_from_right[23..0]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; data_from_left           ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (24 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; data_from_left[23..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; command_from_right[3..0] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; command_from_right[4]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; command_from_left[3..0]  ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; command_from_left[4]     ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; data_to_right            ; Output ; Warning  ; Output or bidir port (24 bits) is wider than the port expression (1 bits) it drives; bit(s) "data_to_right[23..1]" have no fanouts                                                 ;
+; data_to_right            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; data_to_left             ; Output ; Warning  ; Output or bidir port (24 bits) is wider than the port expression (1 bits) it drives; bit(s) "data_to_left[23..1]" have no fanouts                                                  ;
+; data_to_left             ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; command_to_right         ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (1 bits) it drives; bit(s) "command_to_right[4..1]" have no fanouts                                                ;
+; command_to_right         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; command_to_left          ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (1 bits) it drives; bit(s) "command_to_left[4..1]" have no fanouts                                                 ;
+; command_to_left          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "node:left|cluster_CE:c_ce"                                                                  ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; stable       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; left_switch  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; right_switch ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; go_left      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; new_left     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; new_right    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "node:left|cluster_PE:c_pe"                                                                                                             ;
++-------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                         ;
++-------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; en          ; Input  ; Info     ; Stuck at VCC                                                                                                                    ;
+; depth_in    ; Input  ; Info     ; Explicitly unconnected                                                                                                          ;
+; stable      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                             ;
+; parent_out  ; Output ; Warning  ; Output or bidir port (24 bits) is wider than the port expression (1 bits) it drives; bit(s) "parent_out[23..1]" have no fanouts ;
+; parent_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                             ;
+; point_out   ; Output ; Info     ; Explicitly unconnected                                                                                                          ;
+; child_depth ; Output ; Info     ; Explicitly unconnected                                                                                                          ;
++-------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "node:left"                                                                                                                                                                                             ;
++--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port                     ; Type   ; Severity ; Details                                                                                                                                                                            ;
++--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; data_from_right          ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (24 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; data_from_right[23..0]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; data_from_left           ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (24 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; data_from_left[23..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; command_from_right[3..0] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; command_from_right[4]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; command_from_left[3..0]  ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
+; command_from_left[4]     ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
+; data_to_right            ; Output ; Warning  ; Output or bidir port (24 bits) is wider than the port expression (1 bits) it drives; bit(s) "data_to_right[23..1]" have no fanouts                                                 ;
+; data_to_right            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; data_to_left             ; Output ; Warning  ; Output or bidir port (24 bits) is wider than the port expression (1 bits) it drives; bit(s) "data_to_left[23..1]" have no fanouts                                                  ;
+; data_to_left             ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; command_to_right         ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (1 bits) it drives; bit(s) "command_to_right[4..1]" have no fanouts                                                ;
+; command_to_right         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
+; command_to_left          ; Output ; Warning  ; Output or bidir port (5 bits) is wider than the port expression (1 bits) it drives; bit(s) "command_to_left[4..1]" have no fanouts                                                 ;
+; command_to_left          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
++--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "node:root|cluster_CE:c_ce|manhattan:m"                                                                                                                 ;
++-----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                                                                                     ;
++-----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; a               ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (24 bits) it drives.  Extra input bit(s) "a[23..1]" will be connected to GND. ;
+; b               ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (24 bits) it drives.  Extra input bit(s) "b[23..1]" will be connected to GND. ;
+; dist_out        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                         ;
+; single_dist_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                         ;
+; done            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                         ;
++-----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "node:root|cluster_CE:c_ce"                                                                  ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; stable       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; left_switch  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; right_switch ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; go_left      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; new_left     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; new_right    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "node:root|cluster_PE:c_pe"                                                                                                             ;
++-------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                         ;
++-------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; en          ; Input  ; Info     ; Stuck at VCC                                                                                                                    ;
+; depth_in    ; Input  ; Info     ; Explicitly unconnected                                                                                                          ;
+; stable      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                             ;
+; parent_out  ; Output ; Warning  ; Output or bidir port (24 bits) is wider than the port expression (1 bits) it drives; bit(s) "parent_out[23..1]" have no fanouts ;
+; parent_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                             ;
+; point_out   ; Output ; Info     ; Explicitly unconnected                                                                                                          ;
+; child_depth ; Output ; Info     ; Explicitly unconnected                                                                                                          ;
++-------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "node:root"                                                                                 ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; data_to_top ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Elaboration
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sat Apr 10 10:58:01 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off kd_tree -c kd_tree --analysis_and_elaboration
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file kd_tree.v
+    Info (12023): Found entity 1: kd_tree File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file node.v
+    Info (12023): Found entity 1: node File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file cluster_pe.v
+    Info (12023): Found entity 1: cluster_PE File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file manhattan.v
+    Info (12023): Found entity 1: manhattan File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file cluster_ce.v
+    Info (12023): Found entity 1: cluster_CE File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file cluster_ce_tb.v
+    Info (12023): Found entity 1: cluster_ce_tb File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_ce_tb.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file cluster_pe_tb.v
+    Info (12023): Found entity 1: cluster_pe_tb File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_pe_tb.v Line: 3
+Warning (10236): Verilog HDL Implicit Net warning at kd_tree.v(79): created implicit net for "junk0" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 79
+Warning (10236): Verilog HDL Implicit Net warning at kd_tree.v(80): created implicit net for "junk1" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 80
+Warning (10236): Verilog HDL Implicit Net warning at kd_tree.v(82): created implicit net for "junk2" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 82
+Warning (10236): Verilog HDL Implicit Net warning at kd_tree.v(83): created implicit net for "junk3" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 83
+Warning (10236): Verilog HDL Implicit Net warning at kd_tree.v(96): created implicit net for "junk4" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 96
+Warning (10236): Verilog HDL Implicit Net warning at kd_tree.v(97): created implicit net for "junk5" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 97
+Warning (10236): Verilog HDL Implicit Net warning at kd_tree.v(99): created implicit net for "junk6" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 99
+Warning (10236): Verilog HDL Implicit Net warning at kd_tree.v(100): created implicit net for "junk7" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 100
+Warning (10236): Verilog HDL Implicit Net warning at node.v(108): created implicit net for "left_dne" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 108
+Warning (10236): Verilog HDL Implicit Net warning at node.v(109): created implicit net for "right_dne" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 109
+Warning (10236): Verilog HDL Implicit Net warning at node.v(110): created implicit net for "both_dne" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 110
+Warning (10236): Verilog HDL Implicit Net warning at node.v(111): created implicit net for "left_en" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 111
+Warning (10236): Verilog HDL Implicit Net warning at node.v(112): created implicit net for "right_en" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 112
+Warning (10236): Verilog HDL Implicit Net warning at node.v(113): created implicit net for "ce_en" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 113
+Warning (10236): Verilog HDL Implicit Net warning at node.v(114): created implicit net for "pe_en" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 114
+Warning (10236): Verilog HDL Implicit Net warning at node.v(127): created implicit net for "self_switch" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 127
+Warning (10236): Verilog HDL Implicit Net warning at node.v(133): created implicit net for "center_stable" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 133
+Warning (10236): Verilog HDL Implicit Net warning at node.v(135): created implicit net for "parent_out" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 135
+Warning (10236): Verilog HDL Implicit Net warning at node.v(153): created implicit net for "sort_stable" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 153
+Warning (10236): Verilog HDL Implicit Net warning at node.v(154): created implicit net for "left_switch" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 154
+Warning (10236): Verilog HDL Implicit Net warning at node.v(156): created implicit net for "right_switch" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 156
+Warning (10236): Verilog HDL Implicit Net warning at cluster_PE.v(35): created implicit net for "distance_calc" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 35
+Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(19): created implicit net for "A" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 19
+Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(20): created implicit net for "B" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 20
+Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(21): created implicit net for "C" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 21
+Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(32): created implicit net for "point" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(32): created implicit net for "old_center" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(32): created implicit net for "dst_done" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+Warning (10236): Verilog HDL Implicit Net warning at cluster_ce_tb.v(19): created implicit net for "parent_switch" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_ce_tb.v Line: 19
+Info (12127): Elaborating entity "kd_tree" for the top level hierarchy
+Info (10648): Verilog HDL Display System Task info at kd_tree.v(107): Loading image.\n File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 107
+Warning (10850): Verilog HDL warning at kd_tree.v(108): number of words (100) in memory file does not match the number of elements in the address range [0:9] File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 108
+Warning (10175): Verilog HDL warning at kd_tree.v(137): ignoring unsupported system task File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 137
+Warning (10230): Verilog HDL assignment warning at kd_tree.v(142): truncated value with size 32 to match size of target (27) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 142
+Warning (10030): Net "in_im.data_a" at kd_tree.v(44) has no driver or initial value, using a default initial value '0' File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 44
+Warning (10030): Net "in_im.waddr_a" at kd_tree.v(44) has no driver or initial value, using a default initial value '0' File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 44
+Warning (10030): Net "in_im.we_a" at kd_tree.v(44) has no driver or initial value, using a default initial value '0' File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 44
+Info (12128): Elaborating entity "node" for hierarchy "node:root" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 66
+Warning (10036): Verilog HDL or VHDL warning at node.v(33): object "time_to_live" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 33
+Warning (10036): Verilog HDL or VHDL warning at node.v(35): object "command_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 35
+Warning (10858): Verilog HDL warning at node.v(38): object self_command used but never assigned File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 38
+Warning (10036): Verilog HDL or VHDL warning at node.v(163): object "ce_command" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 163
+Warning (10230): Verilog HDL assignment warning at node.v(212): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 212
+Warning (10230): Verilog HDL assignment warning at node.v(226): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 226
+Warning (10230): Verilog HDL assignment warning at node.v(227): truncated value with size 24 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 227
+Warning (10230): Verilog HDL assignment warning at node.v(279): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 279
+Warning (10030): Net "self_command.nop" at node.v(38) has no driver or initial value, using a default initial value '0' File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 38
+Warning (10030): Net "self_command.switch_with_left" at node.v(38) has no driver or initial value, using a default initial value '0' File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 38
+Info (12128): Elaborating entity "cluster_PE" for hierarchy "node:root|cluster_PE:c_pe" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 139
+Warning (10036): Verilog HDL or VHDL warning at cluster_PE.v(31): object "accX" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 31
+Warning (10036): Verilog HDL or VHDL warning at cluster_PE.v(31): object "accY" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 31
+Warning (10036): Verilog HDL or VHDL warning at cluster_PE.v(31): object "accZ" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 31
+Warning (10036): Verilog HDL or VHDL warning at cluster_PE.v(33): object "new_center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 33
+Warning (10858): Verilog HDL warning at cluster_PE.v(34): object depth used but never assigned File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 34
+Warning (10230): Verilog HDL assignment warning at cluster_PE.v(39): truncated value with size 32 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 39
+Warning (10230): Verilog HDL assignment warning at cluster_PE.v(47): truncated value with size 32 to match size of target (24) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 47
+Warning (10230): Verilog HDL assignment warning at cluster_PE.v(80): truncated value with size 32 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 80
+Warning (10030): Net "depth" at cluster_PE.v(34) has no driver or initial value, using a default initial value '0' File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 34
+Warning (10034): Output port "point_out" at cluster_PE.v(19) has no driver File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 19
+Warning (10034): Output port "stable" at cluster_PE.v(18) has no driver File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 18
+Info (12128): Elaborating entity "cluster_CE" for hierarchy "node:root|cluster_CE:c_ce" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 161
+Warning (10230): Verilog HDL assignment warning at cluster_CE.v(23): truncated value with size 32 to match size of target (1) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 23
+Warning (10034): Output port "go_left" at cluster_CE.v(14) has no driver File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 14
+Info (12128): Elaborating entity "manhattan" for hierarchy "node:root|cluster_CE:c_ce|manhattan:m" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+Info (12128): Elaborating entity "node" for hierarchy "node:left" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 84
+Warning (10036): Verilog HDL or VHDL warning at node.v(33): object "time_to_live" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 33
+Warning (10036): Verilog HDL or VHDL warning at node.v(35): object "command_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 35
+Warning (10858): Verilog HDL warning at node.v(38): object self_command used but never assigned File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 38
+Warning (10036): Verilog HDL or VHDL warning at node.v(163): object "ce_command" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 163
+Warning (10230): Verilog HDL assignment warning at node.v(212): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 212
+Warning (10230): Verilog HDL assignment warning at node.v(226): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 226
+Warning (10230): Verilog HDL assignment warning at node.v(227): truncated value with size 24 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 227
+Warning (10230): Verilog HDL assignment warning at node.v(279): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 279
+Warning (10030): Net "self_command.nop" at node.v(38) has no driver or initial value, using a default initial value '0' File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 38
+Warning (10030): Net "self_command.switch_with_left" at node.v(38) has no driver or initial value, using a default initial value '0' File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 38
+Info (12128): Elaborating entity "node" for hierarchy "node:right" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 101
+Warning (10036): Verilog HDL or VHDL warning at node.v(33): object "time_to_live" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 33
+Warning (10036): Verilog HDL or VHDL warning at node.v(35): object "command_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 35
+Warning (10858): Verilog HDL warning at node.v(38): object self_command used but never assigned File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 38
+Warning (10036): Verilog HDL or VHDL warning at node.v(163): object "ce_command" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 163
+Warning (10230): Verilog HDL assignment warning at node.v(212): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 212
+Warning (10230): Verilog HDL assignment warning at node.v(226): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 226
+Warning (10230): Verilog HDL assignment warning at node.v(227): truncated value with size 24 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 227
+Warning (10230): Verilog HDL assignment warning at node.v(279): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 279
+Warning (10030): Net "self_command.nop" at node.v(38) has no driver or initial value, using a default initial value '0' File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 38
+Warning (10030): Net "self_command.switch_with_left" at node.v(38) has no driver or initial value, using a default initial value '0' File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 38
+Warning (12010): Port "ordered port 3" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+Warning (12010): Port "ordered port 4" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "node:right|sorting" is missing source, defaulting to GND File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 40
+Warning (12010): Port "ordered port 3" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+Warning (12010): Port "ordered port 4" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "node:left|sorting" is missing source, defaulting to GND File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 40
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "node:root|sorting" is missing source, defaulting to GND File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 40
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "clk" is missing source, defaulting to GND File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 48
+Warning (12241): 6 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (144001): Generated suppressed messages file C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/output_files/kd_tree.map.smsg
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 92 warnings
+    Info: Peak virtual memory: 2101928 megabytes
+    Info: Processing ended: Sat Apr 10 10:58:11 2021
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:26
+
+
++--------------------------------------------+
+; Analysis & Elaboration Suppressed Messages ;
++--------------------------------------------+
+The suppressed messages can be found in C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/output_files/kd_tree.map.smsg.
+
+

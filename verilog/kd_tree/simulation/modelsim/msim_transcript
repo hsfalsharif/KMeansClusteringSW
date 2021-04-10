@@ -1,4 +1,5 @@
 # Reading pref.tcl
+# ERROR: No extended dataflow license exists
 # do kd_tree_run_msim_rtl_verilog.do
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
@@ -10,120 +11,125 @@
 # Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 22:30:32 on Apr 09,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v 
+# Start time: 10:58:21 on Apr 10,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v 
 # -- Compiling module node
 # 
 # Top level modules:
 # 	node
-# End time: 22:30:32 on Apr 09,2021, Elapsed time: 0:00:00
+# End time: 10:58:21 on Apr 10,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 22:30:33 on Apr 09,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v 
+# Start time: 10:58:21 on Apr 10,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v 
 # -- Compiling module cluster_PE
 # 
 # Top level modules:
 # 	cluster_PE
-# End time: 22:30:33 on Apr 09,2021, Elapsed time: 0:00:00
+# End time: 10:58:21 on Apr 10,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 22:30:33 on Apr 09,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v 
+# Start time: 10:58:22 on Apr 10,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v 
 # -- Compiling module manhattan
 # 
 # Top level modules:
 # 	manhattan
-# End time: 22:30:33 on Apr 09,2021, Elapsed time: 0:00:00
+# End time: 10:58:22 on Apr 10,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 22:30:33 on Apr 09,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v 
+# Start time: 10:58:22 on Apr 10,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v 
 # -- Compiling module cluster_CE
 # 
 # Top level modules:
 # 	cluster_CE
-# End time: 22:30:33 on Apr 09,2021, Elapsed time: 0:00:00
+# End time: 10:58:22 on Apr 10,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 22:30:33 on Apr 09,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v 
+# Start time: 10:58:22 on Apr 10,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v 
 # -- Compiling module kd_tree
 # 
 # Top level modules:
 # 	kd_tree
-# End time: 22:30:33 on Apr 09,2021, Elapsed time: 0:00:00
+# End time: 10:58:22 on Apr 10,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 22:30:33 on Apr 09,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v 
+# Start time: 10:58:22 on Apr 10,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v 
 # -- Compiling module kd_tree
 # 
 # Top level modules:
 # 	kd_tree
-# End time: 22:30:34 on Apr 09,2021, Elapsed time: 0:00:01
+# End time: 10:58:22 on Apr 10,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  kd_tree
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" kd_tree 
-# Start time: 22:30:34 on Apr 09,2021
+# Start time: 10:58:22 on Apr 10,2021
 # Loading work.kd_tree
 # Loading work.node
 # Loading work.cluster_PE
 # Loading work.cluster_CE
 # Loading work.manhattan
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v(3).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_pe File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 116
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v(3).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_pe File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 116
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v(3).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_pe File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 116
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_pe File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 116
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce/m File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce/m File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_right'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_left'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_right'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_left'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_pe File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 116
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce/m File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce/m File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_right'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_left'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_right'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_left'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_pe File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 116
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce/m File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce/m File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
 # 
 # add wave *
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: atom  Hostname: LAPTOP-84QNNI6Q  ProcessID: 12788
+#           Attempting to use alternate WLF file "./wlftb174hn".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftb174hn
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
@@ -131,7 +137,7 @@
 # run -all
 # Loading image.
 # 
-# ** Warning: (vsim-PLI-3407) Too many data words read on line 1 of file "C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex". (Current address [10], address range [0:9])    : C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v(108)
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 1 of file "C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex". (Current address [10], address range [0:9])    : C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(108)
 #    Time: 0 ps  Iteration: 0  Instance: /kd_tree
 # ABC: xxx, Left:        x, Parent:        x, Right:        x, New Left:        x, New Parent:        x, New Right:        x
 # ABC: 000, Left:        0, Parent:        x, Right:        0, New Left:        x, New Parent:        x, New Right:        x
@@ -174,156 +180,61 @@
 # node: left  center a2cb95 command_from [10 01 10] data_from [000000 a4c8a4 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
 # node: root  center 000000 command_from [05 01 05] data_from [000000 c0a6b2 000000] command_to [01 00 01] data_to [a4c8a4 000000 43a81e]  Child_status [0 0]
 # [        x] fill_center_tb DONE
-# ** Note: $finish    : C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v(137)
+# ** Note: $finish    : C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(137)
 #    Time: 90 ns  Iteration: 1  Instance: /kd_tree
 # 1
-# Break in Module kd_tree at C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v line 137
-add wave -position insertpoint sim:/kd_tree/root/*
-add wave -position insertpoint sim:/kd_tree/left/*
-add wave -position insertpoint sim:/kd_tree/right/*
-restart -f
-# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v(3).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_pe File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 116
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v(3).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_pe File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 116
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v(3).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_pe File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 116
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-run -all
-# Loading image.
-# 
-# ** Warning: (vsim-PLI-3407) Too many data words read on line 1 of file "C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex". (Current address [10], address range [0:9])    : C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v(108)
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree
-# ABC: xxx, Left:        x, Parent:        x, Right:        x, New Left:        x, New Parent:        x, New Right:        x
-# ABC: 000, Left:        0, Parent:        x, Right:        0, New Left:        x, New Parent:        x, New Right:        x
-# ABC: 000, Left:        0, Parent:        x, Right:        0, New Left:        x, New Parent:        x, New Right:        x
-# [        x] idle
-# node: right center xxxxxx command_from [10 xx 10] data_from [000000 xxxxxx 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: left  center xxxxxx command_from [10 xx 10] data_from [000000 xxxxxx 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: root  center xxxxxx command_from [xx 1f xx] data_from [xxxxxx xxxxxx xxxxxx] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [x x]
-# [        x] idle
-# node: right center xxxxxx command_from [10 1f 10] data_from [000000 000000 000000] command_to [00 00 00] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: left  center xxxxxx command_from [10 1f 10] data_from [000000 000000 000000] command_to [00 00 00] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: root  center 000000 command_from [00 1f 00] data_from [xxxxxx xxxxxx xxxxxx] command_to [1f xx 1f] data_to [000000 000000 000000]  Child_status [0 0]
-# ABC: xx0, Left:        0, Parent:        x, Right:        0, New Left:        x, New Parent:        x, New Right:        x
-# [        x] idle
-# node: right center xxxxxx command_from [10 1f 10] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: left  center xxxxxx command_from [10 1f 10] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root  center 000000 command_from [1e 1f 1e] data_from [000000 xxxxxx 000000] command_to [1f xx 1f] data_to [000000 000000 000000]  Child_status [0 0]
-# [        x] rst DONE
-# node: right center xxxxxx command_from [10 00 10] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: left  center xxxxxx command_from [10 00 10] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root  center 000000 command_from [1e 1f 1e] data_from [000000 xxxxxx 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# [        x] fill_center_tb tb_data: xxxxxx tb_command: 11111 serial_Count:         0 root_command_up: 11110
-# node: right center xxxxxx command_from [10 00 10] data_from [000000 000000 000000] command_to [00 00 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: left  center xxxxxx command_from [10 00 10] data_from [000000 000000 000000] command_to [00 00 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root  center 000000 command_from [00 01 00] data_from [000000 a2cb95 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# [        x] fill_center_tb tb_data: a2cb95 tb_command: 00001 serial_Count:         1 root_command_up: 00000
-# node: right center xxxxxx command_from [10 00 10] data_from [000000 000000 000000] command_to [00 00 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: left  center xxxxxx command_from [10 01 10] data_from [000000 a2cb95 000000] command_to [00 00 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root  center 000000 command_from [00 01 00] data_from [000000 a4c8a4 000000] command_to [01 00 00] data_to [a2cb95 000000 000000]  Child_status [0 0]
-# [        x] fill_center_tb tb_data: a4c8a4 tb_command: 00001 serial_Count:         2 root_command_up: 00000
-# node: right center xxxxxx command_from [10 00 10] data_from [000000 000000 000000] command_to [00 00 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: left  center a2cb95 command_from [10 01 10] data_from [000000 a4c8a4 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root  center 000000 command_from [05 01 00] data_from [000000 43a81e 000000] command_to [01 00 00] data_to [a4c8a4 000000 000000]  Child_status [0 0]
-# [        x] fill_center_tb tb_data: 43a81e tb_command: 00001 serial_Count:         3 root_command_up: 00000
-# node: right center xxxxxx command_from [10 01 10] data_from [000000 a4c8a4 000000] command_to [00 00 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: left  center a2cb95 command_from [10 01 10] data_from [000000 a4c8a4 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root  center 000000 command_from [05 01 00] data_from [000000 7ed1cd 000000] command_to [01 00 01] data_to [a4c8a4 000000 a4c8a4]  Child_status [0 0]
-# [        x] fill_center_tb tb_data: 7ed1cd tb_command: 00001 serial_Count:         4 root_command_up: 00000
-# node: right center a4c8a4 command_from [10 01 10] data_from [000000 43a81e 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: left  center a2cb95 command_from [10 01 10] data_from [000000 a4c8a4 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root  center 000000 command_from [05 01 05] data_from [000000 c0a6b2 000000] command_to [01 00 01] data_to [a4c8a4 000000 43a81e]  Child_status [0 0]
-# [        x] fill_center_tb DONE
-# ** Note: $finish    : C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v(137)
-#    Time: 90 ns  Iteration: 1  Instance: /kd_tree
-# 1
-# Break in Module kd_tree at C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v line 137
+# Break in Module kd_tree at C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v line 137
 add wave -position insertpoint sim:/kd_tree/root/c_pe/*
-restart -f
+add wave -position insertpoint sim:/kd_tree/left/c_pe/*
+add wave -position insertpoint sim:/kd_tree/right/c_pe/*
+restart
 # ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v(3).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_pe File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 116
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 67
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v(3).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_pe File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 116
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 85
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_PE.v(3).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_pe File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 116
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce/m File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v Line: 32
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_pe File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 116
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce/m File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce/m File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_right'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_left'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_right'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_left'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_pe File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 116
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce/m File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce/m File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_right'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'data_to_left'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_right'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (5) does not match connection size (1) for port 'command_to_left'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'parent_out'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_pe File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 116
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce/m File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce/m File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 32
 run -all
 # Loading image.
 # 
-# ** Warning: (vsim-PLI-3407) Too many data words read on line 1 of file "C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex". (Current address [10], address range [0:9])    : C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v(108)
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 1 of file "C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex". (Current address [10], address range [0:9])    : C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(108)
 #    Time: 0 ps  Iteration: 0  Instance: /kd_tree
 # ABC: xxx, Left:        x, Parent:        x, Right:        x, New Left:        x, New Parent:        x, New Right:        x
 # ABC: 000, Left:        0, Parent:        x, Right:        0, New Left:        x, New Parent:        x, New Right:        x
@@ -366,9 +277,7 @@ run -all
 # node: left  center a2cb95 command_from [10 01 10] data_from [000000 a4c8a4 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
 # node: root  center 000000 command_from [05 01 05] data_from [000000 c0a6b2 000000] command_to [01 00 01] data_to [a4c8a4 000000 43a81e]  Child_status [0 0]
 # [        x] fill_center_tb DONE
-# ** Note: $finish    : C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v(137)
+# ** Note: $finish    : C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(137)
 #    Time: 90 ns  Iteration: 1  Instance: /kd_tree
 # 1
-# Break in Module kd_tree at C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v line 137
-# End time: 00:12:16 on Apr 10,2021, Elapsed time: 1:41:42
-# Errors: 0, Warnings: 22
+# Break in Module kd_tree at C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v line 137

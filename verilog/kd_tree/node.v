@@ -186,38 +186,16 @@ assign ce_command = {left_switch, self_switch, right_switch};
 */
 
 
-always @* begin
-	case(command_from_top)
-		rst:
-			rst_t = 1;
-		center_fill:
-			if(!(command_from_left != center_fill_done && !left_dne) && !(command_from_right != center_fill_done && ! right_dne) && !(command_to_top != center_fill_done ))
-				if(both_dne) begin
-					parent_in <= data_from_top;
-					init <= 1;
-				end
-				else begin
-					parent_in <= data_to_right;
-					init <= 1;
-				end
-			else begin
-				parent_in <= 0;
-				init <= 0;
-			end
-		default: begin
-			rst_t <= 0;
-			init <= 0;
-			start_iter <= 0;
-			receive_point <= 0;
-			inc <= 0;
-			update <= 0;
-		end
-		endcase
-end
-
 always @(posedge clk) begin
 $display("node: %s center %x command_from [%x %x %x] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x]",name,center,command_from_left,command_from_top,command_from_right,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne);
-
+			rst_t = 0;
+			init = 0;
+			start_iter = 0;
+			receive_point = 0;
+			inc = 0;
+			update = 0;
+			parent_in = 0;
+			init = 0;
 if(command_from_top != nop)
 		case(command_from_top)
 		   rst: begin
@@ -233,6 +211,7 @@ if(command_from_top != nop)
 //					center        <= {center_size{1'b0}};
 					sorting_axis  <= {center_size{1'b0}};
 //					time_to_live  <= {center_size{1'b0}};
+					rst_t = 1;
 				
 				end 
 				else begin
@@ -270,11 +249,17 @@ if(command_from_top != nop)
 			
 				else if(command_to_top != center_fill_done )
 				begin
-					if(both_dne) 
+					if(both_dne) begin
+						parent_in = data_from_top;
+						init = 1;
+
 						center <= data_from_top;
-					else 
+					end
+					else begin
 						center <= data_to_right;
-					
+						parent_in = data_to_right;
+						init = 1;
+					end
 					command_to_top <= center_fill_done;
 					command_to_right <= nop;
 					command_to_left <= nop;
