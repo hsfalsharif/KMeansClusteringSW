@@ -237,35 +237,35 @@ if(command_from_top != nop)
 	 		end
 			    
 			center_fill: begin
+				if(command_to_top != center_fill_done) begin 
 				if(command_from_left != center_fill_done && !left_dne) begin
 					data_to_left <= data_from_top;
-					data_pipe <= data_from_top;
+					//data_pipe <= data_from_top;
  
 					command_to_left <= center_fill;
 					command_to_top <= nop;
 					command_to_right <= nop;
 				end
 				else if (command_from_right != center_fill_done && ! right_dne) begin
-						data_to_right <= data_pipe;
-						data_pipe <= data_from_top;
+						data_to_right <= data_to_left;//data_pipe;
+						data_to_left <= data_from_top;
 						command_to_right <= center_fill;	
-						command_to_top <= nop;
-						command_to_left <= center_fill;		
+						command_to_left <= center_fill;
 				end
-			
-				else if(command_to_top != center_fill_done )
-				begin
-					if(both_dne) begin
-						old_center <= data_from_top;
+					else begin  
+						if(both_dne) begin
+							old_center <= data_from_top;
+						end
+						else begin
+							old_center <= data_to_right;
+						end
+						command_to_top <= center_fill_done;
+						command_to_right <= nop; 
+						command_to_left <= nop;
 					end
-					else begin
-						old_center <= data_to_right;
-					end
-					command_to_top <= center_fill_done;
-					command_to_right <= nop;
-					command_to_left <= nop;
+					
 				
-				end
+				end 
 			
 			end           
 		///////////////////// END center fill //////////////////////////////
@@ -287,33 +287,37 @@ if(command_from_top != nop)
 		
 		
 		end
-		//////////////////////////////////////////// END CONFIGURATION AXIS /////////////////////////////
+		//////////////////////////////////////////// END CONFIGURATION  /////////////////////////////
 		
 		
 		receive_center: begin
 						if(command_to_top == receive_center && command_from_top == receive_center) begin
 							command_to_top <= ready_to_sort;
 							data_to_top <= old_center;
+							data_to_left <= old_center;
+							data_to_right <= old_center;
 						end
 						else if(command_from_top == receive_center && command_to_top != receive_center) begin
 							command_to_top <= receive_center;
 							command_to_left <= busy;
 							command_to_right <= busy;
 							old_center <= data_from_top;
-				 			data_to_top <= old_center;
 						end
 						
 		end
-		
+		 
 		
 		//////////////////////////////END receive_point //////////////////////
 		start_sorting: begin
 			if(!left_dne) begin
 				command_to_left <= start_sorting;
+				data_to_left <= data_from_top;
 			end
 			
 			if(!right_dne) begin
 				command_to_right <= start_sorting;
+				data_to_right <= data_from_top;
+ 
 			end
 			sorting_axis <= data_from_top; // experimental 
 			data_to_top <= old_center;
@@ -330,6 +334,7 @@ if(command_from_top != nop)
 						command_to_right <= nop;
 						command_to_left <= nop;
 						command_to_top <= ready_to_sort;
+						data_to_top <= old_center;
 					end
 					else if (command_from_left == ready_to_sort && command_from_right == ready_to_sort) begin
 						data_to_left <= ce_left_out;

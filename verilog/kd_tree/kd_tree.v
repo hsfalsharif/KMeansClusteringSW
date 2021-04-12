@@ -32,7 +32,7 @@ reg [5:0]tb_state;
 
 localparam command_size = 5,
 			  data_size    = 24,
-			  data_num     = 10;
+			  data_num     = 20;
 			  
 
 
@@ -90,8 +90,8 @@ node #("root-left ") left(
  		.data_from_right(n2_data_up),
  		.data_from_left (n1_data_up),
  		.command_from_top(root_command_left),
- 		.command_from_right(n1_command_up),
- 		.command_from_left(n2_command_up),
+ 		.command_from_right(n2_command_up),
+ 		.command_from_left(n1_command_up),
 
  		///////// output //////////////
  		.data_to_top(left_data_up),
@@ -101,15 +101,15 @@ node #("root-left ") left(
  		.command_to_right(left_command_right),
  		.command_to_left(left_command_left)
 );
-node  #("root-right") right(
+node  #("root-right") right( 
 		///////// input //////////////
 		.clk(clk),
 		.data_from_top(root_data_right),
-		.data_from_right(n3_data_up),
-		.data_from_left (n4_data_up),
+		.data_from_right(n4_data_up),
+		.data_from_left (n3_data_up),
 		.command_from_top(root_command_right),
-		.command_from_right(n3_command_up),
-		.command_from_left(n4_command_up),
+		.command_from_right(n4_command_up),
+		.command_from_left(n3_command_up),
 		///////// output //////////////
 		.data_to_top(right_data_up),
 		.data_to_right(right_data_right),
@@ -119,7 +119,7 @@ node  #("root-right") right(
 		.command_to_left(right_command_left)
 );
 
-node  #("n1(ll)") right(
+node  #("n1(ll)") n1(
 		///////// input //////////////
 		.clk(clk),
 		.data_from_top(left_data_left),
@@ -137,7 +137,7 @@ node  #("n1(ll)") right(
 		.command_to_left(n1_command_left)
 );
 
-node  #("n2(lr)") right(
+node  #("n2(lr)") n2(
 		///////// input //////////////
 		.clk(clk),
 		.data_from_top(left_data_right),
@@ -158,7 +158,7 @@ node  #("n2(lr)") right(
 
 
 
-node  #("n3(rl)") right(
+node  #("n3(rl)") n3(
 		///////// input //////////////
 		.clk(clk),
 		.data_from_top(right_data_left),
@@ -176,7 +176,7 @@ node  #("n3(rl)") right(
 		.command_to_left(n3_command_left)
 );
 
-node  #("n4(rr)") right(
+node  #("n4(rr)") n4(
 		///////// input //////////////
 		.clk(clk),
 		.data_from_top(right_data_right),
@@ -193,11 +193,11 @@ node  #("n4(rr)") right(
 		.command_to_right(n4_command_right),
 		.command_to_left(n4_command_left)
 );
-
+ 
 initial begin
         $display("Loading image.\n");
-        //$readmemh("C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
-		  $readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
+        $readmemh("C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
+		  //$readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
 		  //f = $fopen("output.rgb", "wb");
     end
  
@@ -242,7 +242,7 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 		end
 		start_sorting_tb: begin
 			tb_state <= stall;
-			stall_counter <= 10;
+			stall_counter <= 30;
 		   tb_command <= start_sorting;
 			tb_data <= 0;
 
