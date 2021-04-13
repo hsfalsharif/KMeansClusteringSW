@@ -4,7 +4,7 @@ stable, ce_en, parent_out, child_out, point_out, child_depth);
 
 // also think about converting this to a state machine by combining the control signals into a state register
 
-parameter dim = 3, data_range = 255, max_n = 1000, max_depth = 16, initial_center = 0;
+parameter dim = 3, data_range = 255, max_n = 1000, max_depth = 16, initial_center = 0, name="unknown";
 
 localparam  dim_size     = $clog2(data_range),
 				center_size  = dim*dim_size,

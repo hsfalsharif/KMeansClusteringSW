@@ -1,7 +1,7 @@
 module cluster_CE(clk, rst, en, sorting, left_en, right_en, left, parent, right,
 point_in, axis, stable, left_switch, parent_switch, right_switch, go_left, new_left, new_parent, new_right);
 
-parameter dim = 3, data_range = 255;
+parameter dim = 3, data_range = 255 ,name="unknown";
 
 localparam dist_size   = $clog2(data_range*dim), 
 			  dim_size    = $clog2(data_range),
@@ -36,8 +36,8 @@ wire [dim_size - 1:0] axis_dst;
 manhattan #(.dim(dim), .data_range(data_range)) m(clk, rst, axis, point, old_center, dst, axis_dst, dst_done);
 
 always@* begin
-$display("ABC: %d%d%d, Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x", A, B, C, left_1D, parent_1D, right_1D, new_left, new_parent, new_right);
-if (en && sorting)
+if (en && sorting) begin
+$display("(%s) ABC: %d%d%d, Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x", name,A, B, C, left_1D, parent_1D, right_1D, new_left, new_parent, new_right);
 		case({A, B, C})
 			3'b000: begin new_left = left; new_parent = parent; new_right = right; end
 			3'b001: begin new_left = right; new_parent = parent; new_right = left; end
@@ -48,6 +48,7 @@ if (en && sorting)
 			3'b110: begin new_left = left; new_parent = parent; new_right = right; end
 			3'b111: begin new_left = right; new_parent = parent; new_right = left; end
 		endcase
+	end
 else
 	begin new_left = left; new_parent = parent; new_right = right; end
 end

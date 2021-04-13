@@ -30,13 +30,17 @@ localparam nop 					 		= 5'h00,
 			  switch_with_left 	 		= 5'h04,
 			  center_fill_done 	 		= 5'h05,
 			  configure_sort_axis_done = 5'h07,
-			  busy             	 		= 5'h08,
+			  busy             	 		= 5'h08, 
 			  dne              	 		= 5'h10,
 			  start_sorting    	 		= 5'h09,
 			  ready_to_sort    	 		= 5'h0a,
-			  switch           	 		= 5'h0b;
-
-
+			  switch           	 		= 5'h0b,
+			  sort_left_validate       = 5'h0c,
+			  sort_right_validate      = 5'h0d,
+			  valid_sort               = 5'h0f,
+			  expose_center            = 5'h12,
+			  valid_done               = 5'h11;
+  
 reg [axis_size - 1 : 0] sorting_axis;
 reg [ttl_size - 1 : 0] time_to_live;
 reg [center_size-1:0] parent_in, center;
@@ -156,7 +160,7 @@ cluster_PE c_pe (
 						.child_depth()
 						);
 */
-cluster_CE c_ce (
+cluster_CE #(.name(name)) c_ce (
 						.clk(clk),
 						.rst(rst_t),
 						.en(ce_en), // pe enables ce
@@ -177,14 +181,23 @@ cluster_CE c_ce (
 						.new_parent(ce_self_out),
 						.new_right(ce_right_out)
 						);
-
+ 
 wire [2:0] ce_command;
 assign ce_command = {left_switch, self_switch, right_switch};
 
 always @* begin
 	case (ce_command)
-        3'b000:
-            self_command = nop;
+        4'b0000:
+					if(command_to_top == valid_sort)
+						self_command <= expose_center;
+					else
+						self_command = nop;
+		 	//4'b0001:  begin 
+ 			//	if(left_en && right_en) 
+			//		self_command = sort_done1;
+			//	else self_command = nop;
+			//end
+		  
 		  default: self_command = switch;
 	endcase
 end
@@ -193,6 +206,7 @@ end
 
 always @(posedge clk) begin
 $display("node: %s center %x %x axis: %x command_from [%x %x %x , self:%x , ce:%x] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x]",name,old_center,sorting, sorting_axis, command_from_left,command_from_top,command_from_right,self_command,ce_command,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne);	
+
 if(command_from_top != nop)
 		case(command_from_top)
 		   rst: begin 
@@ -289,10 +303,12 @@ if(command_from_top != nop)
 		end
 		//////////////////////////////////////////// END CONFIGURATION  /////////////////////////////
 		
-		
+		 
 		receive_center: begin
 						if(command_to_top == receive_center && command_from_top == receive_center) begin
 							command_to_top <= ready_to_sort;
+							command_to_left <= nop;
+							command_to_right <= nop;
 							data_to_top <= old_center;
 							data_to_left <= old_center;
 							data_to_right <= old_center;
@@ -322,8 +338,41 @@ if(command_from_top != nop)
 			sorting_axis <= data_from_top; // experimental 
 			data_to_top <= old_center;
 			command_to_top <= ready_to_sort;
-			sorting <= 1;
+			sorting <= 1; 
 		end
+		///////////////////////////////////// Start sorting END ///////////////////////////
+		
+		sort_left_validate: begin 
+		if(left_dne || data_from_top < data_from_left) begin
+				data_to_top <= data_from_top;
+				command_to_top <= valid_done;
+		
+		end
+			else begin 
+					data_to_top <= data_from_left;
+					command_to_left <= receive_center;
+					data_to_left <= data_from_top;
+					command_to_top <= valid_done;
+
+			end 
+			
+		end 
+		
+		sort_right_validate: begin
+		if(right_dne || data_from_top > data_from_right) begin
+				data_to_top <= data_from_top;
+				command_to_top <= valid_done;
+
+		end 
+			else begin 
+				data_to_top <= data_from_right;
+				command_to_right <= receive_center;
+				data_to_right <= data_from_top;
+				command_to_top <= valid_done;
+
+			end 
+		end
+		
 		
 		endcase
 	else if(self_command != nop) begin 
@@ -336,7 +385,7 @@ if(command_from_top != nop)
 						command_to_top <= ready_to_sort;
 						data_to_top <= old_center;
 					end
-					else if (command_from_left == ready_to_sort && command_from_right == ready_to_sort) begin
+					else if ((command_from_left == ready_to_sort || command_from_left == valid_sort) && (command_from_right == ready_to_sort || command_from_right == valid_sort) ) begin
 						data_to_left <= ce_left_out;
 						data_to_right <= ce_right_out;
 						old_center <= ce_self_out;
@@ -345,24 +394,64 @@ if(command_from_top != nop)
 						command_to_top <= busy;
 					end
 				end
+				
+			expose_center: data_to_top <= old_center;
 		endcase
 	end
-	else begin
-		command_to_top   <= nop;
-		command_to_left  <= nop;
-		command_to_right <= nop;
+	else if(command_from_left != nop) begin 
+		case(command_from_left)
+			receive_center: begin 
+				if(command_to_left == receive_center) begin
+					command_to_right <= nop;
+					command_to_left <= nop;
+					command_to_top <= ready_to_sort;
+					data_to_top <= old_center; 
+					
+				end
+			
+			end 
+			valid_sort: 
+			if(command_from_right == valid_sort) begin
+				if(command_to_left != sort_right_validate) begin
+						command_to_left <= sort_right_validate;
+						data_to_left   <= old_center;
+						command_to_top <= busy;
+						sorting = 0;
+ 
+				end 
+			end
+			valid_done: 
+				if(command_to_right != sort_left_validate) begin
+					command_to_right <= sort_left_validate;
+					data_to_right    <= data_from_left;
+					sorting = 0;
+				end 
+				else if(command_from_right == valid_done && command_from_left ==  valid_done) begin
+					command_to_right <= nop;
+					command_to_left <= nop;
+					old_center <= data_from_right;
+					command_to_top <= valid_sort; 
+					data_to_top <= data_from_right;
+					sorting = 1;
+				end
+	
+	
+			dne: if(sorting) begin
+				command_to_top <= valid_sort;
+				data_to_top <= old_center;
+			end
+		endcase
+	end
+	else if(command_from_right != nop) begin
+		case(command_from_right)
+			dne: if(sorting) begin
+				command_to_top <= valid_sort;
+				data_to_top <= old_center;
+			end
+		endcase
 		
 	end
-	/*else if(left_command != nop) begin
-		case(left_command)
-		endcase
-		
-	end
-	else begin 
-		case(right_command)
-		endcase
-	end
-*/
+
 
 
 end
