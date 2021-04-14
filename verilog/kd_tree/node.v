@@ -169,13 +169,41 @@ cluster_PE c_pe (
 						.child_depth()
 						);
 */
-wire [center_size - 1 : 0]ce_parent,ce_right,ce_left,point_in;
+wire [center_size - 1 : 0] ce_parent,ce_left,point_in;
+reg  [center_size - 1 : 0] ce_right;
 assign point_in  = data_from_top[0 +: data_half_size];
 assign ce_parent = (command_from_top == point_in_as_root || command_from_top == point_in_with_best) ? point_in: old_center;
-assign ce_right  = (command_from_top == point_in_as_root) ? old_center : (command_from_top == point_in_with_best) ? data_from_top[data_half_size +: data_half_size]: data_from_right;
+							
+							
 assign ce_left   = (command_from_top == point_in_as_root || command_from_top == point_in_with_best) ? old_center : data_from_left;
 assign returned  = (command_from_right == return_best || command_from_left == return_best);
 assign point_prop = (command_from_top == point_in_as_root || command_from_top == point_in_with_best);
+
+always @* begin
+	
+	if(command_from_top == point_in_as_root) 
+		ce_right = old_center;
+	else if(command_from_top == point_in_with_best) begin
+		if(command_from_right == best_returned && command_from_left != best_returned)
+			ce_right = data_from_right[data_half_size +: data_half_size];
+		else if (command_from_left == best_returned && command_from_right != best_returned)
+			ce_right = data_from_left[data_half_size +: data_half_size]
+		else if(command_from_left == best_returned && command_from_right == best_returned)
+			if(first_direction)
+				ce_right = data_from_right[data_half_size +: data_half_size];
+			else 
+				ce_right = data_from_left[data_half_size +: data_half_size];
+		end
+		
+	else
+		ce_right = data_from_right;
+end
+
+
+
+
+
+
 // For the point_prop situation, old_center will come from left, point will from parent, best_center will come from right
 // best_center will come out from new_parent
 cluster_CE #(.name(name)) c_ce (
@@ -183,6 +211,7 @@ cluster_CE #(.name(name)) c_ce (
 						.rst(rst_t),
 						.en(ce_en), // pe enables ce
 						.sorting(sorting),
+						.point_prop(point_prop),
 						.left_en(left_en), 
 						.right_en(right_en),
 						.returned(returned), // will need to add signal here to tell us we have returned from the first direction

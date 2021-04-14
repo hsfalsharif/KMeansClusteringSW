@@ -8,52 +8,52 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/simulation/modelsim
+Z0 dC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/simulation/modelsim
 vcluster_CE
-Z1 !s110 1618438385
+Z1 !s110 1618440628
 !i10b 1
-!s100 STTMT;K8IT`XPlSoTQl=;1
+!s100 ?lB[2f?M[OC4ALZO;2EPQ3
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I[TH4;KH^dVH6POb1eMP5<3
+IlEd=ma2?AXmPV>ClO=RGI3
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1618438344
-8C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v
-FC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v
+w1618440422
+8C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v
+FC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v
 !i122 2
-L0 1 100
+L0 1 102
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1618438385.000000
-!s107 C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree|C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v|
+Z5 !s108 1618440628.000000
+!s107 C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree|C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v|
 !i113 1
 Z6 o-vlog01compat -work work
-Z7 !s92 -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree
+Z7 !s92 -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree
 Z8 tCvgOpt 0
 ncluster_@c@e
 vkd_tree
-R1
+!s110 1618440629
 !i10b 1
-!s100 YW_GLfWCNig@;^PBKbW8g2
+!s100 k21?458f1h`X8gG@g@;8U3
 R2
-IP?e1??h=c_YJ2DQ[Tb;z?0
+Ic[Gz;MiCGKYQP_8V>ZZD:1
 R3
 R0
-w1618430957
-8C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v
-FC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v
+w1618439067
+8C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v
+FC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v
 !i122 4
-L0 3 281
+L0 3 302
 R4
 r1
 !s85 0
 31
-R5
-!s107 C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree|C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v|
+!s108 1618440629.000000
+!s107 C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree|C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v|
 !i113 1
 R6
 R7
@@ -63,45 +63,45 @@ R1
 !i10b 1
 !s100 Bf2lfXm==N`UaZK]l?=RJ2
 R2
-I_<o;8L7NL7nYM2gbgSL4U1
+I6KW_iZQ2SgCdc]SWSm09>2
 R3
 R0
-w1618343370
-8C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v
-FC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v
+w1618364707
+8C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v
+FC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v
 !i122 1
 L0 1 45
 R4
 r1
 !s85 0
 31
-Z9 !s108 1618438384.000000
-!s107 C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree|C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v|
+R5
+!s107 C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree|C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v|
 !i113 1
 R6
 R7
 R8
 vnode
-!s110 1618438384
+R1
 !i10b 1
-!s100 S]4[IKR=kCP24dP7mA]Q>2
+!s100 nho6=cLG<MSfFmhPaXWH02
 R2
-IDCETgzUa6U1AQNDkOaW;_1
+IoM1fV4;S<b9HeelbQid;h1
 R3
 R0
-w1618434017
-8C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v
-FC:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v
+w1618440608
+8C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v
+FC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v
 !i122 0
-L0 1 547
+L0 1 682
 R4
 r1
 !s85 0
 31
-R9
-!s107 C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree|C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v|
+R5
+!s107 C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree|C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v|
 !i113 1
 R6
 R7

@@ -12,37 +12,37 @@
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:24:52 on Apr 15,2021
+# Start time: 01:50:28 on Apr 15,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v 
 # -- Compiling module node
 # 
 # Top level modules:
 # 	node
-# End time: 01:24:53 on Apr 15,2021, Elapsed time: 0:00:01
+# End time: 01:50:28 on Apr 15,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:24:53 on Apr 15,2021
+# Start time: 01:50:28 on Apr 15,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v 
 # -- Compiling module manhattan
 # 
 # Top level modules:
 # 	manhattan
-# End time: 01:24:53 on Apr 15,2021, Elapsed time: 0:00:00
+# End time: 01:50:28 on Apr 15,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:24:53 on Apr 15,2021
+# Start time: 01:50:28 on Apr 15,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v 
 # -- Compiling module cluster_CE
 # 
 # Top level modules:
 # 	cluster_CE
-# End time: 01:24:53 on Apr 15,2021, Elapsed time: 0:00:00
+# End time: 01:50:28 on Apr 15,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:24:53 on Apr 15,2021
+# Start time: 01:50:29 on Apr 15,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v 
 # -- Compiling module kd_tree
 # ** Warning: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(38): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
@@ -51,12 +51,12 @@
 # 
 # Top level modules:
 # 	kd_tree
-# End time: 01:24:53 on Apr 15,2021, Elapsed time: 0:00:00
+# End time: 01:50:29 on Apr 15,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 3
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:24:53 on Apr 15,2021
+# Start time: 01:50:29 on Apr 15,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v 
 # -- Compiling module kd_tree
 # ** Warning: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(38): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
@@ -65,44 +65,23 @@
 # 
 # Top level modules:
 # 	kd_tree
-# End time: 01:24:53 on Apr 15,2021, Elapsed time: 0:00:00
+# End time: 01:50:29 on Apr 15,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 3
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  kd_tree
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" kd_tree 
-# Start time: 01:24:53 on Apr 15,2021
+# Start time: 01:50:29 on Apr 15,2021
 # Loading work.kd_tree
 # Loading work.node
 # Loading work.cluster_CE
 # Loading work.manhattan
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 20.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 181
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(181): [TFMPC] - Missing connection for port 'point_prop'.
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 20.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 181
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(181): [TFMPC] - Missing connection for port 'point_prop'.
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 20.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 181
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(181): [TFMPC] - Missing connection for port 'point_prop'.
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 20.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 181
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(181): [TFMPC] - Missing connection for port 'point_prop'.
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 20.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 181
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(181): [TFMPC] - Missing connection for port 'point_prop'.
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 20.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 181
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(181): [TFMPC] - Missing connection for port 'point_prop'.
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 20.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 181
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(181): [TFMPC] - Missing connection for port 'point_prop'.
 # 
 # add wave *
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: atom  Hostname: LAPTOP-84QNNI6Q  ProcessID: 12788
-#           Attempting to use alternate WLF file "./wlftjxtv7z".
+#           Attempting to use alternate WLF file "./wlft4wsqjm".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftjxtv7z
+#           Using alternate file: ./wlft4wsqjm
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
@@ -120,34 +99,34 @@
 # node: n1(ll) center xxxxxx x axis: x command_from [10 xx 10 , self:00 , ce:0 , {s:x,pp:x,fd:x,ob:0,rt:0}] data_from [000000000000 xxxxxxxxxxxx 000000000000] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [1 1]
 # node: root-right center xxxxxx x axis: x command_from [xx xx xx , self:xx , ce:x , {s:x,pp:x,fd:x,ob:x,rt:x}] data_from [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [x x]
 # node: root-left  center xxxxxx x axis: x command_from [xx xx xx , self:xx , ce:x , {s:x,pp:x,fd:x,ob:x,rt:x}] data_from [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [x x]
-# node: root  center xxxxxx x axis: x command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:x,ob:x,rt:x}] data_from [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [x x]
+# node: root  center xxxxxx x axis: x command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:0,ob:0,rt:x}] data_from [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [x x]
 #################### new cycle:         1 ##########################
 # [        1] idle
 # node: n4(rr) center xxxxxx x axis: x command_from [10 xx 10 , self:00 , ce:0 , {s:x,pp:x,fd:x,ob:0,rt:0}] data_from [000000000000 xxxxxxxxxxxx 000000000000] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [1 1]
 # node: n3(rl) center xxxxxx x axis: x command_from [10 xx 10 , self:00 , ce:0 , {s:x,pp:x,fd:x,ob:0,rt:0}] data_from [000000000000 xxxxxxxxxxxx 000000000000] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [1 1]
 # node: n2(lr) center xxxxxx x axis: x command_from [10 xx 10 , self:00 , ce:0 , {s:x,pp:x,fd:x,ob:0,rt:0}] data_from [000000000000 xxxxxxxxxxxx 000000000000] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [1 1]
 # node: n1(ll) center xxxxxx x axis: x command_from [10 xx 10 , self:00 , ce:0 , {s:x,pp:x,fd:x,ob:0,rt:0}] data_from [000000000000 xxxxxxxxxxxx 000000000000] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [1 1]
-# node: root-right center xxxxxx x axis: x command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:x,ob:x,rt:x}] data_from [xxxxxxxxxxxx 000000000000 xxxxxxxxxxxx] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [x x]
-# node: root-left  center xxxxxx x axis: x command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:x,ob:x,rt:x}] data_from [xxxxxxxxxxxx 000000000000 xxxxxxxxxxxx] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [x x]
-# node: root  center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:x,ob:x,rt:x}] data_from [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [x x]
+# node: root-right center xxxxxx x axis: x command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:0,ob:0,rt:x}] data_from [xxxxxxxxxxxx 000000000000 xxxxxxxxxxxx] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [x x]
+# node: root-left  center xxxxxx x axis: x command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:0,ob:0,rt:x}] data_from [xxxxxxxxxxxx 000000000000 xxxxxxxxxxxx] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [x x]
+# node: root  center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:0,ob:0,rt:x}] data_from [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [x x]
 #################### new cycle:         2 ##########################
 # [        2] idle
-# node: n4(rr) center xxxxxx x axis: x command_from [10 1f 10 , self:00 , ce:0 , {s:x,pp:0,fd:x,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [1 1]
-# node: n3(rl) center xxxxxx x axis: x command_from [10 1f 10 , self:00 , ce:0 , {s:x,pp:0,fd:x,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [1 1]
-# node: n2(lr) center xxxxxx x axis: x command_from [10 1f 10 , self:00 , ce:0 , {s:x,pp:0,fd:x,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [1 1]
-# node: n1(ll) center xxxxxx x axis: x command_from [10 1f 10 , self:00 , ce:0 , {s:x,pp:0,fd:x,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [1 1]
-# node: root-right center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:x,ob:x,rt:x}] data_from [xxxxxxxxxxxx 000000000000 xxxxxxxxxxxx] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [x x]
-# node: root-left  center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:x,ob:x,rt:x}] data_from [xxxxxxxxxxxx 000000000000 xxxxxxxxxxxx] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [x x]
-# node: root  center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:x,ob:x,rt:x}] data_from [000000000000 xxxxxxxxxxxx 000000000000] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [x x]
+# node: n4(rr) center xxxxxx x axis: x command_from [10 1f 10 , self:00 , ce:0 , {s:x,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [1 1]
+# node: n3(rl) center xxxxxx x axis: x command_from [10 1f 10 , self:00 , ce:0 , {s:x,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [1 1]
+# node: n2(lr) center xxxxxx x axis: x command_from [10 1f 10 , self:00 , ce:0 , {s:x,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [1 1]
+# node: n1(ll) center xxxxxx x axis: x command_from [10 1f 10 , self:00 , ce:0 , {s:x,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [xx xx xx] data_to [xxxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxx]  Child_status [1 1]
+# node: root-right center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:0,ob:0,rt:x}] data_from [xxxxxxxxxxxx 000000000000 xxxxxxxxxxxx] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [x x]
+# node: root-left  center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:0,ob:0,rt:x}] data_from [xxxxxxxxxxxx 000000000000 xxxxxxxxxxxx] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [x x]
+# node: root  center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:0,ob:0,rt:x}] data_from [000000000000 xxxxxxxxxxxx 000000000000] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [x x]
 #################### new cycle:         3 ##########################
 # [        3] idle
 # node: n4(rr) center 000000 0 axis: 0 command_from [10 1f 10 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 1e 00] data_to [000000000000 000000000000 000000000000]  Child_status [1 1]
 # node: n3(rl) center 000000 0 axis: 0 command_from [10 1f 10 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 1e 00] data_to [000000000000 000000000000 000000000000]  Child_status [1 1]
 # node: n2(lr) center 000000 0 axis: 0 command_from [10 1f 10 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 1e 00] data_to [000000000000 000000000000 000000000000]  Child_status [1 1]
 # node: n1(ll) center 000000 0 axis: 0 command_from [10 1f 10 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 1e 00] data_to [000000000000 000000000000 000000000000]  Child_status [1 1]
-# node: root-right center xxxxxx x axis: 0 command_from [1e 1f 1e , self:xx , ce:x , {s:x,pp:0,fd:x,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [0 0]
-# node: root-left  center xxxxxx x axis: 0 command_from [1e 1f 1e , self:xx , ce:x , {s:x,pp:0,fd:x,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [0 0]
-# node: root  center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:x,ob:x,rt:x}] data_from [000000000000 xxxxxxxxxxxx 000000000000] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [x x]
+# node: root-right center xxxxxx x axis: 0 command_from [1e 1f 1e , self:xx , ce:x , {s:x,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [0 0]
+# node: root-left  center xxxxxx x axis: 0 command_from [1e 1f 1e , self:xx , ce:x , {s:x,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [0 0]
+# node: root  center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x , {s:x,pp:0,fd:0,ob:0,rt:x}] data_from [000000000000 xxxxxxxxxxxx 000000000000] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [x x]
 #################### new cycle:         4 ##########################
 # [        4] idle
 # node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 1e 00] data_to [000000000000 000000000000 000000000000]  Child_status [1 1]
@@ -156,7 +135,7 @@
 # node: n1(ll) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 1e 00] data_to [000000000000 000000000000 000000000000]  Child_status [1 1]
 # node: root-right center 000000 0 axis: 0 command_from [1e 1f 1e , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 1e 00] data_to [000000000000 000000000000 000000000000]  Child_status [0 0]
 # node: root-left  center 000000 0 axis: 0 command_from [1e 1f 1e , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 1e 00] data_to [000000000000 000000000000 000000000000]  Child_status [0 0]
-# node: root  center xxxxxx x axis: 0 command_from [1e 1f 1e , self:xx , ce:x , {s:x,pp:0,fd:x,ob:0,rt:0}] data_from [000000000000 xxxxxxxxxxxx 000000000000] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [0 0]
+# node: root  center xxxxxx x axis: 0 command_from [1e 1f 1e , self:xx , ce:x , {s:x,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 xxxxxxxxxxxx 000000000000] command_to [1f xx 1f] data_to [000000000000 000000000000 000000000000]  Child_status [0 0]
 #################### new cycle:         5 ##########################
 # [        5] rst DONE
 # node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 1e 00] data_to [000000000000 000000000000 000000000000]  Child_status [1 1]
@@ -333,7 +312,7 @@
 # node: n2(lr) center 000120 1 axis: 0 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 0a 00] data_to [000000000000 000000000120 000000000000]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 0a 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
 # node: root-right center 000306 1 axis: 0 command_from [0a 03 0a , self:0b , ce:3 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000002204 000000001107 000000000105] command_to [00 0a 00] data_to [000000000000 000000000306 000000000000]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0a 03 0a , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000003 000000000120] command_to [00 0a 00] data_to [000000000000 000000000003 000000000000]  Child_status [0 0]
+# node: root-left  center 000003 1 axis: 0 command_from [0a 03 0a , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000003 000000000120] command_to [00 0a 00] data_to [000000000000 000000000003 000000000000]  Child_status [0 0]
 # node: root  center 000306 1 axis: 0 command_from [0a 00 0a , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000000306] command_to [03 08 03] data_to [000000000003 000000001107 000000001107]  Child_status [0 0]
 # (root-right) ABC: 010, Left: 04, Parent: 07, Right: 05, New Left: 002204, New Parent: 000105, New Right: 000306
 #################### new cycle:        24 ##########################
@@ -342,7 +321,7 @@
 # node: n2(lr) center 000120 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 0f 00] data_to [000000000000 000000000120 000000000000]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
 # node: root-right center 001107 1 axis: 0 command_from [0f 00 0f , self:0b , ce:3 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000002204 000000001107 000000000105] command_to [08 03 08] data_to [000000000000 000000000306 000000000000]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000003 000000000120] command_to [08 03 08] data_to [000000000000 000000000003 000000000000]  Child_status [0 0]
+# node: root-left  center 000003 1 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000003 000000000120] command_to [08 03 08] data_to [000000000000 000000000003 000000000000]  Child_status [0 0]
 # node: root  center 000306 1 axis: 0 command_from [03 00 03 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000000306] command_to [00 08 00] data_to [000000000003 000000001107 000000001107]  Child_status [0 0]
 # (root-right) ABC: 000, Left: 04, Parent: 05, Right: 05, New Left: 002204, New Parent: 000105, New Right: 001107
 #################### new cycle:        25 ##########################
@@ -351,7 +330,7 @@
 # node: n2(lr) center 000120 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 0f 00] data_to [000000000000 000000000120 000000000000]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
 # node: root-right center 000105 1 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000002204 000000001107 000000000105] command_to [03 08 03] data_to [000000002204 000000000306 000000001107]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000003 000000000120] command_to [0d 08 08] data_to [000000000003 000000000003 000000000000]  Child_status [0 0]
+# node: root-left  center 000003 0 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000003 000000000120] command_to [0d 08 08] data_to [000000000003 000000000003 000000000000]  Child_status [0 0]
 # node: root  center 000306 1 axis: 0 command_from [08 00 08 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000000306] command_to [00 08 00] data_to [000000000003 000000001107 000000001107]  Child_status [0 0]
 # (n4(rr)) ABC: 000, Left: 00, Parent: 07, Right: 00, New Left: 000000, New Parent: 000105, New Right: 000000
 #################### new cycle:        26 ##########################
@@ -360,22 +339,22 @@
 # node: n2(lr) center 000120 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 0f 00] data_to [000000000000 000000000120 000000000000]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 11 00] data_to [000000000000 000000000003 000000000000]  Child_status [1 1]
 # node: root-right center 000105 0 axis: 0 command_from [03 00 03 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000002204 000000001107 000000000105] command_to [0d 08 03] data_to [000000000105 000000000306 000000001107]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000003 000000000120] command_to [0d 08 08] data_to [000000000003 000000000003 000000000000]  Child_status [0 0]
+# node: root-left  center 000003 0 axis: 0 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000003 000000000120] command_to [0d 08 08] data_to [000000000003 000000000003 000000000000]  Child_status [0 0]
 # node: root  center 000306 1 axis: 0 command_from [08 00 08 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000000306] command_to [00 08 00] data_to [000000000003 000000001107 000000001107]  Child_status [0 0]
 #################### new cycle:        27 ##########################
 # node: n4(rr) center 001107 1 axis: 0 command_from [10 03 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000001107 000000000000] command_to [00 0a 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 002204 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [08 11 08] data_to [000000000000 000000000105 000000000000]  Child_status [1 1]
 # node: n2(lr) center 000120 1 axis: 0 command_from [10 0c 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000000120 000000000000]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 11 00] data_to [000000000000 000000000003 000000000000]  Child_status [1 1]
-# node: root-right center 000105 0 axis: 0 command_from [11 00 0a , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000001107 000000001107] command_to [0d 08 03] data_to [000000000105 000000000306 000000001107]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000003 000000000120] command_to [0d 08 0c] data_to [000000000003 000000000003 000000000003]  Child_status [0 0]
+# node: root-right center 000105 0 axis: 0 command_from [11 00 0a , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000001107 000000001107] command_to [0d 08 03] data_to [000000000105 000000000306 000000001107]  Child_status [0 0]
+# node: root-left  center 000003 0 axis: 0 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000003 000000000120] command_to [0d 08 0c] data_to [000000000003 000000000003 000000000003]  Child_status [0 0]
 # node: root  center 000306 1 axis: 0 command_from [08 00 08 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000000306] command_to [00 08 00] data_to [000000000003 000000001107 000000001107]  Child_status [0 0]
 #################### new cycle:        28 ##########################
 # node: n4(rr) center 001107 1 axis: 0 command_from [10 0c 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [08 03 08] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 002204 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [08 11 08] data_to [000000000000 000000000105 000000000000]  Child_status [1 1]
 # node: n2(lr) center 000120 1 axis: 0 command_from [10 0c 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 11 00] data_to [000000000000 000000000003 000000000000]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 11 00] data_to [000000000000 000000000003 000000000000]  Child_status [1 1]
-# node: root-right center 000105 0 axis: 0 command_from [11 00 03 , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000001107 000000001107] command_to [0d 08 0c] data_to [000000000105 000000000306 000000000105]  Child_status [0 0]
+# node: root-right center 000105 0 axis: 0 command_from [11 00 03 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000001107 000000001107] command_to [0d 08 0c] data_to [000000000105 000000000306 000000000105]  Child_status [0 0]
 # node: root-left  center 000003 0 axis: 0 command_from [11 00 11 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000003 000000000003] command_to [0d 08 0c] data_to [000000000003 000000000003 000000000003]  Child_status [0 0]
 # node: root  center 000306 1 axis: 0 command_from [08 00 08 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000000306] command_to [00 08 00] data_to [000000000003 000000001107 000000001107]  Child_status [0 0]
 # (root-left ) ABC: 000, Left: 03, Parent: 03, Right: 03, New Left: 000003, New Parent: 000003, New Right: 000003
@@ -396,7 +375,7 @@
 # node: n2(lr) center 000120 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000000120 000000000000]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
 # node: root-right center 000105 1 axis: 0 command_from [11 00 11 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000001107 000000000105] command_to [00 0f 00] data_to [000000000105 000000000105 000000000105]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 00 0f , self:12 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000003 000000000120] command_to [00 0f 00] data_to [000000000003 000000000003 000000000003]  Child_status [0 0]
+# node: root-left  center 000003 1 axis: 0 command_from [0f 00 0f , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000003 000000000120] command_to [00 0f 00] data_to [000000000003 000000000003 000000000003]  Child_status [0 0]
 # node: root  center 000306 1 axis: 0 command_from [0f 00 0f , self:0b , ce:3 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000000105] command_to [00 08 00] data_to [000000000003 000000001107 000000001107]  Child_status [0 0]
 # (root ) ABC: 000, Left: 03, Parent: 05, Right: 05, New Left: 000003, New Parent: 000105, New Right: 000306
 # (root-right) ABC: 000, Left: 04, Parent: 05, Right: 07, New Left: 000105, New Parent: 000105, New Right: 000105
@@ -405,8 +384,8 @@
 # node: n3(rl) center 002204 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [08 0f 08] data_to [000000000000 000000002204 000000000000]  Child_status [1 1]
 # node: n2(lr) center 000120 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000000120 000000000000]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
-# node: root-right center 000105 1 axis: 0 command_from [0f 03 0f , self:12 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000002204 000000000306 000000001107] command_to [00 0f 00] data_to [000000000105 000000000105 000000000105]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 03 0f , self:12 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000003 000000000120] command_to [00 0f 00] data_to [000000000003 000000000003 000000000003]  Child_status [0 0]
+# node: root-right center 000105 1 axis: 0 command_from [0f 03 0f , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000002204 000000000306 000000001107] command_to [00 0f 00] data_to [000000000105 000000000105 000000000105]  Child_status [0 0]
+# node: root-left  center 000003 1 axis: 0 command_from [0f 03 0f , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000003 000000000120] command_to [00 0f 00] data_to [000000000003 000000000003 000000000003]  Child_status [0 0]
 # node: root  center 000105 1 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000000105] command_to [03 08 03] data_to [000000000003 000000001107 000000000306]  Child_status [0 0]
 # (root-right) ABC: 000, Left: 04, Parent: 06, Right: 07, New Left: 002204, New Parent: 000105, New Right: 001107
 #################### new cycle:        32 ##########################
@@ -414,34 +393,34 @@
 # node: n3(rl) center 002204 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [08 0f 08] data_to [000000000000 000000002204 000000000000]  Child_status [1 1]
 # node: n2(lr) center 000120 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000000120 000000000000]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [0f 03 0f , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000002204 000000000306 000000001107] command_to [08 03 08] data_to [000000000105 000000000105 000000000105]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 0d 0f , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000105 000000000120] command_to [08 03 08] data_to [000000000003 000000000003 000000000003]  Child_status [0 0]
+# node: root-right center 000306 1 axis: 0 command_from [0f 03 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000002204 000000000306 000000001107] command_to [08 03 08] data_to [000000000105 000000000105 000000000105]  Child_status [0 0]
+# node: root-left  center 000003 1 axis: 0 command_from [0f 0d 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000105 000000000120] command_to [08 03 08] data_to [000000000003 000000000003 000000000003]  Child_status [0 0]
 # node: root  center 000105 0 axis: 0 command_from [03 00 03 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000000105] command_to [0d 08 03] data_to [000000000105 000000001107 000000000306]  Child_status [0 0]
 #################### new cycle:        33 ##########################
 # node: n4(rr) center 001107 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [08 0f 08] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 002204 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [08 0f 08] data_to [000000000000 000000002204 000000000000]  Child_status [1 1]
 # node: n2(lr) center 000120 1 axis: 0 command_from [10 03 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 0f 00] data_to [000000000000 000000000120 000000000000]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [0f 03 0f , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000002204 000000000306 000000001107] command_to [00 0a 00] data_to [000000000306 000000000306 000000000306]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 0d 0f , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000105 000000000120] command_to [08 11 03] data_to [000000000003 000000000120 000000000105]  Child_status [0 0]
-# node: root  center 000105 0 axis: 0 command_from [11 00 0a , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000120 000000000000 000000000306] command_to [0d 08 03] data_to [000000000105 000000001107 000000000306]  Child_status [0 0]
+# node: root-right center 000306 1 axis: 0 command_from [0f 03 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000002204 000000000306 000000001107] command_to [00 0a 00] data_to [000000000306 000000000306 000000000306]  Child_status [0 0]
+# node: root-left  center 000003 1 axis: 0 command_from [0f 0d 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000105 000000000120] command_to [08 11 03] data_to [000000000003 000000000120 000000000105]  Child_status [0 0]
+# node: root  center 000105 0 axis: 0 command_from [11 00 0a , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000000 000000000306] command_to [0d 08 03] data_to [000000000105 000000001107 000000000306]  Child_status [0 0]
 # (n2(lr)) ABC: 000, Left: 00, Parent: 05, Right: 00, New Left: 000000, New Parent: 000120, New Right: 000000
 #################### new cycle:        34 ##########################
 # node: n4(rr) center 001107 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [08 0f 08] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 002204 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [08 0f 08] data_to [000000000000 000000002204 000000000000]  Child_status [1 1]
 # node: n2(lr) center 000105 1 axis: 0 command_from [10 03 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [08 03 08] data_to [000000000000 000000000120 000000000000]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [0f 0c 0f , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000002204 000000000120 000000001107] command_to [08 03 08] data_to [000000000306 000000000306 000000000306]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 0d 03 , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000105 000000000120] command_to [08 11 03] data_to [000000000003 000000000120 000000000105]  Child_status [0 0]
-# node: root  center 000105 0 axis: 0 command_from [11 00 03 , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000120 000000000000 000000000306] command_to [0d 08 0c] data_to [000000000105 000000001107 000000000120]  Child_status [0 0]
+# node: root-right center 000306 1 axis: 0 command_from [0f 0c 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000002204 000000000120 000000001107] command_to [08 03 08] data_to [000000000306 000000000306 000000000306]  Child_status [0 0]
+# node: root-left  center 000003 1 axis: 0 command_from [0f 0d 03 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000105 000000000120] command_to [08 11 03] data_to [000000000003 000000000120 000000000105]  Child_status [0 0]
+# node: root  center 000105 0 axis: 0 command_from [11 00 03 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000000 000000000306] command_to [0d 08 0c] data_to [000000000105 000000001107 000000000120]  Child_status [0 0]
 # (root-left ) ABC: 000, Left: 01, Parent: 03, Right: 05, New Left: 001001, New Parent: 000003, New Right: 000120
 #################### new cycle:        35 ##########################
 # node: n4(rr) center 001107 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [08 0f 08] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 002204 1 axis: 0 command_from [10 03 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000120 000000000000] command_to [08 0f 08] data_to [000000000000 000000002204 000000000000]  Child_status [1 1]
 # node: n2(lr) center 000105 1 axis: 0 command_from [10 03 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 0a 00] data_to [000000000105 000000000105 000000000105]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [0f 0c 0f , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000002204 000000000120 000000001107] command_to [03 11 08] data_to [000000000120 000000002204 000000000306]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 0d 0a , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000105 000000000105] command_to [08 11 03] data_to [000000000003 000000000120 000000000105]  Child_status [0 0]
+# node: root-right center 000306 1 axis: 0 command_from [0f 0c 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000002204 000000000120 000000001107] command_to [03 11 08] data_to [000000000120 000000002204 000000000306]  Child_status [0 0]
+# node: root-left  center 000003 1 axis: 0 command_from [0f 0d 0a , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000105 000000000105] command_to [08 11 03] data_to [000000000003 000000000120 000000000105]  Child_status [0 0]
 # node: root  center 000105 0 axis: 0 command_from [11 00 11 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000000 000000002204] command_to [0d 08 0c] data_to [000000000105 000000001107 000000000120]  Child_status [0 0]
 # (root ) ABC: 111, Left: 20, Parent: 05, Right: 04, New Left: 000120, New Parent: 000105, New Right: 002204
 # (n3(rl)) ABC: 000, Left: 00, Parent: 20, Right: 00, New Left: 000000, New Parent: 002204, New Right: 000000
@@ -451,8 +430,8 @@
 # node: n3(rl) center 000120 1 axis: 0 command_from [10 03 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000120 000000000000] command_to [08 03 08] data_to [000000000000 000000002204 000000000000]  Child_status [1 1]
 # node: n2(lr) center 000105 1 axis: 0 command_from [10 03 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [08 03 08] data_to [000000000105 000000000105 000000000105]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [03 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000002204 000000000120 000000001107] command_to [03 11 08] data_to [000000000120 000000002204 000000000306]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 00 03 , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000105 000000000105] command_to [08 11 03] data_to [000000000003 000000000105 000000000105]  Child_status [0 0]
+# node: root-right center 000306 1 axis: 0 command_from [03 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000002204 000000000120 000000001107] command_to [03 11 08] data_to [000000000120 000000002204 000000000306]  Child_status [0 0]
+# node: root-left  center 000003 1 axis: 0 command_from [0f 00 03 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000105 000000000105] command_to [08 11 03] data_to [000000000003 000000000105 000000000105]  Child_status [0 0]
 # node: root  center 002204 1 axis: 0 command_from [11 00 11 , self:0b , ce:7 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000002204] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
 # (root ) ABC: 100, Left: 05, Parent: 04, Right: 06, New Left: 002204, New Parent: 002204, New Right: 000105
 # (root-right) ABC: 101, Left: 20, Parent: 06, Right: 07, New Left: 002204, New Parent: 000306, New Right: 001107
@@ -461,9 +440,9 @@
 # node: n3(rl) center 000120 1 axis: 0 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000120 000000000000] command_to [00 0a 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n2(lr) center 000105 1 axis: 0 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 0a 00] data_to [000000000105 000000000105 000000000105]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [0a 00 0f , self:0b , ce:7 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000120 000000000120 000000001107] command_to [00 0a 00] data_to [000000000120 000000000306 000000000306]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 00 0a , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000105 000000000105] command_to [08 11 00] data_to [000000000003 000000000105 000000000105]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [11 00 0a , self:0b , ce:6 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
+# node: root-right center 000306 1 axis: 0 command_from [0a 00 0f , self:0b , ce:7 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000120 000000001107] command_to [00 0a 00] data_to [000000000120 000000000306 000000000306]  Child_status [0 0]
+# node: root-left  center 000003 1 axis: 0 command_from [0f 00 0a , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000105 000000000105] command_to [08 11 00] data_to [000000000003 000000000105 000000000105]  Child_status [0 0]
+# node: root  center 002204 1 axis: 0 command_from [11 00 0a , self:0b , ce:6 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
 # (root-right) ABC: 101, Left: 20, Parent: 07, Right: 07, New Left: 000306, New Parent: 001107, New Right: 000120
 #################### new cycle:        38 ##########################
 # node: n4(rr) center 001107 1 axis: 0 command_from [10 03 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000120 000000000000] command_to [08 0f 08] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
@@ -471,8 +450,8 @@
 # node: n2(lr) center 000105 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 0f 00] data_to [000000000105 000000000105 000000000105]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
 # node: root-right center 001107 1 axis: 0 command_from [0f 00 0f , self:0b , ce:7 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000120 000000001107] command_to [03 08 03] data_to [000000000306 000000000306 000000000120]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000105 000000000105] command_to [08 11 00] data_to [000000000003 000000000105 000000000105]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [11 00 08 , self:0b , ce:6 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
+# node: root-left  center 000003 1 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000105 000000000105] command_to [08 11 00] data_to [000000000003 000000000105 000000000105]  Child_status [0 0]
+# node: root  center 002204 1 axis: 0 command_from [11 00 08 , self:0b , ce:6 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
 # (n4(rr)) ABC: 000, Left: 00, Parent: 20, Right: 00, New Left: 000000, New Parent: 001107, New Right: 000000
 # (n3(rl)) ABC: 000, Left: 00, Parent: 06, Right: 00, New Left: 000000, New Parent: 000120, New Right: 000000
 #################### new cycle:        39 ##########################
@@ -481,8 +460,8 @@
 # node: n2(lr) center 000105 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 0f 00] data_to [000000000105 000000000105 000000000105]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
 # node: root-right center 001107 1 axis: 0 command_from [03 00 03 , self:0b , ce:7 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000120 000000001107] command_to [03 08 03] data_to [000000001107 000000000306 000000000120]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000105 000000000105] command_to [0d 08 00] data_to [000000000003 000000000105 000000000105]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [08 00 08 , self:0b , ce:6 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
+# node: root-left  center 000003 0 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000105 000000000105] command_to [0d 08 00] data_to [000000000003 000000000105 000000000105]  Child_status [0 0]
+# node: root  center 002204 1 axis: 0 command_from [08 00 08 , self:0b , ce:6 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
 # (root ) ABC: 100, Left: 05, Parent: 04, Right: 07, New Left: 002204, New Parent: 000105, New Right: 000306
 # (root-right) ABC: 000, Left: 06, Parent: 07, Right: 20, New Left: 001107, New Parent: 001107, New Right: 000120
 #################### new cycle:        40 ##########################
@@ -490,25 +469,25 @@
 # node: n3(rl) center 000306 1 axis: 0 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000001107 000000000000] command_to [00 0a 00] data_to [000000000306 000000000306 000000000306]  Child_status [1 1]
 # node: n2(lr) center 000105 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 0f 00] data_to [000000000105 000000000105 000000000105]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 11 00] data_to [000000000000 000000000003 000000000000]  Child_status [1 1]
-# node: root-right center 001107 1 axis: 0 command_from [0a 00 0a , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000306 000000000120 000000000120] command_to [00 0a 00] data_to [000000001107 000000001107 000000000120]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000105 000000000105] command_to [0d 08 00] data_to [000000000003 000000000105 000000000105]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [08 00 0a , self:0b , ce:6 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000001107] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
+# node: root-right center 001107 1 axis: 0 command_from [0a 00 0a , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000306 000000000120 000000000120] command_to [00 0a 00] data_to [000000001107 000000001107 000000000120]  Child_status [0 0]
+# node: root-left  center 000003 0 axis: 0 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000105 000000000105] command_to [0d 08 00] data_to [000000000003 000000000105 000000000105]  Child_status [0 0]
+# node: root  center 002204 1 axis: 0 command_from [08 00 0a , self:0b , ce:6 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000001107] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
 #################### new cycle:        41 ##########################
 # node: n4(rr) center 000120 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000120 000000000000] command_to [00 0f 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n3(rl) center 000306 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000001107 000000000000] command_to [00 0f 00] data_to [000000000306 000000000306 000000000306]  Child_status [1 1]
 # node: n2(lr) center 000105 1 axis: 0 command_from [10 0c 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000105 000000000105 000000000105]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 11 00] data_to [000000000000 000000000003 000000000000]  Child_status [1 1]
-# node: root-right center 001107 1 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000306 000000000120 000000000120] command_to [00 0a 00] data_to [000000001107 000000001107 000000000120]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000105 000000000105] command_to [0d 08 0c] data_to [000000000003 000000000105 000000000003]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [08 00 0a , self:0b , ce:6 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000001107] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
+# node: root-right center 001107 1 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000306 000000000120 000000000120] command_to [00 0a 00] data_to [000000001107 000000001107 000000000120]  Child_status [0 0]
+# node: root-left  center 000003 0 axis: 0 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000105 000000000105] command_to [0d 08 0c] data_to [000000000003 000000000105 000000000003]  Child_status [0 0]
+# node: root  center 002204 1 axis: 0 command_from [08 00 0a , self:0b , ce:6 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000001107] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
 #################### new cycle:        42 ##########################
 # node: n4(rr) center 000120 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000120 000000000000] command_to [00 0f 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n3(rl) center 000306 1 axis: 0 command_from [10 0d 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000001107 000000000000] command_to [00 0f 00] data_to [000000000306 000000000306 000000000306]  Child_status [1 1]
 # node: n2(lr) center 000105 1 axis: 0 command_from [10 0c 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 11 00] data_to [000000000105 000000000003 000000000105]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 11 00] data_to [000000000000 000000000003 000000000000]  Child_status [1 1]
-# node: root-right center 001107 0 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000306 000000000120 000000000120] command_to [0d 08 00] data_to [000000001107 000000001107 000000000120]  Child_status [0 0]
+# node: root-right center 001107 0 axis: 0 command_from [0f 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000306 000000000120 000000000120] command_to [0d 08 00] data_to [000000001107 000000001107 000000000120]  Child_status [0 0]
 # node: root-left  center 000003 0 axis: 0 command_from [11 00 11 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000105 000000000003] command_to [0d 08 0c] data_to [000000000003 000000000105 000000000003]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [08 00 08 , self:0b , ce:6 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000001107] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
+# node: root  center 002204 1 axis: 0 command_from [08 00 08 , self:0b , ce:6 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000001107] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
 # (root-left ) ABC: 000, Left: 03, Parent: 03, Right: 03, New Left: 000003, New Parent: 000003, New Right: 000003
 # (root ) ABC: 000, Left: 03, Parent: 04, Right: 07, New Left: 002204, New Parent: 000105, New Right: 001107
 #################### new cycle:        43 ##########################
@@ -516,18 +495,18 @@
 # node: n3(rl) center 000306 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000001107 000000000000] command_to [00 11 00] data_to [000000000306 000000001107 000000000306]  Child_status [1 1]
 # node: n2(lr) center 000105 1 axis: 0 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 11 00] data_to [000000000105 000000000003 000000000105]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 11 00] data_to [000000000000 000000000003 000000000000]  Child_status [1 1]
-# node: root-right center 001107 0 axis: 0 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000001107 000000000120 000000000120] command_to [0d 08 00] data_to [000000001107 000000001107 000000000120]  Child_status [0 0]
+# node: root-right center 001107 0 axis: 0 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000001107 000000000120 000000000120] command_to [0d 08 00] data_to [000000001107 000000001107 000000000120]  Child_status [0 0]
 # node: root-left  center 000003 1 axis: 0 command_from [11 00 11 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000105 000000000003] command_to [00 0f 00] data_to [000000000003 000000000003 000000000003]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [0f 00 08 , self:13 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000000 000000001107] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
+# node: root  center 002204 1 axis: 0 command_from [0f 00 08 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000001107] command_to [00 0f 00] data_to [000000000105 000000002204 000000000120]  Child_status [0 0]
 # (root-left ) ABC: 000, Left: 01, Parent: 03, Right: 05, New Left: 000003, New Parent: 000003, New Right: 000003
 #################### new cycle:        44 ##########################
 # node: n4(rr) center 000120 1 axis: 0 command_from [10 0c 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000001107 000000000000] command_to [00 0f 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n3(rl) center 000306 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000001107 000000000000] command_to [00 11 00] data_to [000000000306 000000001107 000000000306]  Child_status [1 1]
 # node: n2(lr) center 000105 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000105 000000000105 000000000105]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
-# node: root-right center 001107 0 axis: 0 command_from [11 14 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000001107 000000000001 000000000120] command_to [0d 08 0c] data_to [000000001107 000000001107 000000001107]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 14 0f , self:12 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000001 000000000105] command_to [00 0f 00] data_to [000000000003 000000000003 000000000003]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [0f 00 08 , self:13 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000000 000000001107] command_to [14 0f 14] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-right center 001107 0 axis: 0 command_from [11 14 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000001107 000000000001 000000000120] command_to [0d 08 0c] data_to [000000001107 000000001107 000000001107]  Child_status [0 0]
+# node: root-left  center 000003 1 axis: 0 command_from [0f 14 0f , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000001 000000000105] command_to [00 0f 00] data_to [000000000003 000000000003 000000000003]  Child_status [0 0]
+# node: root  center 002204 1 axis: 0 command_from [0f 00 08 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000001107] command_to [14 0f 14] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 # (root-left ) ABC: 101, Left: 10, Parent: 00, Right: 01, New Left: 001001, New Parent: 000003, New Right: 000105
 # (root-right) ABC: 000, Left: 11, Parent: 11, Right: 11, New Left: 001107, New Parent: 001107, New Right: 000120
 #################### new cycle:        45 ##########################
@@ -536,8 +515,8 @@
 # node: n2(lr) center 000105 1 axis: 0 command_from [10 09 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000001 000000000000] command_to [00 0f 00] data_to [000000000105 000000000105 000000000105]  Child_status [1 1]
 # node: n1(ll) center 001001 1 axis: 0 command_from [10 09 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000001 000000000000] command_to [00 0f 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
 # node: root-right center 001107 1 axis: 1 command_from [11 00 11 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001107 000000000001 000000001107] command_to [09 0a 09] data_to [000000000001 000000001107 000000000001]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 1 command_from [0f 00 0f , self:0b , ce:7 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000001001 000000000001 000000000105] command_to [09 0a 09] data_to [000000000001 000000000003 000000000001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0a 00 0a , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000000 000000001107] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-left  center 000003 1 axis: 1 command_from [0f 00 0f , self:0b , ce:7 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000001 000000000105] command_to [09 0a 09] data_to [000000000001 000000000003 000000000001]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [0a 00 0a , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000001107] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 # (n1(ll)) ABC: 000, Left: 00, Parent: 10, Right: 00, New Left: 000000, New Parent: 001001, New Right: 000000
 # (n2(lr)) ABC: 000, Left: 00, Parent: 01, Right: 00, New Left: 000000, New Parent: 000105, New Right: 000000
 # (n3(rl)) ABC: 000, Left: 00, Parent: 03, Right: 00, New Left: 000000, New Parent: 000306, New Right: 000000
@@ -551,7 +530,7 @@
 # node: n1(ll) center 001001 1 axis: 1 command_from [10 03 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000003 000000000000] command_to [00 0a 00] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
 # node: root-right center 001107 1 axis: 1 command_from [0a 00 0a , self:0b , ce:7 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000306 000000000001 000000000120] command_to [09 0a 09] data_to [000000000001 000000001107 000000000001]  Child_status [0 0]
 # node: root-left  center 000105 1 axis: 1 command_from [0a 00 0a , self:0b , ce:7 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000001 000000000105] command_to [03 08 03] data_to [000000000003 000000000003 000000001001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [08 00 0a , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000000 000000001107] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [08 00 0a , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000001107] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 # (n2(lr)) ABC: 000, Left: 00, Parent: 10, Right: 00, New Left: 000000, New Parent: 000105, New Right: 000000
 # (n1(ll)) ABC: 000, Left: 00, Parent: 00, Right: 00, New Left: 000000, New Parent: 001001, New Right: 000000
 # (root-right) ABC: 011, Left: 03, Parent: 03, Right: 01, New Left: 000120, New Parent: 000306, New Right: 001107
@@ -562,7 +541,7 @@
 # node: n1(ll) center 000003 1 axis: 1 command_from [10 03 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [08 03 08] data_to [000000000000 000000001001 000000000000]  Child_status [1 1]
 # node: root-right center 000306 1 axis: 1 command_from [0a 00 0a , self:0b , ce:7 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000306 000000000001 000000000120] command_to [03 08 03] data_to [000000000120 000000001107 000000001107]  Child_status [0 0]
 # node: root-left  center 000105 1 axis: 1 command_from [03 00 03 , self:0b , ce:7 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000001001 000000000001 000000000105] command_to [03 08 03] data_to [000000000105 000000000003 000000001001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [08 00 08 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000000 000000001107] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [08 00 08 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000001107] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 # (n4(rr)) ABC: 000, Left: 00, Parent: 11, Right: 00, New Left: 000000, New Parent: 000120, New Right: 000000
 # (n3(rl)) ABC: 000, Left: 00, Parent: 01, Right: 00, New Left: 000000, New Parent: 000306, New Right: 000000
 # (root-left ) ABC: 000, Left: 00, Parent: 01, Right: 10, New Left: 000105, New Parent: 000105, New Right: 001001
@@ -572,49 +551,49 @@
 # node: n2(lr) center 001001 1 axis: 1 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000001001 000000000000] command_to [00 0a 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 1 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 0a 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
 # node: root-right center 000306 1 axis: 1 command_from [03 00 03 , self:0b , ce:7 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000306 000000000001 000000000120] command_to [03 08 03] data_to [000000000120 000000001107 000000000306]  Child_status [0 0]
-# node: root-left  center 000105 1 axis: 1 command_from [0a 00 0a , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 0a 00] data_to [000000000105 000000000105 000000001001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0a 00 08 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000001107] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-left  center 000105 1 axis: 1 command_from [0a 00 0a , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 0a 00] data_to [000000000105 000000000105 000000001001]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [0a 00 08 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000001107] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 # (root-right) ABC: 000, Left: 01, Parent: 03, Right: 11, New Left: 000120, New Parent: 000306, New Right: 000306
 #################### new cycle:        49 ##########################
 # node: n4(rr) center 001107 1 axis: 1 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [00 0a 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 000120 1 axis: 1 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000120 000000000000] command_to [00 0a 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 1 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000001001 000000000000] command_to [00 0f 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 1 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 0f 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 1 command_from [0a 00 0a , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 0a 00] data_to [000000000120 000000000306 000000000306]  Child_status [0 0]
-# node: root-left  center 000105 1 axis: 1 command_from [0f 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 0a 00] data_to [000000000105 000000000105 000000001001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0a 00 0a , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-right center 000306 1 axis: 1 command_from [0a 00 0a , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 0a 00] data_to [000000000120 000000000306 000000000306]  Child_status [0 0]
+# node: root-left  center 000105 1 axis: 1 command_from [0f 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 0a 00] data_to [000000000105 000000000105 000000001001]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [0a 00 0a , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 #################### new cycle:        50 ##########################
 # node: n4(rr) center 001107 1 axis: 1 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [00 0f 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 000120 1 axis: 1 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000120 000000000000] command_to [00 0f 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 1 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000001001 000000000000] command_to [00 0f 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 1 command_from [10 0d 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 0f 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 1 command_from [0f 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 0a 00] data_to [000000000120 000000000306 000000000306]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [0f 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [0d 08 00] data_to [000000000105 000000000105 000000001001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [08 00 0a , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-right center 000306 1 axis: 1 command_from [0f 00 0f , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 0a 00] data_to [000000000120 000000000306 000000000306]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [0f 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [0d 08 00] data_to [000000000105 000000000105 000000001001]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [08 00 0a , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 #################### new cycle:        51 ##########################
 # node: n4(rr) center 001107 1 axis: 1 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [00 0f 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 000120 1 axis: 1 command_from [10 0d 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [00 0f 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 1 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000001001 000000000000] command_to [00 0f 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 1 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 11 00] data_to [000000000003 000000000105 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [0f 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [0d 08 00] data_to [000000000306 000000000306 000000000306]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000001 000000001001] command_to [0d 08 00] data_to [000000000105 000000000105 000000001001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [08 00 08 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-right center 000306 0 axis: 1 command_from [0f 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [0d 08 00] data_to [000000000306 000000000306 000000000306]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000001 000000001001] command_to [0d 08 00] data_to [000000000105 000000000105 000000001001]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [08 00 08 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 #################### new cycle:        52 ##########################
 # node: n4(rr) center 001107 1 axis: 1 command_from [10 00 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [00 0f 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 000120 1 axis: 1 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [00 11 00] data_to [000000000120 000000000306 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 1 command_from [10 0c 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 0f 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 1 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 11 00] data_to [000000000003 000000000105 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000306 000000000001 000000001107] command_to [0d 08 00] data_to [000000000306 000000000306 000000000306]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000001 000000001001] command_to [0d 08 0c] data_to [000000000105 000000000105 000000000105]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [08 00 08 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-right center 000306 0 axis: 1 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000306 000000000001 000000001107] command_to [0d 08 00] data_to [000000000306 000000000306 000000000306]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000001 000000001001] command_to [0d 08 0c] data_to [000000000105 000000000105 000000000105]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [08 00 08 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 #################### new cycle:        53 ##########################
 # node: n4(rr) center 001107 1 axis: 1 command_from [10 0c 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [00 0f 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 000120 1 axis: 1 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [00 11 00] data_to [000000000120 000000000306 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 1 command_from [10 0c 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 11 00] data_to [000000001001 000000000105 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 1 command_from [10 0d 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 11 00] data_to [000000000003 000000000105 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000306 000000000001 000000001107] command_to [0d 08 0c] data_to [000000000306 000000000306 000000000306]  Child_status [0 0]
+# node: root-right center 000306 0 axis: 1 command_from [11 00 0f , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000306 000000000001 000000001107] command_to [0d 08 0c] data_to [000000000306 000000000306 000000000306]  Child_status [0 0]
 # node: root-left  center 000105 0 axis: 1 command_from [11 00 11 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000001 000000000105] command_to [0d 08 0c] data_to [000000000105 000000000105 000000000105]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [08 00 08 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [08 00 08 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 # (root-left ) ABC: 000, Left: 01, Parent: 01, Right: 01, New Left: 000105, New Parent: 000105, New Right: 000105
 #################### new cycle:        54 ##########################
 # node: n4(rr) center 001107 1 axis: 1 command_from [10 0c 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000306 000000000000] command_to [00 11 00] data_to [000000001107 000000000306 000000001107]  Child_status [1 1]
@@ -623,7 +602,7 @@
 # node: n1(ll) center 000003 1 axis: 1 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000105 000000000000] command_to [00 11 00] data_to [000000000003 000000000105 000000000003]  Child_status [1 1]
 # node: root-right center 000306 0 axis: 1 command_from [11 00 11 , self:00 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000306 000000000001 000000000306] command_to [0d 08 0c] data_to [000000000306 000000000306 000000000306]  Child_status [0 0]
 # node: root-left  center 000105 1 axis: 1 command_from [11 00 11 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000001 000000000105] command_to [00 0f 00] data_to [000000000105 000000000105 000000000105]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0f 00 08 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [0f 00 08 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 # (root-right) ABC: 000, Left: 03, Parent: 03, Right: 03, New Left: 000306, New Parent: 000306, New Right: 000306
 # (root-left ) ABC: 000, Left: 00, Parent: 01, Right: 10, New Left: 000105, New Parent: 000105, New Right: 000105
 #################### new cycle:        55 ##########################
@@ -632,8 +611,8 @@
 # node: n2(lr) center 001001 1 axis: 1 command_from [10 14 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 0f 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 1 command_from [10 14 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 0f 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
 # node: root-right center 000306 1 axis: 1 command_from [11 00 11 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000306 000000000001 000000000306] command_to [00 0f 00] data_to [000000000306 000000000306 000000000306]  Child_status [0 0]
-# node: root-left  center 000105 1 axis: 1 command_from [0f 00 0f , self:13 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [14 0f 14] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0f 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-left  center 000105 1 axis: 1 command_from [0f 00 0f , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [14 0f 14] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [0f 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 # (n2(lr)) ABC: 000, Left: 00, Parent: 00, Right: 00, New Left: 000000, New Parent: 001001, New Right: 000000
 # (root-right) ABC: 000, Left: 01, Parent: 03, Right: 11, New Left: 000306, New Parent: 000306, New Right: 000306
 #################### new cycle:        56 ##########################
@@ -641,9 +620,9 @@
 # node: n3(rl) center 000120 1 axis: 1 command_from [10 14 10 , self:12 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 0f 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 0a 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 0a 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 1 command_from [0f 00 0f , self:13 , ce:0 , {s:1,pp:0,fd:x,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [14 0f 14] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [0a 00 0a , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 0f 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0f 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-right center 000306 1 axis: 1 command_from [0f 00 0f , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [14 0f 14] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [0a 00 0a , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 0f 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [0f 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 # (n3(rl)) ABC: 000, Left: 00, Parent: 00, Right: 00, New Left: 000000, New Parent: 000120, New Right: 000000
 # (n4(rr)) ABC: 000, Left: 00, Parent: 00, Right: 00, New Left: 000000, New Parent: 001107, New Right: 000000
 #################### new cycle:        57 ##########################
@@ -651,95 +630,115 @@
 # node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:00 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 0a 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 0f 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 0f 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [0a 00 0a , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 0f 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [0f 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 0f 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0f 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-right center 000306 0 axis: 1 command_from [0a 00 0a , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 0f 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [0f 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 0f 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [0f 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 #################### new cycle:        58 ##########################
 # node: n4(rr) center 001107 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 0f 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 0f 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [0f 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 0f 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 0f 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0f 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-right center 000306 0 axis: 1 command_from [0f 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 0f 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 0f 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [0f 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 #################### new cycle:        59 ##########################
 # node: n4(rr) center 001107 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 0f 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [15 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-right center 000306 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 0f 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [15 00 0f , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 #################### new cycle:        60 ##########################
 # node: n4(rr) center 001107 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 15 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-right center 000306 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 15 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 0f 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 #################### new cycle:        61 ##########################
 ###################### Sort END ######################
 # node: n4(rr) center 001107 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 15 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 15 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# node: root-right center 000306 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 15 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000105 000000000000 000000000306] command_to [00 15 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
 #################### new cycle:        62 ##########################
+# (root ) Left: 002204, Parent: 0a000a, Right: 002204, New Left: 000105, New Parent: 002204, New Right: 000306
 # node: n4(rr) center 001107 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 15 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root-right center 000306 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000120 000000000001 000000001107] command_to [00 15 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000001 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
 # node: root  center 002204 0 axis: 0 command_from [15 16 15 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000105 0000000a000a 000000000306] command_to [00 15 00] data_to [000000000001 000000002204 000000000001]  Child_status [0 0]
+# (root-right) Left: 000306, Parent: 0a000a, Right: 002204, New Left: 000120, New Parent: 000306, New Right: 001107
 #################### new cycle:        63 ##########################
 # node: n4(rr) center 001107 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
 # node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [15 17 15 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000120 0a000a0a000a 000000001107] command_to [00 15 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000000 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [15 16 15 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000105 0000000a000a 000000000306] command_to [00 15 17] data_to [000000000000 000000002204 0a000a0a000a]  Child_status [0 0]
-# (n4(rr)) ABC: 000, Left: 00, Parent: 0a, Right: 0a, New Left: 000000, New Parent: 001107, New Right: 000000
+# node: root-right center 000306 0 axis: 1 command_from [15 17 15 , self:12 , ce:0 , {s:0,pp:1,fd:1,ob:0,rt:0}] data_from [000000000120 0022040a000a 000000001107] command_to [00 15 00] data_to [000000000002 000000000306 000000000002]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [15 16 15 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000105 0000000a000a 000000000306] command_to [00 15 17] data_to [000000000000 000000002204 0022040a000a]  Child_status [0 0]
+# (n3(rl)) ABC: 000, Left: 00, Parent: 0a, Right: 00, New Left: 000000, New Parent: 000120, New Right: 000000
 #################### new cycle:        64 ##########################
-# node: n4(rr) center 001107 1 axis: 2 command_from [10 17 10 , self:13 , ce:0 , {s:1,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0a000a0a000a 000000000000] command_to [00 15 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 15 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
+# node: n4(rr) center 001107 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 15 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
+# node: n3(rl) center 000120 1 axis: 2 command_from [10 17 10 , self:13 , ce:0 , {s:1,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0003060a000a 000000000000] command_to [00 15 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [15 17 15 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000120 0a000a0a000a 000000001107] command_to [00 15 17] data_to [000000000000 000000000306 0a000a0a000a]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000000 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [15 16 15 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000105 0000000a000a 000000000306] command_to [00 15 17] data_to [000000000000 000000002204 0a000a0a000a]  Child_status [0 0]
+# node: root-right center 000306 0 axis: 1 command_from [15 17 15 , self:12 , ce:0 , {s:0,pp:1,fd:1,ob:0,rt:0}] data_from [000000000120 0022040a000a 000000001107] command_to [17 15 00] data_to [0003060a000a 000000000306 000000000000]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [15 16 15 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000105 0000000a000a 000000000306] command_to [00 15 17] data_to [000000000000 000000002204 0022040a000a]  Child_status [0 0]
+# (n3(rl)) Left: 000120, Parent: 0a000a, Right: 000306, New Left: 000120, New Parent: 0a000a, New Right: 000306
 #################### new cycle:        65 ##########################
-# node: n4(rr) center 001107 0 axis: 2 command_from [10 17 10 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0a000a0a000a 000000000000] command_to [00 18 00] data_to [000000001107 0a000a0a000a 000000001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 15 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
+# node: n4(rr) center 001107 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 15 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
+# node: n3(rl) center 000120 0 axis: 2 command_from [10 17 10 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0003060a000a 000000000000] command_to [00 18 00] data_to [000000000120 0a000a0a000a 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [15 17 18 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:1}] data_from [000000000120 0a000a0a000a 0a000a0a000a] command_to [00 15 17] data_to [000000000000 000000000306 0a000a0a000a]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000000 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [15 16 15 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000105 0000000a000a 000000000306] command_to [00 15 17] data_to [000000000000 000000002204 0a000a0a000a]  Child_status [0 0]
+# node: root-right center 000306 0 axis: 1 command_from [18 17 15 , self:12 , ce:0 , {s:0,pp:1,fd:1,ob:1,rt:1}] data_from [0a000a0a000a 0022040a000a 000000001107] command_to [17 15 00] data_to [0003060a000a 000000000306 000000000000]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [15 16 15 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000105 0000000a000a 000000000306] command_to [00 15 17] data_to [000000000000 000000002204 0022040a000a]  Child_status [0 0]
+# (n4(rr)) ABC: 000, Left: 00, Parent: 0a, Right: 0a, New Left: 000000, New Parent: 001107, New Right: 000000
 #################### new cycle:        66 ##########################
-# node: n4(rr) center 001107 0 axis: 2 command_from [10 17 10 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0a000a0a000a 000000000000] command_to [00 18 00] data_to [000000001107 0a000a0a000a 000000001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 15 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
+# node: n4(rr) center 001107 1 axis: 2 command_from [10 17 10 , self:13 , ce:0 , {s:1,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0a000a0a000a 000000000000] command_to [00 15 00] data_to [000000001107 000000001107 000000001107]  Child_status [1 1]
+# node: n3(rl) center 000120 0 axis: 2 command_from [10 17 10 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0003060a000a 000000000000] command_to [00 18 00] data_to [000000000120 0003060a000a 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [15 17 18 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:1}] data_from [000000000120 0a000a0a000a 0a000a0a000a] command_to [00 18 17] data_to [000000000000 0a000a0a000a 0a000a0a000a]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000000 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [15 16 18 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:x,rt:1}] data_from [000000000105 0000000a000a 0a000a0a000a] command_to [00 15 17] data_to [000000000000 000000002204 0a000a0a000a]  Child_status [0 0]
+# node: root-right center 000306 0 axis: 1 command_from [18 17 15 , self:12 , ce:0 , {s:0,pp:1,fd:1,ob:1,rt:1}] data_from [0003060a000a 0022040a000a 000000001107] command_to [17 15 17] data_to [0003060a000a 000000000306 0a000a0a000a]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [15 16 15 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000105 0000000a000a 000000000306] command_to [00 15 17] data_to [000000000000 000000002204 0022040a000a]  Child_status [0 0]
+# (n4(rr)) Left: 001107, Parent: 0a000a, Right: 0a000a, New Left: 001107, New Parent: 0a000a, New Right: 0a000a
+# (n4(rr)) Left: 001107, Parent: 0a000a, Right: 000306, New Left: 000000, New Parent: 0a000a, New Right: 000000
 #################### new cycle:        67 ##########################
-# node: n4(rr) center 001107 0 axis: 2 command_from [10 17 10 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0a000a0a000a 000000000000] command_to [00 18 00] data_to [000000001107 0a000a0a000a 000000001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000000 000000000000] command_to [00 15 00] data_to [000000000120 000000000120 000000000120]  Child_status [1 1]
+# node: n4(rr) center 001107 0 axis: 2 command_from [10 17 10 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0003060a000a 000000000000] command_to [00 18 00] data_to [000000001107 0a000a0a000a 000000001107]  Child_status [1 1]
+# node: n3(rl) center 000120 0 axis: 2 command_from [10 17 10 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0003060a000a 000000000000] command_to [00 18 00] data_to [000000000120 0003060a000a 000000000120]  Child_status [1 1]
 # node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
 # node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [15 17 18 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:1}] data_from [000000000120 0a000a0a000a 0a000a0a000a] command_to [00 18 17] data_to [000000000000 0a000a0a000a 0a000a0a000a]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:x,ob:0,rt:0}] data_from [000000000003 000000000000 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [15 16 18 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:x,rt:1}] data_from [000000000105 0000000a000a 0a000a0a000a] command_to [00 18 17] data_to [000000000000 0a000a0a000a 0a000a0a000a]  Child_status [0 0]
+# node: root-right center 000306 0 axis: 1 command_from [18 17 18 , self:12 , ce:0 , {s:0,pp:1,fd:1,ob:1,rt:1}] data_from [0003060a000a 0022040a000a 0a000a0a000a] command_to [17 15 17] data_to [0003060a000a 000000000306 0003060a000a]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [15 16 15 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000105 0000000a000a 000000000306] command_to [00 15 17] data_to [000000000000 000000002204 0022040a000a]  Child_status [0 0]
 #################### new cycle:        68 ##########################
+# node: n4(rr) center 001107 0 axis: 2 command_from [10 17 10 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0003060a000a 000000000000] command_to [00 18 00] data_to [000000001107 0003060a000a 000000001107]  Child_status [1 1]
+# node: n3(rl) center 000120 0 axis: 2 command_from [10 17 10 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0003060a000a 000000000000] command_to [00 18 00] data_to [000000000120 0003060a000a 000000000120]  Child_status [1 1]
+# node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
+# node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
+# node: root-right center 000306 0 axis: 1 command_from [18 17 18 , self:00 , ce:0 , {s:0,pp:1,fd:1,ob:1,rt:1}] data_from [0003060a000a 0022040a000a 0003060a000a] command_to [17 18 17] data_to [0003060a000a 0a000a0a000a 0003060a000a]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [15 16 18 , self:12 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:1}] data_from [000000000105 0000000a000a 0a000a0a000a] command_to [00 15 17] data_to [000000000000 000000002204 0022040a000a]  Child_status [0 0]
+#################### new cycle:        69 ##########################
+# node: n4(rr) center 001107 0 axis: 2 command_from [10 17 10 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0003060a000a 000000000000] command_to [00 18 00] data_to [000000001107 0003060a000a 000000001107]  Child_status [1 1]
+# node: n3(rl) center 000120 0 axis: 2 command_from [10 17 10 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:0}] data_from [000000000000 0003060a000a 000000000000] command_to [00 18 00] data_to [000000000120 0003060a000a 000000000120]  Child_status [1 1]
+# node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000001001 000000001001 000000001001]  Child_status [1 1]
+# node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0 , {s:1,pp:0,fd:0,ob:0,rt:0}] data_from [000000000000 000000000002 000000000000] command_to [00 15 00] data_to [000000000003 000000000003 000000000003]  Child_status [1 1]
+# node: root-right center 000306 0 axis: 1 command_from [18 17 18 , self:00 , ce:0 , {s:0,pp:1,fd:1,ob:1,rt:1}] data_from [0003060a000a 0022040a000a 0003060a000a] command_to [17 18 17] data_to [0003060a000a 0003060a000a 0003060a000a]  Child_status [0 0]
+# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0 , {s:0,pp:0,fd:0,ob:0,rt:0}] data_from [000000000003 000000000000 000000001001] command_to [00 15 00] data_to [000000000002 000000000105 000000000002]  Child_status [0 0]
+# node: root  center 002204 0 axis: 0 command_from [15 16 18 , self:00 , ce:0 , {s:0,pp:1,fd:0,ob:0,rt:1}] data_from [000000000105 0000000a000a 0003060a000a] command_to [00 18 17] data_to [000000000000 0a000a0a000a 0022040a000a]  Child_status [0 0]
+#################### new cycle:        70 ##########################
 # ** Note: $finish    : C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(298)
-#    Time: 680 ns  Iteration: 1  Instance: /kd_tree
+#    Time: 700 ns  Iteration: 1  Instance: /kd_tree
 # 1
 # Break in Module kd_tree at C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v line 298
-add wave -position insertpoint sim:/kd_tree/root/c_ce/*
-add wave -position insertpoint sim:/kd_tree/root/c_ce/*

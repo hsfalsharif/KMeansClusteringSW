@@ -107,3 +107,4 @@ verilog/kd_tree/simulation/modelsim/wlftzn37vm
 *.qmsg
 *.qws
 *.rpt
+verilog/kd_tree/simulation/modelsim/rtl_work/_lib.qdb
