@@ -205,9 +205,9 @@ node  #("n4(rr)") n4(
  
 initial begin
         $display("Loading image.\n");
-        $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
+        //$readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
 		  //$readmemh("C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
-		  // $readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
+		  $readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
 		  //f = $fopen("output.rgb", "wb");
     end
  
