@@ -82,6 +82,7 @@ $display("(%s) ABC: %d%d%d, Left: %x, Parent: %x, Right: %x, New Left: %x, New P
 			3'b110: begin new_left = left; new_parent = parent; new_right = right; end
 			3'b111: begin new_left = right; new_parent = parent; new_right = left; end
 		endcase
+end
 else if (en && point_prop) begin
 $display("dx: %d dy: %d dz: %d abs_dx: %d abs_dy: %d abs_dz: %d best_dist: %d axis_dist: %d", dx, dy, dz, abs_delta_x, abs_delta_y, abs_delta_z, best_dist, axis_dist);
 	if (change_best)
@@ -92,7 +93,6 @@ $display("dx: %d dy: %d dz: %d abs_dx: %d abs_dy: %d abs_dz: %d best_dist: %d ax
 	new_left = {center_size{1'b0}};
 end
 
-	end
 else
 	begin new_left = left; new_parent = parent; new_right = right; end
 end

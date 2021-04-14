@@ -10,23 +10,23 @@ z2
 cModel Technology
 Z0 dC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/simulation/modelsim
 vcluster_CE
-Z1 !s110 1618364136
+Z1 !s110 1618365498
 !i10b 1
-!s100 7cCUIaNJA;nd`QZ3Kbjn]2
+!s100 >JHXP9_TafX1:_@AQc7642
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IGhzUQlP7HKPnHCEkQ3NMo2
+I]_[;XGaVOkJ^nZo;mGGGj2
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1618258123
+w1618365115
 8C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v
 FC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v
 !i122 2
-L0 1 56
+L0 1 100
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1618364136.000000
+Z5 !s108 1618365498.000000
 !s107 C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree|C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v|
 !i113 1
@@ -35,23 +35,23 @@ Z7 !s92 -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeans
 Z8 tCvgOpt 0
 ncluster_@c@e
 vkd_tree
-!s110 1618364137
+!s110 1618365499
 !i10b 1
 !s100 OQPJGfIdbHTISl5[lgO^e3
 R2
 I=WO_U4?>GkAjDGK8g1=jm3
 R3
 R0
-w1618357214
+w1618365237
 8C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v
 FC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v
-!i122 3
+!i122 4
 L0 3 281
 R4
 r1
 !s85 0
 31
-!s108 1618364137.000000
+!s108 1618365499.000000
 !s107 C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree|C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v|
 !i113 1
@@ -61,16 +61,16 @@ R8
 vmanhattan
 R1
 !i10b 1
-!s100 6NaODj7FB>O:A`>L3[[DV3
+!s100 Bf2lfXm==N`UaZK]l?=RJ2
 R2
-Iil[4CGf]=Ej@a2OPT<NfD1
+I6KW_iZQ2SgCdc]SWSm09>2
 R3
 R0
-w1617985102
+w1618364707
 8C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v
 FC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v
 !i122 1
-L0 1 30
+L0 1 45
 R4
 r1
 !s85 0
@@ -85,16 +85,16 @@ R8
 vnode
 R1
 !i10b 1
-!s100 dMD=bZ2;R@?BWkB<4>2Pn2
+!s100 _@?>>44`JjTInM9Ki1JZg1
 R2
-Ihgi0k=e6BNjBZHhVPJFS;1
+IQ]cOC1Yf8K6hW4TjBicb^0
 R3
 R0
-w1618364118
+w1618365396
 8C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v
 FC:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v
 !i122 0
-L0 1 541
+L0 1 540
 R4
 r1
 !s85 0

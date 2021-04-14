@@ -42,7 +42,10 @@ localparam nop 					 		= 5'h00,
 			  valid_done               = 5'h11,
 			  next_sort_level          = 5'h13,
 			  start_sorting_as_root    = 5'h14,
-			  sort_done                = 5'h15;
+			  sort_done                = 5'h15,
+			  point_in_as_root         = 5'h16,
+			  point_in_with_best       = 5'h17,
+			  return_best              = 5'h18;
   
 reg [axis_size - 1 : 0] sorting_axis;
 reg [ttl_size - 1 : 0] time_to_live;
@@ -168,19 +171,18 @@ cluster_CE #(.name(name)) c_ce (
 						.rst(rst_t),
 						.en(ce_en), // pe enables ce
 						.sorting(sorting),
-						.point_prop(point_prop),
 						.left_en(left_en),
-						.right_en(right_en),
-						.left(data_from_left), // left, parent, and right inputs will be different for the case of point_prop, so we need to account for this
+						.right_en(right_en), 
+						.left(data_from_left),
 						.parent(old_center),
 						.right(data_from_right),
+						//.point_in(data_from_top), // do we need to pass point through pe before passing it to ce or can we pass it directly from data_from_top?
 						.axis(sorting_axis),
 						.stable(sort_stable),
-						.send_left(),
-						.send_right(),
 						.left_switch(left_switch),
 						.parent_switch(self_switch),
 						.right_switch(right_switch),
+						.send_left(), // will be added later with point propogation stage
 						.new_left(ce_left_out),
 						.new_parent(ce_self_out),
 						.new_right(ce_right_out)
@@ -227,7 +229,7 @@ if(command_from_top != nop)
 					data_to_top   <= {data_size{1'b0}};
 					data_pipe     <= {data_size{1'b0}};
 //					center        <= {center_size{1'b0}};
-					sorting_axis  <= {axis_size{1'b0}};
+					sorting_axis  <= {center_size{1'b0}};
 //					time_to_live  <= {center_size{1'b0}};
 					rst_t = 1;
 					accX <= {acc_size{1'b0}};
@@ -411,34 +413,8 @@ if(command_from_top != nop)
 
 			end 
 		end
-			else begin 
-					data_to_top <= data_from_left;
-					command_to_left <= receive_center;
-					data_to_left <= data_from_top;
-					command_to_top <= valid_done;
-
-			end 
-			
-		end 
-		
-		sort_right_validate: begin
-		if(right_dne || data_from_top > data_from_right) begin
-				data_to_top <= data_from_top;
-				command_to_top <= valid_done;
-
-		end 
-			else begin 
-				data_to_top <= data_from_right;
-				command_to_right <= receive_center;
-				data_to_right <= data_from_top;
-				command_to_top <= valid_done;
-
-			end 
-		end
-		
-		
-		
 		endcase
+	
 	else if(self_command != nop) begin 
 		case(self_command)
 			switch:

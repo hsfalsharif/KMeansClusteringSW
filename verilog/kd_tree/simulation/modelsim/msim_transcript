@@ -12,38 +12,37 @@
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 04:35:36 on Apr 14,2021
+# Start time: 04:58:18 on Apr 14,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v 
 # -- Compiling module node
 # 
 # Top level modules:
 # 	node
-# End time: 04:35:36 on Apr 14,2021, Elapsed time: 0:00:00
+# End time: 04:58:18 on Apr 14,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 04:35:36 on Apr 14,2021
+# Start time: 04:58:18 on Apr 14,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v 
 # -- Compiling module manhattan
 # 
 # Top level modules:
 # 	manhattan
-# End time: 04:35:36 on Apr 14,2021, Elapsed time: 0:00:00
+# End time: 04:58:18 on Apr 14,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 04:35:36 on Apr 14,2021
+# Start time: 04:58:18 on Apr 14,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v 
 # -- Compiling module cluster_CE
 # 
 # Top level modules:
 # 	cluster_CE
-# End time: 04:35:36 on Apr 14,2021, Elapsed time: 0:00:00
+# End time: 04:58:18 on Apr 14,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# 
 # vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 04:35:37 on Apr 14,2021
+# Start time: 04:58:19 on Apr 14,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v 
 # -- Compiling module kd_tree
 # ** Warning: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(36): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
@@ -51,67 +50,80 @@
 # 
 # Top level modules:
 # 	kd_tree
-# End time: 04:35:37 on Apr 14,2021, Elapsed time: 0:00:00
+# End time: 04:58:19 on Apr 14,2021, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 2
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 04:58:19 on Apr 14,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v 
+# -- Compiling module kd_tree
+# ** Warning: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(36): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(37): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# 
+# Top level modules:
+# 	kd_tree
+# End time: 04:58:19 on Apr 14,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  kd_tree
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" kd_tree 
-# Start time: 04:35:37 on Apr 14,2021
+# Start time: 04:58:19 on Apr 14,2021
 # Loading work.kd_tree
 # Loading work.node
 # Loading work.cluster_CE
 # Loading work.manhattan
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
 # ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
 #    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 131
 # ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
 #    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 131
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
 # ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
 #    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 149
 # ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
 #    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 149
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
 # ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
 #    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 170
 # ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
 #    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 170
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
 # ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
 #    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 188
 # ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
 #    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 188
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'a'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (1) for port 'b'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4/c_ce/m File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
 # 
 # add wave *
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: atom  Hostname: LAPTOP-84QNNI6Q  ProcessID: 12788
-#           Attempting to use alternate WLF file "./wlft085mds".
+#           Attempting to use alternate WLF file "./wlft7bn8cy".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft085mds
+#           Using alternate file: ./wlft7bn8cy
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
