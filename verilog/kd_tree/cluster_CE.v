@@ -84,7 +84,7 @@ $display("(%s) ABC: %d%d%d, Left: %x, Parent: %x, Right: %x, New Left: %x, New P
 		endcase
 end
 else if (en && point_prop) begin
-$display("(%s) Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x", name, left, parent, right, new_left, new_parent, new_right);
+$display("(%s) Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x, dist: %d, axis_dist: %d, best_dist: %d", name, left, parent, right, new_left, new_parent, new_right, dst, axis_dist, best_dist);
 
 //$display("dx: %d dy: %d dz: %d abs_dx: %d abs_dy: %d abs_dz: %d best_dist: %d axis_dist: %d", dx, dy, dz, abs_delta_x, abs_delta_y, abs_delta_z, best_dist, axis_dist);
 	if (change_best)
