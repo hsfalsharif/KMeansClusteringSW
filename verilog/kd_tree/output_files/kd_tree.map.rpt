@@ -1,5 +1,5 @@
-Analysis & Elaboration report for kd_tree
-Sun Apr 11 02:13:25 2021
+Analysis & Synthesis report for kd_tree
+Wed Apr 14 00:04:38 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -7,45 +7,23 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Parameter Settings for User Entity Instance: node:root
-  5. Parameter Settings for User Entity Instance: node:root|cluster_CE:c_ce
-  6. Parameter Settings for User Entity Instance: node:root|cluster_CE:c_ce|manhattan:m
-  7. Parameter Settings for User Entity Instance: node:left
-  8. Parameter Settings for User Entity Instance: node:left|cluster_CE:c_ce
-  9. Parameter Settings for User Entity Instance: node:left|cluster_CE:c_ce|manhattan:m
- 10. Parameter Settings for User Entity Instance: node:right
- 11. Parameter Settings for User Entity Instance: node:right|cluster_CE:c_ce
- 12. Parameter Settings for User Entity Instance: node:right|cluster_CE:c_ce|manhattan:m
- 13. Parameter Settings for User Entity Instance: node:n1
- 14. Parameter Settings for User Entity Instance: node:n1|cluster_CE:c_ce
- 15. Parameter Settings for User Entity Instance: node:n1|cluster_CE:c_ce|manhattan:m
- 16. Parameter Settings for User Entity Instance: node:n2
- 17. Parameter Settings for User Entity Instance: node:n2|cluster_CE:c_ce
- 18. Parameter Settings for User Entity Instance: node:n2|cluster_CE:c_ce|manhattan:m
- 19. Parameter Settings for User Entity Instance: node:n3
- 20. Parameter Settings for User Entity Instance: node:n3|cluster_CE:c_ce
- 21. Parameter Settings for User Entity Instance: node:n3|cluster_CE:c_ce|manhattan:m
- 22. Parameter Settings for User Entity Instance: node:n4
- 23. Parameter Settings for User Entity Instance: node:n4|cluster_CE:c_ce
- 24. Parameter Settings for User Entity Instance: node:n4|cluster_CE:c_ce|manhattan:m
- 25. Analysis & Elaboration Settings
- 26. Port Connectivity Checks: "node:n4|cluster_CE:c_ce"
- 27. Port Connectivity Checks: "node:n4"
- 28. Port Connectivity Checks: "node:n3|cluster_CE:c_ce"
- 29. Port Connectivity Checks: "node:n3"
- 30. Port Connectivity Checks: "node:n2|cluster_CE:c_ce"
- 31. Port Connectivity Checks: "node:n2"
- 32. Port Connectivity Checks: "node:n1|cluster_CE:c_ce"
- 33. Port Connectivity Checks: "node:n1"
- 34. Port Connectivity Checks: "node:right|cluster_CE:c_ce"
- 35. Port Connectivity Checks: "node:left|cluster_CE:c_ce"
- 36. Port Connectivity Checks: "node:root|cluster_CE:c_ce|manhattan:m"
- 37. Port Connectivity Checks: "node:root|cluster_CE:c_ce"
- 38. Port Connectivity Checks: "node:root"
- 39. Analysis & Elaboration Messages
- 40. Analysis & Elaboration Suppressed Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: Top-level Entity: |node
+ 11. Parameter Settings for User Entity Instance: cluster_CE:c_ce
+ 12. Parameter Settings for User Entity Instance: cluster_CE:c_ce|manhattan:m
+ 13. Port Connectivity Checks: "cluster_CE:c_ce|manhattan:m"
+ 14. Port Connectivity Checks: "cluster_CE:c_ce"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -69,271 +47,36 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+-----------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                              ;
-+-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Sun Apr 11 02:13:25 2021       ;
-; Quartus Prime Version         ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
-; Revision Name                 ; kd_tree                                     ;
-; Top-level Entity Name         ; kd_tree                                     ;
-; Family                        ; Cyclone V                                   ;
-; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
-; Total registers               ; N/A until Partition Merge                   ;
-; Total pins                    ; N/A until Partition Merge                   ;
-; Total virtual pins            ; N/A until Partition Merge                   ;
-; Total block memory bits       ; N/A until Partition Merge                   ;
-; Total PLLs                    ; N/A until Partition Merge                   ;
-; Total DLLs                    ; N/A until Partition Merge                   ;
-+-------------------------------+---------------------------------------------+
-
-
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
-
-
-+--------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:root ;
-+----------------+-------+-------------------------------+
-; Parameter Name ; Value ; Type                          ;
-+----------------+-------+-------------------------------+
-; name           ; root  ; String                        ;
-+----------------+-------+-------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:root|cluster_CE:c_ce ;
-+----------------+-------+-----------------------------------------------+
-; Parameter Name ; Value ; Type                                          ;
-+----------------+-------+-----------------------------------------------+
-; dim            ; 3     ; Signed Integer                                ;
-; data_range     ; 255   ; Signed Integer                                ;
-+----------------+-------+-----------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:root|cluster_CE:c_ce|manhattan:m ;
-+----------------+-------+-----------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                      ;
-+----------------+-------+-----------------------------------------------------------+
-; dim            ; 3     ; Signed Integer                                            ;
-; data_range     ; 255   ; Signed Integer                                            ;
-+----------------+-------+-----------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:left ;
-+----------------+------------+--------------------------+
-; Parameter Name ; Value      ; Type                     ;
-+----------------+------------+--------------------------+
-; name           ; root-left  ; String                   ;
-+----------------+------------+--------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:left|cluster_CE:c_ce ;
-+----------------+-------+-----------------------------------------------+
-; Parameter Name ; Value ; Type                                          ;
-+----------------+-------+-----------------------------------------------+
-; dim            ; 3     ; Signed Integer                                ;
-; data_range     ; 255   ; Signed Integer                                ;
-+----------------+-------+-----------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:left|cluster_CE:c_ce|manhattan:m ;
-+----------------+-------+-----------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                      ;
-+----------------+-------+-----------------------------------------------------------+
-; dim            ; 3     ; Signed Integer                                            ;
-; data_range     ; 255   ; Signed Integer                                            ;
-+----------------+-------+-----------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:right ;
-+----------------+------------+---------------------------+
-; Parameter Name ; Value      ; Type                      ;
-+----------------+------------+---------------------------+
-; name           ; root-right ; String                    ;
-+----------------+------------+---------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:right|cluster_CE:c_ce ;
-+----------------+-------+------------------------------------------------+
-; Parameter Name ; Value ; Type                                           ;
-+----------------+-------+------------------------------------------------+
-; dim            ; 3     ; Signed Integer                                 ;
-; data_range     ; 255   ; Signed Integer                                 ;
-+----------------+-------+------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:right|cluster_CE:c_ce|manhattan:m ;
-+----------------+-------+------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                       ;
-+----------------+-------+------------------------------------------------------------+
-; dim            ; 3     ; Signed Integer                                             ;
-; data_range     ; 255   ; Signed Integer                                             ;
-+----------------+-------+------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:n1 ;
-+----------------+--------+----------------------------+
-; Parameter Name ; Value  ; Type                       ;
-+----------------+--------+----------------------------+
-; name           ; n1(ll) ; String                     ;
-+----------------+--------+----------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:n1|cluster_CE:c_ce ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; dim            ; 3     ; Signed Integer                              ;
-; data_range     ; 255   ; Signed Integer                              ;
-+----------------+-------+---------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:n1|cluster_CE:c_ce|manhattan:m ;
-+----------------+-------+---------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                    ;
-+----------------+-------+---------------------------------------------------------+
-; dim            ; 3     ; Signed Integer                                          ;
-; data_range     ; 255   ; Signed Integer                                          ;
-+----------------+-------+---------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:n2 ;
-+----------------+--------+----------------------------+
-; Parameter Name ; Value  ; Type                       ;
-+----------------+--------+----------------------------+
-; name           ; n2(lr) ; String                     ;
-+----------------+--------+----------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:n2|cluster_CE:c_ce ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; dim            ; 3     ; Signed Integer                              ;
-; data_range     ; 255   ; Signed Integer                              ;
-+----------------+-------+---------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:n2|cluster_CE:c_ce|manhattan:m ;
-+----------------+-------+---------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                    ;
-+----------------+-------+---------------------------------------------------------+
-; dim            ; 3     ; Signed Integer                                          ;
-; data_range     ; 255   ; Signed Integer                                          ;
-+----------------+-------+---------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:n3 ;
-+----------------+--------+----------------------------+
-; Parameter Name ; Value  ; Type                       ;
-+----------------+--------+----------------------------+
-; name           ; n3(rl) ; String                     ;
-+----------------+--------+----------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:n3|cluster_CE:c_ce ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; dim            ; 3     ; Signed Integer                              ;
-; data_range     ; 255   ; Signed Integer                              ;
-+----------------+-------+---------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:n3|cluster_CE:c_ce|manhattan:m ;
-+----------------+-------+---------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                    ;
-+----------------+-------+---------------------------------------------------------+
-; dim            ; 3     ; Signed Integer                                          ;
-; data_range     ; 255   ; Signed Integer                                          ;
-+----------------+-------+---------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:n4 ;
-+----------------+--------+----------------------------+
-; Parameter Name ; Value  ; Type                       ;
-+----------------+--------+----------------------------+
-; name           ; n4(rr) ; String                     ;
-+----------------+--------+----------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:n4|cluster_CE:c_ce ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; dim            ; 3     ; Signed Integer                              ;
-; data_range     ; 255   ; Signed Integer                              ;
-+----------------+-------+---------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: node:n4|cluster_CE:c_ce|manhattan:m ;
-+----------------+-------+---------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                    ;
-+----------------+-------+---------------------------------------------------------+
-; dim            ; 3     ; Signed Integer                                          ;
-; data_range     ; 255   ; Signed Integer                                          ;
-+----------------+-------+---------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Apr 14 00:04:38 2021       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; kd_tree                                     ;
+; Top-level Entity Name           ; node                                        ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 114                                         ;
+; Total pins                      ; 175                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                                           ;
+; Analysis & Synthesis Settings                                                                                             ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
-; Top-level entity name                                                           ; kd_tree            ; kd_tree            ;
+; Top-level entity name                                                           ; node               ; kd_tree            ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Iteration limit for constant Verilog loops                                      ; 4294967295         ; 5000               ;
 ; Iteration limit for non-constant Verilog loops                                  ; 4294967295         ; 250                ;
@@ -414,154 +157,141 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "node:n4|cluster_CE:c_ce"                                                               ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; en      ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; stable  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; go_left ; Output ; Info     ; Explicitly unconnected                                                              ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 24          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.03        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.2%      ;
++----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "node:n4"                                                                                                                                                                                               ;
-+--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port                     ; Type   ; Severity ; Details                                                                                                                                                                            ;
-+--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; data_from_right          ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (24 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; data_from_right[23..0]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; data_from_left           ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (24 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; data_from_left[23..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; command_from_right[3..0] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; command_from_right[4]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; command_from_left[3..0]  ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; command_from_left[4]     ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; data_to_right            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; data_to_left             ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; command_to_right         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; command_to_left          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-+--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                     ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------+---------+
+; node.v                           ; yes             ; User Verilog HDL File  ; C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v       ;         ;
+; manhattan.v                      ; yes             ; User Verilog HDL File  ; C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v  ;         ;
+; cluster_CE.v                     ; yes             ; User Verilog HDL File  ; C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "node:n3|cluster_CE:c_ce"                                                               ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; en      ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; stable  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; go_left ; Output ; Info     ; Explicitly unconnected                                                              ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                             ;
++---------------------------------------------+---------------------------+
+; Resource                                    ; Usage                     ;
++---------------------------------------------+---------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 386                       ;
+;                                             ;                           ;
+; Combinational ALUT usage for logic          ; 510                       ;
+;     -- 7 input functions                    ; 9                         ;
+;     -- 6 input functions                    ; 251                       ;
+;     -- 5 input functions                    ; 122                       ;
+;     -- 4 input functions                    ; 48                        ;
+;     -- <=3 input functions                  ; 80                        ;
+;                                             ;                           ;
+; Dedicated logic registers                   ; 114                       ;
+;                                             ;                           ;
+; I/O pins                                    ; 175                       ;
+;                                             ;                           ;
+; Total DSP Blocks                            ; 0                         ;
+;                                             ;                           ;
+; Maximum fan-out node                        ; command_from_top[4]~input ;
+; Maximum fan-out                             ; 127                       ;
+; Total fan-out                               ; 3270                      ;
+; Average fan-out                             ; 3.36                      ;
++---------------------------------------------+---------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "node:n3"                                                                                                                                                                                               ;
-+--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port                     ; Type   ; Severity ; Details                                                                                                                                                                            ;
-+--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; data_from_right          ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (24 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; data_from_right[23..0]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; data_from_left           ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (24 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; data_from_left[23..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; command_from_right[3..0] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; command_from_right[4]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; command_from_left[3..0]  ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; command_from_left[4]     ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; data_to_right            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; data_to_left             ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; command_to_right         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; command_to_left          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-+--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name   ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------+-------------+--------------+
+; |node                      ; 510 (424)           ; 114 (114)                 ; 0                 ; 0          ; 175  ; 0            ; |node                 ; node        ; work         ;
+;    |cluster_CE:c_ce|       ; 86 (86)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |node|cluster_CE:c_ce ; cluster_CE  ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "node:n2|cluster_CE:c_ce"                                                               ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; en      ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; stable  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; go_left ; Output ; Info     ; Explicitly unconnected                                                              ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 114   ;
+; Number of registers using Synchronous Clear  ; 96    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 108   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "node:n2"                                                                                                                                                                                               ;
-+--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port                     ; Type   ; Severity ; Details                                                                                                                                                                            ;
-+--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; data_from_right          ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (24 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; data_from_right[23..0]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; data_from_left           ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (24 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; data_from_left[23..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; command_from_right[3..0] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; command_from_right[4]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; command_from_left[3..0]  ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; command_from_left[4]     ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; data_to_right            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; data_to_left             ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; command_to_right         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; command_to_left          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-+--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; 33:1               ; 2 bits    ; 44 LEs        ; 2 LEs                ; 42 LEs                 ; Yes        ; |node|sorting_axis[0]            ;
+; 44:1               ; 24 bits   ; 696 LEs       ; 96 LEs               ; 600 LEs                ; Yes        ; |node|data_to_right[5]~reg0      ;
+; 44:1               ; 24 bits   ; 696 LEs       ; 48 LEs               ; 648 LEs                ; Yes        ; |node|data_to_left[7]~reg0       ;
+; 29:1               ; 24 bits   ; 456 LEs       ; 72 LEs               ; 384 LEs                ; Yes        ; |node|old_center[14]             ;
+; 62:1               ; 2 bits    ; 82 LEs        ; 8 LEs                ; 74 LEs                 ; Yes        ; |node|command_to_right[2]~reg0   ;
+; 62:1               ; 2 bits    ; 82 LEs        ; 8 LEs                ; 74 LEs                 ; Yes        ; |node|command_to_left[2]~reg0    ;
+; 58:1               ; 2 bits    ; 76 LEs        ; 10 LEs               ; 66 LEs                 ; Yes        ; |node|command_to_right[3]~reg0   ;
+; 58:1               ; 2 bits    ; 76 LEs        ; 10 LEs               ; 66 LEs                 ; Yes        ; |node|command_to_left[3]~reg0    ;
+; 63:1               ; 24 bits   ; 1008 LEs      ; 48 LEs               ; 960 LEs                ; Yes        ; |node|data_to_top[6]~reg0        ;
+; 65:1               ; 2 bits    ; 86 LEs        ; 12 LEs               ; 74 LEs                 ; Yes        ; |node|command_to_top[2]~reg0     ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |node|cluster_CE:c_ce|left_1D[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "node:n1|cluster_CE:c_ce"                                                               ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; en      ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; stable  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; go_left ; Output ; Info     ; Explicitly unconnected                                                              ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |node ;
++----------------+---------+-------------------------------------------+
+; Parameter Name ; Value   ; Type                                      ;
++----------------+---------+-------------------------------------------+
+; name           ; unknown ; String                                    ;
++----------------+---------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "node:n1"                                                                                                                                                                                               ;
-+--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port                     ; Type   ; Severity ; Details                                                                                                                                                                            ;
-+--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; data_from_right          ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (24 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; data_from_right[23..0]   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; data_from_left           ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (24 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; data_from_left[23..0]    ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; command_from_right[3..0] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; command_from_right[4]    ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; command_from_left[3..0]  ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; command_from_left[4]     ; Input  ; Info     ; Stuck at VCC                                                                                                                                                                       ;
-; data_to_right            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; data_to_left             ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; command_to_right         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-; command_to_left          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-+--------------------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cluster_CE:c_ce ;
++----------------+---------+-----------------------------------+
+; Parameter Name ; Value   ; Type                              ;
++----------------+---------+-----------------------------------+
+; dim            ; 3       ; Signed Integer                    ;
+; data_range     ; 255     ; Signed Integer                    ;
+; name           ; unknown ; String                            ;
++----------------+---------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "node:right|cluster_CE:c_ce"                                                            ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; en      ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; stable  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; go_left ; Output ; Info     ; Explicitly unconnected                                                              ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "node:left|cluster_CE:c_ce"                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; en      ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; stable  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; go_left ; Output ; Info     ; Explicitly unconnected                                                              ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cluster_CE:c_ce|manhattan:m ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; dim            ; 3     ; Signed Integer                                  ;
+; data_range     ; 255   ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "node:root|cluster_CE:c_ce|manhattan:m"                                                                                                                 ;
+; Port Connectivity Checks: "cluster_CE:c_ce|manhattan:m"                                                                                                                           ;
 +-----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port            ; Type   ; Severity ; Details                                                                                                                                     ;
 +-----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
@@ -574,7 +304,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "node:root|cluster_CE:c_ce"                                                             ;
+; Port Connectivity Checks: "cluster_CE:c_ce"                                                                       ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port    ; Type   ; Severity ; Details                                                                             ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
@@ -584,225 +314,126 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "node:root"                                                                                 ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                             ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; data_to_top ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 114                         ;
+;     ENA               ; 12                          ;
+;     ENA SCLR          ; 96                          ;
+;     plain             ; 6                           ;
+; arriav_lcell_comb     ; 510                         ;
+;     extend            ; 9                           ;
+;         7 data inputs ; 9                           ;
+;     normal            ; 501                         ;
+;         2 data inputs ; 35                          ;
+;         3 data inputs ; 45                          ;
+;         4 data inputs ; 48                          ;
+;         5 data inputs ; 122                         ;
+;         6 data inputs ; 251                         ;
+; boundary_port         ; 175                         ;
+;                       ;                             ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 5.57                        ;
++-----------------------+-----------------------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
+Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sun Apr 11 02:13:06 2021
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off kd_tree -c kd_tree --analysis_and_elaboration
+    Info: Processing started: Wed Apr 14 00:04:27 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off kd_tree -c kd_tree
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file kd_tree.v
-    Info (12023): Found entity 1: kd_tree File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 3
+    Info (12023): Found entity 1: kd_tree File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file node.v
-    Info (12023): Found entity 1: node File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 1
+    Info (12023): Found entity 1: node File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file cluster_pe.v
-    Info (12023): Found entity 1: cluster_PE File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 1
+    Info (12023): Found entity 1: cluster_PE File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file manhattan.v
-    Info (12023): Found entity 1: manhattan File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v Line: 1
+    Info (12023): Found entity 1: manhattan File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file cluster_ce.v
-    Info (12023): Found entity 1: cluster_CE File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 1
+    Info (12023): Found entity 1: cluster_CE File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file cluster_ce_tb.v
-    Info (12023): Found entity 1: cluster_ce_tb File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_ce_tb.v Line: 3
+    Info (12023): Found entity 1: cluster_ce_tb File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_ce_tb.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file cluster_pe_tb.v
-    Info (12023): Found entity 1: cluster_pe_tb File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_pe_tb.v Line: 3
-Warning (10236): Verilog HDL Implicit Net warning at node.v(53): created implicit net for "distance_calc" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 53
-Warning (10236): Verilog HDL Implicit Net warning at node.v(126): created implicit net for "left_dne" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 126
-Warning (10236): Verilog HDL Implicit Net warning at node.v(127): created implicit net for "right_dne" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 127
-Warning (10236): Verilog HDL Implicit Net warning at node.v(128): created implicit net for "both_dne" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 128
-Warning (10236): Verilog HDL Implicit Net warning at node.v(129): created implicit net for "left_en" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 129
-Warning (10236): Verilog HDL Implicit Net warning at node.v(130): created implicit net for "right_en" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 130
-Warning (10236): Verilog HDL Implicit Net warning at node.v(131): created implicit net for "ce_en" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 131
-Warning (10236): Verilog HDL Implicit Net warning at node.v(132): created implicit net for "pe_en" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 132
-Warning (10236): Verilog HDL Implicit Net warning at node.v(171): created implicit net for "sort_stable" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 171
-Warning (10236): Verilog HDL Implicit Net warning at node.v(172): created implicit net for "left_switch" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 172
-Warning (10236): Verilog HDL Implicit Net warning at node.v(173): created implicit net for "self_switch" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 173
-Warning (10236): Verilog HDL Implicit Net warning at node.v(174): created implicit net for "right_switch" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 174
-Warning (10236): Verilog HDL Implicit Net warning at cluster_PE.v(35): created implicit net for "distance_calc" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 35
-Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(23): created implicit net for "A" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 23
-Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(24): created implicit net for "B" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 24
-Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(25): created implicit net for "C" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 25
-Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(36): created implicit net for "point" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(36): created implicit net for "old_center" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(36): created implicit net for "dst_done" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (10236): Verilog HDL Implicit Net warning at cluster_ce_tb.v(19): created implicit net for "parent_switch" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_ce_tb.v Line: 19
-Info (12127): Elaborating entity "kd_tree" for the top level hierarchy
-Info (10648): Verilog HDL Display System Task info at kd_tree.v(198): Loading image.\n File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 198
-Warning (10850): Verilog HDL warning at kd_tree.v(199): number of words (116) in memory file does not match the number of elements in the address range [0:19] File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 199
-Warning (10230): Verilog HDL assignment warning at kd_tree.v(238): truncated value with size 32 to match size of target (27) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 238
-Warning (10230): Verilog HDL assignment warning at kd_tree.v(245): truncated value with size 32 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 245
-Warning (10230): Verilog HDL assignment warning at kd_tree.v(254): truncated value with size 32 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 254
-Warning (10175): Verilog HDL warning at kd_tree.v(258): ignoring unsupported system task File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 258
-Warning (10030): Net "in_im.data_a" at kd_tree.v(63) has no driver or initial value, using a default initial value '0' File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 63
-Warning (10030): Net "in_im.waddr_a" at kd_tree.v(63) has no driver or initial value, using a default initial value '0' File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 63
-Warning (10030): Net "in_im.we_a" at kd_tree.v(63) has no driver or initial value, using a default initial value '0' File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 63
-Info (12128): Elaborating entity "node" for hierarchy "node:root" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 85
-Warning (10036): Verilog HDL or VHDL warning at node.v(53): object "distance_calc" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 53
-Warning (10036): Verilog HDL or VHDL warning at node.v(132): object "pe_en" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 132
-Warning (10036): Verilog HDL or VHDL warning at node.v(41): object "time_to_live" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 41
-Warning (10036): Verilog HDL or VHDL warning at node.v(42): object "center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 42
-Warning (10036): Verilog HDL or VHDL warning at node.v(43): object "command_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 43
-Warning (10036): Verilog HDL or VHDL warning at node.v(44): object "data_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 44
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accX" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accY" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accZ" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(50): object "counter" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 50
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "new_center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "point" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10230): Verilog HDL assignment warning at node.v(209): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 209
-Warning (10230): Verilog HDL assignment warning at node.v(232): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 232
-Warning (10230): Verilog HDL assignment warning at node.v(233): truncated value with size 24 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 233
-Warning (10230): Verilog HDL assignment warning at node.v(280): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 280
-Warning (10230): Verilog HDL assignment warning at node.v(321): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 321
-Info (12128): Elaborating entity "cluster_CE" for hierarchy "node:root|cluster_CE:c_ce" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 179
-Warning (10230): Verilog HDL assignment warning at cluster_CE.v(27): truncated value with size 32 to match size of target (1) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 27
-Warning (10034): Output port "go_left" at cluster_CE.v(14) has no driver File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 14
-Info (12128): Elaborating entity "manhattan" for hierarchy "node:root|cluster_CE:c_ce|manhattan:m" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Info (12128): Elaborating entity "node" for hierarchy "node:left" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 103
-Warning (10036): Verilog HDL or VHDL warning at node.v(53): object "distance_calc" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 53
-Warning (10036): Verilog HDL or VHDL warning at node.v(132): object "pe_en" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 132
-Warning (10036): Verilog HDL or VHDL warning at node.v(41): object "time_to_live" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 41
-Warning (10036): Verilog HDL or VHDL warning at node.v(42): object "center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 42
-Warning (10036): Verilog HDL or VHDL warning at node.v(43): object "command_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 43
-Warning (10036): Verilog HDL or VHDL warning at node.v(44): object "data_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 44
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accX" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accY" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accZ" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(50): object "counter" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 50
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "new_center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "point" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10230): Verilog HDL assignment warning at node.v(209): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 209
-Warning (10230): Verilog HDL assignment warning at node.v(232): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 232
-Warning (10230): Verilog HDL assignment warning at node.v(233): truncated value with size 24 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 233
-Warning (10230): Verilog HDL assignment warning at node.v(280): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 280
-Warning (10230): Verilog HDL assignment warning at node.v(321): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 321
-Info (12128): Elaborating entity "node" for hierarchy "node:right" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 120
-Warning (10036): Verilog HDL or VHDL warning at node.v(53): object "distance_calc" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 53
-Warning (10036): Verilog HDL or VHDL warning at node.v(132): object "pe_en" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 132
-Warning (10036): Verilog HDL or VHDL warning at node.v(41): object "time_to_live" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 41
-Warning (10036): Verilog HDL or VHDL warning at node.v(42): object "center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 42
-Warning (10036): Verilog HDL or VHDL warning at node.v(43): object "command_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 43
-Warning (10036): Verilog HDL or VHDL warning at node.v(44): object "data_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 44
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accX" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accY" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accZ" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(50): object "counter" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 50
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "new_center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "point" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10230): Verilog HDL assignment warning at node.v(209): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 209
-Warning (10230): Verilog HDL assignment warning at node.v(232): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 232
-Warning (10230): Verilog HDL assignment warning at node.v(233): truncated value with size 24 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 233
-Warning (10230): Verilog HDL assignment warning at node.v(280): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 280
-Warning (10230): Verilog HDL assignment warning at node.v(321): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 321
-Info (12128): Elaborating entity "node" for hierarchy "node:n1" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 138
-Warning (10036): Verilog HDL or VHDL warning at node.v(53): object "distance_calc" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 53
-Warning (10036): Verilog HDL or VHDL warning at node.v(132): object "pe_en" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 132
-Warning (10036): Verilog HDL or VHDL warning at node.v(41): object "time_to_live" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 41
-Warning (10036): Verilog HDL or VHDL warning at node.v(42): object "center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 42
-Warning (10036): Verilog HDL or VHDL warning at node.v(43): object "command_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 43
-Warning (10036): Verilog HDL or VHDL warning at node.v(44): object "data_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 44
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accX" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accY" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accZ" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(50): object "counter" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 50
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "new_center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "point" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10230): Verilog HDL assignment warning at node.v(209): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 209
-Warning (10230): Verilog HDL assignment warning at node.v(232): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 232
-Warning (10230): Verilog HDL assignment warning at node.v(233): truncated value with size 24 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 233
-Warning (10230): Verilog HDL assignment warning at node.v(280): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 280
-Warning (10230): Verilog HDL assignment warning at node.v(321): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 321
-Info (12128): Elaborating entity "node" for hierarchy "node:n2" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 156
-Warning (10036): Verilog HDL or VHDL warning at node.v(53): object "distance_calc" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 53
-Warning (10036): Verilog HDL or VHDL warning at node.v(132): object "pe_en" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 132
-Warning (10036): Verilog HDL or VHDL warning at node.v(41): object "time_to_live" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 41
-Warning (10036): Verilog HDL or VHDL warning at node.v(42): object "center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 42
-Warning (10036): Verilog HDL or VHDL warning at node.v(43): object "command_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 43
-Warning (10036): Verilog HDL or VHDL warning at node.v(44): object "data_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 44
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accX" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accY" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accZ" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(50): object "counter" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 50
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "new_center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "point" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10230): Verilog HDL assignment warning at node.v(209): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 209
-Warning (10230): Verilog HDL assignment warning at node.v(232): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 232
-Warning (10230): Verilog HDL assignment warning at node.v(233): truncated value with size 24 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 233
-Warning (10230): Verilog HDL assignment warning at node.v(280): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 280
-Warning (10230): Verilog HDL assignment warning at node.v(321): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 321
-Info (12128): Elaborating entity "node" for hierarchy "node:n3" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 177
-Warning (10036): Verilog HDL or VHDL warning at node.v(53): object "distance_calc" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 53
-Warning (10036): Verilog HDL or VHDL warning at node.v(132): object "pe_en" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 132
-Warning (10036): Verilog HDL or VHDL warning at node.v(41): object "time_to_live" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 41
-Warning (10036): Verilog HDL or VHDL warning at node.v(42): object "center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 42
-Warning (10036): Verilog HDL or VHDL warning at node.v(43): object "command_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 43
-Warning (10036): Verilog HDL or VHDL warning at node.v(44): object "data_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 44
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accX" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accY" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accZ" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(50): object "counter" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 50
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "new_center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "point" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10230): Verilog HDL assignment warning at node.v(209): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 209
-Warning (10230): Verilog HDL assignment warning at node.v(232): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 232
-Warning (10230): Verilog HDL assignment warning at node.v(233): truncated value with size 24 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 233
-Warning (10230): Verilog HDL assignment warning at node.v(280): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 280
-Warning (10230): Verilog HDL assignment warning at node.v(321): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 321
-Info (12128): Elaborating entity "node" for hierarchy "node:n4" File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 195
-Warning (10036): Verilog HDL or VHDL warning at node.v(53): object "distance_calc" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 53
-Warning (10036): Verilog HDL or VHDL warning at node.v(132): object "pe_en" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 132
-Warning (10036): Verilog HDL or VHDL warning at node.v(41): object "time_to_live" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 41
-Warning (10036): Verilog HDL or VHDL warning at node.v(42): object "center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 42
-Warning (10036): Verilog HDL or VHDL warning at node.v(43): object "command_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 43
-Warning (10036): Verilog HDL or VHDL warning at node.v(44): object "data_pipe" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 44
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accX" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accY" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(49): object "accZ" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 49
-Warning (10036): Verilog HDL or VHDL warning at node.v(50): object "counter" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 50
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "new_center" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10036): Verilog HDL or VHDL warning at node.v(51): object "point" assigned a value but never read File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 51
-Warning (10230): Verilog HDL assignment warning at node.v(209): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 209
-Warning (10230): Verilog HDL assignment warning at node.v(232): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 232
-Warning (10230): Verilog HDL assignment warning at node.v(233): truncated value with size 24 to match size of target (4) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 233
-Warning (10230): Verilog HDL assignment warning at node.v(280): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 280
-Warning (10230): Verilog HDL assignment warning at node.v(321): truncated value with size 24 to match size of target (2) File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 321
-Warning (12010): Port "ordered port 3" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (12010): Port "ordered port 4" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (12010): Port "ordered port 3" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (12010): Port "ordered port 4" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (12010): Port "ordered port 3" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (12010): Port "ordered port 4" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (12010): Port "ordered port 3" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (12010): Port "ordered port 4" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (12010): Port "ordered port 3" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (12010): Port "ordered port 4" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (12010): Port "ordered port 3" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (12010): Port "ordered port 4" on the entity instantiation of "m" is connected to a signal of width 1. The formal width of the signal in the module is 24.  The extra bits will be driven by GND. File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "clk" is missing source, defaulting to GND File: C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 67
-Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info (144001): Generated suppressed messages file C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/output_files/kd_tree.map.smsg
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 165 warnings
-    Info: Peak virtual memory: 2101937 megabytes
-    Info: Processing ended: Sun Apr 11 02:13:25 2021
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:52
+    Info (12023): Found entity 1: cluster_pe_tb File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_pe_tb.v Line: 3
+Warning (10236): Verilog HDL Implicit Net warning at node.v(57): created implicit net for "distance_calc" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 57
+Warning (10236): Verilog HDL Implicit Net warning at node.v(130): created implicit net for "left_dne" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 130
+Warning (10236): Verilog HDL Implicit Net warning at node.v(131): created implicit net for "right_dne" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 131
+Warning (10236): Verilog HDL Implicit Net warning at node.v(132): created implicit net for "both_dne" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 132
+Warning (10236): Verilog HDL Implicit Net warning at node.v(133): created implicit net for "left_en" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 133
+Warning (10236): Verilog HDL Implicit Net warning at node.v(134): created implicit net for "right_en" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 134
+Warning (10236): Verilog HDL Implicit Net warning at node.v(135): created implicit net for "ce_en" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 135
+Warning (10236): Verilog HDL Implicit Net warning at node.v(136): created implicit net for "pe_en" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 136
+Warning (10236): Verilog HDL Implicit Net warning at node.v(175): created implicit net for "sort_stable" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 175
+Warning (10236): Verilog HDL Implicit Net warning at node.v(176): created implicit net for "left_switch" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 176
+Warning (10236): Verilog HDL Implicit Net warning at node.v(177): created implicit net for "self_switch" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 177
+Warning (10236): Verilog HDL Implicit Net warning at node.v(178): created implicit net for "right_switch" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 178
+Warning (10236): Verilog HDL Implicit Net warning at cluster_PE.v(35): created implicit net for "distance_calc" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v Line: 35
+Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(23): created implicit net for "A" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 23
+Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(24): created implicit net for "B" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 24
+Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(25): created implicit net for "C" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 25
+Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(36): created implicit net for "point" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
+Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(36): created implicit net for "old_center" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
+Warning (10236): Verilog HDL Implicit Net warning at cluster_CE.v(36): created implicit net for "dst_done" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
+Warning (10236): Verilog HDL Implicit Net warning at cluster_ce_tb.v(19): created implicit net for "parent_switch" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_ce_tb.v Line: 19
+Info (12127): Elaborating entity "node" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at node.v(57): object "distance_calc" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 57
+Warning (10036): Verilog HDL or VHDL warning at node.v(136): object "pe_en" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 136
+Warning (10036): Verilog HDL or VHDL warning at node.v(45): object "time_to_live" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 45
+Warning (10036): Verilog HDL or VHDL warning at node.v(46): object "center" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 46
+Warning (10036): Verilog HDL or VHDL warning at node.v(47): object "command_pipe" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 47
+Warning (10036): Verilog HDL or VHDL warning at node.v(48): object "data_pipe" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 48
+Warning (10036): Verilog HDL or VHDL warning at node.v(53): object "accX" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 53
+Warning (10036): Verilog HDL or VHDL warning at node.v(53): object "accY" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 53
+Warning (10036): Verilog HDL or VHDL warning at node.v(53): object "accZ" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 53
+Warning (10036): Verilog HDL or VHDL warning at node.v(54): object "counter" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 54
+Warning (10036): Verilog HDL or VHDL warning at node.v(55): object "new_center" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 55
+Warning (10036): Verilog HDL or VHDL warning at node.v(55): object "point" assigned a value but never read File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 55
+Warning (10230): Verilog HDL assignment warning at node.v(223): truncated value with size 24 to match size of target (2) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 223
+Warning (10230): Verilog HDL assignment warning at node.v(246): truncated value with size 24 to match size of target (2) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 246
+Warning (10230): Verilog HDL assignment warning at node.v(247): truncated value with size 24 to match size of target (4) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 247
+Warning (10230): Verilog HDL assignment warning at node.v(294): truncated value with size 24 to match size of target (2) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 294
+Warning (10230): Verilog HDL assignment warning at node.v(338): truncated value with size 24 to match size of target (2) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 338
+Info (10264): Verilog HDL Case Statement information at node.v(379): all case item expressions in this case statement are onehot File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 379
+Info (12128): Elaborating entity "cluster_CE" for hierarchy "cluster_CE:c_ce" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 183
+Warning (10230): Verilog HDL assignment warning at cluster_CE.v(27): truncated value with size 32 to match size of target (1) File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 27
+Warning (10034): Output port "go_left" at cluster_CE.v(14) has no driver File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 14
+Info (12128): Elaborating entity "manhattan" for hierarchy "cluster_CE:c_ce|manhattan:m" File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v Line: 36
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/output_files/kd_tree.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 687 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 88 input pins
+    Info (21059): Implemented 87 output pins
+    Info (21061): Implemented 512 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 41 warnings
+    Info: Peak virtual memory: 4886 megabytes
+    Info: Processing ended: Wed Apr 14 00:04:38 2021
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:18
 
 
-+--------------------------------------------+
-; Analysis & Elaboration Suppressed Messages ;
-+--------------------------------------------+
-The suppressed messages can be found in C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/output_files/kd_tree.map.smsg.
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/output_files/kd_tree.map.smsg.
 
 

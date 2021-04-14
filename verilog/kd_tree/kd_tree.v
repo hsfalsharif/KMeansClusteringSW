@@ -2,30 +2,35 @@
 `timescale 1ns/1ns
 module kd_tree;
 	
-	
-localparam nop =  5'h00,
-			  rst = 5'h1f,
-			  rst_done = 5'h1e,
-			  center_fill =  5'h01,
-			  configure_sort_axis = 5'h02,
-			  recieve_center =  5'h03, 
-			  switch_with_left =  5'h04,
-			  center_fill_done =  5'h05,
-			  cetner_fill      =  5'h06,
+localparam nop 					 		= 5'h00,
+			  rst 					 		= 5'h1f,
+			  rst_done 				 		= 5'h1e,
+			  center_fill 			 		= 5'h01,
+			  configure_sort_axis 		= 5'h02,
+			  receive_center 		 		= 5'h03,
+			  switch_with_left 	 		= 5'h04,
+			  center_fill_done 	 		= 5'h05,
 			  configure_sort_axis_done = 5'h07,
-			  busy             = 5'h08,
-			  dne              = 5'h10,
-			  start_sorting    = 5'h09,
-			  ready_to_sort    = 5'h0a;
-
+			  busy             	 		= 5'h08, 
+			  dne              	 		= 5'h10,
+			  start_sorting    	 		= 5'h09,
+			  ready_to_sort    	 		= 5'h0a,
+			  switch           	 		= 5'h0b,
+			  sort_left_validate       = 5'h0c,
+			  sort_right_validate      = 5'h0d,
+			  valid_sort               = 5'h0f,
+			  expose_center            = 5'h12,
+			  valid_done               = 5'h11;
+			  
 localparam cycle_counter_size = $clog2(100000000);
 
 
-localparam fill_center_tb = 5'b00001,
+localparam fill_center_tb = 5'b00001, 
 			  idel =        5'b00010,
 			  start_sorting_tb = 5'b00011,
 			  stall            = 5'b00101,
-			  done				= 5'b000100;
+			  done				= 5'b000100,
+			  wait_sort       = 5'b000110;
 reg [5:0]tb_state;
 
 
@@ -74,7 +79,7 @@ node #("root ") root(  ///////// input //////////////
 			 .command_from_top(tb_command),
 			 .command_from_right(right_command_up),
 			 .command_from_left(left_command_up),
-			    
+			     
 			 ///////// output //////////////
 			 .data_to_top(root_data_up),
 			 .data_to_right(root_data_right),
@@ -196,22 +201,30 @@ node  #("n4(rr)") n4(
  
 initial begin
         $display("Loading image.\n");
-        $readmemh("C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
+<<<<<<< HEAD
+        // $readmemh("C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
+		  $readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
+=======
+        $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
+		  //$readmemh("C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
 		  //$readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
+>>>>>>> 0258a15f8a8905ee35fb73edf32c122ff0c95807
 		  //f = $fopen("output.rgb", "wb");
     end
  
 initial begin	//the reset sequence and clock
-	clk = 0;reset = 0 ; serial_count=0; tb_state = idel;
+	clk = 0;reset = 0 ; cycle_count = 0 ;serial_count=0; tb_state = idel;
 	#5 reset = 1 ;clk=1; #5 reset = 0; clk=0;
 	repeat(500) #5 clk = ~clk ;
 	  end
 
 always @ (negedge clk)	begin 	// Read input pixels from in_im
-	$display("#################### new cycle ##########################"); 
+	cycle_count <= cycle_count + 1;
+	$display("#################### new cycle: %d ##########################",cycle_count); 
 	if(reset) begin
 		tb_state <= idel;
 		stall_counter <= 0;
+		cycle_count <= 0;
 		
 	end
 	else
@@ -241,10 +254,17 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 				end
 		end
 		start_sorting_tb: begin
-			tb_state <= stall;
-			stall_counter <= 30;
+			tb_state <= wait_sort; 
+			if(root_command_up == valid_sort )
+				tb_state <= done;
 		   tb_command <= start_sorting;
 			tb_data <= 0;
+ 
+		end
+		wait_sort : begin 
+			if(root_command_up == valid_sort )
+				tb_state <= done;
+			tb_command <= nop;  
 
 		end
 		stall : begin

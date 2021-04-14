@@ -1,30 +1,45 @@
-module manhattan #(parameter dim = 3, data_range = 255)(input clk, rst, input [$clog2(dim) - 1:0] axis, input [dim*$clog2(data_range) - 1:0] a, b, 
-output [$clog2(data_range*dim) - 1:0] dist_out,
-output reg [$clog2(data_range) - 1:0] single_dist_out,
-output done);
+module manhattan (clk, rst, en, axis, a, b, c, dist_out, single_dist_out, done);
 
-localparam dim_size = $clog2(data_range);
+// a has current, b has parent, and c has best
 
-wire [dim_size-1:0] dx,dy,dz;
+parameter dim = 3, data_range = 255;
+
+localparam dim_size 	  = $clog2(data_range),
+			  dist_size   = $clog2(data_range*dim),
+			  center_size = dim*dim_size,
+			  axis_size   = $clog2(dim);
+
+input clk, rst, en;
+input [axis_size - 1:0] axis;
+input [center_size - 1:0] a, b, c;
+output [dist_size - 1:0] dist_out;
+output reg [dim_size - 1:0] single_dist_out;
+output done;
+
+wire [dim_size-1:0] dx, dy, dz;
 wire [dim_size-1:0] abs_delta_x,abs_delta_y,abs_delta_z;
 
 assign done = 1'b1;
-assign dx = a[0+:dim_size] - b[0+:dim_size];
-assign dy = a[dim_size+: dim_size] - b[dim_size+: dim_size];
-assign dz = a[2*dim_size+: dim_size] - b[2*dim_size+: dim_size];
+assign dx = (en) ? a[0+:dim_size] - b[0+:dim_size] : {dim_size{1'b0}};
+assign dy = (en) ? a[dim_size+: dim_size] - b[dim_size+: dim_size] : {dim_size{1'b0}};
+assign dz = (en) ? a[2*dim_size+: dim_size] - b[2*dim_size+: dim_size] : {dim_size{1'b0}};
 
-assign abs_delta_x =  dx[dim_size-1] ? -dx : dx;
-assign abs_delta_y =  dy[dim_size-1] ? -dy : dy;
-assign abs_delta_z =  dz[dim_size-1] ? -dz : dz;
-assign dist_out = abs_delta_x + abs_delta_y + abs_delta_z;
+assign abs_delta_x = (en) ? (dx[dim_size-1] ? -dx : dx) : {dim_size{1'b0}};
+assign abs_delta_y = (en) ? (dy[dim_size-1] ? -dy : dy) : {dim_size{1'b0}};
+assign abs_delta_z = (en) ? (dz[dim_size-1] ? -dz : dz) : {dim_size{1'b0}};
+assign dist_out = (en) ? (abs_delta_x + abs_delta_y + abs_delta_z) : {dist_size{1'b0}};
+
 
 always@* begin
+if (en)
 	case(axis)
-		2'b00: single_dist_out = dx;
-		2'b01: single_dist_out = dy;
-		2'b10: single_dist_out = dz;
+		2'b00: single_dist_out = c[0+:dim_size] - b[0+:dim_size];
+		2'b01: single_dist_out = c[dim_size+: dim_size] - b[dim_size+: dim_size];
+		2'b10: single_dist_out = c[2*dim_size+: dim_size] - b[2*dim_size+: dim_size];
 		2'b11: single_dist_out = {dim_size{1'b0}};
 	endcase
+else
+	single_dist_out = {dim_size{1'b0}};
 end
 
 endmodule
