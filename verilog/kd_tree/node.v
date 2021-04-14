@@ -1,9 +1,6 @@
 module node(clk, data_from_top,data_from_right,data_from_left,command_from_top,command_from_right,command_from_left,data_to_top,data_to_right,data_to_left,command_to_top,command_to_right,command_to_left);
 
-localparam command_size = 5,
-			  data_size    = 24,
-			  ttl_size     = 4,
-			  axis_size    = 2;
+
 			  //center_size  = 24;
 localparam  dim_size     = $clog2(255),
 				dim          = 3,
@@ -12,6 +9,10 @@ localparam  dim_size     = $clog2(255),
 				counter_size = $clog2(max_n),
 				acc_size     = $clog2(dim_size*max_n),
 				depth_size   = $clog2(10);
+localparam command_size = 5,
+			  data_size    = center_size * 2,
+			  ttl_size     = 4,
+			  axis_size    = 2;
 parameter name="unknown";
 
 input clk;
@@ -65,7 +66,7 @@ assign distance_calc = 1'b1; // distance_calc enables the ce to perform distance
 
 reg [command_size - 1 : 0] self_command;
 wire [center_size - 1:0] center_self_C2P, center_self_P2C, ce_left_out, ce_self_out, ce_right_out;
-reg rst_t, virtual_root,init, start_iter, receive_point, inc, update, sorting, parent_switch_in, self_child_switch, next_level;
+reg rst_t, virtual_root, sorting,point_prop;
 // how many commands need to come from top at a single instance during processing?
 
 // two major outer global stages: init, sorting, and point propogation
@@ -166,6 +167,7 @@ cluster_PE c_pe (
 						.child_depth()
 						);
 */
+
 cluster_CE #(.name(name)) c_ce (
 						.clk(clk),
 						.rst(rst_t),
@@ -242,6 +244,7 @@ if(command_from_top != nop)
 					time_to_live <= {depth_size{1'b0}};
 					sorting <= 0;
 					virtual_root <= 0;
+					point_prop <= 0;
 				
 				end 
 				else begin
@@ -413,6 +416,118 @@ if(command_from_top != nop)
 
 			end 
 		end
+		
+		
+		
+		////////////////////////////// POint COmmands ///////////////////////////
+		
+		point_in_as_root : begin
+			if(both_dne) begin
+				command_to_top <= return_best;
+				data_to_top    <= {ce_self_out,point_in};
+			end
+			else if(first_direction) begin
+				if(command_from_left == return_best) begin
+					if(other_branch) begin
+						if(command_from_right == return_best) begin
+							command_to_top <= return_best;
+						   data_to_top    <= data_from_right;
+						end
+						commmand_to_right <= point_with_best;
+						data_to_right     <= data_from_left;
+					end 
+					else begin
+						command_to_top <= return_best;
+						data_to_top    <= data_from_left;
+					end
+				end
+				command_to_left  <= point_with_best;
+				data_to_left     <=  {ce_self_out,point_in};
+				command_to_right <= nop;
+				data_to_right    <= 0;
+				returned = 1;
+			end
+			else begin
+				if(command_from_right == return_best) begin
+					if(other_branch) begin
+						if(command_from_left == return_best) begin
+							command_to_top <= return_best;
+							data_to_top    <= data_from_left;
+						end
+						commmand_to_left <= point_with_best;
+						data_to_left     <= data_from_right;
+					end 
+					else begin
+						command_to_top <= return_best;
+						data_to_top    <= data_from_right;
+					end
+				end
+				command_to_right  <= point_with_best;
+				data_to_right     <= {ce_self_out,point_in};
+				command_to_left   <= nop;
+				data_to_left      <= 0;
+				returned = 1;
+			end
+		end 
+		
+		point_in_with_best :begin
+			if(both_dne) begin
+				command_to_top <= return_best;
+				data_to_top    <= {ce_self_out,point_in};
+			
+			
+			end
+			else if(first_direction) begin
+				if(command_from_left == return_best) begin
+					if(other_branch) begin
+						if(command_from_right == return_best) begin
+							command_to_top <= return_best;
+						   data_to_top    <= data_from_right;
+						
+						end
+						commmand_to_right <= point_with_best;
+						data_to_right     <= data_from_left;
+						
+					end 
+					else begin
+						command_to_top <= return_best;
+						data_to_top    <= data_from_left;
+					end
+				end
+				command_to_left  <= point_with_best;
+				data_to_left     <=  {ce_self_out,point_in};
+				command_to_right <= nop;
+				data_to_right    <= 0;
+				returned = 1;
+			end
+			else begin
+				if(command_from_right == return_best) begin
+					if(other_branch) begin
+						if(command_from_left == return_best) begin
+							command_to_top <= return_best;
+							data_to_top    <= data_from_left;
+						end
+						commmand_to_left <= point_with_best;
+						data_to_left     <= data_from_right;
+					end 
+					else begin
+						command_to_top <= return_best;
+						data_to_top    <= data_from_right;
+					end
+				end
+				command_to_right  <= point_with_best;
+				data_to_right     <= {ce_self_out,point_in};
+				command_to_left   <= nop;
+				data_to_left      <= 0;
+				returned = 1;
+			end
+		end 
+		
+		
+		
+		
+		
+  
 		endcase
 	
 	else if(self_command != nop) begin 
@@ -463,6 +578,9 @@ if(command_from_top != nop)
 		
 		
 		end
+		
+		
+		
 		endcase
 	end
 	else if(command_from_left != nop) begin 
