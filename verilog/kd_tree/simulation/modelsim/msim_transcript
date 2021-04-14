@@ -7,708 +7,162 @@
 # vmap work rtl_work
 # Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
 # vmap work rtl_work 
-# Copying E:/modelSim/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Copying C:/intelFPGA_lite/20.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 04:58:18 on Apr 14,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v 
+# Start time: 23:27:52 on Apr 14,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v 
 # -- Compiling module node
 # 
 # Top level modules:
 # 	node
-# End time: 04:58:18 on Apr 14,2021, Elapsed time: 0:00:00
+# End time: 23:27:53 on Apr 14,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 04:58:18 on Apr 14,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v 
+# Start time: 23:27:53 on Apr 14,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/manhattan.v 
 # -- Compiling module manhattan
 # 
 # Top level modules:
 # 	manhattan
-# End time: 04:58:18 on Apr 14,2021, Elapsed time: 0:00:00
+# End time: 23:27:53 on Apr 14,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 04:58:18 on Apr 14,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v 
+# Start time: 23:27:53 on Apr 14,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/cluster_CE.v 
 # -- Compiling module cluster_CE
 # 
 # Top level modules:
 # 	cluster_CE
-# End time: 04:58:18 on Apr 14,2021, Elapsed time: 0:00:00
+# End time: 23:27:53 on Apr 14,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 04:58:19 on Apr 14,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v 
+# Start time: 23:27:53 on Apr 14,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v 
 # -- Compiling module kd_tree
-# ** Warning: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(36): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(37): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v(36): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v(37): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # 
 # Top level modules:
 # 	kd_tree
-# End time: 04:58:19 on Apr 14,2021, Elapsed time: 0:00:00
+# End time: 23:27:53 on Apr 14,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree {C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree {C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 04:58:19 on Apr 14,2021
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree" C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v 
+# Start time: 23:27:53 on Apr 14,2021
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree" C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v 
 # -- Compiling module kd_tree
-# ** Warning: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(36): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# ** Warning: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(37): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v(36): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# ** Warning: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v(37): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 # 
 # Top level modules:
 # 	kd_tree
-# End time: 04:58:19 on Apr 14,2021, Elapsed time: 0:00:00
+# End time: 23:27:53 on Apr 14,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 2
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  kd_tree
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" kd_tree 
-# Start time: 04:58:19 on Apr 14,2021
+# Start time: 23:27:53 on Apr 14,2021
 # Loading work.kd_tree
 # Loading work.node
 # Loading work.cluster_CE
 # Loading work.manhattan
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 131
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 131
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 149
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 149
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 170
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 170
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 188
-# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(1).
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4 File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 188
-# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 20, found 18.
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4/c_ce File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 166
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'point_prop'.
-# ** Warning: (vsim-3722) C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v(166): [TFMPC] - Missing connection for port 'send_right'.
-# 
-# add wave *
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: atom  Hostname: LAPTOP-84QNNI6Q  ProcessID: 12788
-#           Attempting to use alternate WLF file "./wlft7bn8cy".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft7bn8cy
-# view structure
-# .main_pane.structure.interior.cs.body.struct
-# view signals
-# .main_pane.objects.interior.cs.body.tree
-# run -all
-# Loading image.
-# 
-# ** Warning: (vsim-PLI-3407) Too many data words read on line 1 of file "C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex". (Current address [20], address range [0:19])    : C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(208)
-#    Time: 0 ps  Iteration: 0  Instance: /kd_tree
-#################### new cycle:         0 ##########################
-# [        0] idle
-# node: n4(rr) center xxxxxx x axis: x command_from [10 xx 10 , self:00 , ce:0] data_from [000000 xxxxxx 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: n3(rl) center xxxxxx x axis: x command_from [10 xx 10 , self:00 , ce:0] data_from [000000 xxxxxx 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: n2(lr) center xxxxxx x axis: x command_from [10 xx 10 , self:00 , ce:0] data_from [000000 xxxxxx 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: n1(ll) center xxxxxx x axis: x command_from [10 xx 10 , self:00 , ce:0] data_from [000000 xxxxxx 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: root-right center xxxxxx x axis: x command_from [xx xx xx , self:xx , ce:x] data_from [xxxxxx xxxxxx xxxxxx] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [x x]
-# node: root-left  center xxxxxx x axis: x command_from [xx xx xx , self:xx , ce:x] data_from [xxxxxx xxxxxx xxxxxx] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [x x]
-# node: root  center xxxxxx x axis: x command_from [xx 1f xx , self:xx , ce:x] data_from [xxxxxx xxxxxx xxxxxx] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [x x]
-#################### new cycle:         1 ##########################
-# [        1] idle
-# node: n4(rr) center xxxxxx x axis: x command_from [10 xx 10 , self:00 , ce:0] data_from [000000 xxxxxx 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: n3(rl) center xxxxxx x axis: x command_from [10 xx 10 , self:00 , ce:0] data_from [000000 xxxxxx 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: n2(lr) center xxxxxx x axis: x command_from [10 xx 10 , self:00 , ce:0] data_from [000000 xxxxxx 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: n1(ll) center xxxxxx x axis: x command_from [10 xx 10 , self:00 , ce:0] data_from [000000 xxxxxx 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: root-right center xxxxxx x axis: x command_from [xx 1f xx , self:xx , ce:x] data_from [xxxxxx 000000 xxxxxx] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [x x]
-# node: root-left  center xxxxxx x axis: x command_from [xx 1f xx , self:xx , ce:x] data_from [xxxxxx 000000 xxxxxx] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [x x]
-# node: root  center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x] data_from [xxxxxx xxxxxx xxxxxx] command_to [1f xx 1f] data_to [000000 000000 000000]  Child_status [x x]
-#################### new cycle:         2 ##########################
-# [        2] idle
-# node: n4(rr) center xxxxxx x axis: x command_from [10 1f 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: n3(rl) center xxxxxx x axis: x command_from [10 1f 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: n2(lr) center xxxxxx x axis: x command_from [10 1f 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: n1(ll) center xxxxxx x axis: x command_from [10 1f 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [xx xx xx] data_to [xxxxxx xxxxxx xxxxxx]  Child_status [1 1]
-# node: root-right center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x] data_from [xxxxxx 000000 xxxxxx] command_to [1f xx 1f] data_to [000000 000000 000000]  Child_status [x x]
-# node: root-left  center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x] data_from [xxxxxx 000000 xxxxxx] command_to [1f xx 1f] data_to [000000 000000 000000]  Child_status [x x]
-# node: root  center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x] data_from [000000 xxxxxx 000000] command_to [1f xx 1f] data_to [000000 000000 000000]  Child_status [x x]
-#################### new cycle:         3 ##########################
-# [        3] idle
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 1f 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 000000 0 axis: 0 command_from [10 1f 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000000 0 axis: 0 command_from [10 1f 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 000000 0 axis: 0 command_from [10 1f 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center xxxxxx x axis: 0 command_from [1e 1f 1e , self:xx , ce:x] data_from [000000 000000 000000] command_to [1f xx 1f] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root-left  center xxxxxx x axis: 0 command_from [1e 1f 1e , self:xx , ce:x] data_from [000000 000000 000000] command_to [1f xx 1f] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root  center xxxxxx x axis: 0 command_from [xx 1f xx , self:xx , ce:x] data_from [000000 xxxxxx 000000] command_to [1f xx 1f] data_to [000000 000000 000000]  Child_status [x x]
-#################### new cycle:         4 ##########################
-# [        4] idle
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [1e 1f 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root-left  center 000000 0 axis: 0 command_from [1e 1f 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root  center xxxxxx x axis: 0 command_from [1e 1f 1e , self:xx , ce:x] data_from [000000 xxxxxx 000000] command_to [1f xx 1f] data_to [000000 000000 000000]  Child_status [0 0]
-#################### new cycle:         5 ##########################
-# [        5] rst DONE
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [1e 00 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root-left  center 000000 0 axis: 0 command_from [1e 00 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [1e 1f 1e , self:00 , ce:0] data_from [000000 xxxxxx 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-#################### new cycle:         6 ##########################
-# [        6] fill_center_tb tb_data: xxxxxx tb_command: 11111 serial_Count:         0 root_command_up: 11110
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [1e 00 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root-left  center 000000 0 axis: 0 command_from [1e 00 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [1e 01 1e , self:00 , ce:0] data_from [000000 001001 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-#################### new cycle:         7 ##########################
-# [        7] fill_center_tb tb_data: 001001 tb_command: 00001 serial_Count:         1 root_command_up: 00000
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [1e 00 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root-left  center 000000 0 axis: 0 command_from [1e 01 1e , self:00 , ce:0] data_from [000000 001001 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [1e 01 1e , self:00 , ce:0] data_from [000000 000120 000000] command_to [01 00 00] data_to [001001 000000 000000]  Child_status [0 0]
-#################### new cycle:         8 ##########################
-# [        8] fill_center_tb tb_data: 000120 tb_command: 00001 serial_Count:         2 root_command_up: 00000
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 000000 0 axis: 0 command_from [10 01 10 , self:00 , ce:0] data_from [000000 001001 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [1e 00 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root-left  center 000000 0 axis: 0 command_from [1e 01 1e , self:00 , ce:0] data_from [000000 000120 000000] command_to [01 00 00] data_to [001001 000000 000000]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [00 01 1e , self:00 , ce:0] data_from [000000 000003 000000] command_to [01 00 00] data_to [000120 000000 000000]  Child_status [0 0]
-#################### new cycle:         9 ##########################
-# [        9] fill_center_tb tb_data: 000003 tb_command: 00001 serial_Count:         3 root_command_up: 00000
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 01 10 , self:00 , ce:0] data_from [000000 000120 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [1e 00 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root-left  center 000000 0 axis: 0 command_from [05 01 1e , self:00 , ce:0] data_from [000000 000003 000000] command_to [01 00 00] data_to [000120 000000 000000]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [00 01 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [01 00 00] data_to [000003 000000 000000]  Child_status [0 0]
-#################### new cycle:        10 ##########################
-# [       10] fill_center_tb tb_data: 000000 tb_command: 00001 serial_Count:         4 root_command_up: 00000
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000000 0 axis: 0 command_from [10 01 10 , self:00 , ce:0] data_from [000000 000120 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 01 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [1e 00 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root-left  center 000000 0 axis: 0 command_from [05 01 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [01 00 01] data_to [000003 000000 000120]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [00 01 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [01 00 00] data_to [000000 000000 000000]  Child_status [0 0]
-#################### new cycle:        11 ##########################
-# [       11] fill_center_tb tb_data: 000000 tb_command: 00001 serial_Count:         5 root_command_up: 00000
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 0 axis: 0 command_from [10 01 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 01 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [1e 00 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root-left  center 000000 0 axis: 0 command_from [05 01 05 , self:00 , ce:0] data_from [000000 000000 000000] command_to [01 00 01] data_to [000000 000000 000003]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [00 01 1e , self:00 , ce:0] data_from [000000 002204 000000] command_to [01 00 00] data_to [000000 000000 000000]  Child_status [0 0]
-#################### new cycle:        12 ##########################
-# [       12] fill_center_tb tb_data: 002204 tb_command: 00001 serial_Count:         6 root_command_up: 00000
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [1e 00 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [05 01 05 , self:00 , ce:0] data_from [000000 002204 000000] command_to [00 05 00] data_to [000000 000000 000003]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [05 01 1e , self:00 , ce:0] data_from [000000 000105 000000] command_to [01 00 00] data_to [002204 000000 000000]  Child_status [0 0]
-#################### new cycle:        13 ##########################
-# [       13] fill_center_tb tb_data: 000105 tb_command: 00001 serial_Count:         7 root_command_up: 00000
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [1e 01 1e , self:00 , ce:0] data_from [000000 002204 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [05 01 05 , self:00 , ce:0] data_from [000000 000105 000000] command_to [00 05 00] data_to [000000 000000 000003]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [05 01 1e , self:00 , ce:0] data_from [000000 000306 000000] command_to [01 00 01] data_to [000105 000000 002204]  Child_status [0 0]
-#################### new cycle:        14 ##########################
-# [       14] fill_center_tb tb_data: 000306 tb_command: 00001 serial_Count:         8 root_command_up: 00000
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 000000 0 axis: 0 command_from [10 01 10 , self:00 , ce:0] data_from [000000 002204 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [1e 01 1e , self:00 , ce:0] data_from [000000 000105 000000] command_to [01 00 00] data_to [002204 000000 000000]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [05 01 05 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 05 00] data_to [000000 000000 000003]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [05 01 00 , self:00 , ce:0] data_from [000000 000000 000000] command_to [01 00 01] data_to [000306 000000 000105]  Child_status [0 0]
-#################### new cycle:        15 ##########################
-# [       15] fill_center_tb tb_data: 000000 tb_command: 00001 serial_Count:         9 root_command_up: 00000
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 002204 0 axis: 0 command_from [10 01 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [05 01 1e , self:00 , ce:0] data_from [000000 000306 000000] command_to [01 00 00] data_to [000105 000000 000000]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [05 01 05 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000003]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [05 01 00 , self:00 , ce:0] data_from [000000 000000 000000] command_to [01 00 01] data_to [000000 000000 000306]  Child_status [0 0]
-#################### new cycle:        16 ##########################
-# [       16] fill_center_tb tb_data: 000000 tb_command: 00001 serial_Count:        10 root_command_up: 00000
-# node: n4(rr) center 000000 0 axis: 0 command_from [10 01 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [00 1e 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 002204 0 axis: 0 command_from [10 01 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [05 01 1e , self:00 , ce:0] data_from [000000 000000 000000] command_to [01 00 01] data_to [000306 000000 000105]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [05 01 05 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000003]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [05 01 00 , self:00 , ce:0] data_from [000000 001107 000000] command_to [01 00 01] data_to [000000 000000 000000]  Child_status [0 0]
-#################### new cycle:        17 ##########################
-# [       17] fill_center_tb tb_data: 001107 tb_command: 00001 serial_Count:        11 root_command_up: 00000
-# node: n4(rr) center 000105 0 axis: 0 command_from [10 01 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 002204 0 axis: 0 command_from [10 01 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000000 0 axis: 0 command_from [05 01 05 , self:00 , ce:0] data_from [000000 000000 000000] command_to [01 00 01] data_to [000000 000000 000306]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [05 01 05 , self:00 , ce:0] data_from [000000 001107 000000] command_to [00 05 00] data_to [000000 000000 000003]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [05 01 00 , self:00 , ce:0] data_from [000000 002208 000000] command_to [01 00 01] data_to [001107 000000 000000]  Child_status [0 0]
-#################### new cycle:        18 ##########################
-# [       18] fill_center_tb tb_data: 002208 tb_command: 00001 serial_Count:        12 root_command_up: 00000
-# node: n4(rr) center 000105 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 002204 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 0 command_from [05 01 05 , self:00 , ce:0] data_from [000000 001107 000000] command_to [00 05 00] data_to [000000 000000 000306]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [05 01 05 , self:00 , ce:0] data_from [000000 002208 000000] command_to [00 05 00] data_to [000000 000000 000003]  Child_status [0 0]
-# node: root  center 000000 0 axis: 0 command_from [05 01 05 , self:00 , ce:0] data_from [000000 674505 000000] command_to [01 00 01] data_to [002208 000000 001107]  Child_status [0 0]
-#################### new cycle:        19 ##########################
-# [       19] fill_center_tb DONE
-# node: n4(rr) center 000105 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 002204 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 0 command_from [05 00 05 , self:00 , ce:0] data_from [000000 001107 000000] command_to [00 05 00] data_to [000000 000000 000306]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [05 00 05 , self:00 , ce:0] data_from [000000 002208 000000] command_to [00 05 00] data_to [000000 000000 000003]  Child_status [0 0]
-# node: root  center 001107 0 axis: 0 command_from [05 01 05 , self:00 , ce:0] data_from [000000 674505 000000] command_to [00 05 00] data_to [002208 000000 001107]  Child_status [0 0]
-#################### new cycle:        20 ##########################
-# node: n4(rr) center 000105 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 002204 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 0 command_from [05 00 05 , self:00 , ce:0] data_from [000000 001107 000000] command_to [00 05 00] data_to [000000 000000 000306]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [05 00 05 , self:00 , ce:0] data_from [000000 002208 000000] command_to [00 05 00] data_to [000000 000000 000003]  Child_status [0 0]
-# node: root  center 001107 0 axis: 0 command_from [05 14 05 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [002208 000000 001107]  Child_status [0 0]
-# (root ) ABC: 010, Left: 00, Parent: 07, Right: 00, New Left: 000000, New Parent: 001107, New Right: 000000
-#################### new cycle:        21 ##########################
-# node: n4(rr) center 000105 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 002204 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 0 command_from [05 09 05 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000306]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [05 09 05 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000003]  Child_status [0 0]
-# node: root  center 001107 1 axis: 0 command_from [05 00 05 , self:0b , ce:3] data_from [000000 000000 000000] command_to [09 0a 09] data_to [000000 001107 000000]  Child_status [0 0]
-# (root-left ) ABC: 010, Left: 00, Parent: 03, Right: 00, New Left: 000000, New Parent: 000003, New Right: 000000
-# (root ) ABC: 010, Left: 03, Parent: 07, Right: 06, New Left: 000000, New Parent: 000000, New Right: 001107
-# (root-right) ABC: 010, Left: 00, Parent: 06, Right: 00, New Left: 000000, New Parent: 000306, New Right: 000000
-#################### new cycle:        22 ##########################
-# node: n4(rr) center 000105 0 axis: 0 command_from [10 09 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n3(rl) center 002204 0 axis: 0 command_from [10 09 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 0 axis: 0 command_from [10 09 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 0 axis: 0 command_from [10 09 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 05 00] data_to [000000 000000 000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [05 09 05 , self:0b , ce:3] data_from [000000 000000 000000] command_to [09 0a 09] data_to [000000 000306 000000]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [05 09 05 , self:0b , ce:3] data_from [000000 000000 000000] command_to [09 0a 09] data_to [000000 000003 000000]  Child_status [0 0]
-# node: root  center 001107 1 axis: 0 command_from [0a 00 0a , self:0b , ce:3] data_from [000003 000000 000306] command_to [09 0a 09] data_to [000000 001107 000000]  Child_status [0 0]
-# (root-right) ABC: 010, Left: 04, Parent: 06, Right: 05, New Left: 000000, New Parent: 000000, New Right: 000306
-# (root-left ) ABC: 000, Left: 01, Parent: 03, Right: 20, New Left: 000000, New Parent: 000000, New Right: 000003
-# (root ) ABC: 000, Left: 03, Parent: 06, Right: 06, New Left: 000003, New Parent: 000306, New Right: 001107
-# (n1(ll)) ABC: 000, Left: 00, Parent: 01, Right: 00, New Left: 000000, New Parent: 001001, New Right: 000000
-# (n2(lr)) ABC: 000, Left: 00, Parent: 20, Right: 00, New Left: 000000, New Parent: 000120, New Right: 000000
-# (n3(rl)) ABC: 000, Left: 00, Parent: 04, Right: 00, New Left: 000000, New Parent: 002204, New Right: 000000
-# (n4(rr)) ABC: 000, Left: 00, Parent: 05, Right: 00, New Left: 000000, New Parent: 000105, New Right: 000000
-#################### new cycle:        23 ##########################
-# node: n4(rr) center 000105 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 0a 00] data_to [000000 000105 000000]  Child_status [1 1]
-# node: n3(rl) center 002204 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 0a 00] data_to [000000 002204 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 0a 00] data_to [000000 000120 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000000 000000] command_to [00 0a 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [0a 03 0a , self:0b , ce:3] data_from [002204 001107 000105] command_to [00 0a 00] data_to [000000 000306 000000]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0a 03 0a , self:00 , ce:0] data_from [001001 000003 000120] command_to [00 0a 00] data_to [000000 000003 000000]  Child_status [0 0]
-# node: root  center 000306 1 axis: 0 command_from [0a 00 0a , self:00 , ce:0] data_from [000003 000000 000306] command_to [03 08 03] data_to [000003 001107 001107]  Child_status [0 0]
-# (root-right) ABC: 010, Left: 04, Parent: 07, Right: 05, New Left: 002204, New Parent: 000105, New Right: 000306
-#################### new cycle:        24 ##########################
-# node: n4(rr) center 000105 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000000 000000] command_to [00 0f 00] data_to [000000 000105 000000]  Child_status [1 1]
-# node: n3(rl) center 002204 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000000 000000] command_to [00 0f 00] data_to [000000 002204 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000000 000000] command_to [00 0f 00] data_to [000000 000120 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000000 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 001107 1 axis: 0 command_from [0f 00 0f , self:0b , ce:3] data_from [002204 001107 000105] command_to [08 03 08] data_to [000000 000306 000000]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 00 0f , self:00 , ce:0] data_from [001001 000003 000120] command_to [08 03 08] data_to [000000 000003 000000]  Child_status [0 0]
-# node: root  center 000306 1 axis: 0 command_from [03 00 03 , self:00 , ce:0] data_from [000003 000000 000306] command_to [00 08 00] data_to [000003 001107 001107]  Child_status [0 0]
-# (root-right) ABC: 000, Left: 04, Parent: 05, Right: 05, New Left: 002204, New Parent: 000105, New Right: 001107
-#################### new cycle:        25 ##########################
-# node: n4(rr) center 000105 1 axis: 0 command_from [10 03 10 , self:12 , ce:0] data_from [000000 001107 000000] command_to [00 0f 00] data_to [000000 000105 000000]  Child_status [1 1]
-# node: n3(rl) center 002204 1 axis: 0 command_from [10 03 10 , self:12 , ce:0] data_from [000000 002204 000000] command_to [00 0f 00] data_to [000000 002204 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000000 000000] command_to [00 0f 00] data_to [000000 000120 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 000105 1 axis: 0 command_from [0f 00 0f , self:00 , ce:0] data_from [002204 001107 000105] command_to [03 08 03] data_to [002204 000306 001107]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [0f 00 0f , self:00 , ce:0] data_from [001001 000003 000120] command_to [0d 08 08] data_to [000003 000003 000000]  Child_status [0 0]
-# node: root  center 000306 1 axis: 0 command_from [08 00 08 , self:00 , ce:0] data_from [000003 000000 000306] command_to [00 08 00] data_to [000003 001107 001107]  Child_status [0 0]
-# (n4(rr)) ABC: 000, Left: 00, Parent: 07, Right: 00, New Left: 000000, New Parent: 000105, New Right: 000000
-#################### new cycle:        26 ##########################
-# node: n4(rr) center 001107 1 axis: 0 command_from [10 03 10 , self:00 , ce:0] data_from [000000 001107 000000] command_to [08 03 08] data_to [000000 000105 000000]  Child_status [1 1]
-# node: n3(rl) center 002204 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [08 03 08] data_to [000000 002204 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000000 000000] command_to [00 0f 00] data_to [000000 000120 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 11 00] data_to [000000 000003 000000]  Child_status [1 1]
-# node: root-right center 000105 0 axis: 0 command_from [03 00 03 , self:00 , ce:0] data_from [002204 001107 000105] command_to [0d 08 03] data_to [000105 000306 001107]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [11 00 0f , self:00 , ce:0] data_from [000003 000003 000120] command_to [0d 08 08] data_to [000003 000003 000000]  Child_status [0 0]
-# node: root  center 000306 1 axis: 0 command_from [08 00 08 , self:00 , ce:0] data_from [000003 000000 000306] command_to [00 08 00] data_to [000003 001107 001107]  Child_status [0 0]
-#################### new cycle:        27 ##########################
-# node: n4(rr) center 001107 1 axis: 0 command_from [10 03 10 , self:00 , ce:0] data_from [000000 001107 000000] command_to [00 0a 00] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 002204 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [08 11 08] data_to [000000 000105 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 1 axis: 0 command_from [10 0c 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 000120 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 11 00] data_to [000000 000003 000000]  Child_status [1 1]
-# node: root-right center 000105 0 axis: 0 command_from [11 00 0a , self:00 , ce:0] data_from [000105 001107 001107] command_to [0d 08 03] data_to [000105 000306 001107]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [11 00 0f , self:00 , ce:0] data_from [000003 000003 000120] command_to [0d 08 0c] data_to [000003 000003 000003]  Child_status [0 0]
-# node: root  center 000306 1 axis: 0 command_from [08 00 08 , self:00 , ce:0] data_from [000003 000000 000306] command_to [00 08 00] data_to [000003 001107 001107]  Child_status [0 0]
-#################### new cycle:        28 ##########################
-# node: n4(rr) center 001107 1 axis: 0 command_from [10 0c 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [08 03 08] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 002204 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [08 11 08] data_to [000000 000105 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 1 axis: 0 command_from [10 0c 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 11 00] data_to [000000 000003 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 11 00] data_to [000000 000003 000000]  Child_status [1 1]
-# node: root-right center 000105 0 axis: 0 command_from [11 00 03 , self:00 , ce:0] data_from [000105 001107 001107] command_to [0d 08 0c] data_to [000105 000306 000105]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [11 00 11 , self:00 , ce:0] data_from [000003 000003 000003] command_to [0d 08 0c] data_to [000003 000003 000003]  Child_status [0 0]
-# node: root  center 000306 1 axis: 0 command_from [08 00 08 , self:00 , ce:0] data_from [000003 000000 000306] command_to [00 08 00] data_to [000003 001107 001107]  Child_status [0 0]
-# (root-left ) ABC: 000, Left: 03, Parent: 03, Right: 03, New Left: 000003, New Parent: 000003, New Right: 000003
-#################### new cycle:        29 ##########################
-# node: n4(rr) center 001107 1 axis: 0 command_from [10 0c 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [08 11 08] data_to [001107 000105 001107]  Child_status [1 1]
-# node: n3(rl) center 002204 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [08 11 08] data_to [000000 000105 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 11 00] data_to [000000 000003 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 11 00] data_to [000000 000003 000000]  Child_status [1 1]
-# node: root-right center 000105 0 axis: 0 command_from [11 00 11 , self:00 , ce:0] data_from [000105 001107 000105] command_to [0d 08 0c] data_to [000105 000306 000105]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [11 00 11 , self:12 , ce:0] data_from [000003 000003 000003] command_to [00 0f 00] data_to [000003 000003 000003]  Child_status [0 0]
-# node: root  center 000306 1 axis: 0 command_from [0f 00 08 , self:00 , ce:0] data_from [000003 000000 000306] command_to [00 08 00] data_to [000003 001107 001107]  Child_status [0 0]
-# (root-right) ABC: 000, Left: 05, Parent: 05, Right: 05, New Left: 000105, New Parent: 000105, New Right: 000105
-# (root-left ) ABC: 000, Left: 01, Parent: 03, Right: 20, New Left: 000003, New Parent: 000003, New Right: 000003
-# (root ) ABC: 010, Left: 03, Parent: 06, Right: 05, New Left: 000003, New Parent: 000306, New Right: 000306
-#################### new cycle:        30 ##########################
-# node: n4(rr) center 001107 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [08 11 08] data_to [001107 000105 001107]  Child_status [1 1]
-# node: n3(rl) center 002204 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [08 11 08] data_to [000000 000105 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 000120 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 000105 1 axis: 0 command_from [11 00 11 , self:12 , ce:0] data_from [000105 001107 000105] command_to [00 0f 00] data_to [000105 000105 000105]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 00 0f , self:12 , ce:0] data_from [001001 000003 000120] command_to [00 0f 00] data_to [000003 000003 000003]  Child_status [0 0]
-# node: root  center 000306 1 axis: 0 command_from [0f 00 0f , self:0b , ce:3] data_from [000003 000000 000105] command_to [00 08 00] data_to [000003 001107 001107]  Child_status [0 0]
-# (root-right) ABC: 000, Left: 04, Parent: 05, Right: 07, New Left: 000105, New Parent: 000105, New Right: 000105
-# (root ) ABC: 000, Left: 03, Parent: 05, Right: 05, New Left: 000003, New Parent: 000105, New Right: 000306
-#################### new cycle:        31 ##########################
-# node: n4(rr) center 001107 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000105 000000] command_to [08 0f 08] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 002204 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000105 000000] command_to [08 0f 08] data_to [000000 002204 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 000120 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 000105 1 axis: 0 command_from [0f 03 0f , self:12 , ce:0] data_from [002204 000306 001107] command_to [00 0f 00] data_to [000105 000105 000105]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 03 0f , self:12 , ce:0] data_from [001001 000003 000120] command_to [00 0f 00] data_to [000003 000003 000003]  Child_status [0 0]
-# node: root  center 000105 1 axis: 0 command_from [0f 00 0f , self:00 , ce:0] data_from [000003 000000 000105] command_to [03 08 03] data_to [000003 001107 000306]  Child_status [0 0]
-# (root-right) ABC: 000, Left: 04, Parent: 06, Right: 07, New Left: 002204, New Parent: 000105, New Right: 001107
-#################### new cycle:        32 ##########################
-# node: n4(rr) center 001107 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000105 000000] command_to [08 0f 08] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 002204 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000105 000000] command_to [08 0f 08] data_to [000000 002204 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 000120 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [0f 03 0f , self:00 , ce:0] data_from [002204 000306 001107] command_to [08 03 08] data_to [000105 000105 000105]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 0d 0f , self:00 , ce:0] data_from [001001 000105 000120] command_to [08 03 08] data_to [000003 000003 000003]  Child_status [0 0]
-# node: root  center 000105 0 axis: 0 command_from [03 00 03 , self:00 , ce:0] data_from [000003 000000 000105] command_to [0d 08 03] data_to [000105 001107 000306]  Child_status [0 0]
-#################### new cycle:        33 ##########################
-# node: n4(rr) center 001107 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000306 000000] command_to [08 0f 08] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 002204 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000306 000000] command_to [08 0f 08] data_to [000000 002204 000000]  Child_status [1 1]
-# node: n2(lr) center 000120 1 axis: 0 command_from [10 03 10 , self:12 , ce:0] data_from [000000 000105 000000] command_to [00 0f 00] data_to [000000 000120 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [0f 03 0f , self:00 , ce:0] data_from [002204 000306 001107] command_to [00 0a 00] data_to [000306 000306 000306]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 0d 0f , self:00 , ce:0] data_from [001001 000105 000120] command_to [08 11 03] data_to [000003 000120 000105]  Child_status [0 0]
-# node: root  center 000105 0 axis: 0 command_from [11 00 0a , self:00 , ce:0] data_from [000120 000000 000306] command_to [0d 08 03] data_to [000105 001107 000306]  Child_status [0 0]
-# (n2(lr)) ABC: 000, Left: 00, Parent: 05, Right: 00, New Left: 000000, New Parent: 000120, New Right: 000000
-#################### new cycle:        34 ##########################
-# node: n4(rr) center 001107 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000306 000000] command_to [08 0f 08] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 002204 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000306 000000] command_to [08 0f 08] data_to [000000 002204 000000]  Child_status [1 1]
-# node: n2(lr) center 000105 1 axis: 0 command_from [10 03 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [08 03 08] data_to [000000 000120 000000]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [0f 0c 0f , self:00 , ce:0] data_from [002204 000120 001107] command_to [08 03 08] data_to [000306 000306 000306]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 0d 03 , self:00 , ce:0] data_from [001001 000105 000120] command_to [08 11 03] data_to [000003 000120 000105]  Child_status [0 0]
-# node: root  center 000105 0 axis: 0 command_from [11 00 03 , self:00 , ce:0] data_from [000120 000000 000306] command_to [0d 08 0c] data_to [000105 001107 000120]  Child_status [0 0]
-# (root-left ) ABC: 000, Left: 01, Parent: 03, Right: 05, New Left: 001001, New Parent: 000003, New Right: 000120
-#################### new cycle:        35 ##########################
-# node: n4(rr) center 001107 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000306 000000] command_to [08 0f 08] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 002204 1 axis: 0 command_from [10 03 10 , self:12 , ce:0] data_from [000000 000120 000000] command_to [08 0f 08] data_to [000000 002204 000000]  Child_status [1 1]
-# node: n2(lr) center 000105 1 axis: 0 command_from [10 03 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [00 0a 00] data_to [000105 000105 000105]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [0f 0c 0f , self:00 , ce:0] data_from [002204 000120 001107] command_to [03 11 08] data_to [000120 002204 000306]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 0d 0a , self:00 , ce:0] data_from [001001 000105 000105] command_to [08 11 03] data_to [000003 000120 000105]  Child_status [0 0]
-# node: root  center 000105 0 axis: 0 command_from [11 00 11 , self:00 , ce:0] data_from [000120 000000 002204] command_to [0d 08 0c] data_to [000105 001107 000120]  Child_status [0 0]
-# (root ) ABC: 111, Left: 20, Parent: 05, Right: 04, New Left: 000120, New Parent: 000105, New Right: 002204
-# (n3(rl)) ABC: 000, Left: 00, Parent: 20, Right: 00, New Left: 000000, New Parent: 002204, New Right: 000000
-# (root ) ABC: 101, Left: 05, Parent: 04, Right: 04, New Left: 002204, New Parent: 000105, New Right: 000120
-#################### new cycle:        36 ##########################
-# node: n4(rr) center 001107 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000306 000000] command_to [08 0f 08] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 0 command_from [10 03 10 , self:00 , ce:0] data_from [000000 000120 000000] command_to [08 03 08] data_to [000000 002204 000000]  Child_status [1 1]
-# node: n2(lr) center 000105 1 axis: 0 command_from [10 03 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [08 03 08] data_to [000105 000105 000105]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [03 00 0f , self:00 , ce:0] data_from [002204 000120 001107] command_to [03 11 08] data_to [000120 002204 000306]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 00 03 , self:00 , ce:0] data_from [001001 000105 000105] command_to [08 11 03] data_to [000003 000105 000105]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [11 00 11 , self:0b , ce:7] data_from [000105 000000 002204] command_to [00 0f 00] data_to [000105 002204 000120]  Child_status [0 0]
-# (root-right) ABC: 101, Left: 20, Parent: 06, Right: 07, New Left: 002204, New Parent: 000306, New Right: 001107
-# (root ) ABC: 100, Left: 05, Parent: 04, Right: 06, New Left: 002204, New Parent: 002204, New Right: 000105
-#################### new cycle:        37 ##########################
-# node: n4(rr) center 001107 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000306 000000] command_to [08 0f 08] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000120 000000] command_to [00 0a 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n2(lr) center 000105 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [00 0a 00] data_to [000105 000105 000105]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 0 command_from [0a 00 0f , self:0b , ce:7] data_from [000120 000120 001107] command_to [00 0a 00] data_to [000120 000306 000306]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 00 0a , self:00 , ce:0] data_from [001001 000105 000105] command_to [08 11 00] data_to [000003 000105 000105]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [11 00 0a , self:0b , ce:6] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000105 002204 000120]  Child_status [0 0]
-# (root-right) ABC: 101, Left: 20, Parent: 07, Right: 07, New Left: 000306, New Parent: 001107, New Right: 000120
-#################### new cycle:        38 ##########################
-# node: n4(rr) center 001107 1 axis: 0 command_from [10 03 10 , self:12 , ce:0] data_from [000000 000120 000000] command_to [08 0f 08] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 0 command_from [10 03 10 , self:12 , ce:0] data_from [000000 000306 000000] command_to [00 0f 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n2(lr) center 000105 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000105 000000] command_to [00 0f 00] data_to [000105 000105 000105]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 08 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 001107 1 axis: 0 command_from [0f 00 0f , self:0b , ce:7] data_from [000120 000120 001107] command_to [03 08 03] data_to [000306 000306 000120]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 00 0f , self:00 , ce:0] data_from [001001 000105 000105] command_to [08 11 00] data_to [000003 000105 000105]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [11 00 08 , self:0b , ce:6] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000105 002204 000120]  Child_status [0 0]
-# (n4(rr)) ABC: 000, Left: 00, Parent: 20, Right: 00, New Left: 000000, New Parent: 001107, New Right: 000000
-# (n3(rl)) ABC: 000, Left: 00, Parent: 06, Right: 00, New Left: 000000, New Parent: 000120, New Right: 000000
-#################### new cycle:        39 ##########################
-# node: n4(rr) center 000120 1 axis: 0 command_from [10 03 10 , self:00 , ce:0] data_from [000000 000120 000000] command_to [08 03 08] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000306 1 axis: 0 command_from [10 03 10 , self:00 , ce:0] data_from [000000 001107 000000] command_to [08 03 08] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n2(lr) center 000105 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000105 000000] command_to [00 0f 00] data_to [000105 000105 000105]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 001107 1 axis: 0 command_from [03 00 03 , self:0b , ce:7] data_from [000120 000120 001107] command_to [03 08 03] data_to [001107 000306 000120]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [0f 00 0f , self:00 , ce:0] data_from [001001 000105 000105] command_to [0d 08 00] data_to [000003 000105 000105]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [08 00 08 , self:0b , ce:6] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000105 002204 000120]  Child_status [0 0]
-# (root-right) ABC: 000, Left: 06, Parent: 07, Right: 20, New Left: 001107, New Parent: 001107, New Right: 000120
-# (root ) ABC: 100, Left: 05, Parent: 04, Right: 07, New Left: 002204, New Parent: 000105, New Right: 000306
-#################### new cycle:        40 ##########################
-# node: n4(rr) center 000120 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000120 000000] command_to [00 0a 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n3(rl) center 000306 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 001107 000000] command_to [00 0a 00] data_to [000306 000306 000306]  Child_status [1 1]
-# node: n2(lr) center 000105 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000105 000000] command_to [00 0f 00] data_to [000105 000105 000105]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 11 00] data_to [000000 000003 000000]  Child_status [1 1]
-# node: root-right center 001107 1 axis: 0 command_from [0a 00 0a , self:00 , ce:0] data_from [000306 000120 000120] command_to [00 0a 00] data_to [001107 001107 000120]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [11 00 0f , self:00 , ce:0] data_from [000003 000105 000105] command_to [0d 08 00] data_to [000003 000105 000105]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [08 00 0a , self:0b , ce:6] data_from [000105 000000 001107] command_to [00 0f 00] data_to [000105 002204 000120]  Child_status [0 0]
-#################### new cycle:        41 ##########################
-# node: n4(rr) center 000120 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000120 000000] command_to [00 0f 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n3(rl) center 000306 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 001107 000000] command_to [00 0f 00] data_to [000306 000306 000306]  Child_status [1 1]
-# node: n2(lr) center 000105 1 axis: 0 command_from [10 0c 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000105 000105 000105]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 11 00] data_to [000000 000003 000000]  Child_status [1 1]
-# node: root-right center 001107 1 axis: 0 command_from [0f 00 0f , self:00 , ce:0] data_from [000306 000120 000120] command_to [00 0a 00] data_to [001107 001107 000120]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [11 00 0f , self:00 , ce:0] data_from [000003 000105 000105] command_to [0d 08 0c] data_to [000003 000105 000003]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [08 00 0a , self:0b , ce:6] data_from [000105 000000 001107] command_to [00 0f 00] data_to [000105 002204 000120]  Child_status [0 0]
-#################### new cycle:        42 ##########################
-# node: n4(rr) center 000120 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000120 000000] command_to [00 0f 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n3(rl) center 000306 1 axis: 0 command_from [10 0d 10 , self:12 , ce:0] data_from [000000 001107 000000] command_to [00 0f 00] data_to [000306 000306 000306]  Child_status [1 1]
-# node: n2(lr) center 000105 1 axis: 0 command_from [10 0c 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 11 00] data_to [000105 000003 000105]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 11 00] data_to [000000 000003 000000]  Child_status [1 1]
-# node: root-right center 001107 0 axis: 0 command_from [0f 00 0f , self:00 , ce:0] data_from [000306 000120 000120] command_to [0d 08 00] data_to [001107 001107 000120]  Child_status [0 0]
-# node: root-left  center 000003 0 axis: 0 command_from [11 00 11 , self:00 , ce:0] data_from [000003 000105 000003] command_to [0d 08 0c] data_to [000003 000105 000003]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [08 00 08 , self:0b , ce:6] data_from [000105 000000 001107] command_to [00 0f 00] data_to [000105 002204 000120]  Child_status [0 0]
-# (root-left ) ABC: 000, Left: 03, Parent: 03, Right: 03, New Left: 000003, New Parent: 000003, New Right: 000003
-# (root ) ABC: 000, Left: 03, Parent: 04, Right: 07, New Left: 002204, New Parent: 000105, New Right: 001107
-#################### new cycle:        43 ##########################
-# node: n4(rr) center 000120 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000120 000000] command_to [00 0f 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n3(rl) center 000306 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 001107 000000] command_to [00 11 00] data_to [000306 001107 000306]  Child_status [1 1]
-# node: n2(lr) center 000105 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 11 00] data_to [000105 000003 000105]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 11 00] data_to [000000 000003 000000]  Child_status [1 1]
-# node: root-right center 001107 0 axis: 0 command_from [11 00 0f , self:00 , ce:0] data_from [001107 000120 000120] command_to [0d 08 00] data_to [001107 001107 000120]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [11 00 11 , self:12 , ce:0] data_from [000003 000105 000003] command_to [00 0f 00] data_to [000003 000003 000003]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [0f 00 08 , self:13 , ce:0] data_from [000003 000000 001107] command_to [00 0f 00] data_to [000105 002204 000120]  Child_status [0 0]
-# (root-left ) ABC: 000, Left: 01, Parent: 03, Right: 05, New Left: 000003, New Parent: 000003, New Right: 000003
-#################### new cycle:        44 ##########################
-# node: n4(rr) center 000120 1 axis: 0 command_from [10 0c 10 , self:12 , ce:0] data_from [000000 001107 000000] command_to [00 0f 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n3(rl) center 000306 1 axis: 0 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 001107 000000] command_to [00 11 00] data_to [000306 001107 000306]  Child_status [1 1]
-# node: n2(lr) center 000105 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000105 000105 000105]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000003 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 001107 0 axis: 0 command_from [11 14 0f , self:00 , ce:0] data_from [001107 000001 000120] command_to [0d 08 0c] data_to [001107 001107 001107]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 0 command_from [0f 14 0f , self:12 , ce:0] data_from [001001 000001 000105] command_to [00 0f 00] data_to [000003 000003 000003]  Child_status [0 0]
-# node: root  center 002204 1 axis: 0 command_from [0f 00 08 , self:13 , ce:0] data_from [000003 000000 001107] command_to [14 0f 14] data_to [000001 002204 000001]  Child_status [0 0]
-# (root-left ) ABC: 101, Left: 10, Parent: 00, Right: 01, New Left: 001001, New Parent: 000003, New Right: 000105
-# (root-right) ABC: 000, Left: 11, Parent: 11, Right: 11, New Left: 001107, New Parent: 001107, New Right: 000120
-#################### new cycle:        45 ##########################
-# node: n4(rr) center 000120 1 axis: 0 command_from [10 09 10 , self:00 , ce:0] data_from [000000 000001 000000] command_to [00 11 00] data_to [000120 001107 000120]  Child_status [1 1]
-# node: n3(rl) center 000306 1 axis: 0 command_from [10 09 10 , self:00 , ce:0] data_from [000000 000001 000000] command_to [00 11 00] data_to [000306 001107 000306]  Child_status [1 1]
-# node: n2(lr) center 000105 1 axis: 0 command_from [10 09 10 , self:12 , ce:0] data_from [000000 000001 000000] command_to [00 0f 00] data_to [000105 000105 000105]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 0 command_from [10 09 10 , self:12 , ce:0] data_from [000000 000001 000000] command_to [00 0f 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 001107 1 axis: 1 command_from [11 00 11 , self:00 , ce:0] data_from [001107 000001 001107] command_to [09 0a 09] data_to [000001 001107 000001]  Child_status [0 0]
-# node: root-left  center 000003 1 axis: 1 command_from [0f 00 0f , self:0b , ce:7] data_from [001001 000001 000105] command_to [09 0a 09] data_to [000001 000003 000001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0a 00 0a , self:12 , ce:0] data_from [000003 000000 001107] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-# (n1(ll)) ABC: 000, Left: 00, Parent: 10, Right: 00, New Left: 000000, New Parent: 001001, New Right: 000000
-# (n2(lr)) ABC: 000, Left: 00, Parent: 01, Right: 00, New Left: 000000, New Parent: 000105, New Right: 000000
-# (n3(rl)) ABC: 000, Left: 00, Parent: 03, Right: 00, New Left: 000000, New Parent: 000306, New Right: 000000
-# (n4(rr)) ABC: 000, Left: 00, Parent: 01, Right: 00, New Left: 000000, New Parent: 000120, New Right: 000000
-# (root-right) ABC: 011, Left: 03, Parent: 11, Right: 01, New Left: 001107, New Parent: 001107, New Right: 001107
-# (root-left ) ABC: 101, Left: 10, Parent: 01, Right: 01, New Left: 000003, New Parent: 000105, New Right: 001001
-#################### new cycle:        46 ##########################
-# node: n4(rr) center 000120 1 axis: 1 command_from [10 09 10 , self:00 , ce:0] data_from [000000 000001 000000] command_to [00 0a 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n3(rl) center 000306 1 axis: 1 command_from [10 09 10 , self:00 , ce:0] data_from [000000 000001 000000] command_to [00 0a 00] data_to [000306 000306 000306]  Child_status [1 1]
-# node: n2(lr) center 000105 1 axis: 1 command_from [10 03 10 , self:00 , ce:0] data_from [000000 001001 000000] command_to [00 0a 00] data_to [000105 000105 000105]  Child_status [1 1]
-# node: n1(ll) center 001001 1 axis: 1 command_from [10 03 10 , self:00 , ce:0] data_from [000000 000003 000000] command_to [00 0a 00] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 001107 1 axis: 1 command_from [0a 00 0a , self:0b , ce:7] data_from [000306 000001 000120] command_to [09 0a 09] data_to [000001 001107 000001]  Child_status [0 0]
-# node: root-left  center 000105 1 axis: 1 command_from [0a 00 0a , self:0b , ce:7] data_from [001001 000001 000105] command_to [03 08 03] data_to [000003 000003 001001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [08 00 0a , self:12 , ce:0] data_from [000003 000000 001107] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-# (n2(lr)) ABC: 000, Left: 00, Parent: 10, Right: 00, New Left: 000000, New Parent: 000105, New Right: 000000
-# (n1(ll)) ABC: 000, Left: 00, Parent: 00, Right: 00, New Left: 000000, New Parent: 001001, New Right: 000000
-# (root-right) ABC: 011, Left: 03, Parent: 03, Right: 01, New Left: 000120, New Parent: 000306, New Right: 001107
-#################### new cycle:        47 ##########################
-# node: n4(rr) center 000120 1 axis: 1 command_from [10 03 10 , self:00 , ce:0] data_from [000000 001107 000000] command_to [00 0a 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n3(rl) center 000306 1 axis: 1 command_from [10 03 10 , self:00 , ce:0] data_from [000000 000120 000000] command_to [00 0a 00] data_to [000306 000306 000306]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 1 command_from [10 03 10 , self:00 , ce:0] data_from [000000 001001 000000] command_to [08 03 08] data_to [000105 000105 000105]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 1 command_from [10 03 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [08 03 08] data_to [000000 001001 000000]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 1 command_from [0a 00 0a , self:0b , ce:7] data_from [000306 000001 000120] command_to [03 08 03] data_to [000120 001107 001107]  Child_status [0 0]
-# node: root-left  center 000105 1 axis: 1 command_from [03 00 03 , self:0b , ce:7] data_from [001001 000001 000105] command_to [03 08 03] data_to [000105 000003 001001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [08 00 08 , self:12 , ce:0] data_from [000003 000000 001107] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-# (n4(rr)) ABC: 000, Left: 00, Parent: 11, Right: 00, New Left: 000000, New Parent: 000120, New Right: 000000
-# (n3(rl)) ABC: 000, Left: 00, Parent: 01, Right: 00, New Left: 000000, New Parent: 000306, New Right: 000000
-# (root-left ) ABC: 000, Left: 00, Parent: 01, Right: 10, New Left: 000105, New Parent: 000105, New Right: 001001
-#################### new cycle:        48 ##########################
-# node: n4(rr) center 001107 1 axis: 1 command_from [10 03 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [08 03 08] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 1 command_from [10 03 10 , self:00 , ce:0] data_from [000000 000120 000000] command_to [08 03 08] data_to [000306 000306 000306]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 1 command_from [10 00 10 , self:00 , ce:0] data_from [000000 001001 000000] command_to [00 0a 00] data_to [001001 001001 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 1 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [00 0a 00] data_to [000003 000003 000003]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 1 command_from [03 00 03 , self:0b , ce:7] data_from [000306 000001 000120] command_to [03 08 03] data_to [000120 001107 000306]  Child_status [0 0]
-# node: root-left  center 000105 1 axis: 1 command_from [0a 00 0a , self:00 , ce:0] data_from [000003 000001 001001] command_to [00 0a 00] data_to [000105 000105 001001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0a 00 08 , self:12 , ce:0] data_from [000105 000000 001107] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-# (root-right) ABC: 000, Left: 01, Parent: 03, Right: 11, New Left: 000120, New Parent: 000306, New Right: 000306
-#################### new cycle:        49 ##########################
-# node: n4(rr) center 001107 1 axis: 1 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 0a 00] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 1 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000120 000000] command_to [00 0a 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 1 command_from [10 00 10 , self:12 , ce:0] data_from [000000 001001 000000] command_to [00 0f 00] data_to [001001 001001 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 1 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000105 000000] command_to [00 0f 00] data_to [000003 000003 000003]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 1 command_from [0a 00 0a , self:00 , ce:0] data_from [000120 000001 001107] command_to [00 0a 00] data_to [000120 000306 000306]  Child_status [0 0]
-# node: root-left  center 000105 1 axis: 1 command_from [0f 00 0f , self:00 , ce:0] data_from [000003 000001 001001] command_to [00 0a 00] data_to [000105 000105 001001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0a 00 0a , self:12 , ce:0] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-#################### new cycle:        50 ##########################
-# node: n4(rr) center 001107 1 axis: 1 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000306 000000] command_to [00 0f 00] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 1 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000120 000000] command_to [00 0f 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 1 command_from [10 00 10 , self:12 , ce:0] data_from [000000 001001 000000] command_to [00 0f 00] data_to [001001 001001 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 1 command_from [10 0d 10 , self:12 , ce:0] data_from [000000 000105 000000] command_to [00 0f 00] data_to [000003 000003 000003]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 1 command_from [0f 00 0f , self:00 , ce:0] data_from [000120 000001 001107] command_to [00 0a 00] data_to [000120 000306 000306]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [0f 00 0f , self:00 , ce:0] data_from [000003 000001 001001] command_to [0d 08 00] data_to [000105 000105 001001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [08 00 0a , self:12 , ce:0] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-#################### new cycle:        51 ##########################
-# node: n4(rr) center 001107 1 axis: 1 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000306 000000] command_to [00 0f 00] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 1 command_from [10 0d 10 , self:12 , ce:0] data_from [000000 000306 000000] command_to [00 0f 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 1 command_from [10 00 10 , self:12 , ce:0] data_from [000000 001001 000000] command_to [00 0f 00] data_to [001001 001001 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 1 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [00 11 00] data_to [000003 000105 000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [0f 00 0f , self:00 , ce:0] data_from [000120 000001 001107] command_to [0d 08 00] data_to [000306 000306 000306]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [11 00 0f , self:00 , ce:0] data_from [000105 000001 001001] command_to [0d 08 00] data_to [000105 000105 001001]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [08 00 08 , self:12 , ce:0] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-#################### new cycle:        52 ##########################
-# node: n4(rr) center 001107 1 axis: 1 command_from [10 00 10 , self:12 , ce:0] data_from [000000 000306 000000] command_to [00 0f 00] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 1 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 11 00] data_to [000120 000306 000120]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 1 command_from [10 0c 10 , self:12 , ce:0] data_from [000000 000105 000000] command_to [00 0f 00] data_to [001001 001001 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 1 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [00 11 00] data_to [000003 000105 000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [11 00 0f , self:00 , ce:0] data_from [000306 000001 001107] command_to [0d 08 00] data_to [000306 000306 000306]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [11 00 0f , self:00 , ce:0] data_from [000105 000001 001001] command_to [0d 08 0c] data_to [000105 000105 000105]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [08 00 08 , self:12 , ce:0] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-#################### new cycle:        53 ##########################
-# node: n4(rr) center 001107 1 axis: 1 command_from [10 0c 10 , self:12 , ce:0] data_from [000000 000306 000000] command_to [00 0f 00] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 1 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 11 00] data_to [000120 000306 000120]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 1 command_from [10 0c 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [00 11 00] data_to [001001 000105 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 1 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [00 11 00] data_to [000003 000105 000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [11 00 0f , self:00 , ce:0] data_from [000306 000001 001107] command_to [0d 08 0c] data_to [000306 000306 000306]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [11 00 11 , self:00 , ce:0] data_from [000105 000001 000105] command_to [0d 08 0c] data_to [000105 000105 000105]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [08 00 08 , self:12 , ce:0] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-# (root-left ) ABC: 000, Left: 01, Parent: 01, Right: 01, New Left: 000105, New Parent: 000105, New Right: 000105
-#################### new cycle:        54 ##########################
-# node: n4(rr) center 001107 1 axis: 1 command_from [10 0c 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 11 00] data_to [001107 000306 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 1 command_from [10 0d 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 11 00] data_to [000120 000306 000120]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 1 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [00 11 00] data_to [001001 000105 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 1 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000105 000000] command_to [00 11 00] data_to [000003 000105 000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [11 00 11 , self:00 , ce:0] data_from [000306 000001 000306] command_to [0d 08 0c] data_to [000306 000306 000306]  Child_status [0 0]
-# node: root-left  center 000105 1 axis: 1 command_from [11 00 11 , self:13 , ce:0] data_from [000105 000001 000105] command_to [00 0f 00] data_to [000105 000105 000105]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0f 00 08 , self:12 , ce:0] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-# (root-right) ABC: 000, Left: 03, Parent: 03, Right: 03, New Left: 000306, New Parent: 000306, New Right: 000306
-# (root-left ) ABC: 000, Left: 00, Parent: 01, Right: 10, New Left: 000105, New Parent: 000105, New Right: 000105
-#################### new cycle:        55 ##########################
-# node: n4(rr) center 001107 1 axis: 1 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 11 00] data_to [001107 000306 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 1 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000306 000000] command_to [00 11 00] data_to [000120 000306 000120]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 1 command_from [10 14 10 , self:12 , ce:0] data_from [000000 000002 000000] command_to [00 0f 00] data_to [001001 001001 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 1 command_from [10 14 10 , self:12 , ce:0] data_from [000000 000002 000000] command_to [00 0f 00] data_to [000003 000003 000003]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 1 command_from [11 00 11 , self:13 , ce:0] data_from [000306 000001 000306] command_to [00 0f 00] data_to [000306 000306 000306]  Child_status [0 0]
-# node: root-left  center 000105 1 axis: 1 command_from [0f 00 0f , self:13 , ce:0] data_from [000003 000001 001001] command_to [14 0f 14] data_to [000002 000105 000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0f 00 0f , self:12 , ce:0] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-# (n2(lr)) ABC: 000, Left: 00, Parent: 00, Right: 00, New Left: 000000, New Parent: 001001, New Right: 000000
-# (root-right) ABC: 000, Left: 01, Parent: 03, Right: 11, New Left: 000306, New Parent: 000306, New Right: 000306
-#################### new cycle:        56 ##########################
-# node: n4(rr) center 001107 1 axis: 1 command_from [10 14 10 , self:12 , ce:0] data_from [000000 000002 000000] command_to [00 0f 00] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 1 command_from [10 14 10 , self:12 , ce:0] data_from [000000 000002 000000] command_to [00 0f 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000002 000000] command_to [00 0a 00] data_to [001001 001001 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000002 000000] command_to [00 0a 00] data_to [000003 000003 000003]  Child_status [1 1]
-# node: root-right center 000306 1 axis: 1 command_from [0f 00 0f , self:13 , ce:0] data_from [000120 000001 001107] command_to [14 0f 14] data_to [000002 000306 000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [0a 00 0a , self:12 , ce:0] data_from [000003 000001 001001] command_to [00 0f 00] data_to [000002 000105 000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0f 00 0f , self:12 , ce:0] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-# (n3(rl)) ABC: 000, Left: 00, Parent: 00, Right: 00, New Left: 000000, New Parent: 000120, New Right: 000000
-# (n4(rr)) ABC: 000, Left: 00, Parent: 00, Right: 00, New Left: 000000, New Parent: 001107, New Right: 000000
-#################### new cycle:        57 ##########################
-# node: n4(rr) center 001107 1 axis: 2 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000002 000000] command_to [00 0a 00] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:00 , ce:0] data_from [000000 000002 000000] command_to [00 0a 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 0f 00] data_to [001001 001001 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 0f 00] data_to [000003 000003 000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [0a 00 0a , self:12 , ce:0] data_from [000120 000001 001107] command_to [00 0f 00] data_to [000002 000306 000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [0f 00 0f , self:12 , ce:0] data_from [000003 000001 001001] command_to [00 0f 00] data_to [000002 000105 000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0f 00 0f , self:12 , ce:0] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-#################### new cycle:        58 ##########################
-# node: n4(rr) center 001107 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 0f 00] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 0f 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [001001 001001 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [000003 000003 000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [0f 00 0f , self:12 , ce:0] data_from [000120 000001 001107] command_to [00 0f 00] data_to [000002 000306 000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0] data_from [000003 000001 001001] command_to [00 0f 00] data_to [000002 000105 000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [0f 00 0f , self:12 , ce:0] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-#################### new cycle:        59 ##########################
-# node: n4(rr) center 001107 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [001001 001001 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [000003 000003 000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [15 00 15 , self:12 , ce:0] data_from [000120 000001 001107] command_to [00 0f 00] data_to [000002 000306 000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0] data_from [000003 000001 001001] command_to [00 15 00] data_to [000002 000105 000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [15 00 0f , self:12 , ce:0] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-#################### new cycle:        60 ##########################
-# node: n4(rr) center 001107 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [001001 001001 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [000003 000003 000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [15 00 15 , self:12 , ce:0] data_from [000120 000001 001107] command_to [00 15 00] data_to [000002 000306 000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0] data_from [000003 000001 001001] command_to [00 15 00] data_to [000002 000105 000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [15 00 15 , self:12 , ce:0] data_from [000105 000000 000306] command_to [00 0f 00] data_to [000001 002204 000001]  Child_status [0 0]
-#################### new cycle:        61 ##########################
-# node: n4(rr) center 001107 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [001107 001107 001107]  Child_status [1 1]
-# node: n3(rl) center 000120 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [000120 000120 000120]  Child_status [1 1]
-# node: n2(lr) center 001001 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [001001 001001 001001]  Child_status [1 1]
-# node: n1(ll) center 000003 1 axis: 2 command_from [10 00 10 , self:13 , ce:0] data_from [000000 000002 000000] command_to [00 15 00] data_to [000003 000003 000003]  Child_status [1 1]
-# node: root-right center 000306 0 axis: 1 command_from [15 00 15 , self:12 , ce:0] data_from [000120 000001 001107] command_to [00 15 00] data_to [000002 000306 000002]  Child_status [0 0]
-# node: root-left  center 000105 0 axis: 1 command_from [15 00 15 , self:12 , ce:0] data_from [000003 000001 001001] command_to [00 15 00] data_to [000002 000105 000002]  Child_status [0 0]
-# node: root  center 002204 0 axis: 0 command_from [15 00 15 , self:12 , ce:0] data_from [000105 000000 000306] command_to [00 15 00] data_to [000001 002204 000001]  Child_status [0 0]
-#################### new cycle:        62 ##########################
-# ** Note: $finish    : C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v(277)
-#    Time: 620 ns  Iteration: 1  Instance: /kd_tree
-# 1
-# Break in Module kd_tree at C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v line 277
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 19.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_left' not found in the connected module (15th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_right' not found in the connected module (16th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/root/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'returned'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'first_direction'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'other_branch'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 19.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_left' not found in the connected module (15th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_right' not found in the connected module (16th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/left/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'returned'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'first_direction'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'other_branch'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 19.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_left' not found in the connected module (15th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_right' not found in the connected module (16th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/right/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'returned'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'first_direction'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'other_branch'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1 File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 131
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1 File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 131
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 19.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_left' not found in the connected module (15th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_right' not found in the connected module (16th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n1/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'returned'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'first_direction'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'other_branch'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2 File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 149
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2 File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 149
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 19.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_left' not found in the connected module (15th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_right' not found in the connected module (16th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n2/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'returned'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'first_direction'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'other_branch'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3 File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 170
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3 File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 170
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 19.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_left' not found in the connected module (15th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_right' not found in the connected module (16th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n3/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'returned'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'first_direction'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'other_branch'.
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_right'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4 File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 188
+# ** Warning: (vsim-3015) [PCDPC] - Port size (24) does not match connection size (32) for port 'data_from_left'. The port definition is at: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(1).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4 File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/kd_tree.v Line: 188
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'c_ce'.  Expected 21, found 19.
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_left' not found in the connected module (15th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Error: (vsim-3063) Port 'send_right' not found in the connected module (16th connection).
+#    Time: 0 ps  Iteration: 0  Instance: /kd_tree/n4/c_ce File: C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v Line: 172
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'point_prop'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'returned'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'first_direction'.
+# ** Warning: (vsim-3722) C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/kd_tree/node.v(172): [TFMPC] - Missing connection for port 'other_branch'.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./kd_tree_run_msim_rtl_verilog.do PAUSED at line 15
+# A time value could not be extracted from the current line
+# End time: 23:28:21 on Apr 14,2021, Elapsed time: 0:00:28
+# Errors: 14, Warnings: 43

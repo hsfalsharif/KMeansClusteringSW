@@ -166,23 +166,27 @@ cluster_PE c_pe (
 						.child_depth()
 						);
 */
+
+// For the point_prop situation, old_center will come from left, point will from parent, best_center will come from right
+// best_center will come out from new_parent
 cluster_CE #(.name(name)) c_ce (
 						.clk(clk),
 						.rst(rst_t),
 						.en(ce_en), // pe enables ce
 						.sorting(sorting),
 						.left_en(left_en),
-						.right_en(right_en), 
+						.right_en(right_en),
+						.returned(), // will need to add signal here to tell us we have returned from the first direction
 						.left(data_from_left),
 						.parent(old_center),
 						.right(data_from_right),
-						//.point_in(data_from_top), // do we need to pass point through pe before passing it to ce or can we pass it directly from data_from_top?
 						.axis(sorting_axis),
 						.stable(sort_stable),
 						.left_switch(left_switch),
 						.parent_switch(self_switch),
 						.right_switch(right_switch),
-						.send_left(), // will be added later with point propogation stage
+						.first_direction(first_direction),
+						.other_branch(other_branch),
 						.new_left(ce_left_out),
 						.new_parent(ce_self_out),
 						.new_right(ce_right_out)

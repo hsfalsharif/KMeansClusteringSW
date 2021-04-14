@@ -1,5 +1,5 @@
-module cluster_CE(clk, rst, en, sorting, point_prop, left_en, right_en, left, parent, right,
-axis, stable, send_left, send_right, left_switch, parent_switch, right_switch, new_left, new_parent, new_right);
+module cluster_CE(clk, rst, en, sorting, point_prop, left_en, right_en, returned, left, parent, right,
+axis, stable, left_switch, parent_switch, right_switch, first_direction, other_branch, new_left, new_parent, new_right);
 
 // For the point_prop situation, old_center will come from left, point will from parent, best_center will come from right
 // best_center will come out from new_parent
@@ -10,10 +10,10 @@ localparam dist_size   = $clog2(data_range*dim),
 			  center_size = dim*dim_size,
 			  axis_size   = $clog2(dim);
 
-input clk, rst, en, sorting, point_prop, left_en, right_en;
+input clk, rst, en, sorting, point_prop, left_en, right_en, returned;
 input [center_size - 1:0] left, parent, right;
 input [axis_size - 1:0] axis;
-output stable, send_left, send_right, left_switch, parent_switch, right_switch;
+output stable, left_switch, parent_switch, right_switch, first_direction, other_branch;
 output reg [center_size - 1:0] new_left, new_parent, new_right;
 
 // we will probably need a reg for point, we will also need to make cluster_CE sequential
@@ -59,10 +59,10 @@ manhattan #(.dim(dim), .data_range(data_range)) m_current(
 																			.done(dst_done)
 																			);
 																			
-assign go_left = parent_1D < right_1D; // MIGHT NEED TO CHECK THIS CONDITION LATER
-assign other_branch = best_dist > axis_dist; // WE MIGHT NEED TO MAKE BEST_DIST ABSOLUTE VALUE LATER
-assign send_left = point_prop && (go_left || (!go_left && other_branch));
-assign send_right = point_prop && (!go_left || (go_left && other_branch));
+assign first_direction = parent_1D < right_1D; //if first_direction is 1 => we go left, if it is 0 => we go right
+assign other_branch = (returned) ? best_dist > axis_dist : 1'b0; // WE MIGHT NEED TO MAKE BEST_DIST ABSOLUTE VALUE LATER
+// assign send_left = point_prop && (go_left || (!go_left && other_branch));
+// assign send_right = point_prop && (!go_left || (go_left && other_branch));
 
 assign change_best = best_dist > dst; // this is not an output, this controls the best value
 

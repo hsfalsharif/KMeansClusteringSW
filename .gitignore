@@ -99,3 +99,11 @@ verilog/kd_tree/simulation/modelsim/wlftw9redb
 verilog/kd_tree/simulation/modelsim/wlftxcbg50
 verilog/kd_tree/simulation/modelsim/wlftyn28x5
 verilog/kd_tree/simulation/modelsim/wlftzn37vm
+*.cdb
+*.cdb
+*.hdb
+*.cdb
+*.db_info
+*.qmsg
+*.qws
+*.rpt
