@@ -39,7 +39,10 @@ localparam nop 					 		= 5'h00,
 			  sort_right_validate      = 5'h0d,
 			  valid_sort               = 5'h0f,
 			  expose_center            = 5'h12,
-			  valid_done               = 5'h11;
+			  valid_done               = 5'h11,
+			  next_sort_level          = 5'h13,
+			  start_sorting_as_root    = 5'h14,
+			  sort_done                = 5'h15;
   
 reg [axis_size - 1 : 0] sorting_axis;
 reg [ttl_size - 1 : 0] time_to_live;
@@ -59,7 +62,7 @@ assign distance_calc = 1'b1; // distance_calc enables the ce to perform distance
 
 reg [command_size - 1 : 0] self_command;
 wire [center_size - 1:0] center_self_C2P, center_self_P2C, ce_left_out, ce_self_out, ce_right_out;
-reg rst_t, init, start_iter, receive_point, inc, update, sorting, parent_switch_in, self_child_switch, next_level;
+reg rst_t, virtual_root,init, start_iter, receive_point, inc, update, sorting, parent_switch_in, self_child_switch, next_level;
 // how many commands need to come from top at a single instance during processing?
 
 // two major outer global stages: init, sorting, and point propogation
@@ -188,8 +191,11 @@ assign ce_command = {left_switch, self_switch, right_switch};
 always @* begin
 	case (ce_command)
         4'b0000:
-					if(command_to_top == valid_sort)
-						self_command <= expose_center;
+					if(command_to_top == valid_sort || command_to_top == sort_done)
+						if(virtual_root)
+							self_command <= next_sort_level;
+						else
+							self_command <= expose_center;
 					else
 						self_command = nop;
 		 	//4'b0001:  begin 
@@ -232,6 +238,7 @@ if(command_from_top != nop)
 					point <= {center_size{1'b0}};
 					time_to_live <= {depth_size{1'b0}};
 					sorting <= 0;
+					virtual_root <= 0;
 				
 				end 
 				else begin
@@ -334,16 +341,45 @@ if(command_from_top != nop)
 				command_to_right <= start_sorting;
 				data_to_right <= data_from_top;
  
-			end
+			end 
+			if(command_to_right == start_sorting) 
+				command_to_right <= nop;
+			if(command_to_left == start_sorting)
+				command_to_left <= nop;
+		
 			sorting_axis <= data_from_top; // experimental 
 			data_to_top <= old_center;
 			command_to_top <= ready_to_sort;
 			sorting <= 1; 
 		end
+		
+		start_sorting_as_root:begin
+			if(!left_dne) begin
+				command_to_left <= start_sorting;
+				data_to_left <= data_from_top;
+			end
+			
+			if(!right_dne) begin
+				command_to_right <= start_sorting;
+				data_to_right <= data_from_top;
+ 
+			end
+			sorting_axis <= data_from_top; // experimental 
+			data_to_top <= old_center;
+			command_to_top <= ready_to_sort;
+			sorting <= 1;
+			virtual_root <= 1;
+		end
+		
+
+		
+		
 		///////////////////////////////////// Start sorting END ///////////////////////////
 		
-		sort_left_validate: begin 
-		if(left_dne || data_from_top < data_from_left) begin
+		sort_left_validate: begin  
+		if(left_dne || (sorting_axis == 0 && data_from_top[0+:dim_size] < data_from_left[0+:dim_size]) &&
+							(sorting_axis == 1 && data_from_top[dim_size+:dim_size] < data_from_left[dim_size+:dim_size]) && 
+							(sorting_axis == 2 && data_from_top[2*dim_size+:dim_size] < data_from_left[2*dim_size+:dim_size])) begin
 				data_to_top <= data_from_top;
 				command_to_top <= valid_done;
 		
@@ -359,7 +395,9 @@ if(command_from_top != nop)
 		end 
 		
 		sort_right_validate: begin
-		if(right_dne || data_from_top > data_from_right) begin
+		if(right_dne || (sorting_axis == 0 && data_from_top[0+:dim_size] > data_from_left[0+:dim_size]) &&
+							 (sorting_axis == 1 && data_from_top[dim_size+:dim_size] > data_from_left[dim_size+:dim_size]) && 
+							 (sorting_axis == 2 && data_from_top[2*dim_size+:dim_size] > data_from_left[2*dim_size+:dim_size])) begin
 				data_to_top <= data_from_top;
 				command_to_top <= valid_done;
 
@@ -392,10 +430,37 @@ if(command_from_top != nop)
 						command_to_left <= receive_center;
 						command_to_right <= receive_center;
 						command_to_top <= busy;
-					end
+					end 
 				end
+				 
+			expose_center: begin 
+				if(command_from_right == sort_done && command_from_left == sort_done)
+					command_to_top <= sort_done;
+				data_to_top <= old_center;
+			end 
+			next_sort_level: begin  
+			if(both_dne) begin
+				command_to_top <= sort_done; 
+			end
+			else begin
+				 if(command_to_left != start_sorting_as_root && command_to_right != start_sorting_as_root) begin
+					command_to_left <= start_sorting_as_root;
+					data_to_left    <= sorting_axis + 1;
+					command_to_right <= start_sorting_as_root;
+					data_to_right    <= sorting_axis + 1;
+					virtual_root     <= 1;
+				end 
+				else begin
+					command_to_right <= nop;
+					command_to_left <= nop;
+					sorting = 0;
+					virtual_root <= 0;
 				
-			expose_center: data_to_top <= old_center;
+				end
+			end
+		
+		
+		end
 		endcase
 	end
 	else if(command_from_left != nop) begin 
@@ -408,45 +473,63 @@ if(command_from_top != nop)
 					data_to_top <= old_center; 
 					
 				end
-			
+			 
 			end 
-			valid_sort: 
+			valid_sort: begin	
+			if(command_from_right == receive_center)
+				command_to_right <= nop;
+			
 			if(command_from_right == valid_sort) begin
-				if(command_to_left != sort_right_validate) begin
+				if(command_to_left != sort_right_validate && command_to_left != start_sorting) begin
 						command_to_left <= sort_right_validate;
 						data_to_left   <= old_center;
 						command_to_top <= busy;
 						sorting = 0;
- 
+  
 				end 
 			end
+			end 
 			valid_done: 
-				if(command_to_right != sort_left_validate) begin
+				if(command_to_right != sort_left_validate  && command_to_left == sort_right_validate ) begin
 					command_to_right <= sort_left_validate;
 					data_to_right    <= data_from_left;
 					sorting = 0;
 				end 
-				else if(command_from_right == valid_done && command_from_left ==  valid_done) begin
+				else if(command_from_right == valid_done && command_from_left ==  valid_done && command_to_left == sort_right_validate) begin
 					command_to_right <= nop;
 					command_to_left <= nop;
-					old_center <= data_from_right;
+				 	old_center <= data_from_right;
 					command_to_top <= valid_sort; 
 					data_to_top <= data_from_right;
 					sorting = 1;
 				end
-	
-	
+			sort_done: if(command_from_right == sort_done) command_to_top <= sort_done;
 			dne: if(sorting) begin
 				command_to_top <= valid_sort;
 				data_to_top <= old_center;
+			end
+			ready_to_sort: if(command_from_right == ready_to_sort) begin
+				command_to_right <= nop;
+				command_to_left  <= nop; 
+			
 			end
 		endcase
 	end
 	else if(command_from_right != nop) begin
 		case(command_from_right)
-			dne: if(sorting) begin
+	 		dne: if(sorting) begin
 				command_to_top <= valid_sort;
 				data_to_top <= old_center;
+			end
+			
+			receive_center: begin 
+				if(command_to_right == receive_center) begin
+					command_to_right <= nop;
+					command_to_left <= nop;
+					command_to_top <= ready_to_sort;
+					data_to_top <= old_center; 
+					
+				end
 			end
 		endcase
 		

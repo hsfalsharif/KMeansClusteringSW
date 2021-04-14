@@ -20,7 +20,11 @@ localparam nop 					 		= 5'h00,
 			  sort_right_validate      = 5'h0d,
 			  valid_sort               = 5'h0f,
 			  expose_center            = 5'h12,
-			  valid_done               = 5'h11;
+			  valid_done               = 5'h11,
+			  next_sort_level          = 5'h13,
+			  start_sorting_as_root    = 5'h14,
+			  sort_done                = 5'h15;
+  
 			  
 localparam cycle_counter_size = $clog2(100000000);
 
@@ -235,7 +239,7 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 			tb_command <= rst;
 			end
 		end
-		fill_center_tb: begin
+		fill_center_tb: begin 
 				if(root_command_up == center_fill_done) begin
 					$display("[%d] %s DONE",cycle_count,"fill_center_tb");
 					tb_state <= start_sorting_tb;
@@ -247,17 +251,17 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 					$display("[%d] %s tb_data: %x tb_command: %b serial_Count: %d root_command_up: %b",cycle_count,"fill_center_tb",tb_data,tb_command,serial_count,root_command_up);
 
 				end
-		end
+		end 
 		start_sorting_tb: begin
 			tb_state <= wait_sort; 
-			if(root_command_up == valid_sort )
+			if(root_command_up == sort_done )
 				tb_state <= done;
-		   tb_command <= start_sorting;
+		   tb_command <= start_sorting_as_root;
 			tb_data <= 0;
  
 		end
 		wait_sort : begin 
-			if(root_command_up == valid_sort )
+			if(root_command_up == sort_done )
 				tb_state <= done;
 			tb_command <= nop;  
 
