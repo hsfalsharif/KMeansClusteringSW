@@ -11,6 +11,7 @@ localparam  dim_size     = $clog2(255),
 				depth_size   = $clog2(10);
 localparam command_size = 5,
 			  data_size    = center_size * 2,
+			  data_half_size = center_size,
 			  ttl_size     = 4,
 			  axis_size    = 2;
 parameter name="unknown";
@@ -66,7 +67,8 @@ assign distance_calc = 1'b1; // distance_calc enables the ce to perform distance
 
 reg [command_size - 1 : 0] self_command;
 wire [center_size - 1:0] center_self_C2P, center_self_P2C, ce_left_out, ce_self_out, ce_right_out;
-reg rst_t, virtual_root, sorting,point_prop;
+reg rst_t, virtual_root, sorting;
+wire point_prop;
 // how many commands need to come from top at a single instance during processing?
 
 // two major outer global stages: init, sorting, and point propogation
@@ -167,7 +169,13 @@ cluster_PE c_pe (
 						.child_depth()
 						);
 */
-
+wire [center_size - 1 : 0]ce_parent,ce_right,ce_left,point_in;
+assign point_in  = data_from_top[0 +: data_half_size];
+assign ce_parent = (command_from_top == point_in_as_root || command_from_top == point_in_with_best) ? point_in: old_center;
+assign ce_right  = (command_from_top == point_in_as_root) ? old_center : (command_from_top == point_in_with_best) ? data_from_top[data_half_size +: data_half_size]: data_from_right;
+assign ce_left   = (command_from_top == point_in_as_root || command_from_top == point_in_with_best) ? old_center : data_from_left;
+assign returned  = (command_from_right == return_best || command_from_left == return_best);
+assign point_prop = (command_from_top == point_in_as_root || command_from_top == point_in_with_best);
 // For the point_prop situation, old_center will come from left, point will from parent, best_center will come from right
 // best_center will come out from new_parent
 cluster_CE #(.name(name)) c_ce (
@@ -175,12 +183,12 @@ cluster_CE #(.name(name)) c_ce (
 						.rst(rst_t),
 						.en(ce_en), // pe enables ce
 						.sorting(sorting),
-						.left_en(left_en),
+						.left_en(left_en), 
 						.right_en(right_en),
-						.returned(), // will need to add signal here to tell us we have returned from the first direction
-						.left(data_from_left),
-						.parent(old_center),
-						.right(data_from_right),
+						.returned(returned), // will need to add signal here to tell us we have returned from the first direction
+						.left(ce_left), //data_from_left),
+						.parent(ce_parent),//old_center),
+						.right(ce_right), //data_from_right),
 						.axis(sorting_axis),
 						.stable(sort_stable),
 						.left_switch(left_switch),
@@ -219,7 +227,7 @@ end
 
 
 always @(posedge clk) begin
-$display("node: %s center %x %x axis: %x command_from [%x %x %x , self:%x , ce:%x] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x]",name,old_center,sorting, sorting_axis, command_from_left,command_from_top,command_from_right,self_command,ce_command,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne);	
+$display("node: %s center %x %x axis: %x command_from [%x %x %x , self:%x , ce:%x , {s:%d,pp:%d,fd:%d,ob:%d,rt:%d}] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x]",name,old_center,sorting, sorting_axis, command_from_left,command_from_top,command_from_right,self_command,ce_command,sorting,point_prop,first_direction,other_branch,returned,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne);	
 
 if(command_from_top != nop)
 		case(command_from_top)
@@ -247,7 +255,6 @@ if(command_from_top != nop)
 					time_to_live <= {depth_size{1'b0}};
 					sorting <= 0;
 					virtual_root <= 0;
-					point_prop <= 0;
 				
 				end 
 				else begin
@@ -363,6 +370,7 @@ if(command_from_top != nop)
 		end
 		
 		start_sorting_as_root:begin
+			
 			if(!left_dne) begin
 				command_to_left <= start_sorting;
 				data_to_left <= data_from_top;
@@ -425,6 +433,8 @@ if(command_from_top != nop)
 		////////////////////////////// POint COmmands ///////////////////////////
 		
 		point_in_as_root : begin
+				sorting = 0;
+
 			if(both_dne) begin
 				command_to_top <= return_best;
 				data_to_top    <= {ce_self_out,point_in};
@@ -435,29 +445,32 @@ if(command_from_top != nop)
 						if(command_from_right == return_best) begin
 							command_to_top <= return_best;
 						   data_to_top    <= data_from_right;
+						
 						end
-						commmand_to_right <= point_with_best;
+						command_to_right <= point_in_with_best;
 						data_to_right     <= data_from_left;
+						
 					end 
 					else begin
 						command_to_top <= return_best;
 						data_to_top    <= data_from_left;
 					end
 				end
-				command_to_left  <= point_with_best;
-				data_to_left     <=  {ce_self_out,point_in};
-				command_to_right <= nop;
-				data_to_right    <= 0;
-				returned = 1;
-			end
+				else begin
+					command_to_left  <= point_in_with_best;
+					data_to_left     <=  {ce_self_out,point_in};
+					command_to_right <= nop;
+					data_to_right    <= 0;
+				end
+			end 
 			else begin
 				if(command_from_right == return_best) begin
 					if(other_branch) begin
-						if(command_from_left == return_best) begin
+			 			if(command_from_left == return_best) begin
 							command_to_top <= return_best;
 							data_to_top    <= data_from_left;
 						end
-						commmand_to_left <= point_with_best;
+						command_to_left <= point_in_with_best;
 						data_to_left     <= data_from_right;
 					end 
 					else begin
@@ -465,20 +478,22 @@ if(command_from_top != nop)
 						data_to_top    <= data_from_right;
 					end
 				end
-				command_to_right  <= point_with_best;
-				data_to_right     <= {ce_self_out,point_in};
-				command_to_left   <= nop;
-				data_to_left      <= 0;
-				returned = 1;
+				else begin
+					command_to_right  <= point_in_with_best;
+					data_to_right     <= {ce_self_out,point_in};
+					command_to_left   <= nop;
+					data_to_left      <= 0;
+				end
 			end
 		end 
 		
-		point_in_with_best :begin
+		point_in_with_best :
+		begin
+				sorting = 0;
+
 			if(both_dne) begin
 				command_to_top <= return_best;
 				data_to_top    <= {ce_self_out,point_in};
-			
-			
 			end
 			else if(first_direction) begin
 				if(command_from_left == return_best) begin
@@ -488,7 +503,7 @@ if(command_from_top != nop)
 						   data_to_top    <= data_from_right;
 						
 						end
-						commmand_to_right <= point_with_best;
+						command_to_right <= point_in_with_best;
 						data_to_right     <= data_from_left;
 						
 					end 
@@ -496,12 +511,13 @@ if(command_from_top != nop)
 						command_to_top <= return_best;
 						data_to_top    <= data_from_left;
 					end
+				end 
+				else begin
+					command_to_left  <= point_in_with_best;
+					data_to_left     <=  {ce_self_out,point_in};
+					command_to_right <= nop;
+					data_to_right    <= 0;
 				end
-				command_to_left  <= point_with_best;
-				data_to_left     <=  {ce_self_out,point_in};
-				command_to_right <= nop;
-				data_to_right    <= 0;
-				returned = 1;
 			end
 			else begin
 				if(command_from_right == return_best) begin
@@ -510,7 +526,7 @@ if(command_from_top != nop)
 							command_to_top <= return_best;
 							data_to_top    <= data_from_left;
 						end
-						commmand_to_left <= point_with_best;
+						command_to_left <= point_in_with_best;
 						data_to_left     <= data_from_right;
 					end 
 					else begin
@@ -518,11 +534,12 @@ if(command_from_top != nop)
 						data_to_top    <= data_from_right;
 					end
 				end
-				command_to_right  <= point_with_best;
-				data_to_right     <= {ce_self_out,point_in};
-				command_to_left   <= nop;
-				data_to_left      <= 0;
-				returned = 1;
+				else begin
+					command_to_right  <= point_in_with_best;
+					data_to_right     <= {ce_self_out,point_in};
+					command_to_left   <= nop;
+					data_to_left      <= 0;
+				end
 			end
 		end 
 		

@@ -59,12 +59,12 @@ manhattan #(.dim(dim), .data_range(data_range)) m_current(
 																			.done(dst_done)
 																			);
 																			
-assign first_direction = parent_1D < right_1D; //if first_direction is 1 => we go left, if it is 0 => we go right
-assign other_branch = (returned) ? best_dist > axis_dist : 1'b0; // WE MIGHT NEED TO MAKE BEST_DIST ABSOLUTE VALUE LATER
+assign first_direction = point_prop && parent_1D < right_1D; //if first_direction is 1 => we go left, if it is 0 => we go right
+assign other_branch = point_prop && returned ? best_dist > axis_dist : 1'b0; // WE MIGHT NEED TO MAKE BEST_DIST ABSOLUTE VALUE LATER
 // assign send_left = point_prop && (go_left || (!go_left && other_branch));
 // assign send_right = point_prop && (!go_left || (go_left && other_branch));
 
-assign change_best = best_dist > dst; // this is not an output, this controls the best value
+assign change_best = point_prop && best_dist > dst; // this is not an output, this controls the best value
 
 
 always@* begin

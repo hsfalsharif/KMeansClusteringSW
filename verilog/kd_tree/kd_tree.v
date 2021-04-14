@@ -23,8 +23,10 @@ localparam nop 					 		= 5'h00,
 			  valid_done               = 5'h11,
 			  next_sort_level          = 5'h13,
 			  start_sorting_as_root    = 5'h14,
-			  sort_done                = 5'h15;
-  
+			  sort_done                = 5'h15,
+			  point_in_as_root         = 5'h16,
+			  point_in_with_best       = 5'h17,
+			  return_best              = 5'h18;
 			  
 localparam cycle_counter_size = $clog2(100000000);
 
@@ -34,16 +36,26 @@ localparam fill_center_tb = 5'b00001,
 			  start_sorting_tb = 5'b00011,
 			  stall            = 5'b00101,
 			  done				= 5'b000100,
-			  wait_sort       = 5'b000110;
+			  wait_sort       = 5'b000110,
+			  point_tb        = 5'b000111;
 reg [5:0]tb_state;
 
 
 
-localparam command_size = 5,
-			  data_size    = 24,
-			  data_num     = 20;
+localparam data_num     = 20;
 			  
-
+localparam  dim_size     = $clog2(255),
+				dim          = 3,
+				max_n        = 1000,
+				center_size  = dim*dim_size,
+				counter_size = $clog2(max_n),
+				acc_size     = $clog2(dim_size*max_n),
+				depth_size   = $clog2(10);
+localparam command_size = 5,
+			  data_size    = center_size * 2,
+			  data_half_size = center_size,
+			  ttl_size     = 4,
+			  axis_size    = 2;
 
 
 
@@ -132,8 +144,8 @@ node  #("n1(ll)") n1(
 		///////// input //////////////
 		.clk(clk),
 		.data_from_top(left_data_left),
-		.data_from_right(0),
-		.data_from_left (0),
+		.data_from_right({data_size{1'b0}}),
+		.data_from_left ({data_size{1'b0}}),
 		.command_from_top(left_command_left),
 		.command_from_right(dne),
 		.command_from_left(dne),
@@ -150,8 +162,8 @@ node  #("n2(lr)") n2(
 		///////// input //////////////
 		.clk(clk),
 		.data_from_top(left_data_right),
-		.data_from_right(0),
-		.data_from_left (0),
+		.data_from_right({data_size{1'b0}}),
+		.data_from_left ({data_size{1'b0}}),
 		.command_from_top(left_command_right),
 		.command_from_right(dne),
 		.command_from_left(dne),
@@ -171,8 +183,8 @@ node  #("n3(rl)") n3(
 		///////// input //////////////
 		.clk(clk),
 		.data_from_top(right_data_left),
-		.data_from_right(0),
-		.data_from_left (0),
+		.data_from_right({data_size{1'b0}}),
+		.data_from_left ({data_size{1'b0}}),
 		.command_from_top(right_command_left),
 		.command_from_right(dne),
 		.command_from_left(dne),
@@ -189,8 +201,8 @@ node  #("n4(rr)") n4(
 		///////// input //////////////
 		.clk(clk),
 		.data_from_top(right_data_right),
-		.data_from_right(0),
-		.data_from_left (0),
+		.data_from_right({data_size{1'b0}}),
+		.data_from_left ({data_size{1'b0}}),
 		.command_from_top(right_command_right),
 		.command_from_right(dne),
 		.command_from_left(dne),
@@ -205,9 +217,9 @@ node  #("n4(rr)") n4(
  
 initial begin
         $display("Loading image.\n");
-        //$readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
+        $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
 		  //$readmemh("C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
-		  $readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
+		  //$readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
 		  //f = $fopen("output.rgb", "wb");
     end
  
@@ -228,7 +240,7 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 	end
 	else
 	case (tb_state)
-	   idel: begin
+	   idel: begin  
 		if(root_command_up == rst_done) begin
 					$display("[%d] %s DONE",cycle_count,"rst");
 					tb_state <= fill_center_tb;
@@ -261,10 +273,19 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
  
 		end
 		wait_sort : begin 
-			if(root_command_up == sort_done )
+			if(root_command_up == sort_done ) begin
+				tb_state <= point_tb;
+				$display("###################### Sort END ######################");
+			end
+			tb_command <= nop; 
+		end
+		
+		point_tb: begin
+			if(root_command_up == return_best)
 				tb_state <= done;
-			tb_command <= nop;  
-
+			tb_command <= point_in_as_root;
+			tb_data    <= {{24{1'b0}},8'd10,8'd0,8'd10};
+		
 		end
 		stall : begin
 					 tb_command <= nop;  
