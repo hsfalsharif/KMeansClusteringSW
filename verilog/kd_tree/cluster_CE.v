@@ -1,7 +1,6 @@
 module cluster_CE(clk, rst, en, sorting, point_prop, left_en, right_en, left, parent, right,
 axis, stable, send_left, send_right, left_switch, parent_switch, right_switch, new_left, new_parent, new_right);
 
-<<<<<<< HEAD
 // For the point_prop situation, old_center will come from left, point will from parent, best_center will come from right
 // best_center will come out from new_parent
 parameter dim = 3, data_range = 255 ,name="unknown";

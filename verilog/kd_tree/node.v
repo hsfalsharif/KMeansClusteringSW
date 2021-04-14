@@ -373,6 +373,31 @@ if(command_from_top != nop)
 
 			end 
 		end
+			else begin 
+					data_to_top <= data_from_left;
+					command_to_left <= receive_center;
+					data_to_left <= data_from_top;
+					command_to_top <= valid_done;
+
+			end 
+			
+		end 
+		
+		sort_right_validate: begin
+		if(right_dne || data_from_top > data_from_right) begin
+				data_to_top <= data_from_top;
+				command_to_top <= valid_done;
+
+		end 
+			else begin 
+				data_to_top <= data_from_right;
+				command_to_right <= receive_center;
+				data_to_right <= data_from_top;
+				command_to_top <= valid_done;
+
+			end 
+		end
+		
 		
 		
 		endcase
