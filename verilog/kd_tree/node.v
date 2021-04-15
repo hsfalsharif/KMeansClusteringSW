@@ -13,7 +13,7 @@ localparam command_size = 5,
 			  data_size    = center_size * 2,
 			  data_half_size = center_size,
 			  ttl_size     = 4,
-			  axis_size    = 2;
+			  axis_size    = 2; 
 parameter name="unknown";
 
 input clk;
@@ -68,7 +68,7 @@ assign distance_calc = 1'b1; // distance_calc enables the ce to perform distance
 reg [command_size - 1 : 0] self_command;
 wire [center_size - 1:0] center_self_C2P, center_self_P2C, ce_left_out, ce_self_out, ce_right_out;
 reg rst_t, virtual_root, sorting;
-wire point_prop;
+wire point_prop,first_direction;
 // how many commands need to come from top at a single instance during processing?
 
 // two major outer global stages: init, sorting, and point propogation
@@ -180,22 +180,24 @@ assign returned  = (command_from_right == return_best || command_from_left == re
 assign point_prop = (command_from_top == point_in_as_root || command_from_top == point_in_with_best);
 
 always @* begin
-	
-	if(command_from_top == point_in_as_root) 
-		ce_right = old_center;
-	else if(command_from_top == point_in_with_best) begin
-		if(command_from_right == best_returned && command_from_left != best_returned)
+
+	if(command_from_top == point_in_with_best || command_from_top == point_in_as_root ) begin
+		if(command_from_right == return_best && command_from_left != return_best)
 			ce_right = data_from_right[data_half_size +: data_half_size];
-		else if (command_from_left == best_returned && command_from_right != best_returned)
-			ce_right = data_from_left[data_half_size +: data_half_size]
-		else if(command_from_left == best_returned && command_from_right == best_returned)
+		else if (command_from_left == return_best && command_from_right != return_best)
+			ce_right = data_from_left[data_half_size +: data_half_size];
+		else if(command_from_left == return_best && command_from_right == return_best)
 			if(first_direction)
 				ce_right = data_from_right[data_half_size +: data_half_size];
 			else 
 				ce_right = data_from_left[data_half_size +: data_half_size];
-		end
+		else if(command_from_top == point_in_with_best)
+			ce_right = data_from_top[data_half_size +: data_half_size];
+		else 
+			ce_right = old_center; 
+	end
 		
-	else
+	else 
 		ce_right = data_from_right;
 end
 
@@ -246,7 +248,7 @@ always @* begin
 		 	//4'b0001:  begin 
  			//	if(left_en && right_en) 
 			//		self_command = sort_done1;
-			//	else self_command = nop;
+			//	else self_command = nop; 
 			//end
 		  
 		  default: self_command = switch;
@@ -255,8 +257,8 @@ end
 
 
 
-always @(posedge clk) begin
-$display("node: %s center %x %x axis: %x command_from [%x %x %x , self:%x , ce:%x , {s:%d,pp:%d,fd:%d,ob:%d,rt:%d}] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x]",name,old_center,sorting, sorting_axis, command_from_left,command_from_top,command_from_right,self_command,ce_command,sorting,point_prop,first_direction,other_branch,returned,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne);	
+always @(posedge clk) begin 
+$display("node: %s center %x axis: %x command_from [%x %x %x,self:%x,ce:%x,{s:%d,pp:%d,fd:%d,ob:%d,rt:%d}] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x] [%x %x %x]",name,old_center, sorting_axis, command_from_left,command_from_top,command_from_right,self_command,ce_command,sorting,point_prop,first_direction,other_branch,returned,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne,ce_left,ce_parent,ce_right);	
 
 if(command_from_top != nop)
 		case(command_from_top)

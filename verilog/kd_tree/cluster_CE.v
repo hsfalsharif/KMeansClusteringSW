@@ -70,7 +70,19 @@ assign change_best = point_prop && best_dist > dst; // this is not an output, th
 always@* begin
 
 //$display("ABC: %d%d%d, Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x", A, B, C, left, parent, right, new_left, new_parent, new_right);
-if (en && sorting) begin
+
+if (en && point_prop) begin
+$display("(%s) Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x, dist: %d, axis_dist: %d, best_dist: %d", name, left, parent, right, new_left, new_parent, new_right, dst, axis_dist, best_dist);
+
+//$display("dx: %d dy: %d dz: %d abs_dx: %d abs_dy: %d abs_dz: %d best_dist: %d axis_dist: %d", dx, dy, dz, abs_delta_x, abs_delta_y, abs_delta_z, best_dist, axis_dist);
+	if (change_best) 
+		new_parent = left;
+	else
+		new_parent = right;
+	new_right = {center_size{1'b0}};
+	new_left = {center_size{1'b0}};
+end
+else if (en && sorting) begin
 $display("(%s) ABC: %d%d%d, Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x", name,A, B, C, left_1D, parent_1D, right_1D, new_left, new_parent, new_right);
 		case({A, B, C})
 			3'b000: begin new_left = left; new_parent = parent; new_right = right; end
@@ -83,18 +95,6 @@ $display("(%s) ABC: %d%d%d, Left: %x, Parent: %x, Right: %x, New Left: %x, New P
 			3'b111: begin new_left = right; new_parent = parent; new_right = left; end
 		endcase
 end
-else if (en && point_prop) begin
-$display("(%s) Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x, dist: %d, axis_dist: %d, best_dist: %d", name, left, parent, right, new_left, new_parent, new_right, dst, axis_dist, best_dist);
-
-//$display("dx: %d dy: %d dz: %d abs_dx: %d abs_dy: %d abs_dz: %d best_dist: %d axis_dist: %d", dx, dy, dz, abs_delta_x, abs_delta_y, abs_delta_z, best_dist, axis_dist);
-	if (change_best)
-		new_parent = left;
-	else
-		new_parent = right;
-	new_right = {center_size{1'b0}};
-	new_left = {center_size{1'b0}};
-end
-
 else
 	begin new_left = left; new_parent = parent; new_right = right; end
 end
