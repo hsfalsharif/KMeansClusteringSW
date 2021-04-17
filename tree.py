@@ -30,7 +30,8 @@ class Tree:
             if self.right is not None:
                 self.right.printTree(True, "")
 
-            print(self.D.center)
+            #print(self.D.center)
+            print([hex(i) for i in self.D.center])
             if self.left is not None:
                 self.left.printTree(False, "")
 
@@ -48,7 +49,8 @@ class Tree:
                 print(" \\", end="")
 
             print("----- ", end="")
-            print(self.D.center)
+            #print(self.D.center)
+            print([hex(i) for i in self.D.center])
             if self.left is not None:
                 if isRight:
                     self.left.printTree(False, indent + " |      ")
@@ -213,7 +215,7 @@ class Tree:
 
             data.append(
                 go.Scatter3d(x=[cube.center[0]], y=[cube.center[1]], z=[cube.center[2]], mode='markers',
-                             marker=dict(size=3, color='gold'))
+                             marker=dict(size=3, color='black'))
             )
         pl = go.Figure(data)
 
@@ -294,7 +296,7 @@ class Tree:
             elif dist * best[1].counter < best[0] * kd_node.D.counter:
                 best[0], best[1] = dist, kd_node.D
             depth = (depth + 1) % dim
-            for b in [dx < 0] + [dx >= 0] * (dx < best[0]):
+            for b in [dx < 0] + [dx >= 0] * (dx + 34230432443242344233 < best[0]):
                 if b:
                     self.traverse(kd_node.right, point, dim, dist_func, return_distances, depth, best)
                 else:
@@ -501,11 +503,22 @@ class Tree:
             for cube in self.cubes:
                 if cube.counter_new != 0:
                     cube.clear()
+            o = open('sample.hex', "w")
+            for r, g, b in self.data:
+                o.write(f"{r:02x}")
+                o.write(f"{g:02x}")
+                o.write(f"{b:02x}")
+                o.write(" ")
+            o.close()
+            self.kd_tree.print()
             for x in self.data:
                 self.fnc_calls = 0
                 cube = self.traverse(self.kd_tree, x, 3, self.manhattan_no_div)
-                #self.kd_tree.print()
-                # print(self.fnc_calls)
+                # print("Point", "[", hex(x[0]), hex(x[1]), hex(x[2]), "]", "Nearest Center", "[", hex(cube.center[0]),
+                #       hex(cube.center[1]), hex(cube.center[2]), "]")
+                print(f"{x[0]:02x}{x[1]:02x}{x[2]:02x}", "==>", f"{cube.center[0]:02x}{cube.center[1]:02x}"
+                                                                  f"{cube.center[2]:02x}")
+                print(self.fnc_calls)
                 self.fnc_accumulated += self.fnc_calls
                 self.fnc_counter += 1
                 self.fnc_calls = 0
@@ -515,7 +528,10 @@ class Tree:
                 cube.acc_new[2] += x[2]
                 cube.counter_new += 1
                 cube.data.append(x)
-
+            # print(len(self.data))
+            fnc_call_average = self.fnc_accumulated / self.fnc_counter
+            print(fnc_call_average)
+            # input()
             # UPDATE THE TREES
             for i in self.cubes:
                 i.update()
@@ -737,11 +753,11 @@ class Tree:
 
 
 ###########################################################################################
-r, g, b = 3, 3, 3
+r, g, b = 10, 10, 10
 x = Tree()
-x.set_data_options(n_samples=10000, centers=100, dim=3, min_max=(0, 10000), data_center_deviations=1000)
+x.set_data_options(n_samples=10000, centers=1000, dim=3, min_max=(10, 240), data_center_deviations=10)
 x.generate_data()
-#x.get_data_from_image(filename="testImage.rgb")
+# x.get_data_from_image(filename="testImage.rgb")
 x.divide_space_equally(r, g, b)
 # x.cluster_data()
 x.kd_cluster_data()
