@@ -40,11 +40,11 @@ assign abs_delta_z_d = (en) ? (dz_d[dim_size-1] ? -dz_d : dz_d) : {dim_size{1'b0
 
 
 always@* begin
-if (en)
-	case(axis)
-		2'b00: single_dist_out = abs_delta_x_d;
-		2'b01: single_dist_out = abs_delta_y_d;
-		2'b10: single_dist_out = abs_delta_z_d;
+if (en) 
+	case(axis) 
+		2'b00: single_dist_out = abs_delta_z;//abs_delta_x_d;
+		2'b01: single_dist_out = abs_delta_y;
+		2'b10: single_dist_out = abs_delta_x;//abs_delta_z_d;
 		2'b11: single_dist_out = {dim_size{1'b0}};
 	endcase
 else

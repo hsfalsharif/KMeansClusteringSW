@@ -59,7 +59,7 @@ manhattan #(.dim(dim), .data_range(data_range)) m_current(
 																			.done(dst_done)
 				 															);
 																			
-assign first_direction = point_prop && parent_1D < right_1D; //if first_direction is 1 => we go left, if it is 0 => we go right
+assign first_direction = point_prop && (parent_1D < left_1D); //if first_direction is 1 => we go left, if it is 0 => we go right
 assign other_branch = point_prop && returned ? best_dist > axis_dist : 1'b0; // WE MIGHT NEED TO MAKE BEST_DIST ABSOLUTE VALUE LATER
 // assign send_left = point_prop && (go_left || (!go_left && other_branch));
 // assign send_right = point_prop && (!go_left || (go_left && other_branch));
@@ -72,7 +72,7 @@ always@* begin
 //$display("ABC: %d%d%d, Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x", A, B, C, left, parent, right, new_left, new_parent, new_right);
 
 if (en && point_prop) begin
-$display("(%s) Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x, dist: %d, axis_dist: %d, best_dist: %d", name, left, parent, right, new_left, new_parent, new_right, dst, axis_dist, best_dist);
+//$display("(%s) Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x, dist: %d, axis_dist: %d, best_dist: %d", name, left, parent, right, new_left, new_parent, new_right, dst, axis_dist, best_dist);
 
 //$display("dx: %d dy: %d dz: %d abs_dx: %d abs_dy: %d abs_dz: %d best_dist: %d axis_dist: %d", dx, dy, dz, abs_delta_x, abs_delta_y, abs_delta_z, best_dist, axis_dist);
 	if (change_best) 

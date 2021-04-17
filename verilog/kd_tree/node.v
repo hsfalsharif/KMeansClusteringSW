@@ -9,7 +9,7 @@ localparam  dim_size     = $clog2(255),
 				counter_size = $clog2(max_n),
 				acc_size     = $clog2(dim_size*max_n),
 				depth_size   = $clog2(10);
-localparam command_size = 5,
+localparam command_size = 6,
 			  data_size    = center_size * 2,
 			  data_half_size = center_size,
 			  ttl_size     = 4,
@@ -23,31 +23,40 @@ output reg [data_size - 1 : 0]    data_to_top,data_to_right,data_to_left;
 output reg [command_size - 1 : 0] command_to_top,command_to_right,command_to_left;
 
 /// Commands
-localparam nop 					 		= 5'h00,
-			  rst 					 		= 5'h1f,
-			  rst_done 				 		= 5'h1e,
-			  center_fill 			 		= 5'h01,
-			  configure_sort_axis 		= 5'h02,
-			  receive_center 		 		= 5'h03,
-			  switch_with_left 	 		= 5'h04,
-			  center_fill_done 	 		= 5'h05,
-			  configure_sort_axis_done = 5'h07,
-			  busy             	 		= 5'h08, 
-			  dne              	 		= 5'h10,
-			  start_sorting    	 		= 5'h09,
-			  ready_to_sort    	 		= 5'h0a,
-			  switch           	 		= 5'h0b,
-			  sort_left_validate       = 5'h0c,
-			  sort_right_validate      = 5'h0d,
-			  valid_sort               = 5'h0f,
-			  expose_center            = 5'h12,
-			  valid_done               = 5'h11,
-			  next_sort_level          = 5'h13,
-			  start_sorting_as_root    = 5'h14,
-			  sort_done                = 5'h15,
-			  point_in_as_root         = 5'h16,
-			  point_in_with_best       = 5'h17,
-			  return_best              = 5'h18;
+localparam nop 					 		= 6'h00,
+			  rst 					 		= 6'h1f,
+			  rst_done 				 		= 6'h1e,
+			  center_fill 			 		= 6'h01,
+			  configure_sort_axis 		= 6'h02,
+			  receive_center 		 		= 6'h03,
+			  switch_with_left 	 		= 6'h04,
+			  center_fill_done 	 		= 6'h05,
+			  configure_sort_axis_done = 6'h07,
+			  busy             	 		= 6'h08, 
+			  dne              	 		= 6'h10,
+			  start_sorting    	 		= 6'h09,
+			  ready_to_sort    	 		= 6'h0a,
+			  switch           	 		= 6'h0b,
+			  sort_left_validate       = 6'h0c,
+			  sort_right_validate      = 6'h0d,
+			  valid_sort               = 6'h0f,
+			  expose_center            = 6'h12,
+			  valid_done               = 6'h11,
+			  next_sort_level          = 6'h13,
+			  start_sorting_as_root    = 6'h14,
+			  sort_done                = 6'h15,
+			  point_in_as_root         = 6'h16,
+			  point_in_with_best       = 6'h17,
+			  return_best              = 6'h18,
+			  hold                     = 6'h19,
+			  get_most_left            = 6'h1a,
+			  get_most_right           = 6'h1b,
+			  set_most_left            = 6'h1c,
+			  set_most_right           = 6'h1d,
+			  nopme                    = 6'h06,
+			  valid_semi_done          = 6'h20,
+			  axis_set_inc             = 6'h21,
+			  accomulate               = 6'h22;
   
 reg [axis_size - 1 : 0] sorting_axis;
 reg [ttl_size - 1 : 0] time_to_live;
@@ -172,6 +181,7 @@ cluster_PE c_pe (
 wire [center_size - 1 : 0] ce_parent,ce_left,point_in;
 reg  [center_size - 1 : 0] ce_right;
 assign point_in  = data_from_top[0 +: data_half_size];
+
 assign ce_parent = (command_from_top == point_in_as_root || command_from_top == point_in_with_best) ? point_in: old_center;
 							
 							
@@ -229,8 +239,8 @@ cluster_CE #(.name(name)) c_ce (
 						.other_branch(other_branch),
 						.new_left(ce_left_out),
 						.new_parent(ce_self_out),
-						.new_right(ce_right_out)
-						);
+						.new_right(ce_right_out) 
+						); 
  
 wire [2:0] ce_command;
 assign ce_command = {left_switch, self_switch, right_switch};
@@ -238,14 +248,14 @@ assign ce_command = {left_switch, self_switch, right_switch};
 always @* begin
 	case (ce_command)
         4'b0000:
-					if(command_to_top == valid_sort || command_to_top == sort_done)
-						if(virtual_root)
-							self_command <= next_sort_level;
-						else
-							self_command <= expose_center;
-					else
+					//if(command_to_top == valid_sort || command_to_top == sort_done || command_to_top == valid_done || command_to_top == get_most_right || command_to_top == get_most_left)
+					//	if(virtual_root)
+					//		self_command <= next_sort_level;
+					//	else
+					//		self_command <= expose_center;
+					//else
 						self_command = nop;
-		 	//4'b0001:  begin 
+		 	//4'b0001:  begin  
  			//	if(left_en && right_en) 
 			//		self_command = sort_done1;
 			//	else self_command = nop; 
@@ -352,11 +362,24 @@ if(command_from_top != nop)
 				command_to_right <= configure_sort_axis;
 				command_to_top <= nop;
 			end
-		
-		
+		end 
+		 
+		axis_set_inc: begin
+			sorting_axis <= data_from_top;
+			command_to_left <= axis_set_inc;
+			command_to_right <= axis_set_inc;
+			if(data_from_top == 2) begin
+				data_to_right <= 0;
+				data_to_left  <= 0;
+			end
+			else begin
+				data_to_right <= data_from_top + 1;
+				data_to_left  <= data_from_top + 1;
+			end
 		end
 		//////////////////////////////////////////// END CONFIGURATION  /////////////////////////////
 		
+		/*
 		 
 		receive_center: begin
 						if(command_to_top == receive_center && command_from_top == receive_center) begin
@@ -376,6 +399,31 @@ if(command_from_top != nop)
 						
 		end
 		 
+		*/
+		receive_center: begin
+							if(command_to_top == receive_center) begin
+								data_to_top <= old_center;
+								command_to_top <= ready_to_sort ;
+								command_to_left <= nop;
+								command_to_right <= nop;
+	
+							end  
+							else begin
+								old_center <= data_from_top;
+								command_to_top <= receive_center;
+								//if(command_from_left == valid_done) begin
+								//	command_to_left <= hold;
+								//	command_to_right <= hold;
+								//end
+								//else begin
+									command_to_left <= nop;
+									command_to_right <= nop;
+								
+								//end
+								
+							end
+			end 
+		
 		
 		//////////////////////////////END receive_point //////////////////////
 		start_sorting: begin
@@ -419,75 +467,252 @@ if(command_from_top != nop)
 			virtual_root <= 1;
 		end
 		
-
-		
+ 
+		  
 		
 		///////////////////////////////////// Start sorting END ///////////////////////////
-		
-		sort_left_validate: begin  
-		if(left_dne || (sorting_axis == 0 && data_from_top[0+:dim_size] < data_from_left[0+:dim_size]) &&
-							(sorting_axis == 1 && data_from_top[dim_size+:dim_size] < data_from_left[dim_size+:dim_size]) && 
-							(sorting_axis == 2 && data_from_top[2*dim_size+:dim_size] < data_from_left[2*dim_size+:dim_size])) begin
-				data_to_top <= data_from_top;
-				command_to_top <= valid_done;
-		
-		end
-			else begin 
+		/* 
+		sort_left_validate: 
+		if(!left_dne ) begin
+				if(command_to_top == valid_done)
+					command_to_left <= nop; 
+				else if(command_to_left != get_most_left && (command_from_left == valid_sort || command_from_left == valid_done)) begin
+					command_to_left <= get_most_left;				
+	 			end 
+				else if (command_from_left == get_most_left ) begin
+					if((sorting_axis == 0 && data_from_top[0+:dim_size] < data_from_left[0+:dim_size]) || (sorting_axis == 1 && data_from_top[dim_size+:dim_size] < data_from_left[dim_size+:dim_size]) || (sorting_axis == 2 && data_from_top[2*dim_size+:dim_size] < data_from_left[2*dim_size+:dim_size])) begin
+						data_to_top <= data_from_top;
+						command_to_top <= valid_done;
+					end
+					else begin 
 					data_to_top <= data_from_left;
-					command_to_left <= receive_center;
+					command_to_left <= set_most_left;
 					data_to_left <= data_from_top;
 					command_to_top <= valid_done;
-
-			end 
+					end
+				end 
+			end
+			 
 			
-		end 
+		else if (left_dne) begin
+			data_to_top <= data_from_top;
+			command_to_top <= valid_done;
+		end
+		*/
+		/*
+		sort_right_validate: 
+		if(!right_dne) begin
+			if(command_to_top == valid_done)
+					command_to_right <= nop;
+				else if (command_to_right != get_most_right  && (command_from_right == valid_sort || command_from_right == valid_done)  ) begin
+					command_to_right <= get_most_right;				
+				end
+    			else if (command_from_right == get_most_right) begin
+					if((sorting_axis == 0 && data_from_top[0+:dim_size] > data_from_right[0+:dim_size]) || (sorting_axis == 1 && data_from_top[dim_size+:dim_size] > data_from_right[dim_size+:dim_size]) || (sorting_axis == 2 && data_from_top[2*dim_size+:dim_size] > data_from_right[2*dim_size+:dim_size])) begin
+						data_to_top <= data_from_top;
+						command_to_top <= valid_done;
+					end
+					else begin 
+						data_to_top <= data_from_right;
+						command_to_right <= set_most_right;
+						data_to_right <= data_from_top;
+						command_to_top <= valid_done;
+					end 
+				end 
+			end
+		else if(right_dne) begin
+			data_to_top <= data_from_top;
+			command_to_top <= valid_done;
+		end
+		*/
+		 
+		nopme: begin
+			command_to_top <= nop;
+			//data_to_top <= {data_size{1'b0}};
+			
+			command_to_left <= nopme;
+			data_to_right <= {data_size{1'b0}};
+			command_to_right <= nopme;
+			data_to_left <= {data_size{1'b0}};
+		end
 		
 		sort_right_validate: begin
-		if(right_dne || (sorting_axis == 0 && data_from_top[0+:dim_size] > data_from_left[0+:dim_size]) &&
-							 (sorting_axis == 1 && data_from_top[dim_size+:dim_size] > data_from_left[dim_size+:dim_size]) && 
-							 (sorting_axis == 2 && data_from_top[2*dim_size+:dim_size] > data_from_left[2*dim_size+:dim_size])) begin
+			if(right_dne) begin
 				data_to_top <= data_from_top;
 				command_to_top <= valid_done;
-
-		end 
-			else begin 
-				data_to_top <= data_from_right;
-				command_to_right <= receive_center;
-				data_to_right <= data_from_top;
-				command_to_top <= valid_done;
-
-			end 
+			end
+			else if(command_to_top != valid_done) begin
+				if(command_to_right != get_most_right) begin
+					command_to_right <= get_most_right;
+				end
+				else if(command_from_right == get_most_right) begin
+					if((sorting_axis == 0 && data_from_top[0+:dim_size] > data_from_right[0+:dim_size]) || (sorting_axis == 1 && data_from_top[dim_size+:dim_size] > data_from_right[dim_size+:dim_size]) || (sorting_axis == 2 && data_from_top[2*dim_size+:dim_size] > data_from_right[2*dim_size+:dim_size])) begin
+						data_to_top <= data_from_top;
+						command_to_top <= valid_done;
+						command_to_right <= nop;
+					end
+					else begin 
+						data_to_top <= data_from_right;
+						command_to_right <= set_most_right;
+						data_to_right <= data_from_top;
+						command_to_top <= valid_done;
+					end 
+				end
+			end
 		end
 		
 		
+		sort_left_validate: begin
+			if(left_dne) begin
+				data_to_top <= data_from_top;
+				command_to_top <= valid_done;
+			end
+			else if(command_to_top != valid_done) begin
+				if(command_to_left != get_most_left) begin
+					command_to_left <= get_most_left;
+				end
+				else if(command_from_left == get_most_left) begin
+					if((sorting_axis == 0 && data_from_top[0+:dim_size] < data_from_left[0+:dim_size]) || (sorting_axis == 1 && data_from_top[dim_size+:dim_size] < data_from_left[dim_size+:dim_size]) || (sorting_axis == 2 && data_from_top[2*dim_size+:dim_size] < data_from_left[2*dim_size+:dim_size])) begin
+						data_to_top <= data_from_top;
+						command_to_top <= valid_done;
+						command_to_left <= nop;
+					end
+					else begin 
+						data_to_top <= data_from_left;
+						command_to_left <= set_most_left;
+						data_to_left <= data_from_top;
+						command_to_top <= valid_done;
+					end 
+				end
+			end
+		end
+		get_most_right:
+			if(right_dne) begin
+				command_to_top <= get_most_right;
+				data_to_top <= old_center;
+			end
+			else if(command_from_right == get_most_right) begin
+				command_to_top <= get_most_right;
+				data_to_top <= data_from_right;
+				command_to_right <= nop;
+			end
+			else if( command_from_right == valid_sort || command_from_right == valid_done )
+				command_to_right <= get_most_right;
+			 
+		get_most_left:  
+			if(left_dne) begin
+				command_to_top <= get_most_left;
+				data_to_top <= old_center;
+			end
+			else if(command_from_left == get_most_left) begin
+				command_to_top <= get_most_left;
+				data_to_top <= data_from_left;
+				command_to_left <= nop;
+			end
+			 
+			else if(command_to_top == get_most_right)begin
+				command_to_left <= nop;
+				command_to_top <= nop;
+			end
+			else if( command_from_left == valid_sort || command_from_left == valid_done) 
+				command_to_left <= get_most_left;
+			
+			  
+		set_most_left: begin
+			if(left_dne) begin
+				old_center <= data_from_top;
+				//command_to_top <= valid_done;
+				data_to_top  <= data_from_top; 
+			end
+			
+			else if(command_to_left == set_most_left)
+				command_to_left <= nop;
+	
+			else  begin
+				command_to_left <= set_most_left;
+				data_to_left <= data_from_top;
+			end
+			
+			command_to_top <= nop;			
+		end
+		
+		
+		set_most_right: begin 
+			if(right_dne) begin
+				old_center <= data_from_top;
+				command_to_top <= valid_done;
+				data_to_top  <= data_from_top;
+			end
+			
+			else if(command_to_right == set_most_right)
+				command_to_right <= nop;
+			else begin
+				command_to_right <= set_most_right;
+				data_to_right <= data_from_top;
+			end
+			
+		
+			command_to_top <= nop;
+		end
 		
 		////////////////////////////// POint COmmands ///////////////////////////
-		
+		 
 		point_in_as_root : begin
 				sorting = 0;
-
 			if(both_dne) begin
 				command_to_top <= return_best;
 				data_to_top    <= {ce_self_out,point_in};
 			end
-			else if(first_direction) begin
-				if(command_from_left == return_best) begin
-					if(other_branch) begin
-						if(command_from_right == return_best) begin
-							command_to_top <= return_best;
+			else if(first_direction) begin  /// if we started with left
+				if(command_from_left == return_best) begin // if left finishes
+					if(other_branch) begin        // if we need to go right
+						if(command_from_right == return_best) begin // if we went right and right finishes
+							command_to_top <= return_best;    
 						   data_to_top    <= data_from_right;
-						
+							if(old_center == data_from_right[data_half_size +: data_half_size]) begin
+								accX <= accX + data_from_right[data_half_size + 0          +: dim_size];
+								accY <= accY + data_from_right[data_half_size + dim_size   +: dim_size];
+								accZ <= accZ + data_from_right[data_half_size + 2*dim_size +: dim_size];
+								counter <= counter + 1'b1;
+								$display("%s acc this %x center %x",name,data_from_right,old_center);
+							end
+							else begin
+								command_to_left <= accomulate;
+								data_to_left <= data_from_right;
+								command_to_right <= accomulate;
+								data_to_right <= data_from_right;
+							end
+							
+						end 
+						else begin // if we need to go right and write did not finish,
+							command_to_right <= point_in_with_best;
+							data_to_right     <= data_from_left;
 						end
-						command_to_right <= point_in_with_best;
-						data_to_right     <= data_from_left;
-						
 					end 
-					else begin
+					else begin  // if we went left and no need to go right
 						command_to_top <= return_best;
 						data_to_top    <= data_from_left;
+						if(old_center == data_from_left[data_half_size +: data_half_size]) begin
+								accX <= accX + data_from_left[data_half_size + 0          +: dim_size];
+								accY <= accY + data_from_left[data_half_size + dim_size   +: dim_size];
+								accZ <= accZ + data_from_left[data_half_size + 2*dim_size +: dim_size];
+								counter <= counter + 1'b1;
+								$display("%s acc this %x center %x",name,data_from_left,old_center);
+
+							end
+							else begin
+								command_to_left <= accomulate;
+								data_to_left <= data_from_left;
+								command_to_right <= accomulate;
+								data_to_right <= data_from_left;
+							end
+							//command_to_left <= accomulate;
+							//data_to_left <= data_from_left;
+							//command_to_right <= accomulate;
+							//data_to_right <= data_from_left;
 					end
 				end
-				else begin
+				else begin 
 					command_to_left  <= point_in_with_best;
 					data_to_left     <=  {ce_self_out,point_in};
 					command_to_right <= nop;
@@ -500,13 +725,51 @@ if(command_from_top != nop)
 			 			if(command_from_left == return_best) begin
 							command_to_top <= return_best;
 							data_to_top    <= data_from_left;
+							if(old_center == data_from_left[data_half_size +: data_half_size]) begin
+								accX <= accX + data_from_left[data_half_size + 0          +: dim_size];
+								accY <= accY + data_from_left[data_half_size + dim_size   +: dim_size];
+								accZ <= accZ + data_from_left[data_half_size + 2*dim_size +: dim_size];
+								counter <= counter + 1'b1;
+								$display("%s acc this %x center %x",name,data_from_left,old_center);
+							end
+							else begin
+								command_to_left <= accomulate;
+								data_to_left <= data_from_left;
+								command_to_right <= accomulate;
+								data_to_right <= data_from_left;
+							end
+							////command_to_left <= accomulate;
+							//data_to_left <= data_from_left;
+							//command_to_right <= accomulate;
+							//data_to_right <= data_from_left;
+					
 						end
-						command_to_left <= point_in_with_best;
-						data_to_left     <= data_from_right;
+						else begin 
+							command_to_left <= point_in_with_best;
+							data_to_left     <= data_from_right;
+						end
 					end 
 					else begin
 						command_to_top <= return_best;
 						data_to_top    <= data_from_right;
+						if(old_center == data_from_right[data_half_size +: data_half_size]) begin
+								accX <= accX + data_from_right[data_half_size + 0          +: dim_size];
+								accY <= accY + data_from_right[data_half_size + dim_size   +: dim_size];
+								accZ <= accZ + data_from_right[data_half_size + 2*dim_size +: dim_size];
+								counter <= counter + 1'b1;
+								$display("%s acc this %x center %x",name,data_from_right,old_center);
+
+							end
+							else begin
+								command_to_left <= accomulate;
+								data_to_left <= data_from_right;
+								command_to_right <= accomulate;
+								data_to_right <= data_from_right;
+							end//command_to_left <= accomulate;
+						//data_to_left <= data_from_right;
+						//command_to_right <= accomulate;
+						//data_to_right <= data_from_right;
+					
 					end
 				end
 				else begin
@@ -517,6 +780,26 @@ if(command_from_top != nop)
 				end
 			end
 		end 
+		 
+		accomulate: begin
+			command_to_top <= nop;
+			if(old_center == data_from_top[data_half_size +: data_half_size]) begin
+						accX <= accX + data_from_top[data_half_size + 0          +: dim_size];
+						accY <= accY + data_from_top[data_half_size + dim_size   +: dim_size];
+						accZ <= accZ + data_from_top[data_half_size + 2*dim_size +: dim_size];
+						counter <= counter + 1'b1;
+						$display("%s acc this %x center %x",name,data_from_top,old_center);
+			end
+			else begin
+				command_to_left <= accomulate;
+				data_to_left <= data_from_top; 
+				command_to_right <= accomulate;
+				data_to_right <= data_from_top;
+					
+			end
+		
+		end
+		
 		
 		point_in_with_best :
 		begin
@@ -539,7 +822,7 @@ if(command_from_top != nop)
 						
 					end 
 					else begin
-						command_to_top <= return_best;
+				 		command_to_top <= return_best;
 						data_to_top    <= data_from_left;
 					end
 				end 
@@ -571,39 +854,51 @@ if(command_from_top != nop)
 					command_to_left   <= nop;
 					data_to_left      <= 0;
 				end
-			end
-		end 
-		
-		
-		
-		
-		
-  
-		endcase
-	
+		 	end
+		end  ///////////////// if hold abonden every thing and make suitable enviroment
+		//hold: command_to_top <= valid_sort;
+		endcase 
+	  
 	else if(self_command != nop) begin 
 		case(self_command)
-			switch:
-				begin
-					if (command_to_left == receive_center && command_from_left == receive_center) begin
-						command_to_right <= nop;
-						command_to_left <= nop;
-						command_to_top <= ready_to_sort;
-						data_to_top <= old_center;
-					end
-					else if ((command_from_left == ready_to_sort || command_from_left == valid_sort) && (command_from_right == ready_to_sort || command_from_right == valid_sort) ) begin
-						data_to_left <= ce_left_out;
-						data_to_right <= ce_right_out;
-						old_center <= ce_self_out;
-						command_to_left <= receive_center;
-						command_to_right <= receive_center;
-						command_to_top <= busy;
+			switch: 
+			if(command_to_left == receive_center && command_to_right == receive_center && command_from_left == receive_center && command_from_right == receive_center) begin
+							command_to_left  <= nop;
+							command_to_right <= nop;
+							command_to_top   <= ready_to_sort;
+							data_to_top      <= ce_self_out; 
+							old_center       <= ce_self_out;
+			end
+			else if ((command_to_left != receive_center && command_to_right != receive_center) && (command_from_left == ready_to_sort || command_from_left == valid_sort ) && (command_from_right == ready_to_sort || command_from_right == valid_sort) ) begin
+					 if (command_to_left != hold && command_to_right != hold) begin
+							command_to_right <= hold;
+							command_to_left  <= hold;
+							command_to_top   <= busy;
+							data_to_top <= old_center;
+							//data_to_top <= old_center;
+						end  
+						else begin
+							data_to_left     <= ce_left_out;
+							data_to_right    <= ce_right_out;
+							command_to_left  <= receive_center;
+							command_to_right <= receive_center;
+							command_to_top   <= busy; 
+
+						end		 
 					end 
-				end
 				 
-			expose_center: begin 
-				if(command_from_right == sort_done && command_from_left == sort_done)
-					command_to_top <= sort_done;
+			expose_center: begin  
+				//if(command_from_right == sort_done && command_from_left == sort_done)
+				//if(command_to_top == valid_done || command_to_top == get_most_right || command_to_top == get_most_left)
+				//	command_to_top <= valid_done;
+				//else
+				//if(command_to_top == valid_sort)
+				//	command_to_top <= valid_sort;
+				//else
+				if(both_dne)
+					command_to_top <= valid_sort; 
+				else
+					command_to_top <= ready_to_sort;
 				data_to_top <= old_center;
 			end 
 			next_sort_level: begin  
@@ -637,46 +932,151 @@ if(command_from_top != nop)
 	else if(command_from_left != nop) begin 
 		case(command_from_left)
 			receive_center: begin 
-				if(command_to_left == receive_center) begin
 					command_to_right <= nop;
 					command_to_left <= nop;
 					command_to_top <= ready_to_sort;
 					data_to_top <= old_center; 
 					
 				end
-			 
-			end 
-			valid_sort: begin	
-			if(command_from_right == receive_center)
-				command_to_right <= nop;
-			
-			if(command_from_right == valid_sort) begin
-				if(command_to_left != sort_right_validate && command_to_left != start_sorting) begin
-						command_to_left <= sort_right_validate;
-						data_to_left   <= old_center;
-						command_to_top <= busy;
-						sorting = 0;
-  
+	 	/*      
+			valid_sort: begin
+					if(command_from_right == valid_sort && command_to_left != sort_right_validate) begin
+						if( command_to_left == hold) begin
+							command_to_left <= sort_right_validate;
+							data_to_left   <= old_center;
+							command_to_top <= busy;
+							sorting = 0;
+						end  
+						else begin  
+							command_to_left <= hold;
+							command_to_right <= hold;
+							command_to_top <= busy;
+							data_to_top <= old_center; 
+						end
+					end 
+			end  
+		*/
+
+
+			valid_sort: begin
+				if(command_from_right == valid_sort) begin
+					if(command_to_left != sort_right_validate) begin
+						if(command_to_left == hold) begin
+							command_to_left <= sort_right_validate;
+							data_to_left   <= old_center;
+							sorting = 0;
+						end 
+						else begin  
+							command_to_left <= hold;
+							command_to_right <= hold;
+							command_to_top <= busy;
+							data_to_top <= old_center; 
+						end
+					end
+				end
+				else if (command_from_right == valid_done) begin
+					if(command_to_left != sort_right_validate) begin
+						if(command_to_left == hold) begin
+							command_to_left <= sort_right_validate;
+							data_to_left   <= old_center;
+							sorting = 0;
+						end 
+						else begin  
+							command_to_left <= hold;
+							command_to_right <= hold;
+							command_to_top <= busy;
+							data_to_top <= old_center; 
+						end
+					end
 				end 
 			end
-			end 
-			valid_done: 
-				if(command_to_right != sort_left_validate  && command_to_left == sort_right_validate ) begin
-					command_to_right <= sort_left_validate;
-					data_to_right    <= data_from_left;
-					sorting = 0;
-				end 
-				else if(command_from_right == valid_done && command_from_left ==  valid_done && command_to_left == sort_right_validate) begin
-					command_to_right <= nop;
-					command_to_left <= nop;
-				 	old_center <= data_from_right;
-					command_to_top <= valid_sort; 
-					data_to_top <= data_from_right;
-					sorting = 1;
+			valid_semi_done :begin
+				if(command_from_right == valid_sort) begin
+					if(command_to_right != sort_left_validate) begin
+						command_to_right <= sort_left_validate;
+						data_to_right    <= data_from_left;
+					end
 				end
+				else if (command_from_right == valid_done) begin
+					if(command_to_right == sort_left_validate) begin
+						command_to_right <= nop;
+						command_to_left <= nop;
+						old_center <= data_from_right;
+						command_to_top <= valid_sort; 
+						data_to_top <= data_from_right;
+						sorting = 1;
+					
+					end
+					else begin
+						command_to_right <= nop;
+						command_to_left <= nop;
+						old_center <= data_from_left;
+						command_to_top <= valid_sort; 
+						data_to_top <= data_from_left;
+						sorting = 1;
+					end
+				end
+			end
+			
+			
+			
+			valid_done: begin
+				if(command_from_right == valid_sort) begin
+					if(command_to_right != sort_left_validate) begin
+						command_to_right <= sort_left_validate;
+						data_to_right    <= data_from_left;
+					end
+				end
+				else if (command_from_right == valid_done) begin
+					if(command_to_right == sort_left_validate) begin
+						command_to_right <= nop;
+						command_to_left <= nop;
+						old_center <= data_from_right; 
+						command_to_top <= valid_sort; 
+						data_to_top <= data_from_right;
+						sorting = 1;
+					
+					end 
+					else if (command_to_left == sort_right_validate) begin
+						command_to_right <= nop;
+						command_to_left <= nop;
+						old_center <= data_from_left;
+						command_to_top <= valid_sort; 
+						data_to_top <= data_from_left;
+						sorting = 1;
+					end
+				end
+			end
+			
+			
+			
+
+/*			valid_done: 
+					if(command_to_right != sort_left_validate && command_to_left == sort_right_validate)  begin
+						command_to_right <= sort_left_validate;
+						data_to_right    <= data_from_left;
+						sorting = 0;
+					end 
+					else if(command_from_right == valid_done && command_to_left == sort_right_validate) begin
+						command_to_right <= nop;
+						command_to_left <= nop;
+						old_center <= data_from_right;
+						command_to_top <= valid_sort; 
+						data_to_top <= data_from_right;
+						sorting = 1;
+					end 
+					else if(command_from_right == valid_done)
+							command_to_top <= valid_sort; 
+*/
+					
+				
+				
 			sort_done: if(command_from_right == sort_done) command_to_top <= sort_done;
 			dne: if(sorting) begin
-				command_to_top <= valid_sort;
+				if( command_to_top == valid_done) 
+					command_to_top <= valid_done;
+				else 
+					command_to_top <= valid_sort;
 				data_to_top <= old_center;
 			end
 			ready_to_sort: if(command_from_right == ready_to_sort) begin
@@ -684,12 +1084,15 @@ if(command_from_top != nop)
 				command_to_left  <= nop; 
 			
 			end
-		endcase
+		endcase 
 	end
 	else if(command_from_right != nop) begin
 		case(command_from_right)
 	 		dne: if(sorting) begin
-				command_to_top <= valid_sort;
+				if( command_to_top == valid_done) 
+					command_to_top <= valid_done;
+				else 
+					command_to_top <= valid_sort;
 				data_to_top <= old_center;
 			end
 			

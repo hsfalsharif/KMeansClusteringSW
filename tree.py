@@ -504,7 +504,7 @@ class Tree:
             for x in self.data:
                 self.fnc_calls = 0
                 cube = self.traverse(self.kd_tree, x, 3, self.manhattan_no_div)
-                self.kd_tree.print()
+                #self.kd_tree.print()
                 # print(self.fnc_calls)
                 self.fnc_accumulated += self.fnc_calls
                 self.fnc_counter += 1
@@ -740,8 +740,8 @@ class Tree:
 r, g, b = 3, 3, 3
 x = Tree()
 x.set_data_options(n_samples=10000, centers=100, dim=3, min_max=(0, 10000), data_center_deviations=1000)
-# x.generate_data()
-x.get_data_from_image(filename="testImage.rgb")
+x.generate_data()
+#x.get_data_from_image(filename="testImage.rgb")
 x.divide_space_equally(r, g, b)
 # x.cluster_data()
 x.kd_cluster_data()
@@ -753,5 +753,7 @@ print(x.centers_from_cubes())
 print(r, g, b)
 fnc_call_average = x.fnc_accumulated / x.fnc_counter
 print(fnc_call_average)
+for i in x.cubes:
+    print(i.center,i.counter,i.acc)
 ###########################################################################################
 # %%
