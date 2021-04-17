@@ -1,17 +1,17 @@
 import os
 import random
 
-K = 32
+K = 16
 old_means = []
 means = []
 pixel_accumulators = []
 pixel_counters = []
-threshold = 1
+threshold = 3
 stability_list = []
-filename = 'testImage.rgb'
+filename = 'pictures/Caribbean-beach.rgb'
 
 
-def get_data_source(option='read', filename='testImage.rgb', image_size=4000):
+def get_data_source(option='read', filename='pictures/Caribbean-beach.rgb', image_size=4000):
     if option == 'read':
         image_size = int(os.path.getsize(filename) / 3)
         f = open(filename, "rb")
@@ -31,7 +31,7 @@ def get_data_source(option='read', filename='testImage.rgb', image_size=4000):
 def k_means(K=16, threshold=6, filename='testImage.rgb'):
     global old_means
     max_r, max_g, max_b, min_r, min_g, min_b = find_min_max(filename=filename)
-    initialize_means(K, 'cube', min_r, max_r, min_g, max_g, min_b, max_b, r_split=2, g_split=4, b_split=4)
+    initialize_means(K, 'diagonal', min_r, max_r, min_g, max_g, min_b, max_b, r_split=2, g_split=4, b_split=4)
     f, image_size = get_data_source('read', filename=filename)
     red = f.read(1)
     green = f.read(1)
@@ -120,7 +120,7 @@ def initialize_means(K=16, option='diagonal', min_r=0, max_r=255, min_g=0, max_g
         # so far we are restricting ourselves to 3D data
 
 
-def find_min_max(filename='testImage.rgb'):
+def find_min_max(filename='pictures/Caribbean-beach.rgb'):
     f = open(filename, "rb")
     red = f.read(1)
     green = f.read(1)
@@ -170,7 +170,7 @@ def closest_mean_index(r, g, b):
     return closest_idx
 
 
-def write_segmented_image(in_file='testImage.rgb', outfile='testImageOut.rgb'):
+def write_segmented_image(in_file='pictures/Caribbean-beach.rgb', outfile='testImageOut.rgb'):
     f = open(in_file, "rb")
     o = open(outfile, "wb")
     red = f.read(1)
@@ -198,4 +198,4 @@ def closest_mean(r, g, b):
 
 
 k_means(K, threshold, filename)
-write_segmented_image('testImage.rgb', 'testImageOut.rgb')
+write_segmented_image('pictures/Caribbean-beach.rgb', 'testImageOut.rgb')
