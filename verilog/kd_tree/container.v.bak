@@ -1,0 +1,38 @@
+module container();
+
+wire[command_size - 1: 0 ] n0_command_up,n0_command_right,n0_command_left;
+wire [data_size - 1 : 0]   n0_data_up,n0_data_right,n0_data_left;
+
+            node #("n0") n0(
+            ///////// input //////////////
+                         .clk(clk),
+                         .data_from_top(tb_data),
+                         .data_from_right(n2_data_up),
+                         .data_from_left (n1_data_up),
+                         .command_from_top(tb_command),
+                         .command_from_right(n2_command_up),
+                         .command_from_left (n1_command_up),
+
+                         ///////// output //////////////
+                         .data_to_top     (n0_data_up),
+                         .data_to_right   (n0_data_right),
+                         .data_to_left    (n0_data_left),
+                         .command_to_top  (n0_command_up),
+                         .command_to_right(n0_command_right),
+                         .command_to_left (n0_command_left)
+                         );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+endmodule 

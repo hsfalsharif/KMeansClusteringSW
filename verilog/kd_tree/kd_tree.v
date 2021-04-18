@@ -33,7 +33,12 @@ localparam nop 					 		= 6'h00,
 			  set_most_right           = 6'h1d,
 			  nopme                    = 6'h06,
 			  valid_semi_done          = 6'h20,
-			  axis_set_inc             = 6'h21;
+			  axis_set_inc             = 6'h21,
+			  accomulate               = 6'h22,
+			  divide                   = 6'h23,
+			  new_iteration            = 6'h24,
+			  stable                   = 6'h25,
+			  unstable                 = 6'h26;
 			  
 localparam cycle_counter_size = $clog2(100000000);
 
@@ -46,16 +51,17 @@ localparam fill_center_tb = 5'b00001,
 			  wait_sort       = 5'b000110,
 			  point_tb        = 5'b000111,
 			  set_axis        = 5'b001000,
-			  new_point       = 5'b001001;
+			  new_point       = 5'b001001,
+			  stability       = 5'b001010;
 reg [5:0]tb_state;
- 
   
+   
   
 localparam data_num     = 100;
 			  
 localparam  dim_size     = $clog2(255),
 				dim          = 3,
-				max_n        = 3800, 
+				max_n        = 100, 
 				center_size  = dim*dim_size,
 				counter_size = $clog2(max_n),
 				acc_size     = $clog2(dim_size*max_n),
@@ -414,8 +420,8 @@ wire [data_size - 1 : 0]   n14_data_up,n14_data_right,n14_data_left;
 
 initial begin
         $display("Loading image.\n");
-        $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
-		  $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/sample.hex", in_point);
+        $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/means.hex", in_im);
+		  $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_point);
 
 		  //$readmemh("C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
 		  //$readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
@@ -484,10 +490,11 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 				tb_command <= axis_set_inc;
 				tb_data    <= 0;
 				tb_state   <= point_tb;
-		end 
+		end  
 		point_tb: begin 
 			if(n0_command_up == return_best) begin
 				tb_command <= nopme;
+				point_counter <= point_counter + 1; 
 				tb_data    <= {data_size{1'b0}};
 				tb_state <= new_point;
 			end
@@ -500,14 +507,27 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 		end
 		new_point: begin 
 				$display("%x ==> %x %d",n0_data_up[0 +: data_half_size] , n0_data_up[data_half_size +: data_half_size],point_t);
-				point_counter <= point_counter + 1; 
 				point_t <= 0;
-				if(point_counter == max_n)	
-					tb_state <= done;
+				if(point_counter >= max_n) begin	
+					tb_state <= stability;
+					point_counter <= 0;
+				end
 				else 
 					tb_state <= point_tb;
 				
 				
+		end
+		stability: begin
+			tb_command <= divide;
+			tb_data    <= {data_size{1'b1}};
+			
+			if(n0_command_up == unstable)begin
+				tb_state <= point_tb;
+				tb_command <= new_iteration;
+			end
+			else if(n0_command_up == stable)
+				tb_state <= done;
+			
 		end
 		stall : begin 
 					 tb_command <= nop;  

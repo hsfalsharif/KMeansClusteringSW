@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CGXFC7C7F23C8
-set_global_assignment -name TOP_LEVEL_ENTITY kd_tree
+set_global_assignment -name TOP_LEVEL_ENTITY container
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:06:57  MARCH 31, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
@@ -74,13 +74,15 @@ set_global_assignment -name VERILOG_FILE cluster_pe_tb.v
 set_global_assignment -name EDA_TEST_BENCH_NAME kd_tree -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id kd_tree
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME kd_tree -section_id kd_tree
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name EDA_TEST_BENCH_FILE cluster_ce_tb.v -section_id cluster_ce_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE cluster_pe_tb.v -section_id cluster_pe_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE kd_tree.v -section_id kd_tree
 
 set_global_assignment -name VERILOG_NON_CONSTANT_LOOP_LIMIT 4294967295
 set_global_assignment -name VERILOG_CONSTANT_LOOP_LIMIT 4294967295
+set_global_assignment -name QIP_FILE divider.qip
+set_global_assignment -name VERILOG_FILE container.v
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -49,21 +49,31 @@ class general_kmean:
         for r, g, b in X:
             self.data.append([min(max(int(round(r, 0)),0),255), min(max(int(round(b, 0)),0),255), min(max(int(round(g, 0)),0),255)])
 
-    def initilize_clusters(self):
-        for i in range(self.k):
-            c = self.cluster()
-            val = i*(255//self.k)
-            c.center = [val,val,val]
-            self.clusters.append(c)
+    def initilize_clusters(self,m):
+        
+        if m is None:
+            for i in range(self.k):
+                c = self.cluster()
+                val = i*(255//self.k)
+                c.center = [val,val,val]
+                self.clusters.append(c)
+        else:
+            for i in m:
+                c = self.cluster()
+                c.center = i
+                self.clusters.append(c)
+
 
     def square_dist(self,c,p):
         return (c.center[0]-p[0])**2 + (c.center[1]-p[1])**2 + (c.center[2]-p[2])**2 
     
+    def man(self,c,p):
+        return abs(c.center[0]-p[0]) + abs(c.center[1]-p[1]) + abs(c.center[2]-p[2]) 
     def find_cluster(self,point):
         min_dist = 100000000
         closer = None
         for c in self.clusters:
-            d = self.square_dist(c,point)
+            d = self.man(c,point)
             if  d < min_dist :
                 min_dist = d
                 closer = c
@@ -94,7 +104,7 @@ class general_kmean:
                         exit()
             print(f"########### {it} ###########")
             for c in self.clusters:
-                print(f"[{self.clusters.index(c)}] cluster at {c.center} counter {c.counter} acc {c.acc}")
+                print(f"[{self.clusters.index(c)}] cluster at {[hex(i) for i in c.center]} counter {c.counter} acc {[hex(i) for i in c.acc]}")
 
             print(f"###########      ###########")
             for c in self.clusters:
@@ -124,15 +134,16 @@ class general_kmean:
 
 machine = general_kmean()
 
-machine.k = 16
+machine.k = 14
 machine.n_samples = 100
 machine.centers = 10
 machine.n_features = 3
 machine.center_box = (10,240)
 machine.cluster_std = 10
+c = [[0x80,0x1e,0x2c],[0x80,0x1e,0xd3],[0x80,0x1e,0x7f],[0x80,0x80,0x2c],[0x80,0x4f,0xd3],[0x80,0x4f,0x7f],[0x80,0x4f,0x2c],[0x80,0xb1,0x2c],[0x80,0x80,0xd3],[0x80,0xb1,0x7f],[0x80,0xe4,0x2c],[0x80,0xe4,0xd3], [0x80,0xe4,0x7f],[0x80,0xb1,0xd3],[0x80,0x80,0x7f],]
 
 machine.generate_data()
-machine.initilize_clusters()
+machine.initilize_clusters(c)
 machine.cluster_data()
 machine.data_to_hexfile("test.hex")
 

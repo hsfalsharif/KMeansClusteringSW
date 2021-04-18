@@ -296,7 +296,7 @@ class Tree:
             elif dist * best[1].counter < best[0] * kd_node.D.counter:
                 best[0], best[1] = dist, kd_node.D
             depth = (depth + 1) % dim
-            for b in [dx < 0] + [dx >= 0] * (dx + 34230432443242344233 < best[0]):
+            for b in [dx < 0] + [dx >= 0] * ((dx + 100) < best[0]):
                 if b:
                     self.traverse(kd_node.right, point, dim, dist_func, return_distances, depth, best)
                 else:
@@ -516,9 +516,9 @@ class Tree:
                 cube = self.traverse(self.kd_tree, x, 3, self.manhattan_no_div)
                 # print("Point", "[", hex(x[0]), hex(x[1]), hex(x[2]), "]", "Nearest Center", "[", hex(cube.center[0]),
                 #       hex(cube.center[1]), hex(cube.center[2]), "]")
-                print(f"{x[0]:02x}{x[1]:02x}{x[2]:02x}", "==>", f"{cube.center[0]:02x}{cube.center[1]:02x}"
-                                                                  f"{cube.center[2]:02x}")
-                print(self.fnc_calls)
+                #print(f"{x[0]:02x}{x[1]:02x}{x[2]:02x}", "==>", f"{cube.center[0]:02x}{cube.center[1]:02x}"
+                #                                                  f"{cube.center[2]:02x}")
+                #print(self.fnc_calls)
                 self.fnc_accumulated += self.fnc_calls
                 self.fnc_counter += 1
                 self.fnc_calls = 0
@@ -529,8 +529,6 @@ class Tree:
                 cube.counter_new += 1
                 cube.data.append(x)
             # print(len(self.data))
-            fnc_call_average = self.fnc_accumulated / self.fnc_counter
-            print(fnc_call_average)
             # input()
             # UPDATE THE TREES
             for i in self.cubes:
@@ -755,7 +753,7 @@ class Tree:
 ###########################################################################################
 r, g, b = 10, 10, 10
 x = Tree()
-x.set_data_options(n_samples=10000, centers=1000, dim=3, min_max=(10, 240), data_center_deviations=10)
+x.set_data_options(n_samples=1000000, centers=10000, dim=3, min_max=(10, 10000), data_center_deviations=1000)
 x.generate_data()
 # x.get_data_from_image(filename="testImage.rgb")
 x.divide_space_equally(r, g, b)
@@ -765,11 +763,11 @@ x.kd_cluster_data()
 # x.plot_data()
 x.silhouette_coefficient()
 print("Number of iterations: ", x.iterations)
-print(x.centers_from_cubes())
+##print(x.centers_from_cubes())
 print(r, g, b)
 fnc_call_average = x.fnc_accumulated / x.fnc_counter
 print(fnc_call_average)
-for i in x.cubes:
-    print(i.center,i.counter,i.acc)
+#for i in x.cubes:
+#    print(i.center,i.counter,i.acc)
 ###########################################################################################
 # %%

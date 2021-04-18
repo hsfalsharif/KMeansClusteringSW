@@ -4,7 +4,7 @@ module node(clk, data_from_top,data_from_right,data_from_left,command_from_top,c
 			  //center_size  = 24;
 localparam  dim_size     = $clog2(255),
 				dim          = 3,
-				max_n        = 1000,
+				max_n        = 10000,
 				center_size  = dim*dim_size,
 				counter_size = $clog2(max_n),
 				acc_size     = $clog2(dim_size*max_n),
@@ -13,8 +13,9 @@ localparam command_size = 6,
 			  data_size    = center_size * 2,
 			  data_half_size = center_size,
 			  ttl_size     = 4,
-			  axis_size    = 2; 
-parameter name="unknown";
+			  axis_size    = 2,
+			  threashold   = 4;
+parameter name="unknown"; 
 
 input clk;
 input      [data_size - 1 : 0]    data_from_top,data_from_right,data_from_left;
@@ -56,7 +57,11 @@ localparam nop 					 		= 6'h00,
 			  nopme                    = 6'h06,
 			  valid_semi_done          = 6'h20,
 			  axis_set_inc             = 6'h21,
-			  accomulate               = 6'h22;
+			  accomulate               = 6'h22,
+			  divide                   = 6'h23,
+			  new_iteration            = 6'h24,
+			  stable                   = 6'h25,
+			  unstable                 = 6'h26;
   
 reg [axis_size - 1 : 0] sorting_axis;
 reg [ttl_size - 1 : 0] time_to_live;
@@ -77,7 +82,26 @@ assign distance_calc = 1'b1; // distance_calc enables the ce to perform distance
 reg [command_size - 1 : 0] self_command;
 wire [center_size - 1:0] center_self_C2P, center_self_P2C, ce_left_out, ce_self_out, ce_right_out;
 reg rst_t, virtual_root, sorting;
-wire point_prop,first_direction;
+wire point_prop,first_direction,div_en,div_valid,div_clr;
+wire [dim_size-1:0] div_outX,div_outY,div_outZ;
+reg [9:0] div_pipe;
+assign div_en = command_from_top == divide;
+assign div_clr= !div_en; 
+assign div_valid = div_pipe[9];
+assign center_stableX = old_center[0			+:dim_size]  > div_outX - threashold && old_center[0			+:dim_size] < div_outX + threashold;
+assign center_stableY = old_center[dim_size  +:dim_size]  > div_outY - threashold && old_center[dim_size  +:dim_size] < div_outY + threashold;
+assign center_stableZ = old_center[2*dim_size+:dim_size]  > div_outZ - threashold && old_center[2*dim_size+:dim_size] < div_outZ + threashold;
+assign center_stable = counter == 0 || (center_stableX && center_stableY && center_stableZ);
+divider divx (.aclr(div_clr),.clock(clk),.denom(counter),.numer(accX),.quotient(div_outX),.remain(remaider));
+divider divy (.aclr(div_clr),.clock(clk),.denom(counter),.numer(accY),.quotient(div_outY),.remain(remaider));
+divider divz (.aclr(div_clr),.clock(clk),.denom(counter),.numer(accZ),.quotient(div_outZ),.remain(remaider));
+  
+always @(posedge clk) begin
+	if(div_clr)
+		div_pipe <= 0;
+	else
+		div_pipe <= {div_pipe[8:0],div_en};
+end
 // how many commands need to come from top at a single instance during processing?
 
 // two major outer global stages: init, sorting, and point propogation
@@ -670,9 +694,9 @@ if(command_from_top != nop)
 							command_to_top <= return_best;    
 						   data_to_top    <= data_from_right;
 							if(old_center == data_from_right[data_half_size +: data_half_size]) begin
-								accX <= accX + data_from_right[data_half_size + 0          +: dim_size];
-								accY <= accY + data_from_right[data_half_size + dim_size   +: dim_size];
-								accZ <= accZ + data_from_right[data_half_size + 2*dim_size +: dim_size];
+								accX <= accX + data_from_right[0          +: dim_size];
+								accY <= accY + data_from_right[dim_size   +: dim_size];
+								accZ <= accZ + data_from_right[2*dim_size +: dim_size];
 								counter <= counter + 1'b1;
 								$display("%s acc this %x center %x",name,data_from_right,old_center);
 							end
@@ -693,9 +717,9 @@ if(command_from_top != nop)
 						command_to_top <= return_best;
 						data_to_top    <= data_from_left;
 						if(old_center == data_from_left[data_half_size +: data_half_size]) begin
-								accX <= accX + data_from_left[data_half_size + 0          +: dim_size];
-								accY <= accY + data_from_left[data_half_size + dim_size   +: dim_size];
-								accZ <= accZ + data_from_left[data_half_size + 2*dim_size +: dim_size];
+								accX <= accX + data_from_left[0          +: dim_size];
+								accY <= accY + data_from_left[dim_size   +: dim_size];
+								accZ <= accZ + data_from_left[2*dim_size +: dim_size];
 								counter <= counter + 1'b1;
 								$display("%s acc this %x center %x",name,data_from_left,old_center);
 
@@ -726,9 +750,9 @@ if(command_from_top != nop)
 							command_to_top <= return_best;
 							data_to_top    <= data_from_left;
 							if(old_center == data_from_left[data_half_size +: data_half_size]) begin
-								accX <= accX + data_from_left[data_half_size + 0          +: dim_size];
-								accY <= accY + data_from_left[data_half_size + dim_size   +: dim_size];
-								accZ <= accZ + data_from_left[data_half_size + 2*dim_size +: dim_size];
+								accX <= accX + data_from_left[0          +: dim_size];
+								accY <= accY + data_from_left[dim_size   +: dim_size];
+								accZ <= accZ + data_from_left[2*dim_size +: dim_size];
 								counter <= counter + 1'b1;
 								$display("%s acc this %x center %x",name,data_from_left,old_center);
 							end
@@ -753,9 +777,9 @@ if(command_from_top != nop)
 						command_to_top <= return_best;
 						data_to_top    <= data_from_right;
 						if(old_center == data_from_right[data_half_size +: data_half_size]) begin
-								accX <= accX + data_from_right[data_half_size + 0          +: dim_size];
-								accY <= accY + data_from_right[data_half_size + dim_size   +: dim_size];
-								accZ <= accZ + data_from_right[data_half_size + 2*dim_size +: dim_size];
+								accX <= accX + data_from_right[0          +: dim_size];
+								accY <= accY + data_from_right[dim_size   +: dim_size];
+								accZ <= accZ + data_from_right[2*dim_size +: dim_size];
 								counter <= counter + 1'b1;
 								$display("%s acc this %x center %x",name,data_from_right,old_center);
 
@@ -784,9 +808,9 @@ if(command_from_top != nop)
 		accomulate: begin
 			command_to_top <= nop;
 			if(old_center == data_from_top[data_half_size +: data_half_size]) begin
-						accX <= accX + data_from_top[data_half_size + 0          +: dim_size];
-						accY <= accY + data_from_top[data_half_size + dim_size   +: dim_size];
-						accZ <= accZ + data_from_top[data_half_size + 2*dim_size +: dim_size];
+						accX <= accX + data_from_top[0          +: dim_size];
+						accY <= accY + data_from_top[dim_size   +: dim_size];
+						accZ <= accZ + data_from_top[2*dim_size +: dim_size];
 						counter <= counter + 1'b1;
 						$display("%s acc this %x center %x",name,data_from_top,old_center);
 			end
@@ -797,9 +821,44 @@ if(command_from_top != nop)
 				data_to_right <= data_from_top;
 					
 			end
-		
-		end
-		
+		 
+		end 
+		new_iteration: begin
+			if(command_to_left != new_iteration || command_to_right != new_iteration) begin
+				old_center <= new_center;
+			
+				accX <= {acc_size{1'b0}};
+				accY <= {acc_size{1'b0}};
+				accZ <= {acc_size{1'b0}};
+				counter <= {counter_size{1'b0}};
+			 
+				new_center <= {center_size{1'b0}};
+				command_to_top <= nop;
+				command_to_right <= new_iteration;
+				command_to_left  <= new_iteration;
+			end
+		end 
+		 
+		divide: begin 
+			command_to_left <= divide;
+			command_to_right <= divide;
+			$display("%s acc:[%x %x %x] counter: %d new_center: %x old_center: %x  div_out: [%x,%x,%x] center_stable: %x valid:%x  div_en:%x div_pipe:%x",name,accZ,accY,accX,counter,new_center,old_center,div_outZ,div_outY,div_outX,center_stable,div_valid,div_en,div_pipe);
+			if(div_valid) begin
+				if( counter != 0)
+					new_center <= {div_outZ,div_outY,div_outX};
+				else 
+					new_center <= old_center;
+					
+				if((command_from_right == stable && command_from_left == stable) || both_dne) begin 
+					if(center_stable)
+						command_to_top <= stable;
+					else
+						command_to_top <= unstable;
+					end
+				else if(command_from_right == unstable || command_from_left == unstable) 
+					command_to_top <= unstable;
+				end
+			end
 		
 		point_in_with_best :
 		begin
