@@ -61,7 +61,7 @@ localparam data_num     = 100;
 			  
 localparam  dim_size     = $clog2(255),
 				dim          = 3,
-				max_n        = 100, 
+				max_n        = 3800 , 
 				center_size  = dim*dim_size,
 				counter_size = $clog2(max_n),
 				acc_size     = $clog2(dim_size*max_n),
@@ -80,7 +80,7 @@ reg [23:0] in_point [max_n-1:0] ;
 reg [command_size - 1 : 0] tb_command;
 
 reg [3:0] stall_counter;
-reg [cycle_counter_size-1 : 0] cycle_count, serial_count,point_counter,point_t;
+reg [cycle_counter_size-1 : 0] cycle_count, serial_count,point_counter,point_t,it;
 reg clk , reset;
 
 ///////////////////// PASTE HERE ///////////////////////////////
@@ -421,7 +421,7 @@ wire [data_size - 1 : 0]   n14_data_up,n14_data_right,n14_data_left;
 initial begin
         $display("Loading image.\n");
         $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/means.hex", in_im);
-		  $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_point);
+		  $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/sample.hex", in_point);
 
 		  //$readmemh("C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
 		  //$readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
@@ -429,14 +429,14 @@ initial begin
     end
  
 initial begin	//the reset sequence and clock
-	clk = 0;reset = 0 ; cycle_count = 0 ;serial_count=0; tb_state = idel;point_counter = 0;point_t = 0;
+	clk = 0;reset = 0 ; cycle_count = 0 ;serial_count=0; tb_state = idel;point_counter = 0;point_t = 0;it= 0;
 	#5 reset = 1 ;clk=1; #5 reset = 0; clk=0;
 	repeat(42949672) #5 clk = ~clk ;
 	  end
  
 always @ (negedge clk)	begin 	// Read input pixels from in_im
 	cycle_count <= cycle_count + 1;
-	$display("#################### new cycle: %d ##########################",cycle_count); 
+	//$display("#################### new cycle: %d ##########################",cycle_count); 
 	if(reset) begin
 		tb_state <= idel;
 		stall_counter <= 0;
@@ -510,6 +510,8 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 				point_t <= 0;
 				if(point_counter >= max_n) begin	
 					tb_state <= stability;
+					$display("######################### Iteration : %d #########################" , it);
+					it <= it + 1;
 					point_counter <= 0;
 				end
 				else 

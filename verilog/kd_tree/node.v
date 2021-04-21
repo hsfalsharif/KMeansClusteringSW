@@ -698,7 +698,7 @@ if(command_from_top != nop)
 								accY <= accY + data_from_right[dim_size   +: dim_size];
 								accZ <= accZ + data_from_right[2*dim_size +: dim_size];
 								counter <= counter + 1'b1;
-								$display("%s acc this %x center %x",name,data_from_right,old_center);
+								//$display("%s acc this %x center %x",name,data_from_right,old_center);
 							end
 							else begin
 								command_to_left <= accomulate;
@@ -754,7 +754,7 @@ if(command_from_top != nop)
 								accY <= accY + data_from_left[dim_size   +: dim_size];
 								accZ <= accZ + data_from_left[2*dim_size +: dim_size];
 								counter <= counter + 1'b1;
-								$display("%s acc this %x center %x",name,data_from_left,old_center);
+								//$display("%s acc this %x center %x",name,data_from_left,old_center);
 							end
 							else begin
 								command_to_left <= accomulate;
@@ -781,7 +781,7 @@ if(command_from_top != nop)
 								accY <= accY + data_from_right[dim_size   +: dim_size];
 								accZ <= accZ + data_from_right[2*dim_size +: dim_size];
 								counter <= counter + 1'b1;
-								$display("%s acc this %x center %x",name,data_from_right,old_center);
+								//$display("%s acc this %x center %x",name,data_from_right,old_center);
 
 							end
 							else begin
@@ -812,7 +812,7 @@ if(command_from_top != nop)
 						accY <= accY + data_from_top[dim_size   +: dim_size];
 						accZ <= accZ + data_from_top[2*dim_size +: dim_size];
 						counter <= counter + 1'b1;
-						$display("%s acc this %x center %x",name,data_from_top,old_center);
+						//$display("%s acc this %x center %x",name,data_from_top,old_center);
 			end
 			else begin
 				command_to_left <= accomulate;

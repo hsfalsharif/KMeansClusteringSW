@@ -1,4 +1,9 @@
 from sklearn.datasets import make_blobs
+from math import sqrt
+import mock
+import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+import random
 
 class general_kmean:
     class cluster:
@@ -126,11 +131,83 @@ class general_kmean:
             o.write(f"{g:02x}")
             o.write(f"{b:02x}")
             o.write(" ")
+    
+    def means_from_file(self,filename):
+        f = open(filename,"r")
+        lines = list(f)
+        means = []
+        for m in lines:
+            means.append(self.hex_string_to_arr(m))
+        self.initilize_clusters(means)
+    
+    
+    def assign_points_to_clusters_from_file(self,filename):
+        f = open(filename,"r")
+        lines = list(f)
+        for l in lines:
+            point,cluster = l.split(" ==> ")
+            point   = self.hex_string_to_arr(point)
+            cluster = self.hex_string_to_arr(cluster)
+            self.accomulate(point,cluster)
 
+    def hex_string_to_arr(self,m):
+        return [int(m[0:2],16),int(m[2:4],16),int(m[4:6],16)]
 
+    def accomulate(self,x,cluster):
+        for c in self.clusters:
+            if c.center == cluster :
+                c.acc[0] += x[0]
+                c.acc[1] += x[1]
+                c.acc[2] += x[2]
+                c.counter += 1
+                c.data.append(x)
+                return
+        
+        print(f"ERROR CANT FIND CLUSTER : {cluster}")
+        return
+        
+    def silhouette_coefficient(self):
+        sil_accum = 0
+        sil_cofs = []
+        misclassified = []
+        for cube in self.clusters:
+            for point in cube.data:
+                second_nearest = self.real_second_closest(point, cube)
+                next_r = second_nearest.center[0]
+                next_g = second_nearest.center[1]
+                next_b = second_nearest.center[2]
+                a_i = self.euclidean(cube, point)
+                b_i = self.euclidean(second_nearest, point)
+                sil_coefficient = (b_i - a_i) / max(a_i, b_i)
+                sil_cofs.append(sil_coefficient)
+                if sil_coefficient < 0:
+                    misclassified.append(sil_coefficient)
+                sil_accum += sil_coefficient
+        plt.hist(sil_cofs, bins=60)
+        plt.title('Histogram of Silhouette Coefficients for an image')
+        plt.xlabel("Silhouette Coefficients")
+        plt.ylabel("Frequency")
+        plt.show()
+        print("Average Silhouette Coefficient = ", sil_accum / len(sil_cofs))
+        print("Percentage of misclassified points = ", len(misclassified) / len(sil_cofs) * 100)
+        print("K = ", len(self.clusters))
 
-
-
+    def real_second_closest(self, point, exclude):
+        mn = 1000000
+        nearest = None
+        for c in self.clusters:
+            if c.center == exclude.center:
+                continue
+            d = self.euclidean(c, point)
+            # print(f"D is {d}")
+            if mn > d:
+                nearest = c
+                mn = d
+                # print(f"nearest is {nearest.center}")
+        return nearest
+    def euclidean(self, cube, point):
+        return sqrt((cube.center[0] - point[0]) ** 2 + (cube.center[1] - point[1]) ** 2 +
+                      (cube.center[2] - point[2]) ** 2)
 
 machine = general_kmean()
 
@@ -142,13 +219,10 @@ machine.center_box = (10,240)
 machine.cluster_std = 10
 c = [[0x80,0x1e,0x2c],[0x80,0x1e,0xd3],[0x80,0x1e,0x7f],[0x80,0x80,0x2c],[0x80,0x4f,0xd3],[0x80,0x4f,0x7f],[0x80,0x4f,0x2c],[0x80,0xb1,0x2c],[0x80,0x80,0xd3],[0x80,0xb1,0x7f],[0x80,0xe4,0x2c],[0x80,0xe4,0xd3], [0x80,0xe4,0x7f],[0x80,0xb1,0xd3],[0x80,0x80,0x7f],]
 
-machine.generate_data()
-machine.initilize_clusters(c)
-machine.cluster_data()
-machine.data_to_hexfile("test.hex")
-
-
-
-
-
-        
+#machine.generate_data()
+#machine.initilize_clusters(c)
+#machine.cluster_data()
+#machine.data_to_hexfile("test.hex")
+machine.means_from_file("kd_tree/output/14_mean_out.txt")
+machine.assign_points_to_clusters_from_file("kd_tree/output/14_point_to_mean.txt")
+machine.silhouette_coefficient()

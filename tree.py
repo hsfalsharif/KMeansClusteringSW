@@ -88,7 +88,7 @@ class Tree:
             self.counter_new = 0
             self.data = []
             self.color = "#{:06x}".format(random.randint(0, 0xFFFFFF))
-            self.threshold = 2
+            self.threshold = 4
             self.stable = False
 
         def update(self):
@@ -175,7 +175,7 @@ class Tree:
         self.clear_dataset()
         X, y, m = make_blobs(n_samples=self.data_options.n_samples, centers=self.data_options.centers,
                              n_features=self.data_options.n_features, center_box=self.data_options.center_box,
-                             cluster_std=self.data_options.cluster_std, return_centers=True, random_state=42)
+                             cluster_std=self.data_options.cluster_std, return_centers=True, random_state=7)
         self.real_means = [[r, g, b] for r, g, b in m]
         self.real_means_int = [[int(round(r, 0)), int(round(g, 0)), int(round(b, 0))] for r, g, b in m]
 
@@ -285,18 +285,21 @@ class Tree:
             x.right = None
             x.D = cubes[0]
             return x
-
+    def square_dist(self,cube,point):
+        return (cube.center[0]-point[0]) **2 + (cube.center[1]-point[1]) **2 + (cube.center[2]-point[2]) **2  
     def traverse(self, kd_node, point, dim, dist_func, return_distances=False, depth=0, best=None):
         if kd_node is not None:
             self.fnc_calls += 1
-            dist = dist_func(point, kd_node.D)
-            dx = kd_node.D.acc[depth] - point[depth] * kd_node.D.counter
+            dist = self.euclidean_no_div(point,kd_node.D) 
+
+            dx2 = (point[depth] * kd_node.D.counter)**2  - 2*kd_node.D.counter*point[depth]*kd_node.D.acc[depth] + kd_node.D.acc[depth]**2
+            dx  =  kd_node.D.center[depth] - point[depth]
             if not best:
                 best = [dist, kd_node.D]
-            elif dist * best[1].counter < best[0] * kd_node.D.counter:
+            elif best[1].counter*best[1].counter*dist < best[0] *kd_node.D.counter*kd_node.D.counter :
                 best[0], best[1] = dist, kd_node.D
             depth = (depth + 1) % dim
-            for b in [dx < 0] + [dx >= 0] * ((dx + 100) < best[0]):
+            for b in [dx < 0] + [dx >= 0] * ((best[1].counter*best[1].counter*dx2) < best[0]*kd_node.D.counter*kd_node.D.counter):
                 if b:
                     self.traverse(kd_node.right, point, dim, dist_func, return_distances, depth, best)
                 else:
@@ -510,15 +513,15 @@ class Tree:
                 o.write(f"{b:02x}")
                 o.write(" ")
             o.close()
-            self.kd_tree.print()
+            #self.kd_tree.print()
             for x in self.data:
                 self.fnc_calls = 0
-                cube = self.traverse(self.kd_tree, x, 3, self.manhattan_no_div)
+                cube = self.traverse(self.kd_tree, x, 3, self.euclidean_no_div)
                 # print("Point", "[", hex(x[0]), hex(x[1]), hex(x[2]), "]", "Nearest Center", "[", hex(cube.center[0]),
                 #       hex(cube.center[1]), hex(cube.center[2]), "]")
                 #print(f"{x[0]:02x}{x[1]:02x}{x[2]:02x}", "==>", f"{cube.center[0]:02x}{cube.center[1]:02x}"
                 #                                                  f"{cube.center[2]:02x}")
-                #print(self.fnc_calls)
+                print(self.fnc_calls)
                 self.fnc_accumulated += self.fnc_calls
                 self.fnc_counter += 1
                 self.fnc_calls = 0
@@ -542,6 +545,7 @@ class Tree:
             # self.kd_tree.print()
             print("#####################################")
             self.iterations += 1
+            print([i.counter for i in self.cubes])
         # after the algorithm done , translate the rows into cubes to plot them
 
     def rows_to_cubes(self):
@@ -678,6 +682,17 @@ class Tree:
     def euclidean(self, cube, point):
         return math.sqrt((cube.center[0] - point[0]) ** 2 + (cube.center[1] - point[1]) ** 2 +
                          (cube.center[2] - point[2]) ** 2)
+    def euclidean_no_div(self,point, cube):
+        n = cube.counter
+        n2 = cube.counter * cube.counter
+        px,py,pz = point
+        px2,py2,pz2 = px**2,py**2,pz**2
+        sx,sy,sz = cube.acc 
+        sx2,sy2,sz2 = sx**2,sy**2,sz**2
+        dx2 = px2 * n2 - 2*n*px*sx + sx2
+        dy2 = py2 * n2 - 2*n*py*sy + sy2
+        dz2 = pz2 * n2 - 2*n*pz*sz + sz2
+        return dx2+dy2+dz2
 
     def real_second_closest(self, point, exclude):
         mn = 1000000
@@ -699,7 +714,7 @@ class Tree:
     def write_segmented_image(self, outfile='testImageOut.rgb'):
         o = open(outfile, "wb")
         for x in self.data:
-            cube = self.traverse(self.kd_tree, x, 3, self.manhattan_no_div)
+            cube = self.traverse(self.kd_tree, x, 3, self.euclidean_no_div)
             r_center = cube.center[0]
             g_center = cube.center[1]
             b_center = cube.center[2]
@@ -718,8 +733,8 @@ class Tree:
                 next_r = second_nearest.center[0]
                 next_g = second_nearest.center[1]
                 next_b = second_nearest.center[2]
-                a_i = self.manhattan(cube.center, point)
-                b_i = self.manhattan([next_r, next_g, next_b], point)
+                a_i = self.euclidean(cube, point)
+                b_i = self.euclidean(second_nearest, point)
                 sil_coefficient = (b_i - a_i) / max(a_i, b_i)
                 sil_cofs.append(sil_coefficient)
                 if sil_coefficient < 0:
@@ -751,11 +766,11 @@ class Tree:
 
 
 ###########################################################################################
-r, g, b = 10, 10, 10
+r, g, b = 10,10,100
 x = Tree()
-x.set_data_options(n_samples=1000000, centers=10000, dim=3, min_max=(10, 10000), data_center_deviations=1000)
-x.generate_data()
-# x.get_data_from_image(filename="testImage.rgb")
+x.set_data_options(n_samples=10000, centers=1000, dim=3, min_max=(10, 255), data_center_deviations=10)
+#x.generate_data()
+x.get_data_from_image(filename="testImage.rgb")
 x.divide_space_equally(r, g, b)
 # x.cluster_data()
 x.kd_cluster_data()
