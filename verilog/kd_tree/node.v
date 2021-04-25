@@ -819,7 +819,7 @@ if(command_from_top != nop)
 						accY <= accY + data_from_top[dim_size   +: dim_size];
 						accZ <= accZ + data_from_top[2*dim_size +: dim_size];
 						counter <= counter + 1'b1;
-					$display("%s acc this %x center %x point[%x %x %x] acc [%x %x %x] counter %d",name,data_from_top,old_center,data_from_top[2*dim_size +: dim_size],data_from_top[dim_size+: dim_size],data_from_top[0+: dim_size],accZ,accY,accX, counter);
+					//$display("%s acc this %x center %x point[%x %x %x] acc [%x %x %x] counter %d",name,data_from_top,old_center,data_from_top[2*dim_size +: dim_size],data_from_top[dim_size+: dim_size],data_from_top[0+: dim_size],accZ,accY,accX, counter);
 			end
 			else begin
 				command_to_left <= accomulate;
@@ -854,13 +854,15 @@ if(command_from_top != nop)
 					new_center <= {div_outZ,div_outY,div_outX};
 				else 
 					new_center <= old_center;
-				$display("%s acc:[%x %x %x] counter: %d new_center: %x old_center: %x  div_out: [%x,%x,%x] center_stable: %x valid:%x  div_en:%x div_pipe:%x",name,accZ,accY,accX,counter,new_center,old_center,div_outZ,div_outY,div_outX,center_stable,div_valid,div_en,div_pipe);
+				//$display("%s acc:[%x %x %x] counter: %d new_center: %x old_center: %x  div_out: [%x,%x,%x] center_stable: %x valid:%x  div_en:%x div_pipe:%x",name,accZ,accY,accX,counter,new_center,old_center,div_outZ,div_outY,div_outX,center_stable,div_valid,div_en,div_pipe);
+				$display("(%s) mean : %x",name,old_center);
 
 				if((command_from_right == stable && command_from_left == stable) || both_dne) begin 
 					if(center_stable)
 						command_to_top <= stable;
 					else
 						command_to_top <= unstable;
+
 					end
 				else if(command_from_right == unstable || command_from_left == unstable) 
 					command_to_top <= unstable;

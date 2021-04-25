@@ -118,13 +118,6 @@ class general_kmean:
                 c.update()
                 if c.stable == False:
                     stable = True
-
-
-            
-            
-            
-            
-
             it += 1            
     def data_to_hexfile(self,filename):
         o = open(filename,"w")
@@ -133,7 +126,13 @@ class general_kmean:
             o.write(f"{g:02x}")
             o.write(f"{b:02x}")
             o.write(" ")
-    
+    def data_to_binary_file(self,filename):
+        o = open(filename,"wb")
+        for x in self.data :
+            c = self.find_cluster(x)
+            o.write(bytes(c.center))   
+            print(f"writing {x} as {c.center} {bytes(c.center)}")
+        o.close()
     def means_from_file(self,filename):
         f = open(filename,"r")
         lines = list(f)
@@ -151,6 +150,7 @@ class general_kmean:
             point   = self.hex_string_to_arr(point)
             cluster = self.hex_string_to_arr(cluster)
             self.accomulate(point,cluster)
+            self.data.append(point)
 
     def hex_string_to_arr(self,m):
         return [int(m[0:2],16),int(m[2:4],16),int(m[4:6],16)]
@@ -216,9 +216,27 @@ class general_kmean:
         f = open(filename,"r")
         lines = list(f)
         for l in lines:
-            point= l
-            point   = self.hex_string_to_arr(point)
+            point = l
+            point = self.hex_string_to_arr(point)
             self.data.append(point)
+    def get_data_from_image(self, filename='testImage.rgb'):
+        f = open(filename, "rb")
+        red = f.read(1)
+        green = f.read(1)
+        blue = f.read(1)
+        while red:
+            r_int = int.from_bytes(red, 'little')
+            g_int = int.from_bytes(green, 'little')
+            b_int = int.from_bytes(blue, 'little')
+            self.data.append([r_int, g_int, b_int])
+            red = f.read(1)
+            green = f.read(1)
+            blue = f.read(1)
+
+
+
+
+
 machine = general_kmean()
 
 machine.k = 14
@@ -233,12 +251,13 @@ machine.cluster_std = 10
 #machine.initilize_clusters(c)
 #machine.data_to_hexfile("test.hex")
 machine.means_from_file("kd_tree/output/14_mean_out.txt")
-#machine.assign_points_to_clusters_from_file("kd_tree/output/14_point_to_mean.txt")
-machine.data_from_file("kd_tree/output/14_point_to_mean.txt")
-machine.cluster_data()
+machine.assign_points_to_clusters_from_file("kd_tree/output/14_point_to_mean.txt")
 
+#machine.data_from_file("kd_tree/output/14_point_to_mean.txt")
+#machine.cluster_data()
+machine.data_to_binary_file("kd_out.rgb")
 machine.silhouette_coefficient()
 
-x = [i.center for i in machine.clusters]
-z = [[hex(r),hex(g),hex(b)] for r,g,b in x]
-print(z)
+#x = [i.center for i in machine.clusters]
+#z = [[hex(r),hex(g),hex(b)] for r,g,b in x]
+#print(z)

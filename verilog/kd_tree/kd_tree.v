@@ -423,7 +423,7 @@ initial begin
         $display("Loading image.\n");
         $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/mm.hex", in_im);
 		  $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/sample.hex", in_point);
-		  f = $fopen("kd_out.rgb", "wb");
+		  //f = $fopen("kd_out.rgb", "wb");
 		  //$readmemh("C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
 		  //$readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
 		  //f = $fopen("output.rgb", "wb");
@@ -510,9 +510,9 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 		end
 		new_point: begin 
 				point_t <= 0;
-				if(out) begin
-					$fwrite(f, "%c%c%c", n0_data_up[0+:8], n0_data_up[8+:8], n0_data_up[16+:8]);					
-				end
+				///if(out) begin
+				//	$fwrite(f, "%c%c%c", n0_data_up[0+:8], n0_data_up[8+:8], n0_data_up[16+:8]);					
+				//end
 				if(point_counter >= max_n) begin	
 					if(out)
 						tb_state <= done;
