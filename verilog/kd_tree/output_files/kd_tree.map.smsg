@@ -1,0 +1,3 @@
+Warning (10268): Verilog HDL information at kd_tree.v(438): always construct contains both blocking and non-blocking assignments File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v Line: 438
+Warning (10268): Verilog HDL information at node.v(273): always construct contains both blocking and non-blocking assignments File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 273
+Warning (10268): Verilog HDL information at node.v(298): always construct contains both blocking and non-blocking assignments File: C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v Line: 298

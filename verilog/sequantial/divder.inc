@@ -16,6 +16,7 @@
 
 FUNCTION divder 
 (
+	clock,
 	denom[31..0],
 	numer[31..0]
 )

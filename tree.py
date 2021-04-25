@@ -270,8 +270,8 @@ class Tree:
 
     def build_kd_tree(self, cubes, dim=3, depth=0):
         if len(cubes) > 1:
-            cubes.sort(
-                key=lambda x: x.center[depth])
+            #cubes.sort(
+            #    key=lambda x: x.center[depth])
             depth = (depth + 1) % dim
             half = len(cubes) >> 1
             x = self.node()
@@ -293,7 +293,7 @@ class Tree:
             dist = self.euclidean_no_div(point,kd_node.D) 
 
             dx2 = (point[depth] * kd_node.D.counter)**2  - 2*kd_node.D.counter*point[depth]*kd_node.D.acc[depth] + kd_node.D.acc[depth]**2
-            dx  =  kd_node.D.center[depth] - point[depth]
+            dx  =  kd_node.D.acc[depth] - point[depth]*kd_node.D.counter
             if not best:
                 best = [dist, kd_node.D]
             elif best[1].counter*best[1].counter*dist < best[0] *kd_node.D.counter*kd_node.D.counter :
@@ -521,7 +521,7 @@ class Tree:
                 #       hex(cube.center[1]), hex(cube.center[2]), "]")
                 #print(f"{x[0]:02x}{x[1]:02x}{x[2]:02x}", "==>", f"{cube.center[0]:02x}{cube.center[1]:02x}"
                 #                                                  f"{cube.center[2]:02x}")
-                print(self.fnc_calls)
+                #print(self.fnc_calls)
                 self.fnc_accumulated += self.fnc_calls
                 self.fnc_counter += 1
                 self.fnc_calls = 0
@@ -766,11 +766,11 @@ class Tree:
 
 
 ###########################################################################################
-r, g, b = 10,10,100
+r, g, b = 3,3,3
 x = Tree()
-x.set_data_options(n_samples=10000, centers=1000, dim=3, min_max=(10, 255), data_center_deviations=10)
-#x.generate_data()
-x.get_data_from_image(filename="testImage.rgb")
+x.set_data_options(n_samples=10000, centers=100, dim=3, min_max=(1000, 10000), data_center_deviations=1000)
+x.generate_data()
+#x.get_data_from_image(filename="pictures/tree-736885__340.rgb")
 x.divide_space_equally(r, g, b)
 # x.cluster_data()
 x.kd_cluster_data()

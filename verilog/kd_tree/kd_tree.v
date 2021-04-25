@@ -61,10 +61,10 @@ localparam data_num     = 100;
 			  
 localparam  dim_size     = $clog2(255),
 				dim          = 3,
-				max_n        = 3800 , 
+				max_n        = 3800,// , 
 				center_size  = dim*dim_size,
 				counter_size = $clog2(max_n),
-				acc_size     = $clog2(dim_size*max_n),
+				acc_size     = $clog2(dim_size*max_n) + 1,
 				depth_size   = $clog2(10);
 localparam command_size = 6,
 			  data_size    = center_size * 2,
@@ -81,7 +81,7 @@ reg [command_size - 1 : 0] tb_command;
 
 reg [3:0] stall_counter;
 reg [cycle_counter_size-1 : 0] cycle_count, serial_count,point_counter,point_t,it;
-reg clk , reset;
+reg clk , reset,out;
 
 ///////////////////// PASTE HERE ///////////////////////////////
 wire[command_size - 1: 0 ] n0_command_up,n0_command_right,n0_command_left;
@@ -193,7 +193,7 @@ wire [data_size - 1 : 0]   n14_data_up,n14_data_right,n14_data_left;
                  .command_to_right(n3_command_right),
                  .command_to_left (n3_command_left)
                  );
-
+ 
 
                 node #("n4") n4(
                 ///////// input //////////////
@@ -417,19 +417,20 @@ wire [data_size - 1 : 0]   n14_data_up,n14_data_right,n14_data_left;
  
 
 ///////////////////////////////////////////////////////////////
+integer f;
 
 initial begin
         $display("Loading image.\n");
-        $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/means.hex", in_im);
+        $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/mm.hex", in_im);
 		  $readmemh("C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/sample.hex", in_point);
-
+		  f = $fopen("kd_out.rgb", "wb");
 		  //$readmemh("C:/Users/atom/Documents/GitHub/KMeansClusteringSW/verilog/sequantial/test.hex", in_im);
 		  //$readmemh("C:/Users/Hamza/PycharmProjects/KMeansClustering/verilog/sequantial/test.hex", in_im);
 		  //f = $fopen("output.rgb", "wb");
     end
- 
+  
 initial begin	//the reset sequence and clock
-	clk = 0;reset = 0 ; cycle_count = 0 ;serial_count=0; tb_state = idel;point_counter = 0;point_t = 0;it= 0;
+	clk = 0;reset = 0 ; cycle_count = 0 ;serial_count=0; tb_state = idel;point_counter = 0;point_t = 0;it= 0;out = 0;
 	#5 reset = 1 ;clk=1; #5 reset = 0; clk=0;
 	repeat(42949672) #5 clk = ~clk ;
 	  end
@@ -497,6 +498,8 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 				point_counter <= point_counter + 1; 
 				tb_data    <= {data_size{1'b0}};
 				tb_state <= new_point;
+				$display("(%d) %x ==> %x %d",point_counter,n0_data_up[0 +: data_half_size] , n0_data_up[data_half_size +: data_half_size],point_t);
+
 			end
 			else begin
 				tb_command <= point_in_as_root;
@@ -506,10 +509,16 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 			
 		end
 		new_point: begin 
-				$display("%x ==> %x %d",n0_data_up[0 +: data_half_size] , n0_data_up[data_half_size +: data_half_size],point_t);
 				point_t <= 0;
+				if(out) begin
+					$fwrite(f, "%c%c%c", n0_data_up[0+:8], n0_data_up[8+:8], n0_data_up[16+:8]);					
+				end
 				if(point_counter >= max_n) begin	
-					tb_state <= stability;
+					if(out)
+						tb_state <= done;
+					else
+						tb_state <= stability;
+					
 					$display("######################### Iteration : %d #########################" , it);
 					it <= it + 1;
 					point_counter <= 0;
@@ -527,8 +536,15 @@ always @ (negedge clk)	begin 	// Read input pixels from in_im
 				tb_state <= point_tb;
 				tb_command <= new_iteration;
 			end
-			else if(n0_command_up == stable)
-				tb_state <= done;
+			else if(n0_command_up == stable) begin
+				if(out)
+					tb_state <= done;
+				else begin
+					tb_state <= point_tb;
+					out = 1;
+				end
+				
+			end
 			
 		end
 		stall : begin 

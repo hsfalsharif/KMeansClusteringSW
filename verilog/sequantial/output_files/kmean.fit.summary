@@ -1,0 +1,20 @@
+Fitter Status : Successful - Thu Apr 22 08:16:11 2021
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : kmean
+Top-level Entity Name : kmean
+Family : Cyclone V
+Device : 5CGTFD9E5F35I7
+Timing Models : Final
+Logic utilization (in ALMs) : 430 / 113,560 ( < 1 % )
+Total registers : 635
+Total pins : 27 / 616 ( 4 % )
+Total virtual pins : 0
+Total block memory bits : 2,400 / 12,492,800 ( < 1 % )
+Total RAM Blocks : 1 / 1,220 ( < 1 % )
+Total DSP Blocks : 2 / 342 ( < 1 % )
+Total HSSI RX PCSs : 0 / 12 ( 0 % )
+Total HSSI PMA RX Deserializers : 0 / 12 ( 0 % )
+Total HSSI TX PCSs : 0 / 12 ( 0 % )
+Total HSSI PMA TX Serializers : 0 / 12 ( 0 % )
+Total PLLs : 0 / 20 ( 0 % )
+Total DLLs : 0 / 4 ( 0 % )

@@ -21,9 +21,9 @@ https://fpgasoftware.intel.com/eula.
 */
 (header "symbol" (version "1.2"))
 (symbol
-	(rect 0 0 176 96)
+	(rect 0 0 176 112)
 	(text "divder" (rect 73 0 111 16)(font "Arial" (font_size 10)))
-	(text "inst" (rect 8 80 25 92)(font "Arial" ))
+	(text "inst" (rect 8 96 25 108)(font "Arial" ))
 	(port
 		(pt 0 24)
 		(input)
@@ -37,6 +37,13 @@ https://fpgasoftware.intel.com/eula.
 		(text "denom[31..0]" (rect 0 0 73 14)(font "Arial" (font_size 8)))
 		(text "denom[31..0]" (rect 20 33 80 46)(font "Arial" (font_size 8)))
 		(line (pt 0 40)(pt 16 40)(line_width 3))
+	)
+	(port
+		(pt 0 56)
+		(input)
+		(text "clock" (rect 0 0 29 14)(font "Arial" (font_size 8)))
+		(text "clock" (rect 20 49 43 62)(font "Arial" (font_size 8)))
+		(line (pt 0 56)(pt 16 56))
 	)
 	(port
 		(pt 176 24)
@@ -55,14 +62,15 @@ https://fpgasoftware.intel.com/eula.
 	(drawing
 		(text "Numer is UNSIGNED" (rect 69 50 227 111)(font "Arial" ))
 		(text "Denom is UNSIGNED" (rect 67 66 225 143)(font "Arial" ))
-		(line (pt 16 16)(pt 16 80))
+		(text "Pipeline length of 32" (rect 75 82 233 175)(font "Arial" ))
+		(line (pt 16 16)(pt 16 96))
 		(line (pt 16 16)(pt 160 16))
-		(line (pt 16 80)(pt 160 80))
-		(line (pt 160 16)(pt 160 80))
+		(line (pt 16 96)(pt 160 96))
+		(line (pt 160 16)(pt 160 96))
 		(line (pt 0 0)(pt 178 0))
-		(line (pt 178 0)(pt 178 98))
-		(line (pt 0 98)(pt 178 98))
-		(line (pt 0 0)(pt 0 98))
+		(line (pt 178 0)(pt 178 114))
+		(line (pt 0 114)(pt 178 114))
+		(line (pt 0 0)(pt 0 114))
 		(line (pt 0 0)(pt 0 0))
 		(line (pt 0 0)(pt 0 0))
 		(line (pt 0 0)(pt 0 0))

@@ -17,7 +17,7 @@ class general_kmean:
             self.stable = False
         def update(self):
             self.stable = False
-            self.data = []
+            #self.data = []
             if self.counter != 0:
                 new_center = [self.acc[0] // self.counter, self.acc[1] // self.counter, self.acc[2]
                               // self.counter]
@@ -31,7 +31,7 @@ class general_kmean:
 
             self.counter = 0
             self.acc = [0,0,0]
-            self.data = []
+            #self.data = []
 
     data = []
     real_means = []
@@ -79,7 +79,7 @@ class general_kmean:
         closer = None
         for c in self.clusters:
             d = self.man(c,point)
-            if  d < min_dist :
+            if  d <= min_dist :
                 min_dist = d
                 closer = c
             
@@ -95,9 +95,11 @@ class general_kmean:
         while stable:
             stable = False
             
+            for i in self.clusters:
+                i.data = []
             for x in self.data:
                 c = self.find_cluster(x)
-                print(f"point {x} to cluster [{self.clusters.index(c)}] {c.center}")
+                #print(f"point {[hex(i) for i in x]} to cluster [{self.clusters.index(c)}] {[hex(i) for i in c.center]}")
                 c.acc[0] += x[0]
                 c.acc[1] += x[1]
                 c.acc[2] += x[2]
@@ -171,6 +173,7 @@ class general_kmean:
         sil_cofs = []
         misclassified = []
         for cube in self.clusters:
+            print(len(cube.data))
             for point in cube.data:
                 second_nearest = self.real_second_closest(point, cube)
                 next_r = second_nearest.center[0]
@@ -181,6 +184,7 @@ class general_kmean:
                 sil_coefficient = (b_i - a_i) / max(a_i, b_i)
                 sil_cofs.append(sil_coefficient)
                 if sil_coefficient < 0:
+                    print(f"{[hex(i) for i in second_nearest.center]} is closer to {[hex(i) for i in point]} than {[hex(i) for i in cube.center]} distance {[(i-j) for i,j in zip(point,second_nearest.center)]} {self.man(second_nearest,point)} : {[(i-j) for i,j in zip(point,cube.center)]}{self.man(cube,point)}")
                     misclassified.append(sil_coefficient)
                 sil_accum += sil_coefficient
         plt.hist(sil_cofs, bins=60)
@@ -208,7 +212,13 @@ class general_kmean:
     def euclidean(self, cube, point):
         return sqrt((cube.center[0] - point[0]) ** 2 + (cube.center[1] - point[1]) ** 2 +
                       (cube.center[2] - point[2]) ** 2)
-
+    def data_from_file(self,filename):
+        f = open(filename,"r")
+        lines = list(f)
+        for l in lines:
+            point= l
+            point   = self.hex_string_to_arr(point)
+            self.data.append(point)
 machine = general_kmean()
 
 machine.k = 14
@@ -217,12 +227,18 @@ machine.centers = 10
 machine.n_features = 3
 machine.center_box = (10,240)
 machine.cluster_std = 10
-c = [[0x80,0x1e,0x2c],[0x80,0x1e,0xd3],[0x80,0x1e,0x7f],[0x80,0x80,0x2c],[0x80,0x4f,0xd3],[0x80,0x4f,0x7f],[0x80,0x4f,0x2c],[0x80,0xb1,0x2c],[0x80,0x80,0xd3],[0x80,0xb1,0x7f],[0x80,0xe4,0x2c],[0x80,0xe4,0xd3], [0x80,0xe4,0x7f],[0x80,0xb1,0xd3],[0x80,0x80,0x7f],]
+#c = [[0x80,0x1e,0x2c],[0x80,0x1e,0xd3],[0x80,0x1e,0x7f],[0x80,0x80,0x2c],[0x80,0x4f,0xd3],[0x80,0x4f,0x7f],[0x80,0x4f,0x2c],[0x80,0xb1,0x2c],[0x80,0x80,0xd3],[0x80,0xb1,0x7f],[0x80,0xe4,0x2c],[0x80,0xe4,0xd3], [0x80,0xe4,0x7f],[0x80,0xb1,0xd3],[0x80,0x80,0x7f],]
 
 #machine.generate_data()
 #machine.initilize_clusters(c)
-#machine.cluster_data()
 #machine.data_to_hexfile("test.hex")
 machine.means_from_file("kd_tree/output/14_mean_out.txt")
-machine.assign_points_to_clusters_from_file("kd_tree/output/14_point_to_mean.txt")
+#machine.assign_points_to_clusters_from_file("kd_tree/output/14_point_to_mean.txt")
+machine.data_from_file("kd_tree/output/14_point_to_mean.txt")
+machine.cluster_data()
+
 machine.silhouette_coefficient()
+
+x = [i.center for i in machine.clusters]
+z = [[hex(r),hex(g),hex(b)] for r,g,b in x]
+print(z)

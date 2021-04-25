@@ -47,13 +47,13 @@ module divider (
 			  //center_size  = 24;
 localparam  dim_size     = $clog2(255),
 				dim          = 3,
-				max_n        = 10000,
+				max_n        = 3800,
 				center_size  = dim*dim_size,
 				counter_size = $clog2(max_n),
-				acc_size     = $clog2(dim_size*max_n),
+				acc_size     = $clog2(dim_size*max_n) + 10,
 				depth_size   = $clog2(10);
 	input	  aclr;
-	input	  clock;
+	input	  clock;  
 	input	[counter_size-1:0]  denom;
 	input	[acc_size-1:0]  numer;
 	output	[acc_size-1:0]  quotient;

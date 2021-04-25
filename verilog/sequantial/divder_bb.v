@@ -33,11 +33,13 @@
 //https://fpgasoftware.intel.com/eula.
 
 module divder (
+	clock,
 	denom,
 	numer,
 	quotient,
 	remain);
 
+	input	  clock;
 	input	[31:0]  denom;
 	input	[31:0]  numer;
 	output	[31:0]  quotient;
@@ -52,20 +54,23 @@ endmodule
 // Retrieval info: PRIVATE: PRIVATE_LPM_REMAINDERPOSITIVE STRING "TRUE"
 // Retrieval info: PRIVATE: PRIVATE_MAXIMIZE_SPEED NUMERIC "-1"
 // Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "1"
-// Retrieval info: PRIVATE: USING_PIPELINE NUMERIC "0"
+// Retrieval info: PRIVATE: USING_PIPELINE NUMERIC "1"
 // Retrieval info: PRIVATE: VERSION_NUMBER NUMERIC "2"
 // Retrieval info: PRIVATE: new_diagram STRING "1"
 // Retrieval info: LIBRARY: lpm lpm.lpm_components.all
 // Retrieval info: CONSTANT: LPM_DREPRESENTATION STRING "UNSIGNED"
 // Retrieval info: CONSTANT: LPM_HINT STRING "LPM_REMAINDERPOSITIVE=TRUE"
 // Retrieval info: CONSTANT: LPM_NREPRESENTATION STRING "UNSIGNED"
+// Retrieval info: CONSTANT: LPM_PIPELINE NUMERIC "32"
 // Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_DIVIDE"
 // Retrieval info: CONSTANT: LPM_WIDTHD NUMERIC "32"
 // Retrieval info: CONSTANT: LPM_WIDTHN NUMERIC "32"
+// Retrieval info: USED_PORT: clock 0 0 0 0 INPUT NODEFVAL "clock"
 // Retrieval info: USED_PORT: denom 0 0 32 0 INPUT NODEFVAL "denom[31..0]"
 // Retrieval info: USED_PORT: numer 0 0 32 0 INPUT NODEFVAL "numer[31..0]"
 // Retrieval info: USED_PORT: quotient 0 0 32 0 OUTPUT NODEFVAL "quotient[31..0]"
 // Retrieval info: USED_PORT: remain 0 0 32 0 OUTPUT NODEFVAL "remain[31..0]"
+// Retrieval info: CONNECT: @clock 0 0 0 0 clock 0 0 0 0
 // Retrieval info: CONNECT: @denom 0 0 32 0 denom 0 0 32 0
 // Retrieval info: CONNECT: @numer 0 0 32 0 numer 0 0 32 0
 // Retrieval info: CONNECT: quotient 0 0 32 0 @quotient 0 0 32 0

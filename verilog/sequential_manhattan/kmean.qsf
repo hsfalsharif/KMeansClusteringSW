@@ -37,8 +37,8 @@
 # -------------------------------------------------------------------------- #
 
 
-set_global_assignment -name FAMILY "MAX 10"
-set_global_assignment -name DEVICE 10M50SCE144I7G
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CGTFD9E5F35I7
 set_global_assignment -name TOP_LEVEL_ENTITY kmean
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:18:45  MARCH 26, 2021"

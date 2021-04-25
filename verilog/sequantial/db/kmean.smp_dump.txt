@@ -1,0 +1,16 @@
+
+State Machine - |kmean|state
+Name state.div_z state.div_y state.div_x state.sqaure_dist state.diff state.distance state.done state.store_points state.update state.check state.divide state.accoumolate state.configure 
+state.configure 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.accoumolate 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.divide 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.check 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.update 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.store_points 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.done 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.distance 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.diff 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.sqaure_dist 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.div_x 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.div_y 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.div_z 1 0 0 0 0 0 0 0 0 0 0 0 1 

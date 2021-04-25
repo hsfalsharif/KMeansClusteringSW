@@ -4,20 +4,20 @@ module node(clk, data_from_top,data_from_right,data_from_left,command_from_top,c
 			  //center_size  = 24;
 localparam  dim_size     = $clog2(255),
 				dim          = 3,
-				max_n        = 10000,
+				max_n        = 3800,
 				center_size  = dim*dim_size,
 				counter_size = $clog2(max_n),
-				acc_size     = $clog2(dim_size*max_n),
+				acc_size     = $clog2(dim_size*max_n) + 10,
 				depth_size   = $clog2(10);
 localparam command_size = 6,
 			  data_size    = center_size * 2,
 			  data_half_size = center_size,
 			  ttl_size     = 4,
-			  axis_size    = 2,
-			  threashold   = 4;
+			  axis_size    = 2, 
+			  threashold   = 2;
 parameter name="unknown"; 
 
-input clk;
+input clk; 
 input      [data_size - 1 : 0]    data_from_top,data_from_right,data_from_left;
 input      [command_size - 1 : 0] command_from_top,command_from_right,command_from_left;
 output reg [data_size - 1 : 0]    data_to_top,data_to_right,data_to_left;
@@ -265,12 +265,12 @@ cluster_CE #(.name(name)) c_ce (
 						.new_parent(ce_self_out),
 						.new_right(ce_right_out) 
 						); 
- 
+  
 wire [2:0] ce_command;
 assign ce_command = {left_switch, self_switch, right_switch};
 
 always @* begin
-	case (ce_command)
+	case (ce_command) 
         4'b0000:
 					//if(command_to_top == valid_sort || command_to_top == sort_done || command_to_top == valid_done || command_to_top == get_most_right || command_to_top == get_most_left)
 					//	if(virtual_root)
@@ -278,6 +278,10 @@ always @* begin
 					//	else
 					//		self_command <= expose_center;
 					//else
+					if( command_to_left == set_most_left || command_to_right == set_most_right || (command_to_left == get_most_left && command_from_top != get_most_left)|| (command_to_right == get_most_right && command_from_top != get_most_right) )
+						self_command <= nopme;
+						
+					else
 						self_command = nop;
 		 	//4'b0001:  begin  
  			//	if(left_en && right_en) 
@@ -292,7 +296,7 @@ end
 
 
 always @(posedge clk) begin 
-$display("node: %s center %x axis: %x command_from [%x %x %x,self:%x,ce:%x,{s:%d,pp:%d,fd:%d,ob:%d,rt:%d}] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x] [%x %x %x]",name,old_center, sorting_axis, command_from_left,command_from_top,command_from_right,self_command,ce_command,sorting,point_prop,first_direction,other_branch,returned,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne,ce_left,ce_parent,ce_right);	
+//$display("node: %s center %x axis: %x command_from [%x %x %x,self:%x,ce:%x,{s:%d,pp:%d,fd:%d,ob:%d,rt:%d}] data_from [%x %x %x] command_to [%x %x %x] data_to [%x %x %x]  Child_status [%x %x] [%x %x %x]",name,old_center, sorting_axis, command_from_left,command_from_top,command_from_right,self_command,ce_command,sorting,point_prop,first_direction,other_branch,returned,data_from_left,data_from_top,data_from_right,command_to_left,command_to_top,command_to_right,data_to_left,data_to_top,data_to_right,left_dne,right_dne,ce_left,ce_parent,ce_right);	
 
 if(command_from_top != nop)
 		case(command_from_top)
@@ -677,8 +681,11 @@ if(command_from_top != nop)
 			
 		
 			command_to_top <= nop;
+		end 
+		hold: begin
+			command_to_top <= valid_sort;
+			data_to_top <= old_center;
 		end
-		
 		////////////////////////////// POint COmmands ///////////////////////////
 		 
 		point_in_as_root : begin
@@ -721,7 +728,7 @@ if(command_from_top != nop)
 								accY <= accY + data_from_left[dim_size   +: dim_size];
 								accZ <= accZ + data_from_left[2*dim_size +: dim_size];
 								counter <= counter + 1'b1;
-								$display("%s acc this %x center %x",name,data_from_left,old_center);
+								//$display("%s acc this %x center %x",name,data_from_left,old_center);
 
 							end
 							else begin
@@ -812,7 +819,7 @@ if(command_from_top != nop)
 						accY <= accY + data_from_top[dim_size   +: dim_size];
 						accZ <= accZ + data_from_top[2*dim_size +: dim_size];
 						counter <= counter + 1'b1;
-						//$display("%s acc this %x center %x",name,data_from_top,old_center);
+					$display("%s acc this %x center %x point[%x %x %x] acc [%x %x %x] counter %d",name,data_from_top,old_center,data_from_top[2*dim_size +: dim_size],data_from_top[dim_size+: dim_size],data_from_top[0+: dim_size],accZ,accY,accX, counter);
 			end
 			else begin
 				command_to_left <= accomulate;
@@ -842,13 +849,13 @@ if(command_from_top != nop)
 		divide: begin 
 			command_to_left <= divide;
 			command_to_right <= divide;
-			$display("%s acc:[%x %x %x] counter: %d new_center: %x old_center: %x  div_out: [%x,%x,%x] center_stable: %x valid:%x  div_en:%x div_pipe:%x",name,accZ,accY,accX,counter,new_center,old_center,div_outZ,div_outY,div_outX,center_stable,div_valid,div_en,div_pipe);
-			if(div_valid) begin
+			if(div_valid) begin 
 				if( counter != 0)
 					new_center <= {div_outZ,div_outY,div_outX};
 				else 
 					new_center <= old_center;
-					
+				$display("%s acc:[%x %x %x] counter: %d new_center: %x old_center: %x  div_out: [%x,%x,%x] center_stable: %x valid:%x  div_en:%x div_pipe:%x",name,accZ,accY,accX,counter,new_center,old_center,div_outZ,div_outY,div_outX,center_stable,div_valid,div_en,div_pipe);
+
 				if((command_from_right == stable && command_from_left == stable) || both_dne) begin 
 					if(center_stable)
 						command_to_top <= stable;
@@ -920,15 +927,22 @@ if(command_from_top != nop)
 	  
 	else if(self_command != nop) begin 
 		case(self_command)
+			nopme: begin 
+				command_to_left <= nop;
+				command_to_right <= nop;
+				//command_to_top <= nop;
+				//command_to_top <= valid_done; 
+				data_to_top <= old_center;
+			end
 			switch: 
 			if(command_to_left == receive_center && command_to_right == receive_center && command_from_left == receive_center && command_from_right == receive_center) begin
 							command_to_left  <= nop;
 							command_to_right <= nop;
 							command_to_top   <= ready_to_sort;
-							data_to_top      <= ce_self_out; 
+							data_to_top      <= ce_self_out;  
 							old_center       <= ce_self_out;
-			end
-			else if ((command_to_left != receive_center && command_to_right != receive_center) && (command_from_left == ready_to_sort || command_from_left == valid_sort ) && (command_from_right == ready_to_sort || command_from_right == valid_sort) ) begin
+			end 
+			else if ((command_to_left == hold && command_to_right == hold) || (command_to_left != receive_center && command_to_right != receive_center) && (command_from_left == ready_to_sort || command_from_left == valid_sort || command_from_left == valid_done ) && (command_from_right == ready_to_sort || command_from_right == valid_sort|| command_from_right == valid_done) ) begin
 					 if (command_to_left != hold && command_to_right != hold) begin
 							command_to_right <= hold;
 							command_to_left  <= hold;
@@ -1049,43 +1063,20 @@ if(command_from_top != nop)
 					end
 				end 
 			end
-			valid_semi_done :begin
-				if(command_from_right == valid_sort) begin
-					if(command_to_right != sort_left_validate) begin
-						command_to_right <= sort_left_validate;
-						data_to_right    <= data_from_left;
-					end
-				end
-				else if (command_from_right == valid_done) begin
-					if(command_to_right == sort_left_validate) begin
-						command_to_right <= nop;
-						command_to_left <= nop;
-						old_center <= data_from_right;
-						command_to_top <= valid_sort; 
-						data_to_top <= data_from_right;
-						sorting = 1;
-					
-					end
-					else begin
-						command_to_right <= nop;
-						command_to_left <= nop;
-						old_center <= data_from_left;
-						command_to_top <= valid_sort; 
-						data_to_top <= data_from_left;
-						sorting = 1;
-					end
-				end
-			end
-			
-			
-			
+		
+			 
 			valid_done: begin
 				if(command_from_right == valid_sort) begin
-					if(command_to_right != sort_left_validate) begin
+					if(command_to_left != sort_right_validate) begin
+						command_to_right <= sort_left_validate;
+						data_to_right    <= old_center;
+					end
+				
+					else if(command_to_right != sort_left_validate) begin
 						command_to_right <= sort_left_validate;
 						data_to_right    <= data_from_left;
 					end
-				end
+				end 
 				else if (command_from_right == valid_done) begin
 					if(command_to_right == sort_left_validate) begin
 						command_to_right <= nop;
@@ -1095,7 +1086,7 @@ if(command_from_top != nop)
 						data_to_top <= data_from_right;
 						sorting = 1;
 					
-					end 
+					end  
 					else if (command_to_left == sort_right_validate) begin
 						command_to_right <= nop;
 						command_to_left <= nop;
@@ -1103,6 +1094,13 @@ if(command_from_top != nop)
 						command_to_top <= valid_sort; 
 						data_to_top <= data_from_left;
 						sorting = 1;
+					end
+					else begin
+						command_to_top <= valid_sort; 
+						sorting = 1;
+						command_to_right <= nop;
+						command_to_left <= nop;
+						
 					end
 				end
 			end
@@ -1132,10 +1130,10 @@ if(command_from_top != nop)
 				
 			sort_done: if(command_from_right == sort_done) command_to_top <= sort_done;
 			dne: if(sorting) begin
-				if( command_to_top == valid_done) 
+				if( command_to_top == valid_done  || command_to_top == get_most_right || command_to_top == get_most_left) 
 					command_to_top <= valid_done;
 				else 
-					command_to_top <= valid_sort;
+					command_to_top <= valid_sort; 
 				data_to_top <= old_center;
 			end
 			ready_to_sort: if(command_from_right == ready_to_sort) begin
@@ -1148,13 +1146,13 @@ if(command_from_top != nop)
 	else if(command_from_right != nop) begin
 		case(command_from_right)
 	 		dne: if(sorting) begin
-				if( command_to_top == valid_done) 
+				if( command_to_top == valid_done || command_to_top == get_most_right || command_to_top == get_most_left) 
 					command_to_top <= valid_done;
 				else 
 					command_to_top <= valid_sort;
 				data_to_top <= old_center;
 			end
-			
+			 
 			receive_center: begin 
 				if(command_to_right == receive_center) begin
 					command_to_right <= nop;

@@ -1,0 +1,38 @@
+Quartus Prime Archive log --	C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree_tmp_archive.qarlog
+
+Archive:	C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree_tmp_archive.qar
+Date:		Wed Apr 21 17:23:02 2021
+Quartus Prime		20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_CE.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_PE.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_ce_tb.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/cluster_pe_tb.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/container.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/divider.bsf
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/divider.cmp
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/divider.inc
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/divider.qip
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/divider.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/divider_bb.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/divider_inst.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/divider_syn.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.qpf
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.qsf
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/manhattan.v
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/means.hex
+C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/node.v
+C:/users/oxygen/documents/github/kmeansclusteringsw/verilog/sequantial/sample.hex
+e:/intel20.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 21 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Wed Apr 21 17:23:03 2021
+Source archive file:	C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree/kd_tree_tmp_archive.qar
+Archive was extracted into	C:/Users/oxygen/Documents/GitHub/KMeansClusteringSW/verilog/kd_tree_no_div/
+		 - successfully.

@@ -24,7 +24,7 @@ wire[command_size - 1: 0 ] n0_command_up,n0_command_right,n0_command_left;
 wire [data_size - 1 : 0]   n0_data_up,n0_data_right;
 
 
-
+ 
 wire[command_size - 1: 0 ] n1_command_up,n2_command_up;
 wire [data_size - 1 : 0]   n1_data_up,n2_data_up;
 

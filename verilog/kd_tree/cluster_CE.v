@@ -20,8 +20,8 @@ output reg [center_size - 1:0] new_left, new_parent, new_right;
 wire [dim_size - 1:0] left_1D, parent_1D, right_1D;
 wire [dist_size - 1:0] dst, best_dist;
 wire [dim_size - 1:0] axis_dist;
-wire [dim_size - 1:0] dx,dy,dz;
-wire [dim_size - 1:0] abs_delta_x,abs_delta_y,abs_delta_z;
+wire [dim_size:0] dx,dy,dz;
+wire [dim_size:0] abs_delta_x,abs_delta_y,abs_delta_z;
 
 assign left_1D = (axis == 0) ? left[0+:dim_size] : ((axis == 1) ? left[dim_size+:dim_size] : left[2*dim_size+:dim_size]);
 assign parent_1D = (axis == 0) ? parent[0+:dim_size] : ((axis == 1) ? parent[dim_size+:dim_size] : parent[2*dim_size+:dim_size]);
@@ -41,11 +41,17 @@ assign dx = right[0+:dim_size] - parent[0+:dim_size];
 assign dy = right[dim_size+: dim_size] - parent[dim_size+: dim_size];
 assign dz = right[2*dim_size+: dim_size] - parent[2*dim_size+: dim_size];
 
-assign abs_delta_x =  dx[dim_size-1] ? -dx : dx;
-assign abs_delta_y =  dy[dim_size-1] ? -dy : dy;
-assign abs_delta_z =  dz[dim_size-1] ? -dz : dz;
-assign best_dist = abs_delta_x + abs_delta_y + abs_delta_z;
+//assign dx2 = left[0+:dim_size] - parent[0+:dim_size];
+//assign dy2 = left[dim_size+: dim_size] - parent[dim_size+: dim_size];
+//assign dz2 = left[2*dim_size+: dim_size] - parent[2*dim_size+: dim_size];
 
+
+assign abs_delta_x =  dx[dim_size] ? -dx : dx;
+assign abs_delta_y =  dy[dim_size] ? -dy : dy;
+assign abs_delta_z =  dz[dim_size] ? -dz : dz;
+assign best_dist = abs_delta_x + abs_delta_y + abs_delta_z;
+//assign best_dist = dx*dx + dy*dy+dz*dz;
+//assign dst = dx2*dx2+dy2*dy2+dz2*dz2;
 manhattan #(.dim(dim), .data_range(data_range)) m_current(
 																			.clk(clk),
 																			.rst(rst),
@@ -60,7 +66,7 @@ manhattan #(.dim(dim), .data_range(data_range)) m_current(
 				 															);
 																			
 assign first_direction = point_prop && (parent_1D < left_1D); //if first_direction is 1 => we go left, if it is 0 => we go right
-assign other_branch = point_prop && returned ? best_dist > axis_dist : 1'b0; // WE MIGHT NEED TO MAKE BEST_DIST ABSOLUTE VALUE LATER
+assign other_branch = 1'b1;//point_prop && returned ? best_dist > axis_dist : 1'b0; // WE MIGHT NEED TO MAKE BEST_DIST ABSOLUTE VALUE LATER
 // assign send_left = point_prop && (go_left || (!go_left && other_branch));
 // assign send_right = point_prop && (!go_left || (go_left && other_branch));
 
@@ -74,7 +80,7 @@ always@* begin
 if (en && point_prop) begin
 //$display("(%s) Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x, dist: %d, axis_dist: %d, best_dist: %d", name, left, parent, right, new_left, new_parent, new_right, dst, axis_dist, best_dist);
 
-//$display("dx: %d dy: %d dz: %d abs_dx: %d abs_dy: %d abs_dz: %d best_dist: %d axis_dist: %d", dx, dy, dz, abs_delta_x, abs_delta_y, abs_delta_z, best_dist, axis_dist);
+//$display("%s dx: %d dy: %d dz: %d abs_dx: %d abs_dy: %d abs_dz: %d best_dist: %d axis_dist: %d", dx, dy, dz, abs_delta_x, abs_delta_y, abs_delta_z, best_dist, axis_dist);
 	if (change_best) 
 		new_parent = left;
 	else
@@ -83,7 +89,7 @@ if (en && point_prop) begin
 	new_left = {center_size{1'b0}};
 end
 else if (en && sorting) begin
-$display("(%s) ABC: %d%d%d, Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x", name,A, B, C, left_1D, parent_1D, right_1D, new_left, new_parent, new_right);
+//$display("(%s) ABC: %d%d%d, Left: %x, Parent: %x, Right: %x, New Left: %x, New Parent: %x, New Right: %x", name,A, B, C, left_1D, parent_1D, right_1D, new_left, new_parent, new_right);
 		case({A, B, C})
 			3'b000: begin new_left = left; new_parent = parent; new_right = right; end
 			3'b001: begin new_left = right; new_parent = parent; new_right = left; end
